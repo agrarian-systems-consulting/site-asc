@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const projets = (await getCollection('projets'))
+  .filter((p) => !p.data.draft && p.data.is_projet === true)
+  .sort((a, b) => {
+    // Tri par year_end desc (en cours en tête), fallback year_start, fallback date
+    const aEnd = a.data.year_end ?? (a.data.year_start ? 9999 : 0);
+    const bEnd = b.data.year_end ?? (b.data.year_start ? 9999 : 0);
+    if (bEnd !== aEnd) return bEnd - aEnd;
+    return b.data.date.valueOf() - a.data.date.valueOf();
+  });
+---
+
+<BaseLayout
+  title="Projets pluriannuels"
+  description="Les programmes pluriannuels accompagnés dans la durée par Agrarian Systems Consulting."
+>
+  <section class="section section--soft">
+    <div class="container">
+      <p class="eyebrow">Activités</p>
+      <h1>Projets pluriannuels</h1>
+      <p class="lead">
+        Les programmes que nous accompagnons sur plusieurs années, de la conception
+        à l'évaluation d'impact. Pour la liste exhaustive de nos missions, consultez
+        <a href="/projets/references/">toutes nos références</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container">
+      <div class="projet-grid">
+        {projets.map((projet) => <ProjectCard projet={projet} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0.25rem 0 1rem;
+  }
+  .lead {
+    font-size: 1.1rem;
+    max-width: 60ch;
+    opacity: 0.85;
+  }
+  .projet-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+  @media (max-width: 720px) {
+    .projet-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  }
+</style>

@@ -1,0 +1,239 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const all = (await getCollection('projets')).filter((p) => !p.data.draft);
+
+// 2 projets phares fixes en haut
+const featuredSlugs = [
+  'tapsa',
+  'coordination-du-projet-fantas-scic-demonstrateur-territorial-transition-agroecol',
+];
+const featured = featuredSlugs
+  .map((s) => all.find((p) => p.slug === s))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+// 5 dernières références (excluant les 2 phares pour éviter doublon)
+const latest = all
+  .filter((p) => !featuredSlugs.includes(p.slug))
+  .sort((a, b) => {
+    const aEnd = a.data.year_end ?? (a.data.year_start ? 9999 : 0);
+    const bEnd = b.data.year_end ?? (b.data.year_start ? 9999 : 0);
+    if (bEnd !== aEnd) return bEnd - aEnd;
+    const aStart = a.data.year_start ?? a.data.date.getFullYear();
+    const bStart = b.data.year_start ?? b.data.date.getFullYear();
+    return bStart - aStart;
+  })
+  .slice(0, 5);
+
+function periodeFor(p: typeof all[number]) {
+  const ys = p.data.year_start;
+  const ye = p.data.year_end;
+  if (ys && ye) return `${ys}–${ye}`;
+  if (ys && !ye) return `${ys} → en cours`;
+  return String(p.data.date.getFullYear());
+}
+---
+
+<BaseLayout title="Accueil">
+  <!-- HERO (fond lin) -->
+  <section class="section section--soft hero">
+    <div class="container">
+      <p class="eyebrow">Bureau d'étude de l'économie sociale et solidaire</p>
+      <h1>Des professionnels engagés pour des systèmes agricoles et alimentaires durables.</h1>
+      <p class="hero-lead">
+        Nos équipes participent à des projets de développement rural et de protection
+        des ressources naturelles, des zones les plus arides jusqu'aux forêts tropicales humides.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/expertises/">Découvrir nos expertises</a>
+        <a class="btn btn-ghost" href="/projets/">Voir tous les projets</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS PHARES (fond blanc) -->
+  <section class="section section--white">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Projets phares</p>
+        <h2>Nos programmes en cours</h2>
+      </header>
+      <div class="projet-grid">
+        {featured.map((projet) => <ProjectCard projet={projet} />)}
+      </div>
+      <p class="see-all">
+        <a href="/projets/">Voir tous les projets pluriannuels →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- DERNIÈRES MISSIONS (fond lin clair) -->
+  <section class="section section--soft">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Activité récente</p>
+        <h2>Nos dernières missions</h2>
+      </header>
+      <ul class="latest-list">
+        {latest.map((p) => (
+          <li class="latest-item">
+            <a href={`/projets/${p.slug}/`}>
+              <div class="latest-meta">
+                <span class="latest-period">{periodeFor(p)}</span>
+                {p.data.countries.length > 0 && (
+                  <>
+                    <span class="latest-sep"> / </span>
+                    <span class="latest-countries">{p.data.countries.join(', ')}</span>
+                  </>
+                )}
+              </div>
+              {p.data.categories.length > 0 && (
+                <p class="latest-tags">{p.data.categories.join(', ')}</p>
+              )}
+              <h3 class="latest-title">{p.data.title}</h3>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="see-all">
+        <a href="/projets/references/">Voir toutes nos références →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- MISSIONS (fond lin) -->
+  <section class="section section--soft">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Nos missions</p>
+        <h2>Six manières d'accompagner la transition agraire</h2>
+      </header>
+      <ul class="missions">
+        <li><strong>Diagnostiquer</strong> les systèmes agraires, filières et territoires pour préparer l'action.</li>
+        <li><strong>Dimensionner</strong> et appuyer la mise en œuvre de projets de développement.</li>
+        <li><strong>Suivre &amp; évaluer</strong> la mise en œuvre et l'impact de projets.</li>
+        <li><strong>Capitaliser</strong> et communiquer les résultats du terrain et de la recherche.</li>
+        <li><strong>Outiller</strong> nos clients via des solutions numériques sur-mesure.</li>
+        <li><strong>Former</strong> à la démarche systémique et aux outils numériques.</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding-block: 6rem; }
+  .hero h1 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    max-width: 22ch;
+    margin: 0.5rem 0 1.25rem;
+  }
+  .hero-lead {
+    font-size: 1.15rem;
+    max-width: 60ch;
+    color: var(--color-ink);
+    opacity: 0.85;
+  }
+  .hero-actions { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    border: none;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); color: inherit; }
+  .btn-primary { background: var(--color-accent); color: var(--color-bg-soft); border-bottom: none; }
+  .btn-primary:hover { background: var(--color-ink); color: var(--color-bg-soft); }
+  .btn-ghost { border: 1px solid var(--color-accent-2); color: var(--color-accent-2); }
+  .btn-ghost:hover { background: var(--color-accent-2); color: var(--color-bg-soft); border-color: var(--color-accent-2); }
+
+  .section-head { margin-bottom: 2rem; }
+  .section-head h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin: 0.5rem 0 0;
+  }
+
+  .projet-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+  @media (max-width: 720px) {
+    .projet-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  }
+  .see-all {
+    margin-top: 2rem;
+    text-align: right;
+    font-size: 0.95rem;
+  }
+  .see-all a { font-weight: 500; }
+
+  /* ───────── Liste dernières missions ───────── */
+  .latest-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .latest-item {
+    border-bottom: 1px solid rgba(103, 61, 52, 0.12);
+  }
+  .latest-item:first-child {
+    border-top: 1px solid rgba(103, 61, 52, 0.12);
+  }
+  .latest-item a {
+    display: block;
+    padding: 1.4rem 1rem;
+    color: inherit;
+    border: none;
+    border-radius: 4px;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .latest-item a:hover {
+    background: var(--color-bg);
+    transform: translateX(4px);
+    color: inherit;
+  }
+  .latest-meta {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin-bottom: 0.25rem;
+  }
+  .latest-period { font-weight: 600; color: var(--color-accent-2); }
+  .latest-countries { color: var(--color-ink); }
+  .latest-tags {
+    font-size: 0.82rem;
+    color: var(--color-accent);
+    margin: 0 0 0.5rem;
+    font-weight: 500;
+  }
+  .latest-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--color-ink);
+    margin: 0;
+    line-height: 1.3;
+    transition: color 0.15s ease;
+  }
+  .latest-item a:hover .latest-title { color: var(--color-accent); }
+
+  .missions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .missions li {
+    background: var(--color-bg);
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    border-left: 3px solid var(--color-accent);
+    font-size: 0.95rem;
+  }
+  .missions strong { color: var(--color-accent); font-weight: 600; }
+</style>

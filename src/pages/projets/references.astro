@@ -1,0 +1,525 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const projets = (await getCollection('projets')).filter((p) => !p.data.draft);
+
+const uniq = (arr: string[]) => Array.from(new Set(arr.filter(Boolean))).sort((a, b) => a.localeCompare(b, 'fr'));
+
+const allCountries = uniq(projets.flatMap((p) => p.data.countries ?? []));
+const allCategories = uniq(projets.flatMap((p) => p.data.categories ?? []));
+const allFilieres = uniq(projets.flatMap((p) => p.data.filieres ?? []));
+
+// Tri par défaut : year_end desc (les en-cours en haut), fallback year_start, puis date
+const projetsData = projets
+  .map((p) => ({
+    slug: p.slug,
+    title: p.data.title,
+    excerpt: p.data.excerpt ?? '',
+    countries: p.data.countries ?? [],
+    categories: p.data.categories ?? [],
+    filieres: p.data.filieres ?? [],
+    year_start: p.data.year_start ?? null,
+    year_end: p.data.year_end ?? null,
+    date_year: p.data.date ? new Date(p.data.date).getFullYear() : null,
+    client: p.data.client ?? null,
+  }))
+  .sort((a, b) => {
+    // "En cours" (year_end null + year_start) en tête
+    const aEnd = a.year_end ?? (a.year_start ? 9999 : 0);
+    const bEnd = b.year_end ?? (b.year_start ? 9999 : 0);
+    if (bEnd !== aEnd) return bEnd - aEnd;
+    const aStart = a.year_start ?? a.date_year ?? 0;
+    const bStart = b.year_start ?? b.date_year ?? 0;
+    return bStart - aStart;
+  });
+---
+
+<BaseLayout title="Toutes nos références" description="Liste filtrable de toutes les missions menées par Agrarian Systems Consulting, par pays, thématique et filière.">
+  <section class="ref-hero">
+    <div class="container">
+      <p class="eyebrow">Projets</p>
+      <h1>Toutes nos références</h1>
+      <p class="lead">{projets.length} missions à travers le monde, filtrables par pays, thématique et filière.</p>
+    </div>
+  </section>
+
+  <section class="ref-main">
+    <div class="container">
+      <!-- ───────── Filtres en haut ───────── -->
+      <div class="ref-filters">
+        <div class="ts-field" data-facet="countries" data-label="Pays">
+          <label>Pays</label>
+          <div class="ts-control">
+            <ul class="ts-chips"></ul>
+            <input type="text" class="ts-input" placeholder="Tous les pays" autocomplete="off" />
+            <span class="ts-caret" aria-hidden="true">▾</span>
+          </div>
+          <ul class="ts-dropdown" role="listbox">
+            {allCountries.map((v) => <li role="option" data-value={v}>{v}</li>)}
+          </ul>
+        </div>
+
+        <div class="ts-field" data-facet="categories" data-label="Thématique">
+          <label>Thématique</label>
+          <div class="ts-control">
+            <ul class="ts-chips"></ul>
+            <input type="text" class="ts-input" placeholder="Toutes les thématiques" autocomplete="off" />
+            <span class="ts-caret" aria-hidden="true">▾</span>
+          </div>
+          <ul class="ts-dropdown" role="listbox">
+            {allCategories.map((v) => <li role="option" data-value={v}>{v}</li>)}
+          </ul>
+        </div>
+
+        <div class="ts-field" data-facet="filieres" data-label="Filière">
+          <label>Filière</label>
+          <div class="ts-control">
+            <ul class="ts-chips"></ul>
+            <input type="text" class="ts-input" placeholder="Toutes les filières" autocomplete="off" />
+            <span class="ts-caret" aria-hidden="true">▾</span>
+          </div>
+          <ul class="ts-dropdown" role="listbox">
+            {allFilieres.map((v) => <li role="option" data-value={v}>{v}</li>)}
+          </ul>
+        </div>
+
+        <button type="button" class="reset-btn" data-action="reset">Réinitialiser</button>
+      </div>
+
+      <!-- ───────── Résultats ───────── -->
+      <div class="ref-toolbar">
+        <p class="ref-count"><span id="resultCount">{projets.length}</span> projet{projets.length > 1 ? 's' : ''} affiché{projets.length > 1 ? 's' : ''}</p>
+      </div>
+
+      <ul class="ref-list" id="refList">
+        {projetsData.map((p) => (
+          <li
+            class="ref-card"
+            data-countries={p.countries.join('|')}
+            data-categories={p.categories.join('|')}
+            data-filieres={p.filieres.join('|')}
+          >
+            <a href={`/projets/${p.slug}/`} class="ref-card-inner">
+              <div class="ref-card-meta">
+                <span class="ref-card-period">
+                  {p.year_start && p.year_end
+                    ? `${p.year_start}–${p.year_end}`
+                    : p.year_start && !p.year_end
+                      ? `${p.year_start} → en cours`
+                      : p.date_year ?? ''}
+                </span>
+                {p.countries.length > 0 && (
+                  <>
+                    <span class="ref-card-sep"> / </span>
+                    <span class="ref-card-countries">{p.countries.join(', ')}</span>
+                  </>
+                )}
+              </div>
+              {p.categories.length > 0 && (
+                <p class="ref-card-tags">{p.categories.join(', ')}</p>
+              )}
+              <h3 class="ref-card-title">{p.title}</h3>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="ref-empty" id="emptyState" hidden>Aucun projet ne correspond à votre sélection.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  /* ───────── Typeahead multi-select ───────── */
+  type Facet = 'countries' | 'categories' | 'filieres';
+  const facets: Facet[] = ['countries', 'categories', 'filieres'];
+  const selected: Record<Facet, Set<string>> = {
+    countries: new Set(), categories: new Set(), filieres: new Set(),
+  };
+
+  function $$(sel: string, root: ParentNode = document) {
+    return Array.from(root.querySelectorAll(sel));
+  }
+
+  function renderChips(field: HTMLElement, facet: Facet) {
+    const chipsUl = field.querySelector('.ts-chips') as HTMLUListElement;
+    const input = field.querySelector('.ts-input') as HTMLInputElement;
+    chipsUl.innerHTML = '';
+    selected[facet].forEach((v) => {
+      const li = document.createElement('li');
+      li.className = 'ts-chip';
+      li.innerHTML = `<span>${v}</span><button type="button" aria-label="Retirer ${v}">×</button>`;
+      li.querySelector('button')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        selected[facet].delete(v);
+        renderChips(field, facet);
+        updateDropdownVisibility(field, facet);
+        applyFilters();
+      });
+      chipsUl.appendChild(li);
+    });
+    input.placeholder = selected[facet].size > 0 ? '+ ajouter' : input.dataset.defaultPlaceholder || '';
+  }
+
+  function updateDropdownVisibility(field: HTMLElement, facet: Facet) {
+    const dropdown = field.querySelector('.ts-dropdown') as HTMLUListElement;
+    const input = field.querySelector('.ts-input') as HTMLInputElement;
+    const q = input.value.toLowerCase().trim();
+    let any = false;
+    dropdown.querySelectorAll<HTMLLIElement>('li').forEach((li) => {
+      const v = li.dataset.value || '';
+      const isSelected = selected[facet].has(v);
+      const matchesQuery = q === '' || v.toLowerCase().includes(q);
+      const show = matchesQuery && !isSelected;
+      li.hidden = !show;
+      if (show) any = true;
+    });
+    // état "aucun résultat"
+    let empty = dropdown.querySelector('.ts-noresult') as HTMLLIElement;
+    if (!empty) {
+      empty = document.createElement('li');
+      empty.className = 'ts-noresult';
+      empty.textContent = 'Aucune option';
+      dropdown.appendChild(empty);
+    }
+    empty.hidden = any;
+  }
+
+  function setupField(field: HTMLElement) {
+    const facet = field.dataset.facet as Facet;
+    const input = field.querySelector('.ts-input') as HTMLInputElement;
+    const dropdown = field.querySelector('.ts-dropdown') as HTMLUListElement;
+    const control = field.querySelector('.ts-control') as HTMLElement;
+    input.dataset.defaultPlaceholder = input.placeholder;
+
+    const open = () => { field.classList.add('open'); updateDropdownVisibility(field, facet); };
+    const close = () => { field.classList.remove('open'); input.value = ''; };
+
+    control.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('.ts-chip button')) return;
+      input.focus();
+      open();
+    });
+    input.addEventListener('input', () => { open(); updateDropdownVisibility(field, facet); });
+    input.addEventListener('focus', open);
+
+    dropdown.addEventListener('mousedown', (e) => e.preventDefault()); // évite blur input
+    dropdown.addEventListener('click', (e) => {
+      const li = (e.target as HTMLElement).closest('li[data-value]') as HTMLLIElement | null;
+      if (!li) return;
+      const val = li.dataset.value || '';
+      if (selected[facet].has(val)) selected[facet].delete(val);
+      else selected[facet].add(val);
+      input.value = '';
+      renderChips(field, facet);
+      updateDropdownVisibility(field, facet);
+      input.focus();
+      applyFilters();
+    });
+
+    // Click ailleurs → fermer
+    document.addEventListener('click', (e) => {
+      if (!field.contains(e.target as Node)) close();
+    });
+    // Esc → fermer
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { close(); input.blur(); }
+      if (e.key === 'Backspace' && input.value === '' && selected[facet].size > 0) {
+        const last = Array.from(selected[facet]).pop()!;
+        selected[facet].delete(last);
+        renderChips(field, facet);
+        updateDropdownVisibility(field, facet);
+        applyFilters();
+      }
+    });
+  }
+
+  /* ───────── Filtre des cartes ───────── */
+  const list = document.getElementById('refList');
+  const countEl = document.getElementById('resultCount');
+  const emptyEl = document.getElementById('emptyState');
+  const cards = Array.from(list?.querySelectorAll('.ref-card') ?? []);
+
+  function applyFilters() {
+    let visible = 0;
+    cards.forEach((card) => {
+      const ok = facets.every((f) => {
+        if (selected[f].size === 0) return true;
+        const cardVals = (card.getAttribute(`data-${f}`) || '').split('|').filter(Boolean);
+        return Array.from(selected[f]).some((v) => cardVals.includes(v));
+      });
+      (card as HTMLElement).hidden = !ok;
+      if (ok) visible++;
+    });
+    if (countEl) countEl.textContent = String(visible);
+    if (emptyEl) emptyEl.hidden = visible > 0;
+  }
+
+  $$('.ts-field').forEach((f) => setupField(f as HTMLElement));
+
+  document.querySelector('[data-action="reset"]')?.addEventListener('click', () => {
+    facets.forEach((f) => selected[f].clear());
+    $$('.ts-field').forEach((field) => {
+      const facet = (field as HTMLElement).dataset.facet as Facet;
+      renderChips(field as HTMLElement, facet);
+    });
+    applyFilters();
+  });
+</script>
+
+<style>
+  .ref-hero {
+    background: var(--color-bg-soft);
+    padding: 3.5rem 1.5rem 2.5rem;
+  }
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 0.75rem;
+  }
+  .ref-hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    color: var(--color-ink);
+    margin: 0 0 0.75rem;
+  }
+  .lead {
+    font-size: 1.05rem;
+    color: var(--color-ink);
+    opacity: 0.85;
+    margin: 0;
+  }
+
+  .ref-main { padding: 3rem 1.5rem 5rem; }
+
+  /* ───────── Filtres typeahead ───────── */
+  .ref-filters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) auto;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: end;
+  }
+  .ts-field {
+    position: relative;
+  }
+  .ts-field label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-bottom: 0.4rem;
+  }
+  .ts-control {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    min-height: 42px;
+    padding: 0.3rem 2rem 0.3rem 0.55rem;
+    background: var(--color-bg);
+    border: 1px solid rgba(103, 61, 52, 0.25);
+    border-radius: 6px;
+    cursor: text;
+    position: relative;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ts-field.open .ts-control {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(199, 86, 40, 0.12);
+  }
+  .ts-chips {
+    display: contents;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  /* :global() obligatoire : les chips sont créés en JS avec createElement,
+     donc ils n'ont pas l'attribut data-astro-cid des styles scopés. */
+  :global(.ts-chip) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(199, 86, 40, 0.1);
+    color: var(--color-ink);
+    border: 1px solid rgba(199, 86, 40, 0.3);
+    border-radius: 999px;
+    padding: 0.2rem 0.35rem 0.2rem 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    list-style: none;
+  }
+  :global(.ts-chip span) { white-space: nowrap; }
+  :global(.ts-chip button) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: rgba(199, 86, 40, 0.18);
+    border: none;
+    border-radius: 50%;
+    color: var(--color-accent);
+    cursor: pointer;
+    font-size: 0.9rem;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  :global(.ts-chip button:hover) {
+    background: var(--color-accent);
+    color: #fff;
+  }
+  .ts-input {
+    flex: 1;
+    min-width: 80px;
+    border: none;
+    outline: none;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    background: transparent;
+    color: var(--color-ink);
+    padding: 0.2rem 0;
+  }
+  .ts-input::placeholder { color: var(--color-muted); }
+  .ts-caret {
+    position: absolute;
+    right: 0.65rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    pointer-events: none;
+    transition: transform 0.15s ease;
+  }
+  .ts-field.open .ts-caret { transform: translateY(-50%) rotate(180deg); }
+  .ts-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    border: 1px solid rgba(103, 61, 52, 0.15);
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    list-style: none;
+    margin: 0;
+    padding: 0.3rem 0;
+    max-height: 260px;
+    overflow-y: auto;
+    z-index: 40;
+    display: none;
+  }
+  .ts-field.open .ts-dropdown { display: block; }
+  .ts-dropdown li {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.88rem;
+    color: var(--color-ink);
+    cursor: pointer;
+    transition: background 0.1s ease;
+  }
+  .ts-dropdown li:hover { background: var(--color-bg-soft); color: var(--color-accent); }
+  /* :global() : injecté en JS aussi */
+  :global(.ts-noresult) { color: var(--color-muted) !important; font-style: italic; cursor: default !important; }
+  :global(.ts-noresult:hover) { background: transparent !important; color: var(--color-muted) !important; }
+
+  .reset-btn {
+    background: none;
+    border: 1px solid rgba(103, 61, 52, 0.25);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.55rem 0.9rem;
+    border-radius: 6px;
+    transition: background 0.15s ease, border-color 0.15s ease;
+    align-self: end;
+    height: 42px;
+  }
+  .reset-btn:hover {
+    background: var(--color-bg-soft);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* ───────── Résultats ───────── */
+  .ref-toolbar {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(103, 61, 52, 0.12);
+  }
+  .ref-count {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    margin: 0;
+  }
+  .ref-count #resultCount {
+    color: var(--color-ink);
+    font-weight: 700;
+  }
+  .ref-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .ref-card {
+    border-bottom: 1px solid rgba(103, 61, 52, 0.1);
+  }
+  .ref-card-inner {
+    display: block;
+    padding: 1.4rem 1rem;
+    border: none;
+    color: inherit;
+    border-radius: 4px;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .ref-card-inner:hover {
+    background: var(--color-bg-soft);
+    transform: translateX(4px);
+  }
+  .ref-card-meta {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin-bottom: 0.25rem;
+  }
+  .ref-card-period { font-weight: 600; color: var(--color-accent-2); }
+  .ref-card-countries { color: var(--color-ink); }
+  .ref-card-tags {
+    font-size: 0.82rem;
+    color: var(--color-accent);
+    margin: 0 0 0.5rem;
+    font-weight: 500;
+  }
+  .ref-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-ink);
+    margin: 0;
+    line-height: 1.3;
+    transition: color 0.15s ease;
+  }
+  .ref-card-inner:hover .ref-card-title { color: var(--color-accent); }
+  .ref-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--color-muted);
+    font-style: italic;
+  }
+
+  /* ───────── Responsive ───────── */
+  @media (max-width: 900px) {
+    .ref-filters { grid-template-columns: 1fr 1fr; }
+    .reset-btn { grid-column: span 2; }
+  }
+  @media (max-width: 560px) {
+    .ref-filters { grid-template-columns: 1fr; }
+    .reset-btn { grid-column: 1; }
+  }
+</style>

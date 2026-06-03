@@ -1,0 +1,153 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const expertises = await getCollection('expertises');
+  return expertises.map((e) => ({
+    params: { slug: e.slug },
+    props: { expertise: e },
+  }));
+}
+
+interface Props { expertise: CollectionEntry<'expertises'>; }
+const { expertise } = Astro.props;
+const { Content } = await expertise.render();
+const { title, intro, icon, image, related_categories } = expertise.data;
+
+const allProjets = (await getCollection('projets')).filter((p) => !p.data.draft);
+const matching = allProjets
+  .filter((p) => p.data.categories.some((c) => related_categories.includes(c)))
+  .sort((a, b) => {
+    const aEnd = a.data.year_end ?? (a.data.year_start ? 9999 : 0);
+    const bEnd = b.data.year_end ?? (b.data.year_start ? 9999 : 0);
+    if (bEnd !== aEnd) return bEnd - aEnd;
+    return (b.data.year_start ?? 0) - (a.data.year_start ?? 0);
+  });
+
+function periodeFor(p: typeof matching[number]) {
+  const ys = p.data.year_start; const ye = p.data.year_end;
+  if (ys && ye) return `${ys}–${ye}`;
+  if (ys && !ye) return `${ys} → en cours`;
+  return String(p.data.date.getFullYear());
+}
+---
+
+<BaseLayout title={title} description={intro}>
+  <section
+    class="expertise-hero"
+    style={image ? `background-image: linear-gradient(135deg, rgba(64, 81, 36, 0.85), rgba(103, 61, 52, 0.75)), url('${image}')` : undefined}
+  >
+    <div class="container">
+      <p class="eyebrow">Expertise</p>
+      <h1>{icon && <span class="icon" aria-hidden="true">{icon}</span>} {title}</h1>
+      {intro && <p class="lead">{intro}</p>}
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container prose-content">
+      <Content />
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <h2 class="ref-h2">Nos références sur cette expertise ({matching.length})</h2>
+      {matching.length === 0 ? (
+        <p class="empty">Aucune référence rattachée pour l'instant.</p>
+      ) : (
+        <ul class="ref-list">
+          {matching.map((p) => (
+            <li>
+              <a href={`/projets/${p.slug}/`}>
+                <div class="ref-meta">
+                  <span class="ref-period">{periodeFor(p)}</span>
+                  {p.data.countries.length > 0 && (
+                    <>
+                      <span class="ref-sep"> / </span>
+                      <span class="ref-countries">{p.data.countries.join(', ')}</span>
+                    </>
+                  )}
+                </div>
+                {p.data.categories.length > 0 && (
+                  <p class="ref-tags">{p.data.categories.join(', ')}</p>
+                )}
+                <h3 class="ref-title">{p.data.title}</h3>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </section>
+
+  <section class="section section--white back">
+    <div class="container">
+      <a href="/expertises/">← Toutes nos expertises</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .expertise-hero {
+    background-size: cover;
+    background-position: center;
+    background-color: var(--color-accent-2);
+    color: #fff;
+    padding: 5rem 1.5rem 4rem;
+  }
+  .expertise-hero .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-highlight);
+    margin: 0 0 0.5rem;
+  }
+  .expertise-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #fff;
+    margin: 0 0 1rem;
+    max-width: 28ch;
+    line-height: 1.15;
+  }
+  .expertise-hero h1 .icon { display: inline-block; margin-right: 0.5rem; }
+  .expertise-hero .lead {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 60ch;
+    margin: 0;
+  }
+  .prose-content { max-width: 68ch; margin-inline: auto; }
+
+  .ref-h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+    color: var(--color-accent-2);
+    margin: 0 0 2rem;
+  }
+  .empty {
+    text-align: center;
+    color: var(--color-muted);
+    font-style: italic;
+    padding: 2rem 1rem;
+  }
+  .ref-list { list-style: none; padding: 0; margin: 0; }
+  .ref-list li { border-bottom: 1px solid rgba(103, 61, 52, 0.12); }
+  .ref-list li:first-child { border-top: 1px solid rgba(103, 61, 52, 0.12); }
+  .ref-list a {
+    display: block; padding: 1.25rem 1rem; color: inherit; border: none;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .ref-list a:hover { background: var(--color-bg); transform: translateX(4px); color: inherit; }
+  .ref-meta { font-size: 0.85rem; color: var(--color-muted); margin-bottom: 0.2rem; }
+  .ref-period { font-weight: 600; color: var(--color-accent-2); }
+  .ref-countries { color: var(--color-ink); }
+  .ref-tags { font-size: 0.82rem; color: var(--color-accent); margin: 0 0 0.4rem; font-weight: 500; }
+  .ref-title { font-family: var(--font-heading); font-size: 1.1rem; margin: 0; color: var(--color-ink); }
+  .ref-list a:hover .ref-title { color: var(--color-accent); }
+
+  .back a { font-weight: 500; font-size: 0.95rem; }
+</style>

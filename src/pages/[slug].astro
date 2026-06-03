@@ -1,0 +1,49 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  // Pages avec leur propre route Astro custom — on les exclut de la route dynamique
+  const customRoutes = ['contact', 'equipe', 'expertises'];
+  return pages
+    .filter((page) => !customRoutes.includes(page.slug))
+    .map((page) => ({
+      params: { slug: page.slug },
+      props: { page },
+    }));
+}
+
+interface Props { page: CollectionEntry<'pages'>; }
+const { page } = Astro.props;
+const { Content } = await page.render();
+const { title, description } = page.data;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="section section--soft">
+    <div class="container">
+      <h1>{title}</h1>
+      {description && <p class="lead">{description}</p>}
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container prose-content">
+      <Content />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0 0 1rem;
+  }
+  .lead {
+    font-size: 1.15rem;
+    max-width: 60ch;
+    opacity: 0.85;
+  }
+  .prose-content { max-width: 68ch; margin-inline: auto; }
+</style>

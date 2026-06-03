@@ -1,0 +1,163 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  projet: CollectionEntry<'projets'>;
+}
+
+const { projet } = Astro.props;
+const { title, date, excerpt, categories, countries, featured_image, year_start, year_end } = projet.data;
+
+const periode = year_start && year_end
+  ? `${year_start}–${year_end}`
+  : year_start && !year_end
+    ? `${year_start} → en cours`
+    : date.getFullYear();
+---
+
+<a href={`/projets/${projet.slug}/`} class="card">
+  <div
+    class="card-image"
+    style={featured_image ? `background-image: url('${featured_image}')` : undefined}
+    aria-hidden="true"
+  ></div>
+  <div class="card-overlay">
+    <div class="card-meta">
+      <span class="card-period">{periode}</span>
+      {countries.length > 0 && (
+        <>
+          <span class="card-sep">·</span>
+          <span class="card-countries">{countries.join(', ')}</span>
+        </>
+      )}
+    </div>
+    <h3 class="card-title">{title}</h3>
+    {excerpt && <p class="card-excerpt">{excerpt}</p>}
+    {categories.length > 0 && (
+      <ul class="card-tags">
+        {categories.slice(0, 3).map((c) => <li>{c}</li>)}
+      </ul>
+    )}
+  </div>
+</a>
+
+<style>
+  .card {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
+    overflow: hidden;
+    border: none;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(103, 61, 52, 0.12);
+    transition: transform 0.4s cubic-bezier(0.25, 0, 0.4, 1),
+                box-shadow 0.4s cubic-bezier(0.25, 0, 0.4, 1);
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(103, 61, 52, 0.2);
+    color: #fff;
+  }
+
+  /* Image en background — animée au hover */
+  .card-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--color-accent-2); /* fallback */
+    transform: scale(1.02);
+    transition: transform 0.6s cubic-bezier(0.25, 0, 0.4, 1);
+  }
+  .card:hover .card-image {
+    transform: scale(1.08);
+  }
+
+  /* Dégradé sombre du bas vers le milieu pour la lisibilité */
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem 1.75rem 1.75rem;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 30%,
+      rgba(45, 28, 23, 0.4) 55%,
+      rgba(45, 28, 23, 0.88) 100%
+    );
+    transition: background 0.4s ease;
+  }
+  .card:hover .card-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(45, 28, 23, 0.1) 0%,
+      rgba(45, 28, 23, 0.3) 35%,
+      rgba(45, 28, 23, 0.7) 65%,
+      rgba(45, 28, 23, 0.95) 100%
+    );
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 0.5rem;
+  }
+  .card-period { color: var(--color-highlight); }
+  .card-sep { opacity: 0.6; }
+  .card-countries { color: #fff; }
+
+  .card-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+    line-height: 1.2;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 0.65rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  .card-excerpt {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.88);
+    margin: 0 0 0.85rem;
+    /* tronque proprement à 2 lignes */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .card-tags li {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  @media (max-width: 640px) {
+    .card { aspect-ratio: 3 / 2; }
+    .card-overlay { padding: 1.25rem; }
+  }
+</style>

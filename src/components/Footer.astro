@@ -1,0 +1,66 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-identity">
+      <img src="/brand/Logo_asc_vert.svg" alt="Agrarian Systems Consulting" class="footer-logo" />
+      <p class="footer-tagline">Bureau d'étude des systèmes agraires et alimentaires du Monde</p>
+    </div>
+    <nav aria-label="Liens secondaires">
+      <a href="/contact/">Contact</a>
+      <a href="/mentions-legales/">Mentions légales</a>
+    </nav>
+    <p class="footer-copy">© 2018–{year} Agrarian Systems Consulting</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-ink);
+    color: var(--color-bg-soft);
+    padding: 3rem 1.5rem 2rem;
+    margin-top: 4rem;
+  }
+  .footer-inner {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+  .footer-identity { display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .footer-logo {
+    height: 64px;
+    width: auto;
+    background: var(--color-bg-soft);
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+  .footer-tagline {
+    font-size: 0.9rem;
+    color: var(--color-soft);
+    margin: 0;
+  }
+  .site-footer nav {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+  }
+  .site-footer nav a {
+    color: var(--color-bg-soft);
+    border-bottom: 1px solid transparent;
+  }
+  .site-footer nav a:hover { color: var(--color-highlight); }
+  .footer-copy {
+    grid-column: 1 / -1;
+    font-size: 0.8rem;
+    color: #ffffff;
+    margin: 1.5rem 0 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(247, 240, 227, 0.15);
+  }
+  @media (max-width: 640px) {
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+</style>

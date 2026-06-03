@@ -1,0 +1,336 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Contact';
+const description = "Discutons de votre projet — bureau d'étude basé à Castelnau-le-Lez.";
+
+// FormSubmit.co — endpoint principal = hugo, corentin + adrien en CC via _cc
+// 1ère soumission: un mail de validation à cliquer.
+const formAction = 'https://formsubmit.co/hugo@agrarian-systems.org';
+const ccEmail = 'corentin@agrarian-systems.org,adrien.peroches@gmail.com';
+
+const contacts = [
+  {
+    name: 'Hugo Lehoux',
+    role: 'Co-fondateur & Gérant-associé',
+    email: 'hugo@agrarian-systems.org',
+    phone: '+33 7 89 67 47 43',
+    phoneHref: '+33789674743',
+  },
+  {
+    name: 'Corentin Lucas',
+    role: 'Co-fondateur & Gérant-associé',
+    email: 'corentin@agrarian-systems.org',
+  },
+  {
+    name: 'Adrien Peroches',
+    role: 'Doctorant CIFRE & Expert agronome',
+    email: 'adrien.peroches@gmail.com',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="contact-hero">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1>Une idée de projet&nbsp;? Discutons-en.</h1>
+      <p class="lead">
+        Que ce soit pour une étude, une formation, un diagnostic ou simplement échanger sur vos enjeux,
+        nous lisons et répondons à chaque message.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact-main">
+    <div class="container contact-grid">
+      <!-- ───────────── Colonne gauche : coordonnées ───────────── -->
+      <aside class="contact-side">
+        <div class="contact-block">
+          <h2 class="block-title">Nous écrire</h2>
+          <ul class="people">
+            {contacts.map((c) => (
+              <li>
+                <p class="person-name">{c.name}</p>
+                <p class="person-role">{c.role}</p>
+                <a class="person-email" href={`mailto:${c.email}`}>{c.email}</a>
+                {c.phone && (
+                  <a class="person-phone" href={`tel:${c.phoneHref}`}>{c.phone}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="contact-block">
+          <h2 class="block-title">Nous rencontrer</h2>
+          <address class="address">
+            <strong>Agrarian Systems Consulting</strong><br />
+            430 Chemin de l'Hirondelle<br />
+            34170 Castelnau-le-Lez<br />
+            France
+          </address>
+          <p class="muted">SARL au capital social — SIREN 839 389 459</p>
+        </div>
+      </aside>
+
+      <!-- ───────────── Colonne droite : formulaire ───────────── -->
+      <div class="contact-form-wrap">
+        <form
+          class="contact-form"
+          action={formAction}
+          method="POST"
+        >
+          {/* FormSubmit options */}
+          <input type="hidden" name="_cc" value={ccEmail} />
+          <input type="hidden" name="_subject" value="Nouveau message via le site Agrarian Systems" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          {/* honeypot */}
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <h2 class="form-title">Envoyez-nous un message</h2>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Votre nom</label>
+              <input id="name" name="name" type="text" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="org">Structure <span class="optional">(optionnel)</span></label>
+              <input id="org" name="organisation" type="text" autocomplete="organization" />
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="phone">Téléphone <span class="optional">(optionnel)</span></label>
+              <input id="phone" name="telephone" type="tel" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="subject">Sujet</label>
+            <input id="subject" name="sujet" type="text" required />
+          </div>
+
+          <div class="field">
+            <label for="message">Votre message</label>
+            <textarea id="message" name="message" rows="7" required></textarea>
+          </div>
+
+          <p class="rgpd">
+            Vos données ne sont utilisées que pour répondre à votre demande. Pas de tracking, pas de cession.
+          </p>
+
+          <button type="submit" class="submit-btn">Envoyer le message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ───────────── Hero ───────────── */
+  .contact-hero {
+    background: var(--color-bg-soft);
+    padding: 4rem 1.5rem 3rem;
+  }
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 0.75rem;
+  }
+  .contact-hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    color: var(--color-ink);
+    margin: 0 0 1rem;
+    max-width: 22ch;
+  }
+  .lead {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 60ch;
+    color: var(--color-ink);
+    opacity: 0.85;
+    margin: 0;
+  }
+
+  /* ───────────── Layout 2 colonnes ───────────── */
+  .contact-main { padding: 4rem 1.5rem 5rem; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* ───────────── Colonne coordonnées ───────────── */
+  .contact-side {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    position: sticky;
+    top: 110px;
+  }
+  .contact-block {}
+  .block-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    color: var(--color-accent-2);
+    margin: 0 0 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-accent);
+    display: inline-block;
+  }
+  .people {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .people li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .person-name {
+    margin: 0;
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+  .person-role {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    font-style: italic;
+  }
+  .person-email {
+    color: var(--color-accent);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease;
+    word-break: break-all;
+    margin-top: 0.25rem;
+  }
+  .person-email:hover { border-bottom-color: var(--color-accent); }
+  .person-phone {
+    display: inline-block;
+    margin-top: 0.15rem;
+    color: var(--color-ink);
+    font-weight: 600;
+    border: none;
+    font-variant-numeric: tabular-nums;
+  }
+  .person-phone:hover { color: var(--color-accent); }
+  .address {
+    font-style: normal;
+    line-height: 1.7;
+    color: var(--color-ink);
+  }
+  .muted {
+    font-size: 0.82rem;
+    color: var(--color-muted);
+    margin: 0.75rem 0 0;
+  }
+
+  /* ───────────── Formulaire ───────────── */
+  .contact-form-wrap {}
+  .contact-form {
+    background: var(--color-bg);
+    border: 1px solid rgba(103, 61, 52, 0.12);
+    border-radius: 8px;
+    padding: 2.5rem;
+    box-shadow: 0 6px 28px rgba(103, 61, 52, 0.06);
+  }
+  .form-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-ink);
+    margin: 0 0 1.5rem;
+  }
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .field { display: flex; flex-direction: column; margin-bottom: 1.25rem; }
+  .field-row .field { margin-bottom: 0; }
+  .field label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-bottom: 0.4rem;
+  }
+  .optional {
+    color: var(--color-muted);
+    font-weight: 400;
+    font-style: italic;
+  }
+  .field input,
+  .field textarea {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-ink);
+    background: var(--color-bg);
+    border: 1px solid rgba(103, 61, 52, 0.2);
+    border-radius: 5px;
+    padding: 0.65rem 0.85rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    width: 100%;
+  }
+  .field textarea { resize: vertical; min-height: 140px; line-height: 1.55; }
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(199, 86, 40, 0.12);
+  }
+  .rgpd {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin: 0 0 1.25rem;
+    line-height: 1.5;
+  }
+  .submit-btn {
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.85rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+  .submit-btn:hover {
+    background: var(--color-ink);
+    transform: translateY(-1px);
+  }
+
+  /* ───────────── Responsive ───────────── */
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .contact-side { position: static; }
+    .contact-form { padding: 2rem 1.5rem; }
+  }
+  @media (max-width: 560px) {
+    .field-row { grid-template-columns: 1fr; gap: 0; }
+    .field-row .field { margin-bottom: 1.25rem; }
+    .submit-btn { width: 100%; }
+  }
+</style>

@@ -1,0 +1,170 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const all = (await getCollection('experts'))
+  .filter((e) => !e.data.draft)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+
+const gerants = all.filter((e) => e.data.is_gerant);
+const collaborateurs = all.filter((e) => !e.data.is_gerant);
+---
+
+<BaseLayout title="Équipe" description="Les forces vives du bureau d'étude Agrarian Systems Consulting.">
+  <section class="section section--soft">
+    <div class="container">
+      <p class="eyebrow">Équipe</p>
+      <h1>Les forces vives de notre entreprise</h1>
+      <p class="lead">
+        Une équipe d'agronomes, d'agroéconomistes et de développeurs au service des dynamiques agricoles
+        durables, en France et à l'international.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container">
+      <h2 class="group-title">Gérants associés</h2>
+      <ul class="team-grid">
+        {gerants.map((e) => (
+          <li class="member-card">
+            <a href={`/equipe/${e.slug}/`}>
+              <div class="member-photo">
+                {e.data.photo ? (
+                  <img src={e.data.photo} alt={e.data.name} loading="lazy" />
+                ) : (
+                  <div class="member-photo-placeholder">{e.data.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}</div>
+                )}
+              </div>
+              <h3>{e.data.name}</h3>
+              <p class="member-role">{e.data.role}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      {collaborateurs.length > 0 && (
+        <>
+          <h2 class="group-title">Collaboratrices &amp; collaborateurs</h2>
+          <ul class="team-grid collab-grid">
+            {collaborateurs.map((e) => (
+              <li class="member-card">
+                <a href={`/equipe/${e.slug}/`}>
+                  <div class="member-photo">
+                    {e.data.photo ? (
+                      <img src={e.data.photo} alt={e.data.name} loading="lazy" />
+                    ) : (
+                      <div class="member-photo-placeholder">{e.data.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}</div>
+                    )}
+                  </div>
+                  <h3>{e.data.name}</h3>
+                  <p class="member-role">{e.data.role}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 0.75rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    margin: 0 0 1rem;
+    max-width: 30ch;
+  }
+  .lead {
+    font-size: 1.1rem;
+    color: var(--color-ink);
+    opacity: 0.85;
+    max-width: 60ch;
+    margin: 0;
+  }
+  .group-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--color-accent-2);
+    margin: 0 0 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-accent);
+    display: inline-block;
+  }
+  .group-title:not(:first-child) { margin-top: 4rem; }
+
+  .team-grid {
+    list-style: none;
+    margin: 0 0 2rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+  }
+  .collab-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+  .member-card a {
+    display: block;
+    text-align: center;
+    border: none;
+    color: var(--color-ink);
+    padding: 1.25rem 0.5rem;
+    border-radius: 10px;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .member-card a:hover {
+    background: var(--color-bg-soft);
+    transform: translateY(-3px);
+    color: var(--color-accent);
+  }
+  .member-photo {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--color-bg-soft);
+  }
+  .collab-grid .member-photo { width: 130px; height: 130px; }
+  .member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .member-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    background: var(--color-bg-soft);
+  }
+  .collab-grid .member-photo-placeholder { font-size: 2rem; }
+  .member-card h3 {
+    font-size: 1.15rem;
+    margin: 0 0 0.25rem;
+  }
+  .member-card a:hover h3 { color: var(--color-accent); }
+  .member-role {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    font-style: italic;
+    margin: 0;
+  }
+</style>
