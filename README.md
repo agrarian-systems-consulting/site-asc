@@ -110,7 +110,7 @@ L'expert apparaîtra automatiquement sur la page Équipe et sur toute fiche proj
 
 - Hugo Lehoux — hugo@agrarian-systems.org
 - Corentin Lucas — corentin@agrarian-systems.org
-- Adrien Peroches — adrien.peroches@gmail.com
+- Adrien Peroches — adrien@agrarian-systems.org
 
 ---
 
