@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Message envoyé — Merci';
+const description = 'Votre message a bien été envoyé. Nous vous répondrons rapidement.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="merci">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1>Merci&nbsp;! Votre message est bien parti.</h1>
+      <p class="lead">
+        Nous lisons chaque message et reviendrons vers vous au plus vite,
+        généralement sous quelques jours ouvrés.
+      </p>
+      <div class="actions">
+        <a class="btn-primary" href="/">Retour à l'accueil</a>
+        <a class="btn-ghost" href="/projets/">Voir nos projets</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .merci {
+    background: var(--color-bg-soft);
+    padding: 6rem 1.5rem;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 0.75rem;
+  }
+  .merci h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    color: var(--color-ink);
+    margin: 0 0 1rem;
+    max-width: 22ch;
+  }
+  .lead {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 55ch;
+    color: var(--color-ink);
+    opacity: 0.85;
+    margin: 0 0 2rem;
+  }
+  .actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary,
+  .btn-ghost {
+    border-radius: 6px;
+    padding: 0.85rem 1.75rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+  }
+  .btn-primary {
+    background: var(--color-accent);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--color-ink);
+    transform: translateY(-1px);
+  }
+  .btn-ghost {
+    border: 1px solid rgba(103, 61, 52, 0.25);
+    color: var(--color-ink);
+  }
+  .btn-ghost:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+</style>
