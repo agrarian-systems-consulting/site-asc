@@ -34,13 +34,17 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Deploy to OVH (FTPS)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ftp.cluster126.hosting.ovh.net
-          username: agrarianug
-          password: ${{ secrets.OVH_FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
-          local-dir: ./dist/
-          server-dir: www/
+      - name: Deploy to OVH (SFTP via lftp)
+        env:
+          LFTP_PASSWORD: ${{ secrets.OVH_FTP_PASSWORD }}
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y lftp
+          lftp -u agrarianug --env-password sftp://ftp.cluster126.hosting.ovh.net <<'SCRIPT'
+          set sftp:auto-confirm yes
+          set net:timeout 20
+          set net:max-retries 3
+          set mirror:parallel-transfer-count 5
+          lcd dist
+          mirror -R --delete --verbose=1 . www
+          bye
+          SCRIPT
