@@ -18,10 +18,14 @@ const projets = defineCollection({
     featured_image: z.string().optional(),
     is_projet: z.boolean().optional().default(false),  // true = apparait aussi sur /projets/ (programme multi-années, pas one-shot)
     video_url: z.string().url().optional(),            // YouTube / Vimeo embed
-    deliverables: z.array(z.object({                   // livrables externes liés (PDF, articles, sites)
-      label: z.string(),
-      url: z.string().url(),
-      type: z.enum(['pdf', 'article', 'site', 'video', 'autre']).optional(),
+    // ─── Ressources téléchargeables (documents Drive, rapports, annexes…) ───
+    // Rendu dans une section dédiée « Ressources » en bas de la page projet,
+    // avec une ancre stable #ressources (ex : /projets/mon-projet/#ressources)
+    // à coller dans les rapports PDF. `type` ne sert qu'à choisir l'icône.
+    ressources: z.array(z.object({
+      titre: z.string(),                               // libellé affiché du lien
+      url: z.string().url(),                           // URL complète (Drive, OneDrive, PDF…)
+      type: z.enum(['pdf', 'doc', 'tableur', 'presentation', 'image', 'video', 'lien', 'autre']).optional(),
     })).default([]),
     experts: z.array(z.string()).default([]),          // slugs des experts mobilisés
     legacyId: z.number().optional(),
