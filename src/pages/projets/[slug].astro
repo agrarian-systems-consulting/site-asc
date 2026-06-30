@@ -43,6 +43,19 @@ function toEmbed(url?: string): string | null {
   return url;
 }
 const videoEmbed = toEmbed(video_url);
+
+// Icônes SVG au trait (couleur terre cuite via currentColor) pour la section Ressources
+const RESSOURCE_ICONS: Record<string, string> = {
+  pdf: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 11.5v5"/><path d="m9.5 14 2.5 2.5 2.5-2.5"/>',
+  doc: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 12.5h6"/><path d="M9 15.5h6"/><path d="M9 18.5h3.5"/>',
+  tableur: '<rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 10h16"/><path d="M4 14.5h16"/><path d="M9.5 10v9"/><path d="M14.5 10v9"/>',
+  presentation: '<rect x="3.5" y="4" width="17" height="12.5" rx="2"/><path d="M8 12.5V11"/><path d="M12 12.5V9"/><path d="M16 12.5V7.5"/><path d="M12 16.5V20"/><path d="M9 20h6"/>',
+  image: '<rect x="4" y="5" width="16" height="14" rx="2"/><circle cx="9" cy="10" r="1.4"/><path d="m4.5 16.5 4-3.5 3 2.2 4-4 4 3.3"/>',
+  video: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9.2 5 2.8-5 2.8z"/>',
+  lien: '<path d="M9.5 13a3.5 3.5 0 0 0 5 0l2.5-2.5a3.5 3.5 0 0 0-5-5l-1 1"/><path d="M14.5 11a3.5 3.5 0 0 0-5 0L7 13.5a3.5 3.5 0 0 0 5 5l1-1"/>',
+  autre: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/>',
+};
+const iconFor = (type?: string) => RESSOURCE_ICONS[type ?? 'autre'] ?? RESSOURCE_ICONS.autre;
 ---
 
 <BaseLayout title={title} description={excerpt} image={featured_image}>
@@ -115,10 +128,11 @@ const videoEmbed = toEmbed(video_url);
             <p class="ressources-sub">Documents accessibles et téléchargeables liés à ce projet.</p>
             <ul class="ressources-list">
               {ressources.map((r) => (
-                <li class={`ressource type-${r.type ?? 'autre'}`}>
+                <li class="ressource">
                   <a href={r.url} target="_blank" rel="noopener noreferrer">
+                    <span class="ressource-ico" set:html={`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${iconFor(r.type)}</svg>`}></span>
                     <span class="ressource-titre">{r.titre}</span>
-                    <span class="ext">↗</span>
+                    <span class="ext" aria-hidden="true">↗</span>
                   </a>
                 </li>
               ))}
@@ -241,43 +255,59 @@ const videoEmbed = toEmbed(video_url);
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.25rem;
   }
-  .ressource {
-    display: flex;
-    align-items: baseline;
-  }
-  .ressource::before {
-    margin-right: 0.55rem;
-    font-size: 1rem;
-    line-height: 1.4;
-    flex: none;
-  }
+  .ressource { display: block; }
   .ressource a {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.85rem;
+    width: 100%;
     border: none;
     color: var(--color-ink);
     font-weight: 600;
-    padding: 0.35rem 0;
-    transition: color 0.15s ease;
+    padding: 0.5rem 0.6rem;
+    border-radius: 10px;
+    transition: color 0.15s ease, background 0.15s ease;
   }
-  .ressource a:hover { color: var(--color-accent); }
-  .ressource a:hover .ext { opacity: 1; }
+  .ressource a:hover {
+    color: var(--color-accent);
+    background: rgba(199, 86, 40, 0.05);
+  }
+  /* Badge organique terre cuite */
+  .ressource-ico {
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    flex: none;
+    border-radius: 12px;
+    background: rgba(199, 86, 40, 0.08);
+    border: 1px solid rgba(199, 86, 40, 0.14);
+    color: var(--color-accent);
+    transition: background 0.18s ease, border-color 0.18s ease;
+  }
+  .ressource a:hover .ressource-ico {
+    background: rgba(199, 86, 40, 0.16);
+    border-color: rgba(199, 86, 40, 0.28);
+  }
+  .ressource-ico svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+  .ressource-titre {
+    flex: 1 1 auto;
+    line-height: 1.35;
+  }
   .ressource .ext {
+    flex: none;
     font-size: 0.8rem;
     color: var(--color-accent);
-    opacity: 0.7;
+    opacity: 0.5;
+    transition: opacity 0.15s ease;
   }
-  .ressource.type-pdf::before { content: "📄"; }
-  .ressource.type-doc::before { content: "📝"; }
-  .ressource.type-tableur::before { content: "📊"; }
-  .ressource.type-presentation::before { content: "📑"; }
-  .ressource.type-image::before { content: "🖼️"; }
-  .ressource.type-video::before { content: "▶️"; }
-  .ressource.type-lien::before { content: "🔗"; }
-  .ressource.type-autre::before { content: "📎"; }
+  .ressource a:hover .ext { opacity: 1; }
   .hero-img-wrap img {
     width: 100%;
     height: auto;
