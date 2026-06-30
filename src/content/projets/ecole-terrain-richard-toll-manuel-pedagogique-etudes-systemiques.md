@@ -21,7 +21,10 @@ ressources:
   # - titre: "Manuel pédagogique de terrain"
   #   url: "https://..."
   #   type: pdf
-  - titre: "Annexe 1 — Fiche : l'analyse de paysage"
+  - titre: "Manuel pédagogique pour la conduite d'écoles terrain"
+    url: "https://1drv.ms/b/c/68c0b0c348204772/IQAIKCrXDbDNQ6dZ-Qv4Ol4kAdszMP_OKey7BOKcwtEaiMo?e=I7F5FR"
+    type: pdf
+    - titre: "Annexe 1 — Fiche : l'analyse de paysage"
     url: "https://1drv.ms/b/c/68c0b0c348204772/IQA5O0SVPs1AQb_HfLwtIqUwAcWXGFUaf-xOtRfJOfiD9_M?e=QV3g2L"
     type: pdf
   - titre: "Annexe 1 — Fiche : l'histoire agraire"
