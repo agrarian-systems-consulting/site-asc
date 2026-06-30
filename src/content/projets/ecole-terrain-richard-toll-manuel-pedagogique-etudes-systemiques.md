@@ -24,10 +24,10 @@ En 2024, l’Université Sine Saloum El Hadji Ibrahima NIASS (USSEIN), avec l’
 Afin de déployer et pérenniser cette pédagogie du terrain, notamment au Sénégal, il était souhaité la réalisation d’un manuel pédagogique, basé sur les expériences d’écoles terrain au Sénégal 2025 (IAM-USSEIN) et 2026 (IAM-UGB). 
 
 #### Réalisations Asc 
-<li> Collecte d’expériences (encadrants, partenaires, étudiants) <li>
-<li> Rédaction d’un manuel pédagogique <li>
-<li> Rédaction d’une note de perspective sur la pérennité de l’exercice <li>
-<li> Co-encadrement d’une école terrain au Sénégal (50 étudiants IAM et UGB) <li>
-<li> Participation à la rédaction du livrable IAM-UGB (analyse des perspectives de transitions agroécologiques dans la vallée du fleuve Sénégal) <li>
+<li> Collecte d’expériences (encadrants, partenaires, étudiants)
+<li> Rédaction d’un manuel pédagogique
+<li> Rédaction d’une note de perspective sur la pérennité de l’exercice
+<li> Co-encadrement d’une école terrain au Sénégal (50 étudiants IAM et UGB)
+<li> Participation à la rédaction du livrable IAM-UGB (analyse des perspectives de transitions agroécologiques dans la vallée du fleuve Sénégal)
 
 #### Productions Asc 
