@@ -57,10 +57,11 @@ legacyUrl: https://agrarian-systems.org/notre-bureau-d-etude-de-l-ess/
 <section class="bleed-row" data-side="right">
   <div class="bleed-text">
     <h3>Un engagement fort dans la transition agroécologique des territoires ruraux dans le monde</h3>
-    <p>Participer à la transition agroécologique est un de nos premiers objectifs. C'est pourquoi nous nous sommes engagés auprès :</p>
+    <p>Participer à la transition agroécologique est un de nos premiers objectifs. C'est pourquoi nous avons participé à des échanges :</p>
     <ul>
       <li>Du Groupe de Travail sur la Transition Agro-Ecologique (GTAE) créé par Agrisud, AVSF, le CARI et le GRET pour partager nos résultats d'expertises notamment sur la thématique de l'évaluation de la transition agroécologique des territoires ;</li>
-      <li>Du groupe « Agroecology » de la FAO en participant activement à l'élaboration du cadre conceptuel sur la diversité des formes d'agriculture dans le monde et à la conception de l'Observatoire des Agricultures du Monde.</li>
+      <li>Du groupe « Agroecology » de la FAO en participant activement à l'élaboration du cadre conceptuel sur la diversité des formes d'agriculture dans le monde et à la conception de l'Observatoire des Agricultures du Monde ;</li>
+      <li>Du Comité Scientifique et Technique Forêts de l'Agence Française de Développement (CST-Forêts de l'AFD), notamment en rédigeant un policy-brief sur l'implication des populations locales dans les projets de restauration forestière en Afrique centrale.</li>
     </ul>
   </div>
   <div class="bleed-image">
