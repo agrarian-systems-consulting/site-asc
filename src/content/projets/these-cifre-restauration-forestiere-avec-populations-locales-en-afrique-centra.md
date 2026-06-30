@@ -17,22 +17,35 @@ countries:
   - République centrafricaine
   - RDC
 client: "Agrarian Systems Consulting / ISTOM / CIRAD"
-excerpt: "Thèse CIFRE de Géographie d'Adrien Peroches au sein d'Asc, en partenariat avec l'ISTOM et le CIRAD. Analyse des initiatives de restauration forestière menées avec les populations locales en Afrique centrale au regard des dynamiques agricoles et foncières. Soutenance prévue fin 2025."
+excerpt: "Thèse CIFRE de Géographie d'Adrien Peroches au sein d'Asc, en partenariat avec l'ISTOM et le CIRAD. Analyse des initiatives de restauration forestière menées avec les populations locales en Afrique centrale au regard des dynamiques agricoles et foncières. Soutenue en décembre 2025."
 is_projet: true
 draft: false
-featured_image: "/uploads/2019/02/Cameroun.png"
 experts:
   - adrien-peroches
+ressources:
+  # Manuel de terrain : décommenter et compléter l'URL dès qu'elle est disponible.
+  # - titre: "Manuel pédagogique de terrain"
+  #   url: "https://..."
+  #   type: pdf
+  - titre: "Manuscrit de thèse"
+    url: "https://pastel.hal.science/tel-05540538v1/file/149348_PEROCHES_2025_archivage.pdf"
+    type: pdf
+  - titre: "Article de résultats - PROFEAAC RDC"
+    url: "https://1drv.ms/b/c/68c0b0c348204772/IQB00QACPmjtSbGkiO1D-EAxARqOPlW1TRfTeUTE7gr0GZY?e=9HsVgH"
+    type: pdf
+  - titre: "Policy Brief - CST-Forêts AFD"
+    url: "https://1drv.ms/b/c/68c0b0c348204772/IQCgileYoWxdQpqgZA7eD4BCAT1vfO701psucmbUTbtfBB0?e=mlVzcI"
+    type: pdf
 ---
+#### Contexte
+La restauration forestière est un enjeu de plus en plus important en Afrique centrale et de nombreux projets s’y intéresse. Néanmoins, la compréhension des liens entre dynamiques agraires et foncières et restauration avec les populations locales restent à éclairer
 
-## Sujet
 
-Analyse des initiatives de restauration forestière conduites avec les populations locales en Afrique centrale, à l'aune des dynamiques agricoles et foncières.
+#### Objectif
+Réaliser un travail sur l’état de la restauration forestière et les démarches méthodologiques de diagnostic et d’évaluation
 
-## Valorisation
+#### Réalisations Asc
+- Montage du projet de thèse
+- Conduite de la thèse, soutenue en décembre 2025 et intitulée : « Analyse des initiatives de restauration forestière avec les populations locales en Afrique centrale à l’aune des dynamiques agricoles et foncières »
+- Publication de plusieurs articles scientifiques et chapitres d’ouvrages spécialisés
 
-Articles scientifiques (International Forestry Review, Small-scale Forestry, Trees Forests and People, Bois et Forêts des Tropiques), chapitres d'ouvrages (Vivre la forêt, éditions Odile Jacob), policy briefs (Comité Scientifique et Technique Forêts de l'AFD), webinaires et working papers.
-
-## Encadrement
-
-Thèse réalisée en partenariat avec le CIRAD (Emilien Dubiez, Guillaume Lescuyer) et l'ISTOM (Marc Oswald), valorisant des données collectées par le bureau d'études et le CIRAD dans le bassin du Congo.
