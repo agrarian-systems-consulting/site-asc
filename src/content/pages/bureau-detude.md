@@ -74,11 +74,12 @@ legacyUrl: https://agrarian-systems.org/notre-bureau-d-etude-de-l-ess/
 <p style="text-align: justify;">Nous aimons ce que nous faisons depuis 2010.</p>
 
 <ul class="timeline">
-  <li><strong>2010 — Rencontre des associés.</strong> Corentin Lucas et Hugo Lehoux se rencontrent à l'Institut des Régions Chaudes de Montpellier SupAgro.</li>
-  <li><strong>2014 — Documentaire « Ceux qui sèment ».</strong> Tous deux effectuent leur stage de fin d'étude en Inde et conduisent le projet de documentaire <em>Ceux qui sèment</em>, qui remporte le Premier prix du Festival Alimenterre.</li>
-  <li><strong>2018 — Création du bureau d'études.</strong> Asc est créé en mai 2018 pour continuer d'accompagner anciens employeurs et clients, et proposer une plus grande diversité de services. Les associés se sont spécialisés sur la micro-finance, la certification agricole, l'irrigation et le développement d'applications numériques.</li>
+  <li><strong>2010 — Rencontre des associés.</strong> Corentin Lucas, Hugo Lehoux et Adrien Peroches se rencontrent à l'Institut des Régions Chaudes de Montpellier SupAgro.</li>
+  <li><strong>2014 — Documentaire « Ceux qui sèment ».</strong> Hugo et Corentin effectuent leur stage de fin d'étude en Inde, Adrien en RDC et ils conduisent le projet de documentaire <em>Ceux qui sèment</em>, sélectionné au Festival Alimenterre.</li>
+  <li><strong>2018 — Création du bureau d'études.</strong> Asc est créé en mai 2018 par Hugo et Corentin pour continuer d'accompagner anciens employeurs et clients, et proposer une plus grande diversité de services. Les associés se sont spécialisés sur la micro-finance, la certification agricole, l'irrigation et le développement d'applications numériques.</li>
   <li><strong>2019 — Développement des activités de conseil.</strong> Le démarrage de l'activité permet le lancement de nombreux projets. Plusieurs consultants sont embauchés pour répondre aux besoins.</li>
   <li><strong>2020 — Formation agricole.</strong> Les membres d'Asc interviennent depuis 2015 dans les formations des écoles d'ingénieur de Montpellier SupAgro ainsi qu'à l'ISTOM d'Angers.</li>
   <li><strong>2022 — Agroécologie et observatoires du Monde.</strong> Avec le projet TAPSA, Asc participe aux travaux du GTAE. Asc est également co-rédacteur de la méthodologie de l'Observatoire des Agricultures de la FAO.</li>
-  <li><strong>2025 — Restauration forestière et agroforesterie.</strong> Asc propose une thèse sur la mise en œuvre de la restauration forestière avec les populations locales et le développement de l'agroforesterie dans les exploitations familiales, soutenance prévue en 2025 par Adrien Peroches.</li>
+  <li><strong>2025 — Restauration forestière et agroforesterie.</strong> Asc propose en 2022 une thèse sur la mise en œuvre de la restauration forestière avec les populations locales et le développement de l'agroforesterie dans les exploitations familiales, conduite et soutenue par Adrien Peroches en 2025.</li>
+  <li><strong>2026 — L'équipe s'étoffe.</strong> Adrien Peroches rejoint Hugo Lehoux et Corentin Lucas comme gérant-associé chez Asc.</li>
 </ul>
