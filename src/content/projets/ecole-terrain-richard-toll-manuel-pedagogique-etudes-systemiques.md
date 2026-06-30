@@ -30,4 +30,5 @@ Afin de déployer et pérenniser cette pédagogie du terrain, notamment au Sén�
 <li> Co-encadrement d’une école terrain au Sénégal (50 étudiants IAM et UGB)
 <li> Participation à la rédaction du livrable IAM-UGB (analyse des perspectives de transitions agroécologiques dans la vallée du fleuve Sénégal)
 
+
 #### Productions Asc 
