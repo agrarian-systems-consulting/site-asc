@@ -4,6 +4,7 @@ date: '2019-07-12'
 excerpt: ''
 categories:
   - Formation
+  - Diagnostic territorial
 tags: []
 countries:
 - Tunisie
@@ -32,7 +33,6 @@ Concevoir et dispenser un curriculum de formation avec l’Institut National de 
 - - Chaîne de traitement numérique de l’information
 - Définition du référentiel professionnel des futurs CADR (Chargés d’Appui au Développement Rural) 
 - Conception de la plateforme numérique de formation en ligne
-- Productions : Plateforme numérique de formation : http://agrarian-systems.org/pacte
  
 
 ## Galerie
