@@ -1,5 +1,5 @@
 ---
-title: Ceux qui sèment - Notre documentaire sur les agricultures familiales
+title: Réalisation de Ceux qui Sèment – Notre documentaire sur les agricultures familiales 
 date: '2019-07-11'
 excerpt: ''
 categories:
@@ -20,11 +20,27 @@ client: "ASD / Agreenium"
 filieres: []
 experts:
   - hugo-lehoux
+  - corentin-lucas
+  - adrien-peroches
 ---
 
 <iframe src="https://player.vimeo.com/video/120144450" width="640" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe>Découvrez notre documentaire sur les agricultures familiales du Monde.
-<h3>Primé au Festival Alimen'Terre</h3>
-Mettre du texteSeparated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. l using her.Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+#### Contexte
+Les nations unies ont désigné l’année 2014 comme « l’année internationale de l’agriculture familiale ». Les étudiants de l’Institut des Régions Chaudes de Montpellier SupAgro (devenu pôle tropique et méditerranée de l’Institut Agro Montpellier) ont décidé de valoriser leur terrain de stage pour réaliser un documentaire sur l’agriculture familiale et ses enjeux. 
+
+#### Objectif
+Réaliser un film grand public, largement documenté et libre de droits. 
+
+#### Réalisations Asc
+- Coordination du groupe de 40 étudiants 
+- Levée de fonds (env. 60 000 euros)
+- Choix des zones et des personnes interviewées dans le tournage 
+- Organisation du tournage 
+- Scénarisation du film (rédaction de la voix off et choix des extraits) 
+- Diffusion et présentation du film (notamment dans la sélection officielle du festival Alimenterre) 
+- Présentation du film à la FAO à Rome (au Global Family Farming Forum)
+
 
 ## Galerie
 

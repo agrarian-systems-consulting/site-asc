@@ -17,38 +17,20 @@ client: "ULB Coopération"
 filieres: []
 experts:
   - adrien-peroches
+  - corentin-lucas
 ---
+#### Contexte
+ULB Coopération développe des activités d’agroécologie et d’agroforesterie auprès de deux aires protégées du Kongo Central en RDC. 
 
-#### SYNAPIC
+#### Objectif
+Former les équipes au diagnostic agraire pour caractériser les potentiels bénéficiaires, leurs systèmes techniques, leurs contraintes et leurs opportunités. Les résultats des formations actions devaient également permettre de formuler des recommandations d’action. 
 
-### Projets de gestion durable des ressources forestières dans la Réserve de Biosphère de Luki
+#### Réalisations Asc
+- Formation/action au diagnostic agraire et analyse de l’efficacité des projets de WWF, ULB Coopération et ERAIFT dans la réserve de biosphère de Luki (2019)
+- Formation/action au diagnostic agraire et analyse des potentialités de développement de (i) l’apiculture, (ii) l’agroforesterie et (iii) diverses techniques agroécologiques en périphérie et dans le Parc Marin des Mangroves (2021)
+- Réalisation de modules de formation
+- Rédaction d’un rapport de synthèse et formulation de recommandations opérationnelles
 
-### WWF-RDC, l’ERAIFT et ULB-Coopération mène différents projets de gestion durable des ressources forestières et d’augmentation des revenus paysans dans la Réserve de Biosphère de Luki. Asc intervient auprès de ces structures pour (i) former les personnels concernés par les projets dans la Réserve de Biosphère de Luki à la démarche systémique et (ii) analyser l’adéquation entre les actions proposées et les systèmes de production existants.
-
-<h3><span style="color: #50d18d;">Objectifs</span></h3>
-
-<ul>
-<li>Permettre aux agents des différentes structures de développer une vision systémique de leurs activités</li>
-<li>Identifier et caractériser les systèmes de production de la zone d’intervention</li>
-<li>Faire un bilan des activités en cours et des optimisations à leur apporter</li>
-</ul>
-
-<h3><span style="color: #50d18d;">Activités</span></h3>
-
-<ul>
-<li>Préparation de modules de formation</li>
-<li>Dispense d’une formation au diagnostic agraire (2 jours de théorie, 10 jours de pratique)</li>
-<li>Analyse des résultats de la formation/action</li>
-</ul>
-Formulation de recommandations pour l’optimisation des activités en cours
-<h3><span style="color: #50d18d;">Résultats attendus</span></h3>
-A la suite d’une « formation/action », les résultats suivants sont attendus :
-<ul>
-<li>Des modules de formation et des fiches méthodologiques sont produites</li>
-<li>Les modules sont dispensés</li>
-<li>Les systèmes de production et les règles de gestion foncières locaux sont décris</li>
-<li>Des recommandations sont édictées</li>
-</ul>
 
 ## Galerie
 

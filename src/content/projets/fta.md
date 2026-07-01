@@ -18,35 +18,27 @@ filieres:
   - Bois d'œuvre
 experts:
   - hugo-lehoux
+  - adrien-peroches
+ressources:
+  # Manuel de terrain : décommenter et compléter l'URL dès qu'elle est disponible.
+  # - titre: "Manuel pédagogique de terrain"
+  #   url: "https://..."
+  #   type: pdf
+  - titre: "Article sur les plantations forestières"
+    url: "https://1drv.ms/b/c/68c0b0c348204772/IQAFbI7N4c_WT6MrZ_IjYFqdAXQFZrgwUjGW-N1xHxyXQOM?e=47bPtt"
+    type: pdf
 ---
+#### Contexte
+Le programme Forests, Trees and Agroforestry (FTA) du CGIAR est le plus grand programme mondial de recherche pour le développement axé sur le rôle des forêts, des arbres et de l’agroforesterie dans le développement durable, la sécurité alimentaire et la lutte contre le changement climatique. 
 
-#### FTA
+#### Objectif
+En appui au CIRAD, Asc avait pour objectif de décrire l’état des filières hévéa et bois d’œuvre (issu de plantations de grandes superficies) à l’échelle mondiale  
 
-### Forest, Trees & Agroforestry
-
-### Le programme « Forest, Trees and Agroforestry” du CGIAR est le plus grand programme de recherche pour le développement au monde axé sur le rôle des forêts, des arbres et de l'agroforesterie dans le développement durable, la sécurité alimentaire et la lutte contre le changement climatique.
-En appui à l’équipe du CIRAD, Asc intervient dans la description de la filière hévéa à l’échelle mondiale. Ces études devront permettre de caractériser ces filières, leurs forces et leurs faiblesses et ainsi identifier des sites de référence sur lesquels il sera pertinent de mener des études de terrain.
-
-<h3><span style="color: #50d18d;">Objectifs</span></h3>
-Asc, en appui au CIRAD est en charge de :
-<ul>
-<li>Réaliser une synthèse bibliographique sur la filière bois d’œuvre issu des plantations forestières de grande superficie zones tropicales et subtropicales</li>
-<li>Réaliser une synthèse bibliographique sur la filière hévéa dans le monde</li>
-<li>Présenter les résultats lors d’un workshop du programme FTA</li>
-</ul>
-
-<ul>
-<li>Valoriser les résultats sous forme de Working Paper FTA</li>
-</ul>
-
-<h3><span style="color: #50d18d;">Activités</span></h3>
-Au fur et à mesure du projet, les activités suivantes sont prévues (en appui du CIRAD) :
-<ul>
-<li>Mener une importante recherche bibliographique</li>
-<li>Production de deux rapports de synthèse</li>
-<li>Présentation et validation des résultats des études durant un workshop du programme FTA</li>
-</ul>
-Rédiger deux Working Paper FTA
+#### Réalisations Asc
+- Réalisation d’une synthèse bibliographique sur la filière bois d’œuvre issu de plantation forestières de grande superficie en zones tropicales et subtropicales
+- Publication d’un article scientifique sur la typologie de plantations de grande superficie au regard des objectifs de restauration forestière 
+- Réalisation d’une synthèse bibliographique sur la filière hévéa dans le monde
+- Présentation des résultats lors d’un workshop du programme FTA 
 
 ## Galerie
 
