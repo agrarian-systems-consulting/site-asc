@@ -1,5 +1,5 @@
 ---
-title: "Développeur web principal pour le CIF France"
+title: "Site internet et portail du congrès international du CIF France"
 date: "2018-01-01"
 year_start: 2018
 year_end: 2020
@@ -13,6 +13,9 @@ excerpt: "Conception du site du CIF France et du portail de son congrès interna
 draft: false
 experts:
   - hugo-lehoux
+legacyUrl: https://agrarian-systems.org/site-pour-le-developpement-des-echanges-internationaux-de-professionnels-du-social/
+photos:
+  - { src: /uploads/2019/12/World_of_CIF.png, legende: "Site du CIF France" }
 ---
 #### Contexte
 Le CIF France, association loi 1901 fondée en 1966, est la branche française du Council of International Fellowship. Il organise des programmes d'échanges internationaux pour les professionnels du champ social (assistants sociaux, éducateurs, animateurs, psychologues), qui partent confronter leur pratique dans un autre pays ou sont accueillis en France. L'association fonctionne avec une équipe de bénévoles et avait besoin d'outils numériques simples pour communiquer, gérer ses programmes et organiser son congrès international de 2019 à Saint-Malo.

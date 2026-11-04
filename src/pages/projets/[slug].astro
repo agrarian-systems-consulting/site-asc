@@ -17,11 +17,11 @@ const { projet } = Astro.props;
 const { Content } = await projet.render();
 const {
   title, excerpt, categories, countries, featured_image,
-  client, filieres, video_url, ressources, is_projet, livrables, photos, chiffres,
+  client, filieres, video_url, montant_asc, montant_programme, ressources, is_projet, livrables, photos, chiffres,
   experts: expertSlugs,
 } = projet.data;
 
-const allExperts = await getCollection('experts');
+const allExperts = (await getCollection('experts')).filter((e) => !e.data.draft);
 const projectExperts = (expertSlugs || [])
   .map((s) => allExperts.find((e) => e.slug === s))
   .filter((e): e is NonNullable<typeof e> => Boolean(e))
@@ -107,6 +107,8 @@ const ogImage = visuel(projet)?.src;
             </div>
           )}
           {filieres.length > 0 && (<div><dt>Filières</dt><dd>{filieres.join(', ')}</dd></div>)}
+          {montant_asc && (<div><dt>Montant de la prestation</dt><dd>{montant_asc}</dd></div>)}
+          {montant_programme && (<div><dt>Budget du programme</dt><dd>{montant_programme}</dd></div>)}
         </dl>
 
         {chiffres.length > 0 && (

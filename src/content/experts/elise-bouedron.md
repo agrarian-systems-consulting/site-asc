@@ -2,6 +2,7 @@
 name: "Elise Bouëdron"
 role: Consultante, agronome
 is_gerant: false
+draft: true
 order: 7
 specialities:
   - Diagnostic agraire

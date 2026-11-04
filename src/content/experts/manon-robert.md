@@ -2,6 +2,7 @@
 name: "Manon Robert"
 role: Consultante, agroéconomiste
 is_gerant: false
+draft: true
 order: 8
 specialities:
   - Diagnostic agraire

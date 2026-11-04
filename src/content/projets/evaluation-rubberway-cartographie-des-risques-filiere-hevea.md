@@ -21,6 +21,19 @@ featured_image: /photos/evaluation-rubberway-cartographie-des-risques-filiere-he
 chiffres:
   - { valeur: "16 000", label: "enquêtes Rubberway analysées en Côte d'Ivoire" }
   - { valeur: "3", label: "stratégies d'échantillonnage comparées" }
+livrables:
+  - titre: "Rubberway : étude d'un outil de diagnostic des risques pour améliorer la durabilité de la filière du caoutchouc naturel"
+    couverture: /livrables/evaluation-rubberway-cartographie-des-risques-filiere-hevea/rapport-rubberway-fr.jpg
+    annee: 2021
+    type: Rapport
+    langue: FR
+    pages: 42
+  - titre: "Rubberway: study of a tool of risk assessment to improve the sustainability of the natural rubber value-chain"
+    couverture: /livrables/evaluation-rubberway-cartographie-des-risques-filiere-hevea/report-rubberway-en.jpg
+    annee: 2022
+    type: Rapport
+    langue: EN
+    pages: 48
 photos:
   - { src: /photos/evaluation-rubberway-cartographie-des-risques-filiere-hevea/saignee-hevea.jpg, legende: "Saignée d'un hévéa, Côte d'Ivoire" }
   - { src: /photos/evaluation-rubberway-cartographie-des-risques-filiere-hevea/tasse-latex.jpg, legende: "Latex coagulé dans la tasse de récolte" }
@@ -44,4 +57,4 @@ Rubberway est un outil de diagnostic des risques le long de la chaîne d'approvi
 - Comparaison de trois stratégies d'échantillonnage sur le même territoire.
 - Rapport d'étude en français et en anglais, document de travail détaillé sur le cas ivoirien, restitutions au CIRAD ainsi qu'à Michelin et Continental.
 
-Les rapports, soumis à un accord de confidentialité entre Rubberway et le CIRAD, ne sont pas diffusés.
+Les rapports sont soumis à un accord de confidentialité entre Rubberway et le CIRAD : leur contenu n'est pas diffusé.

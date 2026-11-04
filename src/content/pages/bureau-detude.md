@@ -12,7 +12,7 @@ legacyUrl: https://agrarian-systems.org/notre-bureau-d-etude-de-l-ess/
     <p>Agrarian Systems Consulting est un bureau d'études spécialisé dans la coopération internationale, le développement agricole et rural et la gestion durable des ressources naturelles. Notre équipe est au service d'ONG, de centres de recherche, de structures publiques et d'entreprises privées qui s'engagent pour des territoires agricoles et ruraux durables, pour les populations comme pour les milieux.</p>
   </div>
   <div class="bleed-image">
-    <img src="/uploads/2019/02/Cameroun.png" alt="Paysages agricoles du Cameroun" loading="lazy" />
+    <img src="/photos/diagnostic-des-systemes-agroforestiers-timor-leste/paysage-est-timor.jpg" alt="Paysage agroforestier de l'est du Timor-Leste" loading="lazy" />
   </div>
 </section>
 
@@ -77,7 +77,7 @@ legacyUrl: https://agrarian-systems.org/notre-bureau-d-etude-de-l-ess/
   <li><strong>2010 — Rencontre des associés.</strong> Corentin Lucas, Hugo Lehoux et Adrien Peroches se rencontrent à l'Institut des Régions Chaudes de Montpellier SupAgro.</li>
   <li><strong>2014 — Documentaire « Ceux qui sèment ».</strong> Hugo et Corentin effectuent leur stage de fin d'études en Inde, Adrien en RDC, et ils conduisent le projet de documentaire <em>Ceux qui sèment</em>, sélectionné au Festival Alimenterre.</li>
   <li><strong>2018 — Création du bureau d'études.</strong> Asc est créé en mai 2018 par Hugo et Corentin pour continuer d'accompagner anciens employeurs et clients, et proposer une plus grande diversité de services. Les associés se sont spécialisés dans la microfinance, la certification agricole, l'irrigation et le développement d'applications numériques.</li>
-  <li><strong>2019 — Développement des activités de conseil.</strong> Le démarrage de l'activité permet le lancement de nombreux projets. Plusieurs consultants sont embauchés pour répondre aux besoins.</li>
+  <li><strong>2019 — Développement des activités de conseil.</strong> Le démarrage de l'activité permet le lancement de nombreux projets.</li>
   <li><strong>2020 — Formation agricole.</strong> Les membres d'Asc interviennent depuis 2015 dans les formations d'ingénieurs de Montpellier SupAgro ainsi qu'à l'ISTOM d'Angers.</li>
   <li><strong>2019 — Agroécologie et observatoires des agricultures du monde.</strong> Avec le programme TAPSA, Asc participe aux travaux du GTAE. Asc est également corédacteur du guide méthodologique du programme World Agriculture Watch de la FAO.</li>
   <li><strong>2025 — Restauration forestière et agroforesterie.</strong> Asc propose en 2022 une thèse sur la mise en œuvre de la restauration forestière avec les populations locales et le développement de l'agroforesterie dans les exploitations familiales, conduite et soutenue par Adrien Peroches en 2025.</li>

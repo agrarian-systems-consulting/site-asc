@@ -15,6 +15,9 @@ const projets = defineCollection({
     year_start: z.number().int().optional(),           // année de démarrage du projet
     year_end: z.number().int().optional(),             // année de fin du projet
     client: z.string().optional(),                     // commanditaire (FAO, CCFD…)
+    // ─── Montants (demandés dans les dossiers de références) ───
+    montant_programme: z.string().optional(),          // budget global du programme/projet, ex. « 46 M USD »
+    montant_asc: z.string().optional(),                // montant de la prestation Asc, ex. « 38 500 € HT »
     featured_image: z.string().optional(),
     is_projet: z.boolean().optional().default(false),  // true = apparait aussi sur /projets/ (programme multi-années, pas one-shot)
     video_url: z.string().url().optional(),            // YouTube / Vimeo embed

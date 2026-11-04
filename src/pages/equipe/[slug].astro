@@ -5,7 +5,7 @@ import ListeMissions from '../../components/ListeMissions.astro';
 import { parRecence } from '../../lib/projets';
 
 export async function getStaticPaths() {
-  const experts = await getCollection('experts');
+  const experts = (await getCollection('experts')).filter((e) => !e.data.draft);
   return experts.map((expert) => ({
     params: { slug: expert.slug },
     props: { expert },

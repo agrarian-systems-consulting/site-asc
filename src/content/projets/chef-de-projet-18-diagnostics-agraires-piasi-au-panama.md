@@ -1,5 +1,5 @@
 ---
-title: "Assistance technique au programme PIASI par la réalisation de diagnostics agraires (Panama)"
+title: "Assistance technique au programme PIASI par la réalisation de 19 diagnostics agraires (Panama)"
 date: "2022-01-01"
 year_start: 2020
 year_end: 2025
@@ -59,13 +59,15 @@ Le PIASI repose sur l'idée qu'une compréhension fine de la diversité et des d
 
 #### Réalisations Asc
 Le programme s'est déroulé en quatre contrats successifs, chacun présenté dans une fiche dédiée :
-- 2020-2022 (PN-T1225, avec l'Institut Agro Montpellier) : six diagnostics et une formation-action à Alanje ([fiche](/projets/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/)).
+- 2020-2022 (PN-T1225, avec l'Institut Agro Montpellier) : six diagnostics, à La Pintada, Los Pozos, San Francisco, Sambú, Nole Düima et Valle de Agua Arriba (Almirante), et une formation-action à Divalá et Nuevo México (Alanje) ([fiche](/projets/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/)).
 - 2022-2024 (PN-T1295-P001) : neuf diagnostics confiés à des stagiaires de l'Institut Agro et de l'ISTOM, à des consultants juniors et aux associés d'Asc, à Tonosí, Las Palmas, Barú, Chiriquí Grande, Madugandí, Jirondai, Toabré, Ñürüm et Santa Fe (ces trois derniers dans une [fiche dédiée](/projets/3-diagnostics-agraires-preparatoires-programme-piasi/)).
-- 2023-2024 (PN-T1295-P002) : formations-actions et diagnostics à Ailigandí (Guna Yala) et Cémaco (Emberá-Wounaan) ([fiche](/projets/formation-action-diagnostic-agraire-comarcas-indigenes-panama/)).
-- 2024-2025 (PN-T1342) : diagnostics de Narganá et d'Alanje, résumés de 18 diagnostics et outils de capitalisation ([fiche](/projets/diagnostics-agraires-nargana-alanje-capitalisation-piasi/)).
+- 2023-2024 (PN-T1295-P002) : deux formations-actions prolongées par les diagnostics d'Ailigandí (Guna Yala) et de Cémaco (Emberá-Wounaan) ([fiche](/projets/formation-action-diagnostic-agraire-comarcas-indigenes-panama/)).
+- 2024-2025 (PN-T1342) : diagnostics de Narganá (Guna Yala) et d'Alanje (Nuevo México et Divalá, Chiriquí), résumés de 18 diagnostics et outils de capitalisation ([fiche](/projets/diagnostics-agraires-nargana-alanje-capitalisation-piasi/)).
+
+Au total, 19 diagnostics agraires complets ont été réalisés sur les quatre contrats (6, 9, 2 et 2), auxquels s'ajoutent trois formations-actions.
 
 Sur l'ensemble, Asc a assuré la coordination méthodologique, l'encadrement des équipes, la relecture des rapports, l'organisation des ateliers locaux de restitution et la relation avec la BID et l'IDIAP.
 
 #### Résultats
-- Fin 2024, la BID recensait 17 diagnostics achevés dans les zones du PIASI ; ils servent déjà à des techniciens de l'IDIAP pour adapter les interventions à la diversité des territoires et des exploitations.
+- Fin 2024, la BID recensait 17 diagnostics achevés dans les zones du PIASI, portés à 19 en 2025 avec Narganá et Alanje ; ils servent déjà à des techniciens de l'IDIAP pour adapter les interventions à la diversité des territoires et des exploitations.
 - À la demande de l'IDIAP et des congrès indigènes, la méthode a été étendue aux comarcas Guna Yala et Emberá-Wounaan, puis complétée par des formats courts de diffusion.

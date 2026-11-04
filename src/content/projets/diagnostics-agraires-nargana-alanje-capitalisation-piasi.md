@@ -52,7 +52,7 @@ Fin 2024, 17 diagnostics agraires avaient été achevés dans les zones d'interv
 La BID a confié à Asc la consultation PN-T1342, qui associait réalisation de diagnostics et gestion des connaissances.
 
 #### Objectifs
-- Compléter la couverture des zones du PIASI par deux diagnostics agraires.
+- Compléter la couverture des zones du PIASI par deux diagnostics agraires, portant leur nombre à 19.
 - Rendre les résultats des diagnostics utilisables par les décideurs, les techniciens et les producteurs.
 - Outiller les équipes du programme pour l'accompagnement des familles productrices.
 
