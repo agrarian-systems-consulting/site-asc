@@ -173,7 +173,7 @@ const groupes = parGroupe
           <h2 id="livrables-titre">{livrables.length > 1 ? 'Documents produits' : 'Document produit'}</h2>
           {groupes ? (
             <>
-              <p class="liv-intro">{livrables.length} documents{parGroupe ? ', classés par module' : ', du plus récent au plus ancien'}.</p>
+              <p class="liv-intro">{livrables.length} documents{parGroupe ? '' : ', du plus récent au plus ancien'}.</p>
               {groupes.map((g) => (
                 <div class:list={['liv-annee', { 'liv-annee--texte': parGroupe }]}>
                   <h3>{g.annee}</h3>

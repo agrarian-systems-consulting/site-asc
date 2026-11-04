@@ -29,18 +29,6 @@ chiffres:
   - { valeur: "400", label: "bénéficiaires enquêtés au Burundi (TAPSA I)" }
   - { valeur: "3", label: "chaînes de solidarité animalière évaluées (TAPSA II)" }
 livrables:
-  - titre: "Ermera est-il America ? Analyse des dynamiques agraires sous les caféières du Timor oriental (mémoire de fin d'études encadré)"
-    couverture: /livrables/tapsa/memoire-ermera-timor.jpg
-    annee: 2019
-    type: Rapport
-    langue: FR
-    pages: 116
-  - titre: "Analyse des dynamiques de transformation et de transition agroécologique dans l'Autonomie indigène Charagua Iyambae, Bolivie (mémoire de fin d'études encadré)"
-    couverture: /livrables/tapsa/memoire-charagua-bolivie.jpg
-    annee: 2019
-    type: Rapport
-    langue: FR
-    pages: 107
   - titre: "Atelier méthodologique de lancement du dispositif d'évaluation (Montpellier, mai 2019)"
     couverture: /livrables/tapsa/atelier-montpellier-2019.jpg
     annee: 2019
