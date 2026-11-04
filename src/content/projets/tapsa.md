@@ -29,6 +29,11 @@ chiffres:
   - { valeur: "400", label: "bénéficiaires enquêtés au Burundi (TAPSA I)" }
   - { valeur: "3", label: "chaînes de solidarité animalière évaluées (TAPSA II)" }
 livrables:
+  - titre: "Chaînes de solidarité animalières : outil de visualisation et de modélisation (TAPSA 2, Burundi)"
+    couverture: /livrables/tapsa/outil-chaines-de-solidarite.jpg
+    annee: 2026
+    type: Outil
+    langue: FR
   - titre: "Atelier méthodologique de lancement du dispositif d'évaluation (Montpellier, mai 2019)"
     couverture: /livrables/tapsa/atelier-montpellier-2019.jpg
     annee: 2019
