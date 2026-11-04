@@ -35,7 +35,6 @@ livrables:
     resume: "Support présenté au séminaire final du projet MAHDIA à Hammamet (septembre 2026) dans le cadre de son évaluation finale externe. Il présente l'équipe d'évaluation, la démarche en trois étapes (revue documentaire, entretiens sur les quatre terrains, synthèse) fondée sur les critères du CAD de l'OCDE, le calendrier des rapports, les questions évaluatives spécifiques et quelques premiers éléments saillants."
 photos:
   - { src: /photos/evaluation-finale-projet-mahdia/paysage-oliveraies.jpg, legende: "Paysage d'oliveraies sur un territoire du projet" }
-  - { src: /photos/evaluation-finale-projet-mahdia/visite-parcelle.jpg, legende: "Visite de parcelle avec les équipes du projet" }
   - { src: /photos/evaluation-finale-projet-mahdia/produits-interet-territorial.jpg, legende: "Produits d'intérêt territorial valorisés par le projet" }
 ---
 #### Contexte
