@@ -22,7 +22,7 @@ const SELECTION = [
   'tapsa/capitalisation-methodologique.jpg',
   'diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/la-pintada.jpg',
   'ecole-terrain-richard-toll-manuel-pedagogique-etudes-systemiques/manuel-apprendre-par-l-action.jpg',
-  'diagnostic-agraire-nord-syunik-etude-de-faisabilite-afd/rapport-nord-syunik.jpg',
+  'diagnostic-agraire-nord-syunik-etude-de-faisabilite-afd/rapport-vorotan-2024.jpg',
   'tapsa/evaluation-impact-kayes.jpg',
   'appui-au-pat-du-pays-barval-arcachon/rapport-foncier-pays-barval.jpg',
   '3-diagnostics-agraires-preparatoires-programme-piasi/toabre-penonome.jpg',
@@ -51,32 +51,41 @@ for (const p of all) {
     freq.set(c, (freq.get(c) ?? 0) + 1);
   }
 }
-const commanditaires = [...freq.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'fr')).map(([c]) => c).slice(0, 28);
+const commanditaires = [...freq.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'fr')).map(([c]) => c);
+
+const LOGOS = [
+  { f: 'cirad', nom: 'CIRAD' }, { f: 'bid', nom: 'Banque interaméricaine de développement' },
+  { f: 'afd', nom: 'Agence française de développement' }, { f: 'ccfd-terre-solidaire', nom: 'CCFD-Terre Solidaire' },
+  { f: 'institut-agro-montpellier', nom: "L'Institut Agro Montpellier" }, { f: 'idiap', nom: 'IDIAP Panama' },
+  { f: 'cifor', nom: 'CIFOR' }, { f: 'banque-des-territoires', nom: 'Banque des Territoires' },
+  { f: 'pnud', nom: 'PNUD' }, { f: 'montpellier-supagro', nom: 'Montpellier SupAgro' },
+  { f: 'lfs', nom: 'LFS Financial Systems' }, { f: 'wwf', nom: 'WWF' },
+  { f: 'cfppa-carmejane', nom: 'CFPPA de Carmejane' }, { f: 'dgacta', nom: 'DGACTA Tunisie' },
+  { f: 'graines-equitables', nom: 'SCIC Graines équitables' }, { f: 'ussein', nom: 'USSEIN' },
+];
+const avecLogo = /CIRAD|BID|^AFD|CCFD|Institut Agro|IDIAP|CIFOR|Banque des Territoires|PNUD|SupAgro|LFS|WWF|Carmejane|DGACTA|Graines|USSEIN|Sine Saloum/i;
+const autres = commanditaires.filter((c) => !avecLogo.test(c));
 
 const compte = (cats: string[]) => all.filter((p) => p.data.categories.some((c) => cats.includes(c))).length;
 ---
 
 <BaseLayout title="Accueil" description="Agrarian Systems Consulting, bureau d'étude des systèmes agraires et alimentaires : diagnostic agraire, suivi-évaluation, agroforesterie, formation et outils numériques, en France et dans les pays du Sud.">
   <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-texte">
-        <h1>Comprendre les agricultures pour mieux accompagner leurs transitions.</h1>
-        <p class="hero-lead">
-          Agrarian Systems Consulting est un bureau d'étude de l'économie sociale et solidaire.
-          Nous diagnostiquons des systèmes agraires, évaluons des programmes, formons des
-          professionnels et développons des outils numériques, des zones arides du Sahel
-          aux forêts du bassin du Congo, de l'isthme de Panama aux campagnes françaises.
-        </p>
-        <p class="hero-actions">
-          <a class="btn btn-primary" href="/projets/references/">Parcourir nos {all.length} références</a>
-          <a class="lien-simple" href="/contact/">Nous écrire</a>
-        </p>
-      </div>
-      <div class="hero-carte">
-        <CarteTerrains projets={all}>
-          <Fragment slot="legende">{all.length} missions dans {nbPays} pays. Chaque point ouvre la liste des missions du pays.</Fragment>
-        </CarteTerrains>
-      </div>
+    <div class="hero-carte" aria-hidden="false">
+      <CarteTerrains projets={all}><Fragment slot="legende"> </Fragment></CarteTerrains>
+    </div>
+    <div class="container hero-texte">
+      <h1>Comprendre les agricultures pour mieux accompagner leurs transitions.</h1>
+      <p class="hero-lead">
+        Agrarian Systems Consulting est un bureau d'étude de l'économie sociale et solidaire.
+        Nous diagnostiquons des systèmes agraires, évaluons des programmes, formons des
+        professionnels et développons des outils numériques, des zones arides du Sahel
+        aux forêts du bassin du Congo, de l'isthme de Panama aux campagnes françaises.
+      </p>
+      <p class="hero-actions">
+        <a class="btn btn-primary" href="/projets/references/">Parcourir nos {all.length} références</a>
+        <a class="lien-simple" href="/territoires/">{nbPays} pays d'intervention</a>
+      </p>
     </div>
   </section>
 
@@ -128,27 +137,37 @@ const compte = (cats: string[]) => all.filter((p) => p.data.categories.some((c) 
   <section class="metiers">
     <div class="container">
       <h2>Nos métiers</h2>
-      <ol class="met-liste">
+      <ul class="met-grille">
         {expertises.map((e) => (
           <li>
             <a href={`/expertises/${e.slug}/`}>
-              <span class="met-titre">{e.data.title}</span>
-              <span class="met-intro">{e.data.intro}</span>
-              <span class="met-n">{compte(e.data.related_categories)} missions</span>
+              <span class="met-img">{e.data.image && <img src={e.data.image} alt="" loading="lazy" decoding="async" />}</span>
+              <span class="met-corps">
+                <span class="met-titre">{e.data.title}</span>
+                <span class="met-intro">{e.data.intro}</span>
+                <span class="met-n">{compte(e.data.related_categories)} missions</span>
+              </span>
             </a>
           </li>
         ))}
-      </ol>
+      </ul>
     </div>
   </section>
 
-  <section class="clients">
+  <section class="clients" aria-labelledby="clients-titre">
     <div class="container">
-      <h2>Ils nous ont confié des missions</h2>
-      <ul class="cl-liste">
-        {commanditaires.map((c) => <li>{c}</li>)}
+      <h2 id="clients-titre">Ils nous ont confié des missions</h2>
+    </div>
+    <div class="defile" tabindex="0" aria-label="Logos de nos commanditaires">
+      <ul class="defile-piste">
+        {[...LOGOS, ...LOGOS].map((l, i) => (
+          <li aria-hidden={i >= LOGOS.length ? 'true' : undefined}>
+            <img src={`/logos/${l.f}.png`} alt={i >= LOGOS.length ? '' : l.nom} loading="lazy" decoding="async" />
+          </li>
+        ))}
       </ul>
     </div>
+    <p class="container cl-autres">Et aussi : {autres.join(', ')}.</p>
   </section>
 </BaseLayout>
 
@@ -159,17 +178,27 @@ const compte = (cats: string[]) => all.filter((p) => p.data.categories.some((c) 
     margin: 0 0 2rem;
   }
 
-  /* ── Hero ── */
-  .hero { background: var(--color-bg-soft); padding: 4.5rem 1.5rem 4rem; }
-  .hero-grid { display: grid; gap: 3rem; align-items: center; }
+  /* ── Hero : carte en grand, titre par-dessus ── */
+  .hero { position: relative; background: var(--color-bg-soft); padding: 4.5rem 1.5rem 3.5rem; overflow: hidden; }
+  .hero-carte { position: relative; }
+  .hero-texte { position: relative; z-index: 1; pointer-events: none; }
+  .hero-texte :is(a, .btn) { pointer-events: auto; }
   @media (min-width: 1000px) {
-    .hero-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 3.5rem; }
+    .hero { min-height: 640px; display: flex; align-items: center; padding-block: 5rem; }
+    .hero-carte {
+      position: absolute; top: 50%; right: -4vw; transform: translateY(-50%);
+      width: min(1180px, 78vw);
+    }
+    .hero-texte { width: 100%; }
+    .hero-texte > * { max-width: 34rem; }
+    .hero-texte h1 { max-width: 15ch; text-shadow: 0 0 24px #f7f0e3, 0 0 8px #f7f0e3; }
+    .hero-lead { background: rgba(247, 240, 227, 0.82); box-shadow: 0 0 24px 18px rgba(247, 240, 227, 0.82); }
   }
   .hero h1 {
-    font-size: clamp(2.3rem, 4.6vw, 3.6rem);
+    font-size: clamp(2.3rem, 4.8vw, 3.9rem);
     font-variation-settings: 'opsz' 60;
     letter-spacing: -0.015em;
-    line-height: 1.06;
+    line-height: 1.04;
     max-width: 17ch;
     margin: 0 0 1.5rem;
     text-wrap: balance;
@@ -223,27 +252,43 @@ const compte = (cats: string[]) => all.filter((p) => p.data.categories.some((c) 
   @media (max-width: 560px) { .documents .etagere { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (prefers-reduced-motion: reduce) { .couv { transition: none; } }
 
-  /* ── Métiers ── */
-  .metiers { padding: 5rem 1.5rem 3rem; }
-  .met-liste { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(103, 61, 52, 0.18); }
-  .met-liste a {
-    display: grid; grid-template-columns: minmax(12rem, 18rem) minmax(0, 1fr) 7rem; gap: 2rem; align-items: baseline;
-    padding: 1.35rem 0; border: 0; border-bottom: 1px solid rgba(103, 61, 52, 0.18); color: var(--color-ink);
+  /* ── Métiers : cartes avec photo de terrain ── */
+  .metiers { padding: 5rem 1.5rem 3.5rem; }
+  .met-grille { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.75rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .met-grille a {
+    display: flex; flex-direction: column; height: 100%; border: 1px solid rgba(103, 61, 52, 0.14); border-radius: 4px;
+    overflow: hidden; color: var(--color-ink); background: #fff; transition: border-color .2s ease;
   }
-  .met-titre { font-family: var(--font-heading); font-variation-settings: 'opsz' 40; font-size: 1.5rem; font-weight: 600; }
-  .met-intro { line-height: 1.55; }
-  .met-n { text-align: right; font-size: 0.88rem; color: var(--color-muted-text); font-variant-numeric: tabular-nums; }
-  .met-liste a:hover .met-titre { color: var(--color-accent-text); }
-  @media (max-width: 760px) {
-    .met-liste a { grid-template-columns: 1fr; gap: 0.35rem; }
-    .met-n { text-align: left; }
-  }
+  .met-grille a:hover { border-color: rgba(103, 61, 52, 0.35); }
+  .met-img { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--color-bg-soft); }
+  .met-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+  .met-grille a:hover .met-img img { transform: scale(1.04); }
+  .met-corps { display: flex; flex-direction: column; gap: 0.6rem; padding: 1.35rem 1.5rem 1.4rem; flex: 1; }
+  .met-titre { font-family: var(--font-heading); font-variation-settings: 'opsz' 40; font-size: 1.45rem; font-weight: 600; line-height: 1.2; }
+  .met-grille a:hover .met-titre { color: var(--color-accent-text); }
+  .met-intro { line-height: 1.55; font-size: 0.97rem; flex: 1; }
+  .met-n { font-size: 0.86rem; font-weight: 600; color: var(--color-accent-2); padding-top: 0.75rem; border-top: 1px solid rgba(103, 61, 52, 0.1); }
+  @media (prefers-reduced-motion: reduce) { .met-img img { transition: none; } }
 
-  /* ── Commanditaires ── */
-  .clients { padding: 3rem 1.5rem 4rem; }
-  .cl-liste {
-    list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap;
-    font-family: var(--font-heading); font-size: clamp(1.1rem, 1.7vw, 1.4rem); line-height: 1.8; max-width: 70rem; color: #7a5248;
+  /* ── Commanditaires : défilement de logos ── */
+  .clients { padding: 3.5rem 0 4.5rem; }
+  .clients h2 { margin-bottom: 2.25rem; }
+  .clients .container { padding-inline: 1.5rem; }
+  .defile {
+    overflow: hidden; position: relative;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   }
-  .cl-liste li:not(:last-child)::after { content: '/'; margin: 0 0.6rem; color: #c9a596; }
+  .defile-piste { list-style: none; margin: 0; padding: 0.5rem 0; display: flex; gap: 4.5rem; width: max-content; animation: defile 60s linear infinite; }
+  .defile:hover .defile-piste, .defile:focus-within .defile-piste { animation-play-state: paused; }
+  .defile-piste li { flex: none; display: grid; place-items: center; height: 72px; }
+  .defile-piste img { max-height: 64px; max-width: 170px; width: auto; height: auto; filter: grayscale(1) sepia(.25); opacity: .72; transition: filter .25s ease, opacity .25s ease; }
+  .defile-piste li:hover img { filter: none; opacity: 1; }
+  @keyframes defile { to { transform: translateX(calc(-50% - 2.25rem)); } }
+  @media (prefers-reduced-motion: reduce) {
+    .defile { -webkit-mask-image: none; mask-image: none; }
+    .defile-piste { animation: none; flex-wrap: wrap; width: auto; justify-content: center; padding-inline: 1.5rem; }
+    .defile-piste li[aria-hidden='true'] { display: none; }
+  }
+  .cl-autres { margin-top: 2.25rem; font-size: 0.92rem; color: var(--color-muted-text, #5F6A43); line-height: 1.6; max-width: 1200px; }
 </style>

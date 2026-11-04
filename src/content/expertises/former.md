@@ -5,7 +5,7 @@ icon: "🎓"
 order: 6
 related_categories:
   - Formation
-image: /uploads/2019/12/MOQUAS-IPAD.jpg
+image: /photos/formation-au-diagnostic-agraire-pays-d-armagnac/transect-nogaro-montreal.jpg
 ---
 
 Nous formons nos clients et partenaires à la démarche systémique et aux outils numériques. Nous intervenons auprès de professionnels de l'agriculture comme d'étudiants en formation initiale dans les écoles d'ingénieurs et universités de France et d'Afrique centrale.

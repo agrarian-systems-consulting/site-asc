@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { periode, missionsProches, descriptionLivrable, visuel } from '../../lib/projets';
+import Pays from '../../components/Pays.astro';
 
 export async function getStaticPaths() {
   // Les fiches en brouillon (draft: true) ne sont pas publiées
@@ -101,7 +102,7 @@ const groupes = livrables.length > 8
         <dl>
           {client && (<div><dt>Commanditaire</dt><dd>{client}</dd></div>)}
           <div><dt>Période</dt><dd>{periodeTxt}</dd></div>
-          {countries.length > 0 && (<div><dt>Pays</dt><dd>{countries.join(', ')}</dd></div>)}
+          {countries.length > 0 && (<div><dt>Pays</dt><dd><Pays pays={countries} lien /></dd></div>)}
           {categories.length > 0 && (
             <div>
               <dt>Thématiques</dt>
@@ -182,15 +183,15 @@ const groupes = livrables.length > 8
                   data-titre={l.titre}
                   data-demande={l.url ? undefined : mailDemande(l.titre)}
                 >
-                  <span class={`liasse liasse--${epaisseur(l.pages)}`}>
+                  <span class={l.type === 'Outil' ? 'liasse liasse--ecran' : `liasse liasse--${epaisseur(l.pages)}`}>
                     <img src={l.couverture} alt={`Couverture : ${l.titre}`} loading="lazy" decoding="async" />
                   </span>
                 </a>
                 <p class="doc-titre">{l.titre}</p>
                 <p class="doc-desc">{descriptionLivrable(l)}</p>
                 {l.url
-                  ? <a class="doc-action" href={l.url} target="_blank" rel="noopener noreferrer">Lire le document</a>
-                  : <a class="doc-action doc-action--discret" href={mailDemande(l.titre)}>Demander le document</a>}
+                  ? <a class="doc-action" href={l.url} target="_blank" rel="noopener noreferrer">{l.type === 'Outil' ? "Ouvrir l'outil" : 'Lire le document'}</a>
+                  : l.type !== 'Outil' && <a class="doc-action doc-action--discret" href={mailDemande(l.titre)}>Demander le document</a>}
               </li>
             ))}
                   </ol>
@@ -210,15 +211,15 @@ const groupes = livrables.length > 8
                   data-titre={l.titre}
                   data-demande={l.url ? undefined : mailDemande(l.titre)}
                 >
-                  <span class={`liasse liasse--${epaisseur(l.pages)}`}>
+                  <span class={l.type === 'Outil' ? 'liasse liasse--ecran' : `liasse liasse--${epaisseur(l.pages)}`}>
                     <img src={l.couverture} alt={`Couverture : ${l.titre}`} loading="lazy" decoding="async" />
                   </span>
                 </a>
                 <p class="doc-titre">{l.titre}</p>
                 <p class="doc-desc">{descriptionLivrable(l)}</p>
                 {l.url
-                  ? <a class="doc-action" href={l.url} target="_blank" rel="noopener noreferrer">Lire le document</a>
-                  : <a class="doc-action doc-action--discret" href={mailDemande(l.titre)}>Demander le document</a>}
+                  ? <a class="doc-action" href={l.url} target="_blank" rel="noopener noreferrer">{l.type === 'Outil' ? "Ouvrir l'outil" : 'Lire le document'}</a>
+                  : l.type !== 'Outil' && <a class="doc-action doc-action--discret" href={mailDemande(l.titre)}>Demander le document</a>}
               </li>
             ))}
           </ol>
@@ -513,6 +514,10 @@ const groupes = livrables.length > 8
   .liasse::before { transform: translate(4px, 4px); z-index: 1; }
   .liasse::after { transform: translate(8px, 8px); z-index: 0; background: #f3ece0; }
   .liasse--0::before, .liasse--0::after, .liasse--1::after { display: none; }
+  /* Outils numériques : capture d'écran au format paysage, cadre de fenêtre */
+  .liasse--ecran { aspect-ratio: 16 / 11; border-radius: 6px; overflow: hidden; border-top: 14px solid #e6dccb; }
+  .liasse--ecran::before, .liasse--ecran::after { display: none; }
+  .liasse--ecran img { object-position: top center; }
   .liasse--3 { box-shadow: 0 1px 1px rgba(64, 40, 30, 0.08), 12px 14px 22px -12px rgba(64, 40, 30, 0.45); }
   .doc-lien:hover .liasse, .doc-lien:focus-visible .liasse { transform: translateY(-4px) rotate(-0.6deg); }
   .doc-titre {

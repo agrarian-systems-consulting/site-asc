@@ -48,6 +48,7 @@ livrables:
     type: Présentation
     langue: ES
     pages: 33
+featured_image: /photos/3-diagnostics-agraires-preparatoires-programme-piasi/bananiers-sous-couvert-toabre.jpg
 ---
 #### Contexte
 Le Programme d'innovation agricole durable et inclusive (PIASI) est un programme du gouvernement panaméen, cofinancé par un prêt de la BID et co-exécuté par l'IDIAP et le ministère du Développement agricole (MIDA). Il vise à améliorer les revenus agricoles et la sécurité alimentaire des agriculteurs familiaux dans 21 districts du pays.

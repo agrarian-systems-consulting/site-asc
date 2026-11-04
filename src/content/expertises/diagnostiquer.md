@@ -8,7 +8,7 @@ related_categories:
   - Étude
   - Recherche
   - Aménagement du Territoire
-image: /uploads/2019/12/IMG_3884.jpg
+image: /photos/diagnostic-agraire-nord-syunik-etude-de-faisabilite-afd/haut-plateau-ondule.jpg
 ---
 
 Avec l'étude du milieu bio-physique et la reconstruction de l'histoire agraire, nous comprenons et caractérisons la diversité des exploitations agricoles d'un territoire et les dynamiques à l'œuvre. Cela permet également de mieux concevoir les éventuelles interventions de développement au sein du territoire.
