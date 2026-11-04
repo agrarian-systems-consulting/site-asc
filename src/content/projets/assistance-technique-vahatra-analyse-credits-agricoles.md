@@ -17,6 +17,13 @@ is_projet: false
 experts:
   - corentin-lucas
   - hugo-lehoux
+livrables:
+  - titre: "Agronomics : fiches techniques et cash-flow prévisionnel des activités agricoles (version de développement)"
+    couverture: /livrables/assistance-technique-vahatra-analyse-credits-agricoles/agronomics-fiche-technique.jpg
+    annee: 2026
+    type: Outil
+    langue: FR
+    resume: "Application web open source en cours de développement pour l'IMF Vahatra à Madagascar, destinée à l'analyse des crédits agricoles. Elle permet de construire des fiches techniques par production, avec les activités, dépenses et ventes datées et une période de démarrage autorisée, puis d'en déduire le cash-flow prévisionnel d'un emprunteur pour éclairer l'analyse de sa capacité de remboursement."
 ---
 #### Contexte
 Vahatra est une institution de microfinance agréée à Madagascar. Elle s'est transformée en société anonyme après plus de vingt ans d'activité en tant qu'ONG. Fin 2024, elle finançait plus de 17 000 emprunteurs à partir de 46 points de service répartis dans trois régions des Hauts Plateaux, et plus de 70 % de son portefeuille concernait l'agriculture et l'élevage. La SIDI, partenaire et actionnaire de Vahatra, finance cette assistance technique dans le cadre du programme SSNUP (Smallholder Safety Net Up-Scaling Programme).
@@ -31,3 +38,4 @@ Vahatra est une institution de microfinance agréée à Madagascar. Elle s'est t
 - Mission de diagnostic à Madagascar : visites d'agences, observation des étapes du processus de prêt (ateliers de demande, visites à domicile, comités d'octroi), analyse du portefeuille.
 - Rapport de diagnostic des opérations rurales : outils d'analyse des emprunteurs, gestion des risques, formation des agents, organisation des agences et système d'information, avec un plan d'action prioritaire.
 - Phases en cours : construction des référentiels technico-économiques par filière et développement de l'application de génération des flux de trésorerie.
+- L'application s'appuie sur Agronomics, refonte par Asc d'Endagri (l'outil conçu pour Enda Tamweel en Tunisie) sur des technologies récentes et avec davantage de paramétrage : fiches techniques par production (activités, dépenses et ventes datées, période de démarrage autorisée), calcul du cash-flow prévisionnel et analyses de trésorerie par emprunteur.

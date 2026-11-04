@@ -3,6 +3,8 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { periode, missionsProches, descriptionLivrable, visuel } from '../../lib/projets';
 import Pays from '../../components/Pays.astro';
+import DocCarte from '../../components/DocCarte.astro';
+import DocModale from '../../components/DocModale.astro';
 
 export async function getStaticPaths() {
   // Les fiches en brouillon (draft: true) ne sont pas publiées
@@ -179,26 +181,7 @@ const groupes = parGroupe
                   <h3>{g.annee}</h3>
                   <ol class="etagere etagere--compacte">
             {g.docs.map((l) => (
-              <li class="doc">
-                <a
-                  class="doc-lien"
-                  href={l.url ?? l.couverture}
-                  target={l.url ? '_blank' : undefined}
-                  rel={l.url ? 'noopener noreferrer' : undefined}
-                  data-lightbox={l.url ? undefined : 'livrable'}
-                  data-titre={l.titre}
-                  data-demande={l.url ? undefined : mailDemande(l.titre)}
-                >
-                  <span class={l.type === 'Outil' ? 'liasse liasse--ecran' : l.type === 'Présentation' ? `liasse liasse--paysage liasse--${Math.min(epaisseur(l.pages), 1)}` : `liasse liasse--${epaisseur(l.pages)}`}>
-                    <img src={l.couverture} alt={`Couverture : ${l.titre}`} loading="lazy" decoding="async" />
-                  </span>
-                </a>
-                <p class="doc-titre">{l.titre}</p>
-                <p class="doc-desc">{descriptionLivrable(l)}</p>
-                {l.url
-                  ? <a class="doc-action" href={l.url} target="_blank" rel="noopener noreferrer">{l.type === 'Outil' ? "Ouvrir l'outil" : 'Lire le document'}</a>
-                  : l.type !== 'Outil' && <a class="doc-action doc-action--discret" href={mailDemande(l.titre)}>Demander le document</a>}
-              </li>
+              <DocCarte doc={l} projet={projet} />
             ))}
                   </ol>
                 </div>
@@ -207,26 +190,7 @@ const groupes = parGroupe
           ) : (
           <ol class:list={['etagere', { 'etagere--seul': livrables.length === 1 }]}>
             {livrables.map((l) => (
-              <li class="doc">
-                <a
-                  class="doc-lien"
-                  href={l.url ?? l.couverture}
-                  target={l.url ? '_blank' : undefined}
-                  rel={l.url ? 'noopener noreferrer' : undefined}
-                  data-lightbox={l.url ? undefined : 'livrable'}
-                  data-titre={l.titre}
-                  data-demande={l.url ? undefined : mailDemande(l.titre)}
-                >
-                  <span class={l.type === 'Outil' ? 'liasse liasse--ecran' : l.type === 'Présentation' ? `liasse liasse--paysage liasse--${Math.min(epaisseur(l.pages), 1)}` : `liasse liasse--${epaisseur(l.pages)}`}>
-                    <img src={l.couverture} alt={`Couverture : ${l.titre}`} loading="lazy" decoding="async" />
-                  </span>
-                </a>
-                <p class="doc-titre">{l.titre}</p>
-                <p class="doc-desc">{descriptionLivrable(l)}</p>
-                {l.url
-                  ? <a class="doc-action" href={l.url} target="_blank" rel="noopener noreferrer">{l.type === 'Outil' ? "Ouvrir l'outil" : 'Lire le document'}</a>
-                  : l.type !== 'Outil' && <a class="doc-action doc-action--discret" href={mailDemande(l.titre)}>Demander le document</a>}
-              </li>
+              <DocCarte doc={l} projet={projet} />
             ))}
           </ol>
           )}
@@ -296,10 +260,8 @@ const groupes = parGroupe
     <form method="dialog"><button class="v-fermer" aria-label="Fermer">×</button></form>
     <img alt="" />
     <p class="v-legende"></p>
-    <p class="v-demande" hidden>
-      Ce document a été remis à notre commanditaire. <a href="#">Écrivez-nous</a> pour en obtenir une copie si sa diffusion est possible.
-    </p>
   </dialog>
+  <DocModale />
 </BaseLayout>
 
 <script>
@@ -307,7 +269,6 @@ const groupes = parGroupe
   if (dlg && typeof dlg.showModal === 'function') {
     const img = dlg.querySelector('img')!;
     const leg = dlg.querySelector<HTMLElement>('.v-legende')!;
-    const dem = dlg.querySelector<HTMLElement>('.v-demande')!;
     document.querySelectorAll<HTMLAnchorElement>('a[data-lightbox]').forEach((a) => {
       a.addEventListener('click', (ev) => {
         if (ev.metaKey || ev.ctrlKey) return;
@@ -316,10 +277,6 @@ const groupes = parGroupe
         img.alt = a.dataset.titre ?? '';
         leg.textContent = a.dataset.titre ?? '';
         dlg.dataset.kind = a.dataset.lightbox;
-        if (a.dataset.demande) {
-          dem.hidden = false;
-          dem.querySelector('a')!.setAttribute('href', a.dataset.demande);
-        } else dem.hidden = true;
         dlg.showModal();
       });
     });

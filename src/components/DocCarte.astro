@@ -1,0 +1,143 @@
+---
+/**
+ * Carte d'un document (couverture en « liasse ») + fiche détaillée dans un <template>,
+ * ouverte dans la modale commune (DocModale.astro). Les documents ne sont pas téléchargeables :
+ * seuls les outils en ligne et les articles publiés gardent un lien externe.
+ */
+import type { CollectionEntry } from 'astro:content';
+import Pays from './Pays.astro';
+import { descriptionLivrable } from '../lib/projets';
+
+type Livrable = CollectionEntry<'projets'>['data']['livrables'][number];
+interface Props { doc: Livrable; projet: CollectionEntry<'projets'>; afficherProjet?: boolean }
+const { doc, projet, afficherProjet = false } = Astro.props;
+
+const id = `doc-${projet.slug}-${doc.couverture.split('/').pop()?.replace(/\W+/g, '-')}`;
+const epaisseur = (pages?: number) => (!pages ? 1 : pages < 20 ? 0 : pages < 60 ? 1 : pages < 150 ? 2 : 3);
+const liasse = doc.type === 'Outil' ? 'liasse liasse--ecran'
+  : doc.type === 'Présentation' ? `liasse liasse--paysage liasse--${Math.min(epaisseur(doc.pages), 1)}`
+  : `liasse liasse--${epaisseur(doc.pages)}`;
+// Seuls les articles scientifiques déjà publiés gardent un lien ; aucun lien vers nos outils
+const lienExterne = doc.url && /^https?:/.test(doc.url) && doc.type === 'Article' ? doc.url : undefined;
+const LANGUES: Record<string, string> = { FR: 'Français', EN: 'Anglais', ES: 'Espagnol', PT: 'Portugais' };
+const langue = doc.langue ? LANGUES[doc.langue.toUpperCase()] ?? doc.langue : undefined;
+const demandable = doc.type !== 'Outil' && !lienExterne;
+---
+
+<li class="doc">
+  <button type="button" class="doc-lien" data-doc={id} aria-haspopup="dialog">
+    <span class={liasse}><img src={doc.couverture} alt="" loading="lazy" decoding="async" /></span>
+    <span class="doc-titre">{doc.titre}</span>
+  </button>
+  <p class="doc-desc">{descriptionLivrable(doc)}</p>
+  {afficherProjet && (
+    <>
+      <p class="doc-projet"><a href={`/projets/${projet.slug}/`}>{projet.data.title}</a></p>
+      <Pays pays={projet.data.countries} max={2} />
+    </>
+  )}
+
+  <template id={id}>
+    <div class="dm">
+      <div class="dm-couv"><span class={liasse}><img src={doc.couverture} alt={`Couverture : ${doc.titre}`} /></span></div>
+      <div class="dm-corps">
+        <p class="dm-type">{doc.type ?? 'Document'}</p>
+        <h2 class="dm-titre">{doc.titre}</h2>
+        <dl class="dm-meta">
+          {doc.annee && <><dt>Année</dt><dd>{doc.annee}</dd></>}
+          {doc.pages && <><dt>Pages</dt><dd>{doc.pages}</dd></>}
+          {langue && <><dt>Langue</dt><dd>{langue}</dd></>}
+          {projet.data.countries.length > 0 && <><dt>Pays</dt><dd><Pays pays={projet.data.countries} lien /></dd></>}
+          {projet.data.client && <><dt>Commanditaire</dt><dd>{projet.data.client}</dd></>}
+          <dt>Projet</dt><dd><a href={`/projets/${projet.slug}/`}>{projet.data.title}</a></dd>
+        </dl>
+        {doc.resume && <p class="dm-resume">{doc.resume}</p>}
+        {lienExterne && (
+          <p><a class="dm-bouton" href={lienExterne} target="_blank" rel="noopener noreferrer">
+            Lire l’article
+          </a></p>
+        )}
+        {demandable && (
+          <div class="dm-demande">
+            <button type="button" class="dm-bouton" data-demande>Demander le document</button>
+            <form class="dm-form" action="https://formsubmit.co/hugo@agrarian-systems.org" method="POST" hidden>
+              <input type="hidden" name="_cc" value="corentin@agrarian-systems.org,adrien@agrarian-systems.org" />
+              <input type="hidden" name="_subject" value={`Demande de document : ${doc.titre}`} />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value="https://agrarian-systems.org/merci/" />
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+              <input type="hidden" name="document" value={doc.titre} />
+              <input type="hidden" name="projet" value={`${projet.data.title} (https://agrarian-systems.org/projets/${projet.slug}/)`} />
+              <p class="dm-note">Ce document appartient à notre commanditaire. Dites-nous qui vous êtes et ce que vous souhaitez en faire : nous vous répondrons, et le transmettrons quand sa diffusion est possible.</p>
+              <label>Votre nom<input name="nom" type="text" required autocomplete="name" /></label>
+              <label>Structure<input name="structure" type="text" autocomplete="organization" /></label>
+              <label>Email<input name="email" type="email" required autocomplete="email" /></label>
+              <label>Usage prévu<textarea name="message" rows="3" required></textarea></label>
+              <button type="submit" class="dm-bouton">Envoyer la demande</button>
+            </form>
+          </div>
+        )}
+      </div>
+    </div>
+  </template>
+</li>
+
+<style>
+  .doc { display: flex; flex-direction: column; }
+  .doc-lien {
+    all: unset; cursor: pointer; display: block; margin-bottom: 0.35rem;
+  }
+  .doc-lien:focus-visible { outline: 2px solid var(--color-accent-text); outline-offset: 6px; }
+  .doc-lien .liasse { margin-bottom: 1rem; }
+  .doc-titre {
+    display: block; font-family: var(--font-heading); font-variation-settings: 'opsz' 18; font-weight: 600;
+    font-size: 1rem; line-height: 1.3; color: var(--color-ink);
+  }
+  .doc-lien:hover .doc-titre { text-decoration: underline; text-decoration-color: rgba(103, 61, 52, 0.35); text-underline-offset: 3px; }
+  .doc-desc { font-size: 0.84rem; color: #7a5e53; margin: 0 0 0.35rem; }
+  .doc-projet { font-size: 0.84rem; line-height: 1.4; margin: 0 0 0.45rem;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .doc-projet a { color: var(--color-ink); border-bottom-color: rgba(103, 61, 52, 0.25); }
+
+  .liasse { position: relative; display: block; aspect-ratio: 210 / 297; background: #fff;
+    box-shadow: 0 1px 1px rgba(64, 40, 30, 0.08), 0 10px 22px -12px rgba(64, 40, 30, 0.45);
+    transition: transform 0.25s ease; }
+  .liasse img { position: relative; z-index: 2; width: 100%; height: 100%; object-fit: cover; object-position: top;
+    display: block; background: #fff; outline: 1px solid rgba(103, 61, 52, 0.1); outline-offset: -1px; }
+  .liasse::before, .liasse::after { content: ''; position: absolute; inset: 0; background: #fbf8f2;
+    border: 1px solid rgba(103, 61, 52, 0.12); }
+  .liasse::before { transform: translate(4px, 4px); z-index: 1; }
+  .liasse::after { transform: translate(8px, 8px); z-index: 0; background: #f3ece0; }
+  .liasse--0::before, .liasse--0::after, .liasse--1::after { display: none; }
+  .liasse--3 { box-shadow: 0 1px 1px rgba(64, 40, 30, 0.08), 12px 14px 22px -12px rgba(64, 40, 30, 0.45); }
+  .liasse--ecran { aspect-ratio: 16 / 11; border-radius: 6px; overflow: hidden; border-top: 14px solid #e6dccb; }
+  .liasse--ecran::before, .liasse--ecran::after { display: none; }
+  .liasse--paysage { aspect-ratio: 16 / 9; }
+  .liasse--paysage img { object-fit: contain; }
+  .doc-lien:hover .liasse, .doc-lien:focus-visible .liasse { transform: translateY(-4px) rotate(-0.6deg); }
+  @media (prefers-reduced-motion: reduce) { .liasse { transition: none; } }
+
+  /* ── Contenu de la modale ── */
+  .dm { display: grid; gap: 2rem; }
+  @media (min-width: 760px) { .dm { grid-template-columns: 15rem minmax(0, 1fr); } }
+  .dm-couv .liasse { max-width: 15rem; }
+  .dm-couv .liasse--ecran, .dm-couv .liasse--paysage { max-width: none; }
+  .dm-type { margin: 0 0 0.4rem; font-size: 0.85rem; font-weight: 600; color: var(--color-accent-2); }
+  .dm-titre { font-size: clamp(1.35rem, 2.2vw, 1.7rem); line-height: 1.2; margin: 0 0 1.25rem; text-wrap: balance; }
+  .dm-meta { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0.45rem 1.25rem; margin: 0 0 1.25rem; font-size: 0.93rem; }
+  .dm-meta dt { color: var(--color-muted-text, #5F6A43); }
+  .dm-meta dd { margin: 0; }
+  .dm-resume { line-height: 1.65; margin: 0 0 1.5rem; max-width: 62ch; }
+  .dm-bouton { display: inline-block; font: inherit; font-weight: 600; font-size: 0.95rem; padding: 0.7rem 1.2rem;
+    border-radius: 4px; border: 0; background: var(--color-accent-text); color: #fff; cursor: pointer; text-decoration: none; }
+  .dm-bouton:hover { filter: brightness(1.08); }
+  .dm-form[hidden] { display: none; }
+  .dm-form { display: grid; gap: 0.85rem; margin-top: 0.5rem; max-width: 34rem; }
+  .dm-form label { display: grid; gap: 0.3rem; font-size: 0.9rem; font-weight: 600; }
+  .dm-form input, .dm-form textarea { font: inherit; font-weight: 400; padding: 0.6rem 0.7rem; border: 1px solid rgba(103, 61, 52, 0.3);
+    border-radius: 4px; background: #fff; }
+  .dm-form input:focus, .dm-form textarea:focus { outline: 2px solid var(--color-accent-text); outline-offset: 1px; }
+  .dm-form .dm-bouton { justify-self: start; }
+  .dm-note { margin: 0; font-size: 0.9rem; line-height: 1.55; color: #7a5e53; }
+</style>

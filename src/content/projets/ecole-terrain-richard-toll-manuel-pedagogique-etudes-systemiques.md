@@ -62,19 +62,21 @@ livrables:
     type: Manuel
     langue: FR
     pages: 59
-    url: "https://1drv.ms/b/c/68c0b0c348204772/IQAIKCrXDbDNQ6dZ-Qv4Ol4kAdszMP_OKey7BOKcwtEaiMo?e=I7F5FR"
+    resume: "Manuel pédagogique publié en 2026 qui capitalise les expériences d'écoles terrain du projet PETTAL dans des masters en développement agricole, en partenariat entre l'Institut Agro Montpellier et des universités sénégalaises. Il présente les principes et objectifs pédagogiques de l'école terrain, sa préparation par les enseignants (équipe, commanditaire, termes de référence, logistique) et son animation étape par étape, avec en annexe des fiches sur le diagnostic agraire et un calendrier type."
   - titre: "Le développement des écoles terrain : enjeux et perspectives pour le master ASAD"
     couverture: /livrables/ecole-terrain-richard-toll-manuel-pedagogique-etudes-systemiques/note-perspectives-asad.jpg
     annee: 2026
     type: Note
     langue: FR
     pages: 6
+    resume: "Note de perspectives complémentaire au manuel pédagogique, rédigée en 2026 pour le master ASAD de l'USSEIN. Elle tire le bilan des écoles terrain de 2025 et 2026 menées en collaboration universitaire, analyse les enjeux de financement, de taille des groupes et d'équilibre entre autonomie et formation, puis propose des pistes : ancrage dans des projets, format allégé, école sans commanditaire ou micro-écoles terrain."
   - titre: "Flyer : l'opportunité école terrain (USSEIN)"
     couverture: /livrables/ecole-terrain-richard-toll-manuel-pedagogique-etudes-systemiques/flyer-ecole-terrain.jpg
     annee: 2026
     type: Présentation
     langue: FR
     pages: 4
+    resume: "Plaquette destinée aux commanditaires potentiels d'une école terrain du master ASAD de l'USSEIN : entreprises, collectivités, ONG, organisations professionnelles ou organismes de recherche. Elle explique le principe d'une étude conduite par des groupes d'étudiants encadrés par des enseignants-chercheurs, les conditions de collaboration et de cofinancement, les types de missions possibles et les livrables attendus."
 photos:
   - { src: /photos/ecole-terrain-richard-toll-manuel-pedagogique-etudes-systemiques/lecture-paysage.jpg, legende: "Lecture de paysage avec les étudiants, école terrain 2026" }
   - { src: /photos/ecole-terrain-richard-toll-manuel-pedagogique-etudes-systemiques/entretien-terrain.jpg, legende: "Entretien avec un producteur, école terrain 2026" }

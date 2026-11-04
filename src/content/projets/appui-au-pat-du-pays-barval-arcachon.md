@@ -27,18 +27,21 @@ livrables:
     type: Rapport
     langue: FR
     pages: 70
+    resume: "Rapport cartographique réalisé en 2022 pour le Pays Barval (bassin d'Arcachon et Val de l'Eyre), dans le cadre de son projet alimentaire territorial. Il présente la méthode d'identification des parcelles potentiellement mobilisables pour l'agriculture, les cartes du territoire (PLU, occupation du sol, zonages environnementaux, loi littoral, risques, exploitations) et le repérage des parcelles publiques et privées à potentiel."
   - titre: "Rapport cartographique communal – exemple de Mios"
     couverture: /livrables/appui-au-pat-du-pays-barval-arcachon/rapport-foncier-mios.jpg
     annee: 2022
     type: Rapport
     langue: FR
     pages: 32
+    resume: "Déclinaison communale, pour Mios, de l'étude cartographique du foncier potentiellement mobilisable menée en 2022 pour le projet alimentaire territorial du Pays Barval. Le rapport reprend la méthode commune et présente les cartes de la commune (PLU, occupation du sol, contraintes réglementaires, exploitations agricoles) puis le bilan du repérage des parcelles à potentiel de mobilisation."
   - titre: "Diagnostic foncier – Présentation de l'atelier final"
     couverture: /livrables/appui-au-pat-du-pays-barval-arcachon/atelier-foncier.jpg
     annee: 2022
     type: Présentation
     langue: FR
     pages: 47
+    resume: "Support de l'atelier final du diagnostic foncier du Pays Barval (octobre 2022). Il présente les enjeux identifiés (foncier agricole rare et cher, concurrence d'usages, difficultés de transmission et contraintes réglementaires), la méthode d'identification et de caractérisation des parcelles potentiellement mobilisables, et des pistes pour une stratégie foncière au service de l'installation et de la transmission."
 ---
 #### Contexte
 Le Pays Bassin d'Arcachon-Val de l'Eyre (Pays Barval) fédère trois intercommunalités (COBAS, COBAN et Communauté de communes du Val de l'Eyre) et 17 communes du sud de la Gironde, soit plus de 160 000 habitants sur 1 500 km². Dominé par la forêt des Landes, il compte 7 % de surface agricole et une centaine d'exploitations ; environ 2 000 ha de terres agricoles n'y sont pas déclarés à la PAC.

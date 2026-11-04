@@ -30,6 +30,7 @@ livrables:
     langue: EN
     pages: 14
     url: "https://www.cifor-icraf.org/publications/pdf_files/articles/APeroches2501.pdf"
+    resume: "Article scientifique publié en 2025 dans l'International Forestry Review. Il teste une méthode combinant diagnostic agraire et mesures forestières pour expliquer les résultats d'un projet de restauration forestière communautaire dans la province de la Tshopo (RDC), à partir d'entretiens avec les bénéficiaires et du suivi des arbres plantés. Il montre que l'adoption et la survie des plantations dépendent largement de la diversité des systèmes de production."
 ressources:
   - titre: "Rapport : caractérisation des contextes socio-économiques et environnementaux de sept villages des groupements Totuku et Yangandi (2020)"
     url: "https://www.cifor-icraf.org/publications/pdf_files/Reports/Rapport-Totuku-Yangandi.pdf"

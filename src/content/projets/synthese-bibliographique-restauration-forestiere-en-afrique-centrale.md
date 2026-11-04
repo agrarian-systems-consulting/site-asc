@@ -32,14 +32,12 @@ livrables:
     langue: EN
     pages: 34
     url: "https://doi.org/10.1007/s11842-025-09586-6"
-ressources:
+    resume: "Article publié dans Small-scale Forestry présentant une revue systématique des initiatives de restauration forestière impliquant les populations locales en Afrique centrale. Sur 64 publications portant sur 26 initiatives, surtout en RDC et au Cameroun, il montre la prédominance d'approches techniques prédéfinies, le manque de suivi et de partage des données et la faible consultation des populations, et recommande de bâtir de vrais partenariats et de partager les expériences."
+ressources: []
   # Manuel de terrain : décommenter et compléter l'URL dès qu'elle est disponible.
   # - titre: "Manuel pédagogique de terrain"
   #   url: "https://..."
   #   type: pdf
-  - titre: "Article scientifique issu de l'étude"
-    url: "https://1drv.ms/b/c/68c0b0c348204772/IQCMSXQAwTh-RLre3yJ6pO8ZAX6UhpWl-gmCz8jDeaV09Jc?e=V7Vrr2"
-    type: pdf
 ---
 #### Contexte
 Le projet PROFEAAC, conduit par le CIRAD, cherche à assurer une gestion durable de la ressource en bois d'œuvre artisanal en Afrique centrale. L'une de ses composantes vise la restauration de cette ressource avec les populations riveraines. Or, malgré des financements importants de la part des bailleurs internationaux, les stratégies et l'efficacité des initiatives de restauration forestière dans la sous-région n'avaient jamais été synthétisées.

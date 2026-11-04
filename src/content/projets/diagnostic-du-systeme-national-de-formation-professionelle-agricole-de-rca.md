@@ -27,6 +27,7 @@ livrables:
     type: Rapport
     langue: FR
     pages: 110
+    resume: "Rapport d'une mission conduite en juin 2018 en République centrafricaine pour l'Union européenne, via le service d'appui ASiST. Il établit un diagnostic actualisé du dispositif national de formation professionnelle en milieu rural, synthétise le cadre politique et stratégique de la formation agricole et rurale, et formule, à partir d'ateliers collaboratifs et de visites de terrain, des axes et un programme d'intervention pour rénover ce dispositif."
 ---
 #### Contexte
 Le gouvernement centrafricain et ses partenaires font de la relance des systèmes agropastoraux une priorité, et la formation professionnelle en milieu rural figure dans le Plan national de relèvement et de consolidation de la paix comme dans le Programme indicatif national de l'Union européenne. Plusieurs études antérieures avaient montré que le pays ne disposait pratiquement plus d'établissements de formation agricole opérationnels, et que ceux qui fonctionnaient proposaient des curricula éloignés des besoins.

@@ -26,6 +26,7 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 52
+    resume: "Programme et supports d'une semaine de formation au traitement de l'information organisée à Sidi Thabet (Tunisie) en septembre 2024. La session enchaîne une introduction à la cartographie numérique avec QGIS, la réalisation de cartes pour préparer un diagnostic de territoire, la conception de formulaires de collecte avec KoboToolbox, l'analyse par tableaux croisés dynamiques et la publication de cartes et d'atlas."
 photos:
   - { src: /photos/formation-a-la-cartographie-numerique-de-la-dgacta/carte-altitude-le-kef.jpg, legende: "Carte des altitudes du gouvernorat du Kef réalisée par des participants" }
   - { src: /photos/formation-a-la-cartographie-numerique-de-la-dgacta/carte-kairouan.jpg, legende: "Carte du gouvernorat de Kairouan réalisée par des participants" }

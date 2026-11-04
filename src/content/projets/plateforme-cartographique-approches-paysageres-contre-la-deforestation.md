@@ -26,6 +26,7 @@ livrables:
     type: Présentation
     langue: FR
     pages: 7
+    resume: "Présentation au Comité scientifique et technique Forêt (juin 2020) de la cartographie des projets mobilisant une approche paysagère, réalisée pour l'Alliance pour la Préservation des Forêts en complément de l'étude de l'IDDRI. Elle donne un aperçu des plus de 170 projets recensés dans 19 pays et 7 filières et des plateformes existantes, puis propose des pistes : typologie des projets, suivi-évaluation, croisement avec la déforestation et les bassins d'approvisionnement."
 ---
 #### Contexte
 L'Alliance pour la Préservation des Forêts (APF) est un collectif d'entreprises engagé à mettre fin à la déforestation importée dans ses chaînes d'approvisionnement. Sa charte prévoit une « approche territoriale et multi-filières » à l'échelle des territoires concernés. Pour rendre ces démarches visibles, l'Alliance, avec l'appui du CIRAD, a souhaité disposer d'une cartographie des projets qui associent production durable de matières premières agricoles et préservation des forêts, en complément de l'étude de l'IDDRI sur les définitions des approches territoriales, juridictionnelles et paysagères. Le travail a été présenté au Comité scientifique et technique Forêt (CST Forêt) dans le cadre de la SNDI.

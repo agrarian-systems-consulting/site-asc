@@ -24,6 +24,7 @@ livrables:
     type: Rapport
     langue: FR
     pages: 97
+    resume: "Rapport d'étude remis au Comité scientifique et technique de la Forêt pour la Stratégie nationale de lutte contre la déforestation importée. À partir de la littérature, il fait l'état des débats sur les définitions de la forêt, de la déforestation, de la dégradation et du « zéro déforestation », recense les outils de suivi et recommande de combiner approches globales et suivis locaux à l'échelle des bassins d'approvisionnement."
 ---
 #### Contexte
 Pour mettre en œuvre la Stratégie nationale de lutte contre la déforestation importée (SNDI), le Comité scientifique et technique de la Forêt (CSTF) souhaitait disposer de définitions opérationnelles des notions de forêt, de déforestation, de dégradation et de « zéro déforestation », et connaître les outils disponibles pour suivre la déforestation importée. Ce « chantier 1 » du CSTF a été confié à un consortium animé par le CIFOR avec le CIRAD et l'IDDRI, le rapport étant rédigé par des chercheurs du CIFOR, du CIRAD, de l'IRD et de la FAO. En 2021, le CIFOR a fait appel à Asc pour en assurer la finalisation éditoriale.

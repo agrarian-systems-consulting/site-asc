@@ -29,12 +29,14 @@ livrables:
     type: Rapport
     langue: EN
     pages: 107
+    resume: "Rapport de mission (mars 2022) du programme de recherche du CIRAD en appui au Partnership for Sustainable Agroforestry (PSAF) au Timor-Leste. À partir d'enquêtes dans sept villages, il examine si les analyses menées à Baucau sont transposables aux districts de Manatuto, Viqueque et Lautem : types de systèmes agroforestiers, systèmes de production et dynamiques agraires, couverture des besoins des ménages et recommandations par district."
   - titre: "Potential to extrapolate agroforestry systems' characteristics in Baucau to the other PSAF districts (restitution GIZ, Dili)"
     couverture: /livrables/diagnostic-des-systemes-agroforestiers-timor-leste/restitution-giz-dili.jpg
     annee: 2022
     type: Présentation
     langue: EN
     pages: 27
+    resume: "Support de la réunion de restitution à la GIZ, à Dili, en janvier 2022, présentant les premiers enseignements de la mission sur les systèmes agroforestiers des districts de Manatuto, Lautem et Viqueque. Il rappelle le contexte et les objectifs, le déroulement de la mission et le choix des villages, le cadre d'analyse et la méthode d'enquête, puis les résultats préliminaires par rapport à Baucau."
 photos:
   - { src: /photos/diagnostic-des-systemes-agroforestiers-timor-leste/paysage-est-timor.jpg, legende: "Paysage agroforestier de l'est du Timor-Leste" }
   - { src: /photos/diagnostic-des-systemes-agroforestiers-timor-leste/jardin-foret-betel-manehat.jpg, legende: "Jardin-forêt à aréquiers et sacs de noix de bétel, suco de Manehat (Manatuto)" }

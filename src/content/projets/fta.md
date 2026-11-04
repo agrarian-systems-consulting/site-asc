@@ -24,14 +24,11 @@ chiffres:
   - { valeur: "2", label: "études de filières mondiales" }
   - { valeur: "7", label: "types de plantations forestières identifiés" }
   - { valeur: "22", label: "participants à l'atelier FTA de Montpellier" }
-ressources:
+ressources: []
   # Manuel de terrain : décommenter et compléter l'URL dès qu'elle est disponible.
   # - titre: "Manuel pédagogique de terrain"
   #   url: "https://..."
   #   type: pdf
-  - titre: "Article sur les plantations forestières"
-    url: "https://1drv.ms/b/c/68c0b0c348204772/IQAFbI7N4c_WT6MrZ_IjYFqdAXQFZrgwUjGW-N1xHxyXQOM?e=47bPtt"
-    type: pdf
 livrables:
   - titre: "Analyse des dynamiques temporelles et spatiales de l'expansion des plantations forestières de grande superficie en zones tropicales et subtropicales"
     couverture: /livrables/fta/plantations-forestieres-grande-superficie.jpg
@@ -39,18 +36,21 @@ livrables:
     type: Rapport
     langue: FR
     pages: 63
+    resume: "Étude de synthèse bibliographique réalisée pour le programme de recherche Forests, Trees and Agroforestry (FTA) du CGIAR, mis en œuvre par le CIFOR, avec l'appui du CIRAD. Elle porte sur les plantations de grande superficie destinées au bois d'œuvre, au bois-énergie et à la pâte à papier en zones tropicales et subtropicales : évolution des surfaces et de la production, typologie des plantations et dynamiques régionales."
   - titre: "Hévéaculture mondiale : vue d'ensemble des dynamiques de production, du marché et des défis de la durabilité de la chaîne de valeur"
     couverture: /livrables/fta/heveaculture-mondiale.jpg
     annee: 2019
     type: Rapport
     langue: FR
     pages: 55
+    resume: "Étude réalisée pour le programme de recherche FTA sur le secteur de l'hévéa et du caoutchouc naturel. Elle dresse un état des plantations et de la production mondiales, très concentrées en Asie, décrit la demande dominée par l'industrie pneumatique et le poids des petites plantations familiales, analyse l'effet des variations de prix sur les plantations et examine les défis de durabilité de la chaîne de valeur."
   - titre: "Temporal and spatial analysis of the growth dynamics of large-scale tree plantations (atelier FTA, Montpellier)"
     couverture: /livrables/fta/presentation-tree-plantations.jpg
     annee: 2019
     type: Présentation
     langue: EN
     pages: 35
+    resume: "Présentation donnée à l'atelier du programme FTA sur les plantations de grande échelle (Montpellier, juillet 2019). Elle expose les objectifs, définitions et sources de l'étude, le contexte mondial des plantations forestières, une typologie des plantations de grande superficie en zones tropicales et subtropicales, leurs dynamiques en Amérique du Sud, en Asie, en Afrique et en Océanie, et des perspectives de production et de durabilité."
 photos:
   - { src: /uploads/2019/12/lubo-minar-6n9JGobCASo-unsplash.jpg, legende: "Plantation forestière" }
 ---

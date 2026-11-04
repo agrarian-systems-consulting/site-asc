@@ -34,6 +34,7 @@ livrables:
     langue: EN
     pages: 34
     url: "https://doi.org/10.1007/s11842-025-09586-6"
+    resume: "Article publié dans Small-scale Forestry présentant une revue systématique des initiatives de restauration forestière impliquant les populations locales en Afrique centrale. Sur 64 publications portant sur 26 initiatives, surtout en RDC et au Cameroun, il montre la prédominance d'approches techniques prédéfinies, le manque de suivi et de partage des données et la faible consultation des populations, et recommande de bâtir de vrais partenariats et de partager les expériences."
   - titre: "Learning from agrarian dynamics to tailor community-led forest restoration in the Tshopo province, Democratic Republic of the Congo (International Forestry Review)"
     couverture: /livrables/these-cifre-restauration-forestiere-avec-populations-locales-en-afrique-centra/article-ifr-tshopo.jpg
     annee: 2025
@@ -41,6 +42,7 @@ livrables:
     langue: EN
     pages: 14
     url: "https://www.cifor-icraf.org/publications/pdf_files/articles/APeroches2501.pdf"
+    resume: "Article publié dans l'International Forestry Review sur un projet de restauration forestière communautaire dans la province de la Tshopo (RDC). Il teste l'association d'un diagnostic agraire et de mesures forestières, avec enquêtes auprès des planteurs et mesure des plantations un an après. L'adoption et les résultats de l'initiative s'expliquent largement par la diversité des systèmes de production, ce qui aide à adapter les objectifs de restauration aux contextes locaux."
 ressources:
   # Manuel de terrain : décommenter et compléter l'URL dès qu'elle est disponible.
   # - titre: "Manuel pédagogique de terrain"
@@ -48,12 +50,6 @@ ressources:
   #   type: pdf
   - titre: "Manuscrit de thèse"
     url: "https://pastel.hal.science/tel-05540538v1/file/149348_PEROCHES_2025_archivage.pdf"
-    type: pdf
-  - titre: "Article de résultats - PROFEAAC RDC"
-    url: "https://1drv.ms/b/c/68c0b0c348204772/IQB00QACPmjtSbGkiO1D-EAxARqOPlW1TRfTeUTE7gr0GZY?e=9HsVgH"
-    type: pdf
-  - titre: "Policy Brief - CST-Forêts AFD"
-    url: "https://1drv.ms/b/c/68c0b0c348204772/IQCgileYoWxdQpqgZA7eD4BCAT1vfO701psucmbUTbtfBB0?e=mlVzcI"
     type: pdf
 featured_image: /photos/diagnostics-agraires-bassins-bois-energie-brazzaville-pointe-noire-pudt/paysage-makana-2.jpg
 ---

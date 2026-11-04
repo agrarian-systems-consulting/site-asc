@@ -35,24 +35,28 @@ livrables:
     type: Rapport
     langue: FR
     pages: 51
+    resume: "Rapport de l'enquête de référence sur la consommation d'énergies de cuisson des ménages de Kinshasa, conduite par le CIRAD pour le programme de consommation durable et substitution partielle au bois-énergie. À partir de 900 ménages enquêtés, il décrit les mix énergétiques, estime la consommation annuelle de la ville en équivalent bois et analyse les attentes envers l'électricité, le gaz et les foyers améliorés, ainsi que les freins à leur adoption."
   - titre: "Consommation en énergies domestiques des ménages de la ville de Lubumbashi"
     couverture: /livrables/programme-de-substitution-partielle-du-bois-energie-comme-combustible-de-cuisson-en-rdc/consommation-menages-lubumbashi.jpg
     annee: 2020
     type: Rapport
     langue: FR
     pages: 51
+    resume: "Rapport de l'enquête de référence sur la consommation d'énergies de cuisson des ménages de Lubumbashi, conduite par le CIRAD pour le programme bois-énergie en RDC. Fondé sur 402 ménages enquêtés, il montre la place quasi exclusive du charbon de bois, estime la consommation annuelle de la ville à environ 2,87 millions de tonnes d'équivalent bois et analyse les freins au passage au gaz et aux foyers améliorés."
   - titre: "Consommation en énergies domestiques des ménages de la ville de Goma"
     couverture: /livrables/programme-de-substitution-partielle-du-bois-energie-comme-combustible-de-cuisson-en-rdc/consommation-menages-goma.jpg
     annee: 2020
     type: Rapport
     langue: FR
     pages: 45
+    resume: "Rapport de l'enquête de référence sur la consommation d'énergies de cuisson des ménages de Goma, conduite par le CIRAD pour le programme bois-énergie en RDC. Fondé sur 401 ménages enquêtés, il décrit un mix dominé par le charbon de bois, où le gaz est plus utilisé que dans les autres villes étudiées, estime la consommation annuelle à environ 1,26 million de tonnes d'équivalent bois et analyse les freins au changement."
   - titre: "Sources d'énergie issues de la biomasse alternatives au bois de feu et au charbon de bois en Afrique centrale"
     couverture: /livrables/programme-de-substitution-partielle-du-bois-energie-comme-combustible-de-cuisson-en-rdc/alternatives-biomasse-afrique-centrale.jpg
     annee: 2020
     type: Rapport
     langue: FR
     pages: 35
+    resume: "Étude bibliographique sur les sources d'énergie de cuisson issues de la biomasse, alternatives au bois de feu et au charbon de bois en Afrique centrale, réalisée pour le programme de substitution partielle au bois-énergie en RDC. Elle recense 38 initiatives, surtout des briquettes et du biogaz dans la région des Grands Lacs, décrit leurs modèles économiques lorsque c'est possible et identifie les freins techniques et commerciaux à leur développement."
 photos:
   - { src: /uploads/2019/12/WhatsApp-Image-2019-11-14-at-17.33.55.jpeg, legende: "Pesée d'un sac de makala sur un dépôt de la commune de Matete, Kinshasa (2019)" }
   - { src: /photos/programme-de-substitution-partielle-du-bois-energie-comme-combustible-de-cuisson-en-rdc/test-questionnaire-menages-kinshasa.jpg, legende: "Test du questionnaire de consommation auprès d'un ménage, Kinshasa (2019)" }

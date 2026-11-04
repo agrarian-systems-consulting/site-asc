@@ -31,6 +31,7 @@ livrables:
     type: Rapport
     langue: FR
     pages: 56
+    resume: "Résumé opérationnel du rapport de situation de référence établi pour le suivi-évaluation du PITAG, programme financé par la BID et opéré par le ministère de l'Agriculture haïtien. Issu de missions de terrain à Dame-Marie, Les Anglais, Les Perches et Plaine-du-Nord, il présente le zonage agroécologique, l'histoire agraire, les systèmes de culture et d'élevage, des archétypes de systèmes de production et leur mise en perspective avec les paquets techniques du programme."
 photos:
   - { src: /uploads/2019/07/IMG_3454.jpg }
 ---

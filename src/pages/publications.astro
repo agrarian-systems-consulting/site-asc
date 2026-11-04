@@ -5,8 +5,8 @@
  */
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Pays from '../components/Pays.astro';
-import { descriptionLivrable } from '../lib/projets';
+import DocCarte from '../components/DocCarte.astro';
+import DocModale from '../components/DocModale.astro';
 
 const projets = (await getCollection('projets')).filter((p) => !p.data.draft);
 
@@ -33,7 +33,6 @@ const groupes = FAMILLES.map((f) => ({
     .sort((a, b) => (b.l.annee ?? 0) - (a.l.annee ?? 0) || a.l.titre.localeCompare(b.l.titre, 'fr')),
 })).filter((g) => g.docs.length > 0);
 
-const nbLibres = docs.filter((d) => d.l.url).length;
 const epaisseur = (pages?: number) => (!pages ? 1 : pages < 20 ? 0 : pages < 60 ? 1 : pages < 150 ? 2 : 3);
 const classeLiasse = (type?: string, pages?: number) =>
   type === 'Outil' ? 'liasse liasse--ecran'
@@ -41,21 +40,17 @@ const classeLiasse = (type?: string, pages?: number) =>
   : `liasse liasse--${epaisseur(pages)}`;
 ---
 
-<BaseLayout title="Publications" description={`${docs.length} rapports, outils numériques et supports de formation produits par Agrarian Systems Consulting, dont ${nbLibres} en libre accès.`}>
+<BaseLayout title="Publications" description={`${docs.length} rapports, outils numériques et supports de formation produits par Agrarian Systems Consulting.`}>
   <header class="pub-tete">
     <div class="container">
       <h1>Publications</h1>
       <p class="lead">
-        {docs.length} documents produits au fil de nos missions, dont {nbLibres} en libre accès.
-        Les autres appartiennent à nos commanditaires : nous les transmettons sur demande quand c’est possible.
+        {docs.length} documents produits au fil de nos missions. Ils appartiennent à nos commanditaires :
+        cliquez sur un document pour en voir la fiche et, si besoin, nous en demander une copie.
       </p>
       <nav class="pub-nav" aria-label="Types de documents">
         {groupes.map((g) => <a href={`#${g.id}`}>{g.titre} <span>{g.docs.length}</span></a>)}
       </nav>
-      <label class="pub-filtre">
-        <input type="checkbox" id="libres" />
-        Afficher seulement les documents en libre accès
-      </label>
     </div>
   </header>
 
@@ -66,38 +61,16 @@ const classeLiasse = (type?: string, pages?: number) =>
         <p class="pub-intro">{g.intro}</p>
         <ol class:list={['etagere', { 'etagere--ecrans': g.id === 'outils' }]}>
           {g.docs.map(({ p, l }) => (
-            <li class="doc" data-libre={l.url ? '1' : '0'}>
-              <a class="doc-lien" href={l.url ?? `/projets/${p.slug}/#documents`}
-                 target={l.url ? '_blank' : undefined} rel={l.url ? 'noopener noreferrer' : undefined}>
-                <span class={classeLiasse(l.type, l.pages)}>
-                  <img src={l.couverture} alt={`Couverture : ${l.titre}`} loading="lazy" decoding="async" />
-                </span>
-              </a>
-              <p class="doc-titre">{l.titre}</p>
-              <p class="doc-desc">{descriptionLivrable(l)}</p>
-              <p class="doc-projet">
-                <a href={`/projets/${p.slug}/`}>{p.data.title}</a>
-              </p>
-              <Pays pays={p.data.countries} max={2} />
-              {l.url && (
-                <a class="doc-action" href={l.url} target="_blank" rel="noopener noreferrer">
-                  {l.type === 'Outil' ? 'Ouvrir l’outil' : 'Lire le document'}
-                </a>
-              )}
-            </li>
+            <DocCarte doc={l} projet={p} afficherProjet />
           ))}
         </ol>
       </div>
     </section>
   ))}
+  <DocModale />
 </BaseLayout>
 
-<script>
-  const box = document.getElementById('libres') as HTMLInputElement | null;
-  box?.addEventListener('change', () => {
-    document.body.classList.toggle('pub-libres', box.checked);
-  });
-</script>
+
 
 <style>
   .pub-tete { background: var(--color-bg-soft); padding: 4rem 1.5rem 2.5rem; }
