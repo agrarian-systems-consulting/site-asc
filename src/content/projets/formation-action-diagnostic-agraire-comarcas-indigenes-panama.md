@@ -10,7 +10,7 @@ filieres: []
 countries:
   - Panama
 client: "BID / IDIAP / MIDA"
-montant_asc: "97 459 USD"
+montant_asc: "97 459 USD (facturé, contrat PN-T1295-P002)"
 montant_programme: "46 M USD"
 excerpt: "Deux formations-actions au diagnostic agraire pour des techniciens de l'IDIAP, du MIDA et des congrès indigènes, prolongées par les diagnostics d'Ailigandí (Guna Yala) et de Cémaco (Emberá-Wounaan), pour la BID."
 draft: false

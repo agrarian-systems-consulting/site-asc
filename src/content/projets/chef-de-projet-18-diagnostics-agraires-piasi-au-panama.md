@@ -11,6 +11,7 @@ filieres: []
 countries:
   - Panama
 client: "BID / MIDA / IDIAP"
+montant_asc: "472 638 USD (4 contrats BID, 2021-2025)"
 montant_programme: "46 M USD"
 excerpt: "Coordination, de 2020 à 2025, d'un programme de diagnostics agraires et de formations-actions pour la BID, l'IDIAP et le MIDA dans les zones d'intervention du PIASI, de Bocas del Toro au Darién et à Guna Yala."
 draft: false
