@@ -49,12 +49,6 @@ ressources:
   - titre: "Manuscrit de thèse"
     url: "https://pastel.hal.science/tel-05540538v1/file/149348_PEROCHES_2025_archivage.pdf"
     type: pdf
-  - titre: "Article de résultats - PROFEAAC RDC"
-    url: "https://1drv.ms/b/c/68c0b0c348204772/IQB00QACPmjtSbGkiO1D-EAxARqOPlW1TRfTeUTE7gr0GZY?e=9HsVgH"
-    type: pdf
-  - titre: "Policy Brief - CST-Forêts AFD"
-    url: "https://1drv.ms/b/c/68c0b0c348204772/IQCgileYoWxdQpqgZA7eD4BCAT1vfO701psucmbUTbtfBB0?e=mlVzcI"
-    type: pdf
 featured_image: /photos/diagnostics-agraires-bassins-bois-energie-brazzaville-pointe-noire-pudt/paysage-makana-2.jpg
 ---
 #### Contexte

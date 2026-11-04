@@ -41,7 +41,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 124
-  url: /documents/panama/diagnostico-agrario-la-pintada.pdf
   groupe: '2020-2022 : six diagnostics préparatoires (PN-T1225)'
 - titre: Diagnóstico agrario de Los Pozos (Herrera)
   couverture: /livrables/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/los-pozos.jpg
@@ -49,7 +48,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 114
-  url: /documents/panama/diagnostico-agrario-los-pozos.pdf
   groupe: '2020-2022 : six diagnostics préparatoires (PN-T1225)'
 - titre: Diagnóstico agrario de Sambú (Comarca Emberá-Wounaan)
   couverture: /livrables/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/sambu.jpg
@@ -57,7 +55,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 119
-  url: /documents/panama/diagnostico-agrario-sambu.pdf
   groupe: '2020-2022 : six diagnostics préparatoires (PN-T1225)'
 - titre: Diagnóstico agrario de San Francisco (Veraguas)
   couverture: /livrables/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/san-francisco.jpg
@@ -65,7 +62,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 136
-  url: /documents/panama/diagnostico-agrario-san-francisco.pdf
   groupe: '2020-2022 : six diagnostics préparatoires (PN-T1225)'
 - titre: Diagnóstico agrario de Nole Düima (Comarca Ngäbe-Buglé)
   couverture: /livrables/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/nole-duima.jpg
@@ -73,7 +69,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 148
-  url: /documents/panama/diagnostico-agrario-nole-duima.pdf
   groupe: '2020-2022 : six diagnostics préparatoires (PN-T1225)'
 - titre: Diagnóstico agrario de Valle de Agua (Bocas del Toro)
   couverture: /livrables/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/valle-de-agua.jpg
@@ -81,7 +76,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 130
-  url: /documents/panama/diagnostico-agrario-valle-de-agua.pdf
   groupe: '2020-2022 : six diagnostics préparatoires (PN-T1225)'
 - titre: Diagnóstico agrario de Toabré (Coclé)
   couverture: /livrables/3-diagnostics-agraires-preparatoires-programme-piasi/toabre-penonome.jpg
@@ -89,7 +83,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 130
-  url: /documents/panama/diagnostico-agrario-toabre.pdf
   groupe: '2022-2024 : neuf diagnostics dans les zones du PIASI (PN-T1295-P001)'
 - titre: Diagnóstico agrario de Ñürüm (Comarca Ngäbe-Buglé)
   couverture: /livrables/3-diagnostics-agraires-preparatoires-programme-piasi/nurum.jpg
@@ -97,7 +90,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 120
-  url: /documents/panama/diagnostico-agrario-nurum.pdf
   groupe: '2022-2024 : neuf diagnostics dans les zones du PIASI (PN-T1295-P001)'
 - titre: Diagnóstico agrario de Santa Fe (Darién)
   couverture: /livrables/3-diagnostics-agraires-preparatoires-programme-piasi/santa-fe-darien.jpg
@@ -105,7 +97,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 143
-  url: /documents/panama/diagnostico-agrario-santa-fe.pdf
   groupe: '2022-2024 : neuf diagnostics dans les zones du PIASI (PN-T1295-P001)'
 - titre: Diagnóstico agrario de Tonosí (Los Santos)
   couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/tonosi.jpg
@@ -113,7 +104,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 155
-  url: /documents/panama/diagnostico-agrario-tonosi.pdf
   groupe: '2022-2024 : neuf diagnostics dans les zones du PIASI (PN-T1295-P001)'
 - titre: Diagnóstico agrario de Las Palmas (Veraguas)
   couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/las-palmas.jpg
@@ -121,7 +111,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 170
-  url: /documents/panama/diagnostico-agrario-las-palmas.pdf
   groupe: '2022-2024 : neuf diagnostics dans les zones du PIASI (PN-T1295-P001)'
 - titre: Diagnóstico agrario de Barú (Chiriquí)
   couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/baru.jpg
@@ -129,7 +118,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 148
-  url: /documents/panama/diagnostico-agrario-baru.pdf
   groupe: '2022-2024 : neuf diagnostics dans les zones du PIASI (PN-T1295-P001)'
 - titre: Diagnóstico agrario de Chiriquí Grande (Bocas del Toro)
   couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/chiriqui-grande.jpg
@@ -137,7 +125,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 135
-  url: /documents/panama/diagnostico-agrario-chiriqui-grande.pdf
   groupe: '2022-2024 : neuf diagnostics dans les zones du PIASI (PN-T1295-P001)'
 - titre: Diagnóstico agrario de Madugandí (Comarca Kuna de Madugandí)
   couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/madugandi.jpg
@@ -145,7 +132,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 141
-  url: /documents/panama/diagnostico-agrario-madugandi.pdf
   groupe: '2022-2024 : neuf diagnostics dans les zones du PIASI (PN-T1295-P001)'
 - titre: Diagnóstico agrario de Jirondai (Comarca Ngäbe-Buglé)
   couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/jirondai.jpg
@@ -153,7 +139,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 164
-  url: /documents/panama/diagnostico-agrario-jirondai.pdf
   groupe: '2022-2024 : neuf diagnostics dans les zones du PIASI (PN-T1295-P001)'
 - titre: Tonosí – Taller de devolución de primeras reflexiones
   couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/taller-tonosi.jpg
@@ -168,7 +153,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 121
-  url: /documents/panama/diagnostico-agrario-cemaco.pdf
   groupe: '2023-2024 : formations-actions en comarcas indigènes (PN-T1295-P002)'
 - titre: Diagnóstico agrario de Ailigandí (Comarca Guna Yala)
   couverture: /livrables/formation-action-diagnostic-agraire-comarcas-indigenes-panama/ailigandi-guna-yala.jpg
@@ -176,7 +160,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 226
-  url: /documents/panama/diagnostico-agrario-ailigandi.pdf
   groupe: '2023-2024 : formations-actions en comarcas indigènes (PN-T1295-P002)'
 - titre: Informe del taller de formación-acción en Cémaco
   couverture: /livrables/formation-action-diagnostic-agraire-comarcas-indigenes-panama/informe-taller-cemaco.jpg
@@ -191,7 +174,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 256
-  url: /documents/panama/diagnostico-agrario-nargana.pdf
   groupe: '2024-2025 : Narganá, Alanje et diffusion des connaissances (PN-T1342)'
 - titre: Diagnóstico agrario de Alanje (Chiriquí)
   couverture: /livrables/diagnostics-agraires-nargana-alanje-capitalisation-piasi/alanje.jpg
@@ -199,7 +181,6 @@ livrables:
   type: Rapport
   langue: ES
   pages: 188
-  url: /documents/panama/diagnostico-agrario-alanje.pdf
   groupe: '2024-2025 : Narganá, Alanje et diffusion des connaissances (PN-T1342)'
 - titre: Diagnóstico agrario de Nuevo México y Divalá (Alanje) – Taller de devolución
   couverture: /livrables/diagnostics-agraires-nargana-alanje-capitalisation-piasi/alanje-taller.jpg
@@ -277,6 +258,6 @@ Le PIASI repose sur l'idée qu'une compréhension fine de la diversité et des d
 Sur l'ensemble, Asc a assuré la coordination méthodologique, l'encadrement des équipes, la relecture des rapports, l'organisation des ateliers de restitution et la relation avec la BID et l'IDIAP.
 
 #### Résultats
-- 19 diagnostics agraires complets (6, 9, 2 et 2 selon les contrats), tous publiés ci-dessous, et trois formations-actions. Ils servent déjà aux techniciens de l'IDIAP pour adapter les interventions à la diversité des territoires et des exploitations.
+- 19 diagnostics agraires complets (6, 9, 2 et 2 selon les contrats), présentés ci-dessous, et trois formations-actions. Ils servent déjà aux techniciens de l'IDIAP pour adapter les interventions à la diversité des territoires et des exploitations.
 - À Toabré, la relance du café, avec de petites unités de torréfaction locales, ouvre des opportunités que le PIASI peut accompagner ; au Darién, la réduction des jachères s'est traduite par une baisse et une plus forte variabilité des rendements vivriers.
 - À Cémaco, environ 93 % des évaluations de la formation se situent entre « satisfait » et « très satisfait ». La restitution de Guna Yala a ouvert la discussion sur l'accès à la terre, la place des femmes et des jeunes et le partage de la valeur des cocoteraies.

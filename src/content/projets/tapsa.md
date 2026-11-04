@@ -67,7 +67,7 @@ livrables:
   - titre: "Livret de capitalisation : proposition d'une grille d'évaluation des changements induits par le TAPSA"
     couverture: /livrables/tapsa/grille-evaluation.jpg
     annee: 2020
-    type: Outil
+    type: Rapport
     langue: FR
     pages: 38
   - titre: "Évaluer la contribution d'un projet de développement à la transition agroécologique : démarche globale pour le TAPSA"

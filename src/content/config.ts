@@ -41,7 +41,8 @@ const projets = defineCollection({
       type: z.string().optional(),                     // Rapport, Manuel, Support de formation…
       langue: z.string().optional(),                   // FR, ES, EN…
       pages: z.number().int().optional(),
-      groupe: z.string().optional(),                   // regroupement d'affichage (ex. module de formation)
+      groupe: z.string().optional(),
+      resume: z.string().optional(),                   // synthèse affichée dans la fiche du document                   // regroupement d'affichage (ex. module de formation)
       url: z.string().optional(),                      // URL complète ou chemin /documents/… (PDF hébergé sur le site)
     })).default([]),
     // ─── Photos de terrain (légendées) ───

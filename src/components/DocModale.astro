@@ -1,0 +1,47 @@
+---
+/** Modale commune aux cartes DocCarte : un seul <dialog> par page, rempli depuis le <template> du document. */
+---
+
+<dialog class="doc-modale" aria-label="Fiche du document">
+  <form method="dialog"><button class="dmo-fermer" aria-label="Fermer">×</button></form>
+  <div class="dmo-contenu"></div>
+</dialog>
+
+<script>
+  const dlg = document.querySelector<HTMLDialogElement>('dialog.doc-modale');
+  if (dlg && typeof dlg.showModal === 'function') {
+    const zone = dlg.querySelector<HTMLElement>('.dmo-contenu')!;
+    document.querySelectorAll<HTMLButtonElement>('button[data-doc]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const tpl = document.getElementById(b.dataset.doc!) as HTMLTemplateElement | null;
+        if (!tpl) return;
+        zone.replaceChildren(tpl.content.cloneNode(true));
+        zone.querySelector<HTMLButtonElement>('[data-demande]')?.addEventListener('click', (ev) => {
+          const btn = ev.currentTarget as HTMLButtonElement;
+          const form = btn.nextElementSibling as HTMLFormElement;
+          btn.hidden = true;
+          form.hidden = false;
+          form.querySelector('input:not([type=hidden]):not([name=_honey])')?.focus();
+        });
+        dlg.showModal();
+        dlg.scrollTop = 0;
+      });
+    });
+    dlg.addEventListener('click', (ev) => { if (ev.target === dlg) dlg.close(); });
+  }
+</script>
+
+<style>
+  .doc-modale {
+    width: min(920px, calc(100vw - 2rem)); max-height: calc(100vh - 3rem); padding: 2.5rem 2.25rem 2.25rem;
+    border: 0; border-radius: 6px; background: #fffdf9; color: var(--color-ink);
+    box-shadow: 0 30px 80px -30px rgba(40, 25, 18, 0.6);
+  }
+  .doc-modale::backdrop { background: rgba(40, 25, 18, 0.55); }
+  .dmo-fermer {
+    position: absolute; top: 0.6rem; right: 0.8rem; font-size: 1.9rem; line-height: 1; background: none; border: 0;
+    color: var(--color-ink); cursor: pointer; padding: 0.25rem 0.5rem;
+  }
+  .dmo-fermer:focus-visible { outline: 2px solid var(--color-accent-text); }
+  @media (max-width: 600px) { .doc-modale { padding: 2.5rem 1.25rem 1.5rem; } }
+</style>

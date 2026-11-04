@@ -24,14 +24,11 @@ chiffres:
   - { valeur: "2", label: "études de filières mondiales" }
   - { valeur: "7", label: "types de plantations forestières identifiés" }
   - { valeur: "22", label: "participants à l'atelier FTA de Montpellier" }
-ressources:
+ressources: []
   # Manuel de terrain : décommenter et compléter l'URL dès qu'elle est disponible.
   # - titre: "Manuel pédagogique de terrain"
   #   url: "https://..."
   #   type: pdf
-  - titre: "Article sur les plantations forestières"
-    url: "https://1drv.ms/b/c/68c0b0c348204772/IQAFbI7N4c_WT6MrZ_IjYFqdAXQFZrgwUjGW-N1xHxyXQOM?e=47bPtt"
-    type: pdf
 livrables:
   - titre: "Analyse des dynamiques temporelles et spatiales de l'expansion des plantations forestières de grande superficie en zones tropicales et subtropicales"
     couverture: /livrables/fta/plantations-forestieres-grande-superficie.jpg

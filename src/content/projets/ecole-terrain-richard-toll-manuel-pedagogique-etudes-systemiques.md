@@ -62,7 +62,6 @@ livrables:
     type: Manuel
     langue: FR
     pages: 59
-    url: "https://1drv.ms/b/c/68c0b0c348204772/IQAIKCrXDbDNQ6dZ-Qv4Ol4kAdszMP_OKey7BOKcwtEaiMo?e=I7F5FR"
   - titre: "Le développement des écoles terrain : enjeux et perspectives pour le master ASAD"
     couverture: /livrables/ecole-terrain-richard-toll-manuel-pedagogique-etudes-systemiques/note-perspectives-asad.jpg
     annee: 2026

@@ -25,7 +25,6 @@ livrables:
     type: Présentation
     langue: AR
     pages: 26
-    url: /documents/pacte/restitution-diagnostic-sejnane.pdf
     groupe: "Restitutions et voyage d'étude"
   - titre: "Visite d'étude à Chefchaouen : démarches participatives et création d'activités en milieu rural"
     couverture: /livrables/pacte/visite-etude-chefchaouen.jpg
@@ -33,7 +32,6 @@ livrables:
     type: Présentation
     langue: FR
     pages: 33
-    url: /documents/pacte/visite-etude-chefchaouen.pdf
     groupe: "Restitutions et voyage d'étude"
   - titre: "M1 Approche systémique : introduction à l'approche systémique"
     couverture: /livrables/pacte/m1-introduction-approche-systemique.jpg
@@ -41,7 +39,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 17
-    url: /documents/pacte/m1-introduction-approche-systemique.pdf
     groupe: "Module 1 : approche systémique"
   - titre: "M1 Approche systémique : caractériser le milieu biophysique"
     couverture: /livrables/pacte/m1-milieu-biophysique.jpg
@@ -49,7 +46,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 18
-    url: /documents/pacte/m1-milieu-biophysique.pdf
     groupe: "Module 1 : approche systémique"
   - titre: "M1 Approche systémique : étude de l'histoire agraire"
     couverture: /livrables/pacte/m1-histoire-agraire.jpg
@@ -57,7 +53,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 13
-    url: /documents/pacte/m1-histoire-agraire.pdf
     groupe: "Module 1 : approche systémique"
   - titre: "M1 Approche systémique : entretiens de compréhension et guides d'enquête"
     couverture: /livrables/pacte/m1-entretiens-guides-enquete.jpg
@@ -65,7 +60,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 13
-    url: /documents/pacte/m1-entretiens-guides-enquete.pdf
     groupe: "Module 1 : approche systémique"
   - titre: "M1 Approche systémique : comprendre et décrire les systèmes de culture"
     couverture: /livrables/pacte/m1-systemes-de-culture.jpg
@@ -73,7 +67,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 22
-    url: /documents/pacte/m1-systemes-de-culture.pdf
     groupe: "Module 1 : approche systémique"
   - titre: "M1 Approche systémique : comprendre et décrire les systèmes d'élevage"
     couverture: /livrables/pacte/m1-systemes-d-elevage.jpg
@@ -81,7 +74,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 27
-    url: /documents/pacte/m1-systemes-d-elevage.pdf
     groupe: "Module 1 : approche systémique"
   - titre: "M1 Approche systémique : construire une typologie des systèmes de production"
     couverture: /livrables/pacte/m1-systemes-de-production.jpg
@@ -89,7 +81,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 10
-    url: /documents/pacte/m1-systemes-de-production.pdf
     groupe: "Module 1 : approche systémique"
   - titre: "M1 Approche systémique : le cadre d'analyse des moyens d'existence durables"
     couverture: /livrables/pacte/m1-cadre-moyens-d-existence.jpg
@@ -97,7 +88,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 1
-    url: /documents/pacte/m1-cadre-moyens-d-existence.pdf
     groupe: "Module 1 : approche systémique"
   - titre: "M2B Animation participative : le jeu des muets"
     couverture: /livrables/pacte/m2b-jeu-des-muets.jpg
@@ -105,7 +95,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 6
-    url: /documents/pacte/m2b-jeu-des-muets.pdf
     groupe: "Module 2B : techniques d'animation participative"
   - titre: "M2B Animation participative : le jeu des figurines"
     couverture: /livrables/pacte/m2b-jeu-des-figurines.jpg
@@ -113,7 +102,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 4
-    url: /documents/pacte/m2b-jeu-des-figurines.pdf
     groupe: "Module 2B : techniques d'animation participative"
   - titre: "M3 Traitement de l'information, TD1 : collecter des données hors ligne avec KoBoToolbox et KoBoCollect"
     couverture: /livrables/pacte/m3-td1-kobotoolbox.jpg
@@ -121,7 +109,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 9
-    url: /documents/pacte/m3-td1-kobotoolbox.pdf
     groupe: "Module 3 : traitement numérique de l'information"
   - titre: "M3 Traitement de l'information, TD2 : analyser des données avec les tableaux croisés dynamiques"
     couverture: /livrables/pacte/m3-td2-tableaux-croises.jpg
@@ -129,7 +116,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 3
-    url: /documents/pacte/m3-td2-tableaux-croises.pdf
     groupe: "Module 3 : traitement numérique de l'information"
   - titre: "M3 Traitement de l'information, TD3 : faire une première carte d'un territoire avec QGIS"
     couverture: /livrables/pacte/m3-td3-premiere-carte-qgis.jpg
@@ -137,7 +123,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 22
-    url: /documents/pacte/m3-td3-premiere-carte-qgis.pdf
     groupe: "Module 3 : traitement numérique de l'information"
   - titre: "M3 Traitement de l'information, TD4 : améliorer sa carte avec QGIS et ses extensions"
     couverture: /livrables/pacte/m3-td4-qgis-extensions.jpg
@@ -145,7 +130,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 16
-    url: /documents/pacte/m3-td4-qgis-extensions.pdf
     groupe: "Module 3 : traitement numérique de l'information"
   - titre: "M4 Diagnostic de territoire : comprendre un territoire par l'approche systémique (introduction)"
     couverture: /livrables/pacte/m4-introduction.jpg
@@ -153,7 +137,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 15
-    url: /documents/pacte/m4-introduction.pdf
     groupe: "Module 4 : diagnostic de territoire"
   - titre: "M4 Diagnostic de territoire : méthodologie du diagnostic territorial"
     couverture: /livrables/pacte/m4-methodologie-diagnostic.jpg
@@ -161,7 +144,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 13
-    url: /documents/pacte/m4-methodologie-diagnostic.pdf
     groupe: "Module 4 : diagnostic de territoire"
   - titre: "M4 Diagnostic de territoire : lecture de paysage"
     couverture: /livrables/pacte/m4-lecture-de-paysage.jpg
@@ -169,7 +151,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 17
-    url: /documents/pacte/m4-lecture-de-paysage.pdf
     groupe: "Module 4 : diagnostic de territoire"
   - titre: "M4 Diagnostic de territoire : dynamiques territoriales"
     couverture: /livrables/pacte/m4-dynamiques-territoriales.jpg
@@ -177,7 +158,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 17
-    url: /documents/pacte/m4-dynamiques-territoriales.pdf
     groupe: "Module 4 : diagnostic de territoire"
   - titre: "M4 Diagnostic de territoire : élaboration des guides d'entretien"
     couverture: /livrables/pacte/m4-entretiens-de-comprehension.jpg
@@ -185,7 +165,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 13
-    url: /documents/pacte/m4-entretiens-de-comprehension.pdf
     groupe: "Module 4 : diagnostic de territoire"
   - titre: "M4 Diagnostic de territoire : guides d'entretien"
     couverture: /livrables/pacte/m4-guides-d-entretien.jpg
@@ -193,23 +172,20 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 16
-    url: /documents/pacte/m4-guides-d-entretien.pdf
     groupe: "Module 4 : diagnostic de territoire"
   - titre: "M4 Diagnostic de territoire, fiche 1 : les éléments constitutifs d'un paysage"
     couverture: /livrables/pacte/m4-fiche-comprendre-le-paysage.jpg
     annee: 2019
-    type: Outil
+    type: Support de formation
     langue: FR
     pages: 2
-    url: /documents/pacte/m4-fiche-comprendre-le-paysage.pdf
     groupe: "Module 4 : diagnostic de territoire"
   - titre: "M4 Diagnostic de territoire, fiche 2 : évolution historique du territoire"
     couverture: /livrables/pacte/m4-fiche-entretiens-historiques.jpg
     annee: 2019
-    type: Outil
+    type: Support de formation
     langue: FR
     pages: 2
-    url: /documents/pacte/m4-fiche-entretiens-historiques.pdf
     groupe: "Module 4 : diagnostic de territoire"
   - titre: "M4 Diagnostic de territoire : SWOT synthétique du territoire d'étude"
     couverture: /livrables/pacte/m4-swot-synthetique.jpg
@@ -217,7 +193,6 @@ livrables:
     type: Note
     langue: FR
     pages: 1
-    url: /documents/pacte/m4-swot-synthetique.pdf
     groupe: "Module 4 : diagnostic de territoire"
   - titre: "M5 Méthodologie de projet : formulation de projets de développement local"
     couverture: /livrables/pacte/m5-methodologie-de-projet.jpg
@@ -225,7 +200,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 47
-    url: /documents/pacte/m5-methodologie-de-projet.pdf
     groupe: "Module 5 : méthodologie de projet"
   - titre: "M9 Activités génératrices de revenus : guide complet de formation"
     couverture: /livrables/pacte/m9-guide-formation-agr.jpg
@@ -233,7 +207,6 @@ livrables:
     type: Manuel
     langue: FR
     pages: 68
-    url: /documents/pacte/m9-guide-formation-agr.pdf
     groupe: "Module 9 : accompagnement des porteurs de projet"
   - titre: "M9 Activités génératrices de revenus : AGR, micro-projets et logique de projet"
     couverture: /livrables/pacte/m9-agr-micro-projets.jpg
@@ -241,7 +214,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 24
-    url: /documents/pacte/m9-agr-micro-projets.pdf
     groupe: "Module 9 : accompagnement des porteurs de projet"
   - titre: "M9 Activités génératrices de revenus : l'étude de marché"
     couverture: /livrables/pacte/m9-etude-de-marche.jpg
@@ -249,7 +221,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 32
-    url: /documents/pacte/m9-etude-de-marche.pdf
     groupe: "Module 9 : accompagnement des porteurs de projet"
   - titre: "M9 Activités génératrices de revenus : l'étude économique et financière"
     couverture: /livrables/pacte/m9-etude-economique-financiere.jpg
@@ -257,7 +228,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 23
-    url: /documents/pacte/m9-etude-economique-financiere.pdf
     groupe: "Module 9 : accompagnement des porteurs de projet"
   - titre: "M9 Activités génératrices de revenus : enquêtes de terrain auprès de porteurs de projet"
     couverture: /livrables/pacte/m9-enquetes-porteurs-de-projet.jpg
@@ -265,15 +235,13 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 4
-    url: /documents/pacte/m9-enquetes-porteurs-de-projet.pdf
     groupe: "Module 9 : accompagnement des porteurs de projet"
   - titre: "M9 Activités génératrices de revenus : guide d'entretien porteur de projet"
     couverture: /livrables/pacte/m9-guide-entretien-porteur-de-projet.jpg
     annee: 2020
-    type: Outil
+    type: Support de formation
     langue: FR
     pages: 3
-    url: /documents/pacte/m9-guide-entretien-porteur-de-projet.pdf
     groupe: "Module 9 : accompagnement des porteurs de projet"
   - titre: "M9 Activités génératrices de revenus : accompagnement des porteurs de projet"
     couverture: /livrables/pacte/m9-accompagnement-porteurs-de-projet.jpg
@@ -281,7 +249,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 16
-    url: /documents/pacte/m9-accompagnement-porteurs-de-projet.pdf
     groupe: "Module 9 : accompagnement des porteurs de projet"
   - titre: "M11 Suivi-évaluation de projet : les apports des approches orientées changement"
     couverture: /livrables/pacte/m11-theorie-du-changement.jpg
@@ -289,7 +256,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 28
-    url: /documents/pacte/m11-theorie-du-changement.pdf
     groupe: "Module 11 : suivi-évaluation"
   - titre: "M11 Suivi-évaluation de projet : les indicateurs de suivi et d'évaluation"
     couverture: /livrables/pacte/m11-indicateurs.jpg
@@ -297,7 +263,6 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 23
-    url: /documents/pacte/m11-indicateurs.pdf
     groupe: "Module 11 : suivi-évaluation"
   - titre: "M11 Suivi-évaluation de projet : le dispositif de suivi-évaluation"
     couverture: /livrables/pacte/m11-dispositif-suivi-evaluation.jpg
@@ -305,15 +270,13 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 20
-    url: /documents/pacte/m11-dispositif-suivi-evaluation.pdf
     groupe: "Module 11 : suivi-évaluation"
   - titre: "M11 Suivi-évaluation de projet : modèle de questions évaluatives"
     couverture: /livrables/pacte/m11-questions-evaluatives.jpg
     annee: 2020
-    type: Outil
+    type: Support de formation
     langue: FR
     pages: 6
-    url: /documents/pacte/m11-questions-evaluatives.pdf
     groupe: "Module 11 : suivi-évaluation"
 ressources:
   - titre: "Vidéo du module M1 Approche systémique (mars 2019), partie 1"
