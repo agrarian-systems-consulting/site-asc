@@ -21,6 +21,7 @@ const projets = defineCollection({
     featured_image: z.string().optional(),
     is_projet: z.boolean().optional().default(false),  // true = apparait aussi sur /projets/ (programme multi-années, pas one-shot)
     video_url: z.string().url().optional(),            // YouTube / Vimeo embed
+    site_web: z.string().url().optional(),             // site public du projet (affiché dans la fiche)
     // ─── Ressources téléchargeables (documents Drive, rapports, annexes…) ───
     // Rendu dans une section dédiée « Ressources » en bas de la page projet,
     // avec une ancre stable #ressources (ex : /projets/mon-projet/#ressources)

@@ -20,6 +20,7 @@ experts:
   - sixtine-mazin
   - corentin-lucas
   - adrien-peroches
+site_web: "https://www.fantasscic.org"
 ressources:
   - titre: "Site du projet Fantas'SCIC"
     url: "https://www.fantasscic.org"
