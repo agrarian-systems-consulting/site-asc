@@ -5,7 +5,6 @@ import CarteTerrains from '../components/CarteTerrains.astro';
 import { periode, parRecence, enCours, visuel } from '../lib/projets';
 
 const all = (await getCollection('projets')).filter((p) => !p.data.draft).sort(parRecence);
-const expertises = (await getCollection('expertises')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 
 const nbPays = new Set(all.flatMap((p) => p.data.countries)).size;
 
@@ -134,25 +133,6 @@ const compte = (cats: string[]) => all.filter((p) => p.data.categories.some((c) 
     </section>
   )}
 
-  <section class="metiers">
-    <div class="container">
-      <h2>Nos métiers</h2>
-      <ul class="met-grille">
-        {expertises.map((e) => (
-          <li>
-            <a href={`/expertises/${e.slug}/`}>
-              <span class="met-img">{e.data.image && <img src={e.data.image} alt="" loading="lazy" decoding="async" />}</span>
-              <span class="met-corps">
-                <span class="met-titre">{e.data.title}</span>
-                <span class="met-intro">{e.data.intro}</span>
-                <span class="met-n">{compte(e.data.related_categories)} missions</span>
-              </span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
 
   <section class="clients" aria-labelledby="clients-titre">
     <div class="container">
@@ -247,8 +227,6 @@ const compte = (cats: string[]) => all.filter((p) => p.data.categories.some((c) 
   @media (max-width: 560px) { .documents .etagere { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (prefers-reduced-motion: reduce) { .couv { transition: none; } }
 
-  /* ── Métiers : cartes avec photo de terrain ── */
-  .metiers { padding: 5rem 1.5rem 3.5rem; }
   .met-grille { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.75rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
   .met-grille a {
     display: flex; flex-direction: column; height: 100%; border: 1px solid rgba(103, 61, 52, 0.14); border-radius: 4px;
