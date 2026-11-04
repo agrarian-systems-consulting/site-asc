@@ -1,5 +1,5 @@
 ---
-title: "Caractérisation des systèmes agroforestiers - Plateau Batéké"
+title: "Caractérisation des systèmes agroforestiers du plateau Batéké (RDC)"
 date: "2012-01-01"
 year_start: 2012
 year_end: 2012
@@ -12,7 +12,7 @@ filieres:
 countries:
 - "RDC"
 client: "CIRAD"
-excerpt: "Caractérisation des systèmes agroforestiers traditionnels du plateau Batéké et estimation des stocks de bois-énergie en périphérie de Kinshasa, pour le CIRAD (RDC)."
+excerpt: "Étude des systèmes agroforestiers traditionnels et estimation des stocks de bois-énergie du plateau Batéké, en périphérie de Kinshasa, pour le CIRAD dans le cadre du projet Makala."
 draft: false
 experts:
 - "adrien-peroches"

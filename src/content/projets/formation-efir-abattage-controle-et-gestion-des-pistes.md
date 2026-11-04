@@ -1,5 +1,5 @@
 ---
-title: "Formation EFIR - Abattage contrôlé et gestion des pistes"
+title: "Formations EFIR à l'abattage contrôlé et à la gestion des pistes"
 date: "2015-01-01"
 year_start: 2015
 year_end: 2015

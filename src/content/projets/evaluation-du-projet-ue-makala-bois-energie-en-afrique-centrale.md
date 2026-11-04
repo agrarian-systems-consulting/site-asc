@@ -1,5 +1,5 @@
 ---
-title: "Évaluation du projet UE Makala - Bois-énergie en Afrique centrale"
+title: "Évaluation du projet européen Makala sur le bois-énergie en Afrique centrale"
 date: "2014-01-01"
 year_start: 2014
 year_end: 2014
@@ -19,7 +19,7 @@ experts:
 - "adrien-peroches"
 ---
 #### Contexte
-Le projet Makala, « Gérer durablement la ressource bois-énergie en Afrique centrale », financé par l'Union européenne et coordonné par le CIRAD, a accompagné des communautés de la périphérie de Kinshasa et du Kongo-Central dans la mise en place de Plans simples de gestion (PSG) et de pratiques agroforestières pour la production de bois-énergie.
+Le projet Makala, « Gérer durablement la ressource bois-énergie en Afrique centrale », financé par l'Union européenne et coordonné par le CIRAD, a accompagné des communautés de la périphérie de Kinshasa et du Kongo Central dans la mise en place de Plans simples de gestion (PSG) et de pratiques agroforestières pour la production de bois-énergie.
 
 #### Objectifs
 Évaluer les résultats du projet auprès des communautés et proposer des améliorations des itinéraires techniques promus.

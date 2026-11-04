@@ -15,7 +15,7 @@ countries:
 - "RDC"
 - "République centrafricaine"
 client: "Nature+ / FFEM"
-excerpt: "Coordination technique en Afrique centrale du projet P3FAC (partenariat public-privé pour la gestion durable des forêts), porté par l'ONG belge Nature+ avec un cofinancement du FFEM."
+excerpt: "Coordination technique, au Cameroun, au Congo, au Gabon, en RDC et en RCA, du projet P3FAC de partenariat public-privé pour la gestion durable des forêts, porté par Nature+ et cofinancé par le FFEM."
 draft: false
 experts:
 - "adrien-peroches"

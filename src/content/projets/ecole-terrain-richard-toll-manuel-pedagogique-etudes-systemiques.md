@@ -1,5 +1,5 @@
 ---
-title: "Rédaction d'un manuel pédagogique sur les écoles terrain de formation des professionnels du développement agricole"
+title: "Manuel pédagogique sur les écoles terrain de formation des professionnels du développement agricole"
 date: "2026-01-01"
 year_start: 2026
 year_end: 2026

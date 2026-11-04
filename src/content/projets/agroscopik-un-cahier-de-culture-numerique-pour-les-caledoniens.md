@@ -1,5 +1,5 @@
 ---
-title: Agroscopik - Un cahier de culture numérique pour les Calédoniens
+title: "Agroscopik, un cahier de culture numérique pour les Calédoniens"
 date: '2019-02-09'
 excerpt: "Développement d'Agroscopik, application web de cahier de culture pour les agriculteurs de Nouvelle-Calédonie : cartographie des parcelles, saisie des itinéraires techniques et synthèses technico-économiques."
 categories:
@@ -20,7 +20,6 @@ experts:
 photos:
   - { src: "/uploads/2019/12/Capture-d’écran-2019-12-09-à-11.15.53.png", legende: "Interface d'Agroscopik" }
 ---
-
 #### Contexte
 En Nouvelle-Calédonie, il n'existe pas de registre parcellaire graphique (RPG) comparable à celui de la métropole. Les agriculteurs et leurs conseillers manquent donc d'un outil simple pour localiser les parcelles, enregistrer les pratiques et en tirer des références technico-économiques.
 

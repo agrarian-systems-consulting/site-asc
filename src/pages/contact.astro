@@ -33,7 +33,6 @@ const contacts = [
 <BaseLayout title={title} description={description}>
   <section class="contact-hero">
     <div class="container">
-      <p class="eyebrow">Contact</p>
       <h1>Une idée de projet&nbsp;? Discutons-en.</h1>
       <p class="lead">
         Que ce soit pour une étude, une formation, un diagnostic ou simplement échanger sur vos enjeux,
@@ -139,19 +138,11 @@ const contacts = [
   /* ───────────── Hero ───────────── */
   .contact-hero {
     background: var(--color-bg-soft);
-    padding: 4rem 1.5rem 3rem;
-  }
-  .eyebrow {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    margin: 0 0 0.75rem;
+    padding: 4rem 1.5rem 3.5rem;
   }
   .contact-hero h1 {
-    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+    font-variation-settings: 'opsz' 60;
     color: var(--color-ink);
     margin: 0 0 1rem;
     max-width: 22ch;
@@ -159,9 +150,8 @@ const contacts = [
   .lead {
     font-size: 1.1rem;
     line-height: 1.6;
-    max-width: 60ch;
+    max-width: 58ch;
     color: var(--color-ink);
-    opacity: 0.85;
     margin: 0;
   }
 
@@ -186,11 +176,8 @@ const contacts = [
   .block-title {
     font-family: var(--font-heading);
     font-size: 1.35rem;
-    color: var(--color-accent-2);
+    color: var(--color-ink);
     margin: 0 0 1rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 2px solid var(--color-accent);
-    display: inline-block;
   }
   .people {
     list-style: none;
@@ -213,17 +200,15 @@ const contacts = [
   .person-role {
     margin: 0;
     font-size: 0.85rem;
-    color: var(--color-muted);
+    color: var(--color-muted-text);
     font-style: italic;
   }
   .person-email {
-    color: var(--color-accent);
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.15s ease;
-    word-break: break-all;
+    align-self: flex-start;
+    color: var(--color-accent-2);
+    overflow-wrap: anywhere;
     margin-top: 0.25rem;
   }
-  .person-email:hover { border-bottom-color: var(--color-accent); }
   .person-phone {
     display: inline-block;
     margin-top: 0.15rem;
@@ -232,7 +217,7 @@ const contacts = [
     border: none;
     font-variant-numeric: tabular-nums;
   }
-  .person-phone:hover { color: var(--color-accent); }
+  .person-phone:hover { color: var(--color-accent-text); }
   .address {
     font-style: normal;
     line-height: 1.7;
@@ -240,7 +225,7 @@ const contacts = [
   }
   .muted {
     font-size: 0.82rem;
-    color: var(--color-muted);
+    color: var(--color-muted-text);
     margin: 0.75rem 0 0;
   }
 
@@ -248,10 +233,9 @@ const contacts = [
   .contact-form-wrap {}
   .contact-form {
     background: var(--color-bg);
-    border: 1px solid rgba(103, 61, 52, 0.12);
-    border-radius: 8px;
+    border: 1px solid rgba(103, 61, 52, 0.18);
+    border-radius: 4px;
     padding: 2.5rem;
-    box-shadow: 0 6px 28px rgba(103, 61, 52, 0.06);
   }
   .form-title {
     font-family: var(--font-heading);
@@ -274,7 +258,7 @@ const contacts = [
     margin-bottom: 0.4rem;
   }
   .optional {
-    color: var(--color-muted);
+    color: var(--color-muted-text);
     font-weight: 400;
     font-style: italic;
   }
@@ -293,13 +277,13 @@ const contacts = [
   .field textarea { resize: vertical; min-height: 140px; line-height: 1.55; }
   .field input:focus,
   .field textarea:focus {
-    outline: none;
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px rgba(199, 86, 40, 0.12);
+    outline: 2px solid var(--color-accent);
+    outline-offset: 0;
+    border-color: var(--color-accent-text);
   }
   .rgpd {
     font-size: 0.8rem;
-    color: var(--color-muted);
+    color: var(--color-muted-text);
     margin: 0 0 1.25rem;
     line-height: 1.5;
   }
@@ -307,18 +291,18 @@ const contacts = [
     background: var(--color-accent);
     color: #fff;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     padding: 0.85rem 2rem;
     font-family: var(--font-body);
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.18s ease, transform 0.18s ease;
+    transition: background 0.18s ease;
   }
   .submit-btn:hover {
     background: var(--color-ink);
-    transform: translateY(-1px);
   }
+  .submit-btn:focus-visible { outline: 2px solid var(--color-accent-2); outline-offset: 3px; }
 
   /* ───────────── Responsive ───────────── */
   @media (max-width: 900px) {
@@ -330,7 +314,7 @@ const contacts = [
     .contact-form { padding: 2rem 1.5rem; }
   }
   @media (max-width: 560px) {
-    .field-row { grid-template-columns: 1fr; gap: 0; }
+    .field-row { grid-template-columns: 1fr; gap: 0; margin-bottom: 0; }
     .field-row .field { margin-bottom: 1.25rem; }
     .submit-btn { width: 100%; }
   }

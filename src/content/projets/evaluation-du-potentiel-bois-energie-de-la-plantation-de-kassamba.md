@@ -1,5 +1,5 @@
 ---
-title: "Évaluation du potentiel bois-énergie de la plantation de Kassamba"
+title: "Évaluation du potentiel bois-énergie de la plantation de Kassamba (Cameroun)"
 date: "2016-01-01"
 year_start: 2016
 year_end: 2016
@@ -17,7 +17,7 @@ experts:
 - "adrien-peroches"
 ---
 #### Contexte
-À Kassamba, près de Batouri dans l'Est du Cameroun, les sociétés forestières Alpicam-Grumcam et STBK ont mis en place des essais de plantation associant ayous, teck et Acacia mangium. La GIZ Cameroun s'intéressait au potentiel de ces plantations pour la production de bois-énergie.
+À Kassamba, près de Batouri dans l'est du Cameroun, les sociétés forestières Alpicam-Grumcam et STBK ont mis en place des essais de plantation associant ayous, teck et Acacia mangium. La GIZ Cameroun s'intéressait au potentiel de ces plantations pour la production de bois-énergie.
 
 #### Objectifs
 Quantifier le potentiel de production de bois-énergie des Acacia mangium de la plantation.

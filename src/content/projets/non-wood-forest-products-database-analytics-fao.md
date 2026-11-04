@@ -1,5 +1,5 @@
 ---
-title: "Non-Wood Forest Products - Database & analytics FAO"
+title: "Base de données et analyses sur les produits forestiers non ligneux pour la FAO"
 date: "2012-01-01"
 year_start: 2012
 year_end: 2012
@@ -24,6 +24,6 @@ Rassembler et standardiser les données de production et de commerce de PFNL des
 
 #### Réalisations
 - Revue des données disponibles sur la production et le commerce des PFNL en Afrique et en Asie.
-- Conception d'une base de données MySQL standardisée ; les données collectées ont ensuite été intégrées à FAOStat.
+- Conception d'une base de données MySQL standardisée ; les données collectées ont ensuite été intégrées à FAOSTAT.
 - Développement d'une interface graphique de consultation des données sur le site de la FAO.
 - Rédaction de synthèses par pays et par région de la zone d'étude.

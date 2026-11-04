@@ -13,7 +13,7 @@ filieres:
 countries:
   - RDC
 client: "PNUD-CAFI / CIRAD"
-excerpt: "Étude des filières bois-énergie de quatre villes de RDC avec le CIRAD : enquêtes auprès des consommateurs, commerçants, transporteurs et producteurs, et module de formation à l'université de Lubumbashi."
+excerpt: "Enquêtes auprès des consommateurs, commerçants, transporteurs et producteurs de bois-énergie de quatre villes de RDC avec le CIRAD, et module de formation à l'université de Lubumbashi."
 draft: false
 experts:
   - adrien-peroches

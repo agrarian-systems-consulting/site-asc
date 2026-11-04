@@ -1,5 +1,5 @@
 ---
-title: "Diagnostic agraire du Sud Gujarat - Dharampur"
+title: "Diagnostic agraire de Dharampur, dans le Sud Gujarat (Inde)"
 date: "2014-01-01"
 year_start: 2014
 year_end: 2014
@@ -9,7 +9,7 @@ filieres: []
 countries:
 - "Inde"
 client: "CIRAD"
-excerpt: "Diagnostic agraire du taluka de Dharampur (Sud Gujarat, Inde) avec le CIRAD et Montpellier SupAgro : histoire agraire, transformation des systèmes de production et inégalités entre exploitations."
+excerpt: "Étude du taluka de Dharampur avec le CIRAD et Montpellier SupAgro : histoire agraire, transformation des systèmes de production et inégalités entre exploitations."
 draft: false
 experts:
 - "hugo-lehoux"
@@ -25,4 +25,4 @@ Comprendre le fonctionnement et l'évolution du système agraire de Dharampur et
 - Reconstitution de l'histoire agraire de la région et de la transformation des systèmes de production.
 - Analyse de l'évolution des facteurs de production des différents types d'exploitations et analyse socio-économique.
 - Rédaction du rapport de diagnostic agraire.
-- Valorisation : communication « Agriculture familiale et révolution blanche » au colloque sur les agricultures familiales des Suds de Tunis (décembre 2014) et contribution à des articles sur la révolution blanche et sur la pauvreté et les inégalités dans l'Inde rurale, dont un article pour la revue EchoGéo (2015).
+- Valorisation : communication « Agriculture familiale et révolution blanche » au colloque de Tunis sur les agricultures familiales des Suds (décembre 2014) et contribution à des articles sur la révolution blanche et sur la pauvreté et les inégalités dans l'Inde rurale, dont un article pour la revue EchoGéo (2015).

@@ -1,5 +1,5 @@
 ---
-title: "Formation au diagnostic agraire - SupAgro IRC"
+title: "Formation au diagnostic agraire à Montpellier SupAgro-IRC"
 date: "2015-01-01"
 year_start: 2015
 year_end: 2015

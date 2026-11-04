@@ -77,13 +77,32 @@ experts:
   - adrien-peroches
 is_projet: false             # true = apparaît aussi dans "Projets pluriannuels"
 video_url: ""                # optionnel — YouTube/Vimeo
-deliverables: []             # optionnel — voir schema
-draft: false
+draft: false                 # true = fiche non publiée
+featured_image: /photos/mon-nouveau-projet/paysage.jpg   # photo d'ouverture (terrain, horizontale)
+chiffres:                    # 2-4 chiffres clés vérifiés
+  - { valeur: "18", label: "diagnostics agraires" }
+livrables:                   # couvertures (1re page) des documents produits
+  - titre: "Rapport final du diagnostic agraire"
+    couverture: /livrables/mon-nouveau-projet/rapport-final.jpg
+    annee: 2025
+    type: Rapport            # Rapport | Manuel | Support de formation | Note | Présentation | Article | Outil
+    langue: FR
+    pages: 84
+    # url: https://…         # seulement si le document est public ; sinon bouton « Demander le document »
+photos:
+  - { src: /photos/mon-nouveau-projet/parcelle.jpg, legende: "Parcelle de riz pluvial, Sambú (Darién)" }
 ---
 
 ## Contexte
 
 Corps en markdown libre ici.
+```
+
+### Fabriquer une couverture de livrable
+
+```bash
+pdftoppm -f 1 -l 1 -r 110 -jpeg rapport.pdf /tmp/couv
+convert /tmp/couv-1.jpg -resize 900x -strip -quality 82 public/livrables/<slug>/<nom>.jpg
 ```
 
 ## Ajouter un expert

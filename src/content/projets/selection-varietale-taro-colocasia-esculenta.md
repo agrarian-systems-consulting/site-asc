@@ -1,5 +1,5 @@
 ---
-title: "Sélection variétale Taro (Colocasia esculenta)"
+title: "Sélection variétale du taro (Colocasia esculenta) au Vanuatu"
 date: "2012-01-01"
 year_start: 2012
 year_end: 2013

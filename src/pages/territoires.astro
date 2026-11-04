@@ -41,18 +41,18 @@ const pays = [...parPays.entries()].sort((a, b) => b[1].length - a[1].length || 
   .t-head { background: var(--color-bg-soft); padding: 4rem 1.5rem 3rem; }
   h1 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); font-variation-settings: 'opsz' 60; margin: 0 0 1rem; }
   .lead { font-size: 1.1rem; max-width: 60ch; margin: 0 0 2rem; }
-  .t-pays { padding: 4rem 1.5rem; columns: 3 320px; column-gap: 3.5rem; }
+  .t-pays { padding: 4rem 1.5rem; max-width: calc(1200px + 3rem); columns: 3 320px; column-gap: 3.5rem; }
   .t-bloc { break-inside: avoid; margin-bottom: 2.5rem; }
   .t-bloc h2 { font-size: 1.45rem; font-variation-settings: 'opsz' 36; margin: 0 0 0.6rem; display: flex; align-items: baseline; gap: 0.6rem; }
   .t-bloc h2 a { color: var(--color-ink); border: 0; }
-  .t-bloc h2 a:hover { color: var(--color-accent); }
-  .t-bloc h2 span { font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; color: var(--color-muted); }
+  .t-bloc h2 a:hover { color: var(--color-accent-text); }
+  .t-bloc h2 span { font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; color: var(--color-muted-text); }
   .t-bloc ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(103, 61, 52, 0.15); }
   .t-bloc li a {
     display: block; padding: 0.55rem 0; border: 0; border-bottom: 1px solid rgba(103, 61, 52, 0.1);
     color: var(--color-ink); font-size: 0.93rem; line-height: 1.4;
   }
-  .t-bloc li a:hover { color: var(--color-accent); }
+  .t-bloc li a:hover { color: var(--color-accent-text); }
   .an { color: var(--color-accent-2); font-variant-numeric: tabular-nums; margin-right: 0.35rem; font-weight: 500; }
   .plus a { color: var(--color-accent-2); }
 </style>

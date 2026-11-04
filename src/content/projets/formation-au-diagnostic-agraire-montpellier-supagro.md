@@ -1,5 +1,5 @@
 ---
-title: "Enseignement en Master 2 – Formation théorique et pratique au diagnostic agraire "
+title: "Enseignement théorique et pratique du diagnostic agraire en master 2 (Institut Agro Montpellier)"
 date: "2018-01-01"
 year_start: 2018
 year_end: 2025
@@ -10,20 +10,39 @@ filieres: []
 countries:
   - France
 client: "Montpellier SupAgro"
-excerpt: "Field training en diagnostic agraire pour les étudiants de master 2 de la spécialisation MOQUAS"
+excerpt: "Cours, TD et co-encadrement du stage collectif de diagnostic agraire des étudiants MOQUAS et IPAD de l'Institut Agro Montpellier (ex-Montpellier SupAgro), chaque automne sur une petite région agricole française."
 draft: false
 experts:
   - hugo-lehoux
-   sixtine-mazin
+  - sixtine-mazin
+livrables:
+  - titre: "TP - Cartographie du territoire d'étude"
+    couverture: /livrables/formation-au-diagnostic-agraire-montpellier-supagro/tp-cartographie-territoire.jpg
+    annee: 2019
+    type: Support de formation
+    langue: FR
+    pages: 4
+  - titre: "TP - Modélisation d'un système d'élevage : exemple d'un élevage de bovins allaitants"
+    couverture: /livrables/formation-au-diagnostic-agraire-montpellier-supagro/tp-modelisation-elevage-bovins-allaitants.jpg
+    annee: 2020
+    type: Support de formation
+    langue: FR
+    pages: 11
+  - titre: "TP - Systèmes de culture fourragers et céréales annuelles"
+    couverture: /livrables/formation-au-diagnostic-agraire-montpellier-supagro/tp-systemes-de-culture.jpg
+    annee: 2019
+    type: Support de formation
+    langue: FR
+    pages: 5
 ---
 #### Contexte
-L’option MOQUAS de l’Institut Agro Montpellier propose à ses étudiants de Master 2 un module de compréhension des systèmes agraires, incluant notamment une phase de d’étude technico-économique des systèmes de production, de culture et d’élevage.  
+Chaque année, fin septembre, les spécialisations MOQUAS (diplôme d'ingénieur et master) et le mastère spécialisé IPAD de l'Institut Agro Montpellier (ex-Montpellier SupAgro) réalisent un stage collectif de formation-action : le diagnostic agraire d'une petite région agricole française, en une quinzaine de jours, en réponse à la demande d'un organisme du territoire. Le stage réunit une quarantaine d'étudiants de plusieurs nationalités et vise d'abord à les former à l'approche systémique pour caractériser la diversité des exploitations agricoles et leurs dynamiques. Exemples de terrains : PNR de l'Aubrac (2019), Pays d'Armagnac (2024).
 
-#### Objectif
-Appuyer l’équipe enseignante dans la dispense des enseignements et l’encadrement des travaux de terrain en stage collectif et en réponse à une demande de commanditaire. 
+#### Objectifs
+Appuyer l'équipe enseignante du service DEFIS dans les enseignements préparatoires et l'encadrement des travaux de terrain, jusqu'à la restitution au commanditaire.
 
 #### Réalisations Asc
-- Création et dispense de TD sur l’étude technique des systèmes de production, de culture et d’élevage 
-- Co-encadrement de la promotion (30 à 40 étudiants) sur le terrain (Analyse de paysage, entretiens historiques, entretiens auprès d’exploitations agricoles en activité et de personnes ressources). Exemples de terrains d’étude : PNR de l’Aubrac, Pays d’Armagnac, 
-- Appui à tous les groupes sur la modélisation des systèmes de production 
-- Rédaction du rapport de synthèse sur la base des travaux étudiants pour le commanditaire.  
+- Conception et animation de TP préparatoires, en français et en anglais : cartographie du territoire d'étude, modélisation d'un élevage de bovins allaitants (avec outil de calcul sous tableur), modélisation des systèmes de culture et de production.
+- Co-encadrement de la promotion (30 à 45 étudiants) sur le terrain : lecture de paysage, entretiens historiques, entretiens auprès d'exploitations agricoles en activité et de personnes ressources.
+- Appui à tous les groupes sur la modélisation des systèmes de production et le calcul des performances économiques.
+- Appui à la restitution et à la rédaction du rapport de synthèse remis au commanditaire.

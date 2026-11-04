@@ -1,5 +1,5 @@
 ---
-title: "Appui à la réhabilitation agroforestière du Ranch de Mandou"
+title: "Appui à la réhabilitation agroforestière du ranch de Mandou (Congo)"
 date: "2022-01-01"
 year_start: 2022
 year_end: 2022

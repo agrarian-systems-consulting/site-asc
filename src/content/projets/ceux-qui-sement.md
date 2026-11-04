@@ -1,18 +1,18 @@
 ---
-title: "Réalisation de Ceux qui Sèment – documentaire sur les agricultures familiales"
+title: "Réalisation du documentaire « Ceux qui sèment » sur les agricultures familiales"
 date: "2019-07-11"
 excerpt: "Coordination et scénarisation de « Ceux qui sèment », documentaire libre de droits sur les agricultures familiales réalisé par des étudiants de Montpellier SupAgro-IRC pour l'Année internationale 2014."
 categories:
 - "Vidéo"
 tags:
 - "Inde"
-- "Equateur"
+- "Équateur"
 - "Canada"
 - "France"
 countries:
 - "Cameroun"
 - "Inde"
-- "Equateur"
+- "Équateur"
 - "Canada"
 - "France"
 legacyId: 222
@@ -35,7 +35,7 @@ photos:
 #### Contexte
 Les Nations unies ont fait de 2014 l'Année internationale de l'agriculture familiale. Des étudiants de l'Institut des Régions Chaudes de Montpellier SupAgro (aujourd'hui Institut Agro Montpellier), réunis dans l'association Agro & Sac à Dos, ont décidé de s'appuyer sur leurs terrains de stage pour réaliser un documentaire sur l'agriculture familiale et ses enjeux.
 
-#### Objectif
+#### Objectifs
 Réaliser un film grand public, documenté et libre de droits (licence Creative Commons), montrant la diversité des agricultures familiales, leurs atouts, leurs limites et les menaces qui pèsent sur elles.
 
 #### Réalisations

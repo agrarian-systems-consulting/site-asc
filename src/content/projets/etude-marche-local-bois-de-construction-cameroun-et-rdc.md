@@ -1,5 +1,5 @@
 ---
-title: "Étude marché local bois de construction - Cameroun et RDC"
+title: "Étude du marché local du bois de construction au Cameroun et en RDC"
 date: "2015-01-01"
 year_start: 2015
 year_end: 2015

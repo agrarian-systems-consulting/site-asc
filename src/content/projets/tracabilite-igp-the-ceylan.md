@@ -1,5 +1,5 @@
 ---
-title: "Traçabilité IGP Thé Ceylan"
+title: "Traçabilité de l'IGP Thé de Ceylan (Sri Lanka)"
 date: "2025-01-01"
 year_start: 2025
 year_end: 2026
@@ -19,12 +19,6 @@ chiffres:
   - { valeur: "7", label: "régions d'inspection couvertes" }
   - { valeur: "17", label: "points de contrôle IG suivis" }
   - { valeur: "35", label: "inspecteurs et assistants utilisateurs" }
-livrables:
-  - titre: "Structure de la base Airtable du Ceylon Tea GI Verification System"
-    couverture: /livrables/tracabilite-igp-the-ceylan/structure-base-airtable.jpg
-    annee: 2025
-    type: Outil
-    langue: EN
 ---
 #### Contexte
 Le Sri Lanka Tea Board (SLTB), organisme public de régulation de la filière thé, a sollicité une assistance technique pour mettre en place l'indication géographique (IG) « Ceylon Tea » et ses dispositifs de contrôle. L'AFD a confié cette assistance au CIRAD, dans le cadre du projet *Ceylon Tea Value Creation through the Development of Geographical Indication and International Quality Certifications*.

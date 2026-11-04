@@ -1,5 +1,5 @@
 ---
-title: "Formation SIG / QGIS — option Systel, Institut Agro Montpellier"
+title: "Formation SIG sous QGIS pour l'option Systel de l'Institut Agro Montpellier"
 date: "2024-01-01"
 year_start: 2024
 categories:

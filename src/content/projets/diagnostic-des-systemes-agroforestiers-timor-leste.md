@@ -10,7 +10,7 @@ filieres: []
 countries:
   - Timor-Leste
 client: "GIZ / CIRAD"
-excerpt: "Diagnostic des systèmes agroforestiers et des systèmes de production des districts de Manatuto, Lautem et Viqueque, comparés à Baucau, pour le CIRAD dans le cadre du projet Ai Ba Futuru (PSAF) mis en œuvre par la GIZ."
+excerpt: "Analyse des systèmes agroforestiers et des systèmes de production de Manatuto, Lautem et Viqueque, comparés à Baucau, pour le CIRAD dans le cadre du projet Ai Ba Futuru (PSAF) de la GIZ."
 draft: false
 experts:
   - adrien-peroches

@@ -1,5 +1,5 @@
 ---
-title: "Diagnostic agraire betterave - Beni-Mellal"
+title: "Diagnostic agraire des producteurs de betterave de Beni-Mellal (Maroc)"
 date: "2014-01-01"
 year_start: 2014
 year_end: 2014

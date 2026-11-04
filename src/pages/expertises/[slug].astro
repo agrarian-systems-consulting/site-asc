@@ -22,7 +22,11 @@ const matching = (await getCollection('projets'))
   .filter((p) => !p.data.draft && p.data.categories.some((c) => related_categories.includes(c)))
   .sort(parRecence);
 
-const documents = matching.flatMap((p) => p.data.livrables.slice(0, 1).map((l) => ({ p, l }))).slice(0, 5);
+// Un même document peut être rattaché à deux fiches (ex. article issu d'une thèse) : on dédoublonne par titre
+const documents = matching
+  .flatMap((p) => p.data.livrables.slice(0, 1).map((l) => ({ p, l })))
+  .filter((d, i, arr) => arr.findIndex((x) => x.l.titre === d.l.titre) === i)
+  .slice(0, 5);
 ---
 
 <BaseLayout title={title} description={intro} image={image}>
@@ -89,8 +93,8 @@ const documents = matching.flatMap((p) => p.data.livrables.slice(0, 1).map((l) =
   .couv img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
   .e-docs a:hover .couv { transform: translateY(-4px) rotate(-0.6deg); }
   .t { font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem; line-height: 1.3; margin-top: 0.85rem; }
-  .e-refs { padding: 4rem 1.5rem 2rem; }
-  .e-autres { padding: 1rem 1.5rem 4rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; align-items: baseline; }
+  .e-refs { padding: 4rem 1.5rem 2rem; max-width: calc(1200px + 3rem); }
+  .e-autres { padding: 1rem 1.5rem 4rem; max-width: calc(1200px + 3rem); display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; align-items: baseline; }
   .e-autres p { margin: 0; font-weight: 600; }
   .e-autres ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
   @media (prefers-reduced-motion: reduce) { .couv { transition: none; } }

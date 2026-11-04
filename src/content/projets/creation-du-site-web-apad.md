@@ -1,5 +1,5 @@
 ---
-title: "Création du site web APAD"
+title: "Création du site web de l'APAD"
 date: "2015-01-01"
 year_start: 2015
 year_end: 2015
@@ -9,7 +9,7 @@ filieres: []
 countries:
 - "France"
 client: "APAD (Association pour l'anthropologie du changement social et du développement)"
-excerpt: "Création du site web de l'APAD (Association pour l'anthropologie du changement social et du développement) : site de l'association, plateforme de son congrès, formation aux outils collaboratifs."
+excerpt: "Site de l'Association pour l'anthropologie du changement social et du développement : vitrine, plateforme de son congrès international, adhésions en ligne et formation aux outils collaboratifs."
 draft: false
 experts:
 - "hugo-lehoux"

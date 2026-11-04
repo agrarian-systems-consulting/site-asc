@@ -1,5 +1,5 @@
 ---
-title: "Conseil technique production végétale et développement d'Agroscopik - Nouvelle-Calédonie"
+title: "Conseil technique en production végétale et développement d'Agroscopik en Nouvelle-Calédonie"
 date: "2016-01-01"
 year_start: 2016
 year_end: 2017

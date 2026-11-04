@@ -1,5 +1,5 @@
 ---
-title: "Évaluation arboriculture fruitière - Programme RACP"
+title: "Évaluation du volet arboriculture fruitière du programme RACP (Arménie)"
 date: "2014-01-01"
 year_start: 2014
 year_end: 2014

@@ -1,8 +1,7 @@
 ---
-title: Programme de substitution partielle du bois-énergie comme combustible de cuisson
-  en RDC
+title: "Programme de substitution partielle du bois-énergie comme combustible de cuisson en RDC"
 date: '2019-10-06'
-excerpt: "Baseline de la consommation en énergies de cuisson des ménages et usagers productifs de Kinshasa, Lubumbashi, Goma et Bukavu, et revue des alternatives biomasse au bois-énergie, en appui au CIRAD pour le PNUD (FONAREDD)."
+excerpt: "Situation de référence de la consommation en énergies de cuisson des ménages et usagers productifs de Kinshasa, Lubumbashi, Goma et Bukavu, et revue des alternatives biomasse, pour le CIRAD et le PNUD."
 categories:
   - Étude
   - Conseil stratégique et opérationnel
@@ -55,20 +54,16 @@ photos:
   - { src: /photos/programme-de-substitution-partielle-du-bois-energie-comme-combustible-de-cuisson-en-rdc/formation-enqueteurs-lubumbashi.jpg, legende: "Simulation d'enquête lors de la formation des enquêteurs, Lubumbashi (2020)" }
   - { src: /photos/programme-de-substitution-partielle-du-bois-energie-comme-combustible-de-cuisson-en-rdc/enquete-menage-lubumbashi.jpg, legende: "Enquête de consommation auprès d'un ménage, Lubumbashi (2020)" }
 ---
-
 #### Contexte
-
 En RDC, la quasi-totalité des ménages urbains cuisinent au charbon de bois (makala), ce qui pèse sur les forêts autour des grandes villes. Le Fonds national REDD+ (FONAREDD) a confié au PNUD et à l'UNCDF le programme « Consommation durable et substitution partielle au bois-énergie », qui vise à mieux connaître les filières, à diffuser des foyers améliorés et à développer le gaz dans quatre métropoles : Kinshasa, Lubumbashi, Goma et Bukavu.
 
 Le CIRAD (UR Forêts et Sociétés) était chargé du volet connaissance de la production et de la consommation d'énergie de cuisson. Asc est intervenu en appui à l'équipe CIRAD.
 
 #### Objectifs
-
 - Établir une situation de référence de la consommation en énergies de cuisson des ménages et des usagers productifs, à reproduire en fin de programme pour en mesurer l'effet.
 - Recenser les alternatives au bois-énergie issues d'autres biomasses en Afrique centrale.
 
 #### Réalisations Asc
-
 - Missions à Kinshasa (novembre 2019) et Lubumbashi (février 2020) : recrutement des coordonnateurs locaux, atelier méthodologique avec le PNUD et l'UNCDF, tests des questionnaires et de la méthode de pesée des conditionnements de bois-énergie.
 - Formation des enquêteurs du cabinet chargé de la collecte et suivi des enquêtes ménages et usagers productifs (restaurateurs, boulangers, fondeurs, briquetiers…).
 - Plans d'échantillonnage stratifiés par quartiers et cartographie des points d'enquête à Goma et Bukavu.
@@ -76,7 +71,6 @@ Le CIRAD (UR Forêts et Sociétés) était chargé du volet connaissance de la p
 - Revue bibliographique des briquettes, biogaz et pellets en Afrique centrale, avec description des modèles économiques quand les sources le permettaient.
 
 #### Résultats
-
 - Le charbon de bois est utilisé par 97,7 % des ménages enquêtés à Kinshasa, 98 % à Lubumbashi et 99,5 % à Goma ; à Kinshasa, seuls 12 % des ménages utilisent un foyer amélioré.
 - La consommation moyenne d'énergie de cuisson à Kinshasa est estimée à 3,5 kWh par habitant et par jour, dont 3 kWh de charbon de bois.
 - Sur 38 initiatives biomasse recensées, 22 portent sur des briquettes et 10 sur le biogaz, avec des résultats mitigés auprès des ménages ; les débouchés institutionnels (prisons, hôpitaux) sont plus encourageants.

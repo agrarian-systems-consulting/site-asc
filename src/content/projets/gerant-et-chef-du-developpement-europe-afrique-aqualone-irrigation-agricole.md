@@ -1,5 +1,5 @@
 ---
-title: "Gérant et chef du développement Europe & Afrique - Aqualone (irrigation agricole)"
+title: "Gérant et chef du développement Europe-Afrique d'Aqualone (irrigation agricole)"
 date: "2017-01-01"
 year_start: 2017
 year_end: 2018

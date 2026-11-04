@@ -1,5 +1,5 @@
 ---
-title: "Expert agroforestier pour trois études de préfaisabilité de projets de gestion et de développement durable de trois zones forestières en RCA"
+title: "Expert agroforestier pour trois études de préfaisabilité de projets de gestion durable de forêts en RCA"
 date: "2022-01-01"
 year_start: 2022
 year_end: 2023
@@ -11,7 +11,7 @@ filieres: []
 countries:
   - République centrafricaine
 client: "AFD-CAFI / SalvaTerra"
-excerpt: "Expert agroforestier pour trois études de préfaisabilité de projets de gestion durable de zones forestières en RCA (périphérie de Bangui, Sangha-Mbaéré, forêt de Bangassou), pour l'AFD et CAFI."
+excerpt: "Contribution agroforestière aux études conduites par SalvaTerra pour l'AFD et CAFI dans trois zones : périphérie de Bangui, Sangha-Mbaéré et forêt de Bangassou."
 draft: false
 experts:
   - adrien-peroches

@@ -1,5 +1,5 @@
 ---
-title: "Appui à formulation d'un programme multi-pays H2020 en Afrique"
+title: "Appui à la formulation d'un programme multi-pays H2020 en Afrique"
 date: "2019-01-01"
 year_start: 2019
 year_end: 2019
@@ -11,18 +11,18 @@ countries:
   - RDC
   - Madagascar
 client: "ULB Coopération"
-excerpt: "Formulation d'une réponse à appel d'offre pour un projet H2020 multi-pays en Afrique."
-draft: false
+excerpt: "Co-animation d'un atelier de formulation à Dakar et rédaction de la composante diagnostic d'une note conceptuelle H2020 (SFS-36) portée par un consortium universitaire du Sénégal, de RDC et de Madagascar."
+draft: true
 experts:
   - adrien-peroches
 ---
 #### Contexte
-ULB Coopération et plusieurs de ses partenaires universitaires africains du Sénégal, de Madagascar et de RDC, appuyé par l’Agence Universitaire de la Francophonie (AUF)
+Fin 2019, ULB Coopération et plusieurs universités partenaires du Sénégal, de RDC et de Madagascar, avec l'appui de l'Agence universitaire de la Francophonie (AUF), ont préparé une réponse à l'appel SFS-36 du programme européen Horizon 2020, inscrit dans le partenariat de recherche et d'innovation Union européenne-Afrique. Le projet, intitulé SUSTAIN-D, visait à identifier et tester des solutions biosourcées favorisant la transition vers des agroécosystèmes résilients et la diversification des revenus agricoles, dans trois territoires : le bassin arachidier au Sénégal, l'hinterland minier du Katanga en RDC et la région d'Itasy à Madagascar.
 
-#### Objectif
-En appui aux futurs partenaires opérationnels du programme, Asc apportait un appui sur la réflexion globale du projet et la rédaction des composantes de diagnostic des territoires d’intervention. 
+#### Objectifs
+En appui aux futurs partenaires opérationnels, Asc contribuait à la réflexion d'ensemble sur le projet et à la rédaction de la composante de diagnostic des territoires d'intervention.
 
 #### Réalisations Asc
-- Participation à la rédaction d’une première concept note 
-- Co-animation d’un atelier de construction du projet à Dakar 
-- Rédaction d’une composante du projet  
+- Participation à la rédaction d'une première note conceptuelle.
+- Co-animation de l'atelier de construction du projet organisé à l'AUF à Dakar du 16 au 20 décembre 2019 : présentation de la démarche de diagnostic, synthèse des données collectées par zone, séances d'écriture collective.
+- Rédaction de la composante « diagnostic des systèmes locaux », fondée sur le diagnostic agraire et complétée par des enquêtes socio-anthropologiques, des études de filières et une analyse agro-environnementale, devant aboutir à des modèles de simulation des systèmes de production.

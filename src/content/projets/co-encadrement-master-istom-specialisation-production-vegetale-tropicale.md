@@ -1,5 +1,5 @@
 ---
-title: "Enseignements en Licence 3, Master 1 & 2 dans les cursus d’ingénieur en agro-développement de l’ISTOM"
+title: "Enseignements en licence 3, master 1 et master 2 du cursus d'ingénieur en agro-développement de l'ISTOM"
 date: "2018-01-01"
 year_start: 2018
 year_end: 2026
@@ -10,7 +10,7 @@ filieres: []
 countries:
   - France
 client: "ISTOM"
-excerpt: "Interventions pédagogiques : cours magistraux, TD et TP."
+excerpt: "Cours et TD d'agroforesterie et d'évaluation de projets, encadrement de projets transversaux, missions jeunes experts, tutorats et jurys de stages dans le cursus ingénieur de l'ISTOM."
 draft: false
 experts:
   - adrien-peroches
@@ -18,14 +18,14 @@ experts:
   - hugo-lehoux
 ---
 #### Contexte
-L’ISTOM, École Supérieure d’agro-développement international, est un établissement d'enseignement supérieur privé d’intérêt général (EESPIG), sous tutelle du ministère de l’enseignement supérieur et de la recherche ayant un statut d’association loi 1901 à but non lucratif. 
+L'ISTOM, école supérieure d'agro-développement international, est un établissement d'enseignement supérieur privé d'intérêt général (EESPIG) sous tutelle du ministère de l'Enseignement supérieur et de la Recherche. Il a le statut d'association loi 1901 à but non lucratif. Asc intervient depuis 2018 dans plusieurs années du cursus d'ingénieur en agro-développement.
 
-#### Objectif
-Appuyer l’équipe enseignante dans plusieurs missions, sur les années de Licence 3, Master 1 et 2 
+#### Objectifs
+Appuyer l'équipe enseignante dans plusieurs missions, en licence 3, master 1 et master 2.
 
 #### Réalisations Asc
-- Dispense des cours magistraux (3 h) et des travaux dirigés (6 h) d’agroforesterie – Licence 3 
-- Dispense des cours magistraux (3 h) et travaux dirigés (6 h) d'évaluation de projets - Master 1
-- Appui aux missions jeunes experts (recherche de commanditaires, réalisation de sites internet, établissement des méthodologies de terrain, jurys) – Master 1 
-- Encadrement et évaluation des projets transversaux du domaine d’approfondissement Production Végétale Tropicale – Master 2 
-- Tutorats et jurys (plusieurs chaque année) de stages de fin d’étude – Master 2
+- Licence 3 : cours magistraux (3 h) et travaux dirigés (6 h) d'agroforesterie.
+- Master 1 : cours magistraux (3 h) et travaux dirigés (6 h) d'évaluation de projets.
+- Master 1 : appui aux missions jeunes experts (recherche de commanditaires, réalisation de sites internet, méthodologies de terrain, jurys).
+- Master 2 : encadrement et évaluation des projets transversaux du domaine d'approfondissement « Production végétale tropicale ».
+- Master 2 : tutorats et jurys de stages de fin d'études (plusieurs chaque année).

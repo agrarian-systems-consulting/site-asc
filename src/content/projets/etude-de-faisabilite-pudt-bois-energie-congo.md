@@ -1,5 +1,5 @@
 ---
-title: "Étude de faisabilité de la composante bois-énergie du Programme d’Utilisation Durable des Terres (PUDT) et de son plan d’investissement (Kopekoba)"
+title: "Étude de faisabilité de la composante bois-énergie du PUDT et du plan d'investissement Kopekoba (Congo)"
 date: "2021-01-01"
 year_start: 2021
 year_end: 2022

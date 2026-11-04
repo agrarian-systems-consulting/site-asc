@@ -14,7 +14,7 @@ countries:
   - Sénégal
   - Tunisie
 client: "CIRAD"
-excerpt: "Évaluation externe finale du projet MAHDIA (agroécologie, eau et alimentation durable) sur ses quatre territoires au Maroc, au Sénégal et en Tunisie, pour le CIRAD (financement Fonds Équipe France)."
+excerpt: "Évaluation selon les critères du CAD du projet MAHDIA (agroécologie, eau et alimentation durable) sur ses quatre territoires, pour le CIRAD (financement Fonds Équipe France)."
 draft: false
 is_projet: false
 experts:
@@ -32,7 +32,7 @@ livrables:
     langue: FR
     pages: 14
 photos:
-  - { src: /photos/evaluation-finale-projet-mahdia/paysage-oliveraies.jpg, legende: "Paysage d’oliveraies sur un territoire du projet" }
+  - { src: /photos/evaluation-finale-projet-mahdia/paysage-oliveraies.jpg, legende: "Paysage d'oliveraies sur un territoire du projet" }
   - { src: /photos/evaluation-finale-projet-mahdia/visite-parcelle.jpg, legende: "Visite de parcelle avec les équipes du projet" }
   - { src: /photos/evaluation-finale-projet-mahdia/produits-interet-territorial.jpg, legende: "Produits d'intérêt territorial valorisés par le projet" }
 ---

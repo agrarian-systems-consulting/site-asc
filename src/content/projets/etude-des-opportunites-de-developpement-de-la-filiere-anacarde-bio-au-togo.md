@@ -1,5 +1,5 @@
 ---
-title: "Etude des opportunités de développement de la filière Anacarde Bio au Togo"
+title: "Étude des opportunités de développement de la filière anacarde bio au Togo"
 date: "2018-05-15"
 excerpt: "Étude d'opportunité pour un investisseur privé sur la filière anacarde biologique d'export au Togo, avec Montpellier SupAgro : acteurs, répartition de la valeur, itinéraires techniques, projet d'investissement."
 categories:
@@ -25,7 +25,7 @@ Un groupe privé souhaitant investir dans la filière anacarde (noix de cajou) b
 #### Objectifs
 Évaluer les opportunités de développement d'une filière anacarde biologique au Togo et formuler un projet d'investissement.
 
-#### Réalisations
+#### Réalisations Asc
 - Cartographie des acteurs de la filière et étude de la répartition de la valeur à chaque maillon.
 - Étude des conduites techniques des plantations d'anacardier au Togo.
 - Mission de terrain de Hugo Lehoux et Corentin Lucas au Togo en juillet 2018 (Lomé, région de Sotouboua).

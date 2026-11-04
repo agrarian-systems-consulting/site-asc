@@ -1,5 +1,5 @@
 ---
-title: "Coordination du projet Fantas'SCIC - Démonstrateur territorial de la Transition Agroécologique"
+title: "Coordination du projet Fantas'SCIC, démonstrateur territorial de la transition agroécologique"
 date: "2024-01-01"
 year_start: 2024
 categories:
@@ -27,7 +27,7 @@ livrables:
     pages: 17
 ---
 #### Contexte
-Le territoire de l’Aude est confronté à des mutations profondes de son agriculture. La fréquence accrue des sécheresses, le risque incendie et la déprise agricole sur certaines zones se traduisent notamment par une augmentation des friches, une fragilisation du potentiel productif et une perte de valeur pour les territoires. Dans le même temps, les attentes sociétales évoluent fortement en faveur d’une alimentation plus locale, plus durable et issue de l’agriculture biologique. Cette demande croissante reste encore insuffisamment couverte par une production structurée à l’échelle territoriale, notamment pour les filières céréales et légumineuses.
+L'agriculture de l'Aude connaît de profondes mutations. La fréquence accrue des sécheresses, le risque incendie et la déprise agricole sur certaines zones se traduisent notamment par une augmentation des friches, une fragilisation du potentiel productif et une perte de valeur pour les territoires. Dans le même temps, la demande d'une alimentation plus locale, plus durable et issue de l'agriculture biologique progresse. Elle reste mal couverte par une production structurée à l'échelle du territoire, notamment pour les céréales et les légumineuses.
 
 Portée par la SCIC Graines équitables, coopérative bio de Laure-Minervois, la candidature Fantas'SCIC a été retenue dans le cadre de l'appel à projets « Démonstrateurs territoriaux » de France 2030, opéré par la Banque des Territoires. Le projet couvre la période 2025-2030.
 
