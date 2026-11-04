@@ -18,6 +18,8 @@ featured_image: /uploads/2019/12/WhatsApp-Image-2019-11-14-at-17.33.55.jpeg
 year_start: 2019
 year_end: 2023
 client: "CIRAD / PNUD-CAFI"
+montant_asc: "24 750 € HT"
+montant_programme: "11,6 M USD"
 filieres:
   - Bois-énergie
 experts:

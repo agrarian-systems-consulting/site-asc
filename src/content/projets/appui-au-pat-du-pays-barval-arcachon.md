@@ -11,6 +11,7 @@ filieres: []
 countries:
   - France
 client: "Pays Barval"
+montant_asc: "23 333 € HT"
 excerpt: "Appui perlé à la chargée de mission du PAT du Pays Barval (Gironde) : diagnostic agraire, étude cartographique du foncier mobilisable sur les 17 communes et pistes pour un dispositif de veille foncier-installation."
 draft: false
 experts:

@@ -10,6 +10,7 @@ filieres: []
 countries:
   - Arménie
 client: "AFD"
+montant_asc: "39 760 € HT"
 excerpt: "Diagnostic de système agraire du bassin versant du Vorotan (Nord-Syunik, Arménie) pour l'AFD, en appui à la formulation du projet WAIDA d'irrigation et de développement territorial."
 draft: false
 featured_image: "/photos/diagnostic-agraire-nord-syunik-etude-de-faisabilite-afd/haut-plateau-ondule.jpg"

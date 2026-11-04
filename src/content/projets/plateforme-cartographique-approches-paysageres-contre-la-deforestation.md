@@ -10,6 +10,7 @@ filieres: []
 countries:
   - France
 client: "Alliance pour la Préservation des Forêts"
+montant_asc: "21 250 € HT"
 excerpt: "Recensement et cartographie de plus de 170 projets mobilisant une approche paysagère dans 19 pays tropicaux, pour l'Alliance pour la Préservation des Forêts, avec le CIRAD, et présentation au CST Forêt."
 draft: false
 experts:

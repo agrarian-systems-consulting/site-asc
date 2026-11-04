@@ -11,6 +11,7 @@ filieres: []
 countries:
   - Congo
 client: "CIRAD"
+montant_asc: "21 000 € HT"
 excerpt: "Encadrement pour le CIRAD (PUDT, Congo) de deux diagnostics agraires à Makana 2 (Pool) et Tchingoli (Kouilou) sur les liens entre agriculture, foncier et production de bois-énergie."
 draft: false
 is_projet: false

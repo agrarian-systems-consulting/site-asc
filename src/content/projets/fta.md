@@ -13,6 +13,7 @@ featured_image: /uploads/2019/12/lubo-minar-6n9JGobCASo-unsplash.jpg
 year_start: 2019
 year_end: 2019
 client: "CIFOR / FTA"
+montant_asc: "10 000 € HT"
 filieres:
   - Hévéa
   - Bois d'œuvre

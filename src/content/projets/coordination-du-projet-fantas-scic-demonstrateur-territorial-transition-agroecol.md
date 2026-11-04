@@ -10,6 +10,7 @@ filieres: []
 countries:
   - France
 client: "Banque des Territoires / SCIC Graines équitables"
+montant_programme: "13,4 M€"
 excerpt: "Animation de la maturation puis de la mise en œuvre de Fantas'SCIC, démonstrateur territorial de la transition agroécologique (France 2030) porté dans l'Aude par la SCIC Graines équitables avec 27 partenaires."
 draft: false
 is_projet: true

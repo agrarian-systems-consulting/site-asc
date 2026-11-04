@@ -10,6 +10,8 @@ filieres: []
 countries:
   - Panama
 client: "BID / IDIAP"
+montant_asc: "66 570 USD"
+montant_programme: "46 M USD"
 excerpt: "Six diagnostics agraires et une formation-action de 20 chercheurs de l'IDIAP dans sept régions du Panama, en consortium avec l'Institut Agro Montpellier, pour préparer le programme PIASI de la BID."
 draft: false
 is_projet: true

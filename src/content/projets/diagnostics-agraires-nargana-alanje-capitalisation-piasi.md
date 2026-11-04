@@ -10,6 +10,7 @@ filieres: []
 countries:
   - Panama
 client: "BID / IDIAP"
+montant_programme: "46 M USD"
 excerpt: "Diagnostics agraires de Narganá (Guna Yala) et d'Alanje (Chiriquí), résumés de 18 diagnostics et outils de terrain pour les équipes du PIASI, dans le cadre de la consultation PN-T1342 de la BID."
 draft: false
 is_projet: false

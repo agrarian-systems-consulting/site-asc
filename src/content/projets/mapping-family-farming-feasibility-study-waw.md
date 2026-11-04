@@ -10,6 +10,8 @@ filieres: []
 countries:
   - Italie
 client: "FAO / CIRAD"
+montant_asc: "8 580 € HT"
+montant_programme: "10,98 M USD"
 excerpt: "Conception de la composante « Mapping Family Farming » du programme WAW de la FAO : consultations à Rome, programme sur cinq ans et spécifications d'une plateforme collaborative open source."
 draft: false
 experts:

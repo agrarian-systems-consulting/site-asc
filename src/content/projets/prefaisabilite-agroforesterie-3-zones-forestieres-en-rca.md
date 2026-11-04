@@ -11,6 +11,7 @@ filieres: []
 countries:
   - République centrafricaine
 client: "AFD-CAFI / SalvaTerra"
+montant_programme: "30 M USD"
 excerpt: "Contribution agroforestière aux études conduites par SalvaTerra pour l'AFD et CAFI dans trois zones : périphérie de Bangui, Sangha-Mbaéré et forêt de Bangassou."
 draft: false
 experts:

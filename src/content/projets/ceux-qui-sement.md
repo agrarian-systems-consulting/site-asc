@@ -20,6 +20,7 @@ legacyUrl: "https://agrarian-systems.org/ceux-qui-sement/"
 year_start: 2014
 year_end: 2015
 client: "ASD / Agreenium"
+montant_programme: "60 000 €"
 filieres: []
 experts:
 - "hugo-lehoux"

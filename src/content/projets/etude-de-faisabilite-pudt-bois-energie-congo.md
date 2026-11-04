@@ -12,6 +12,7 @@ filieres:
 countries:
   - Congo
 client: "AFD-CAFI / SalvaTerra"
+montant_programme: "7,2 M€"
 excerpt: "Expert bois-énergie pour l'étude de faisabilité du PUDT et du plan d'investissement Kopekoba (CAFI, Congo) : consultation des parties prenantes, ateliers et rédaction des volets bois-énergie."
 draft: false
 experts:

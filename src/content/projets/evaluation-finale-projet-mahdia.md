@@ -14,6 +14,7 @@ countries:
   - Sénégal
   - Tunisie
 client: "CIRAD"
+montant_asc: "29 150 € HT"
 excerpt: "Évaluation selon les critères du CAD du projet MAHDIA (agroécologie, eau et alimentation durable) sur ses quatre territoires, pour le CIRAD (financement Fonds Équipe France)."
 draft: false
 is_projet: false
