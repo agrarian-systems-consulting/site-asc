@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { periode, missionsProches, descriptionLivrable, visuel } from '../../lib/projets';
 
 export async function getStaticPaths() {
   const projets = await getCollection('projets');
@@ -14,37 +15,38 @@ interface Props { projet: CollectionEntry<'projets'>; }
 const { projet } = Astro.props;
 const { Content } = await projet.render();
 const {
-  title, date, excerpt, categories, tags, countries, featured_image, legacyUrl,
-  year_start, year_end, client, filieres, video_url, ressources, is_projet,
+  title, excerpt, categories, countries, featured_image,
+  client, filieres, video_url, ressources, is_projet, livrables, photos, chiffres,
   experts: expertSlugs,
 } = projet.data;
 
-// Récupère les fiches expertes correspondantes
 const allExperts = await getCollection('experts');
 const projectExperts = (expertSlugs || [])
   .map((s) => allExperts.find((e) => e.slug === s))
   .filter((e): e is NonNullable<typeof e> => Boolean(e))
   .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 
-const dateFmt = new Intl.DateTimeFormat('fr-FR', { year: 'numeric', month: 'long' }).format(date);
-const periode = year_start && year_end
-  ? `${year_start}–${year_end}`
-  : year_start && !year_end
-    ? `${year_start} → en cours`
-    : dateFmt;
+const all = await getCollection('projets');
+const proches = missionsProches(projet, all, 3);
 
-// Convertit URL YouTube/Vimeo en URL embed
+const periodeTxt = periode(projet, 'long');
+
+// Photo d'ouverture : featured_image si elle n'est pas déjà dans la galerie
+// Les photos de banque d'images (Unsplash) héritées de l'ancien site ne sont pas mises en avant
+const heroPhoto = featured_image && !/unsplash/i.test(featured_image) ? featured_image : null;
+const galerie = (photos ?? []).filter((p) => p.src !== heroPhoto);
+const heroLegende = (photos ?? []).find((p) => p.src === heroPhoto)?.legende;
+
 function toEmbed(url?: string): string | null {
   if (!url) return null;
   const yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/);
-  if (yt) return `https://www.youtube.com/embed/${yt[1]}`;
+  if (yt) return `https://www.youtube-nocookie.com/embed/${yt[1]}`;
   const vm = url.match(/vimeo\.com\/(\d+)/);
   if (vm) return `https://player.vimeo.com/video/${vm[1]}`;
   return url;
 }
 const videoEmbed = toEmbed(video_url);
 
-// Icônes SVG au trait (couleur terre cuite via currentColor) pour la section Ressources
 const RESSOURCE_ICONS: Record<string, string> = {
   pdf: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 11.5v5"/><path d="m9.5 14 2.5 2.5 2.5-2.5"/>',
   doc: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 12.5h6"/><path d="M9 15.5h6"/><path d="M9 18.5h3.5"/>',
@@ -56,110 +58,158 @@ const RESSOURCE_ICONS: Record<string, string> = {
   autre: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/>',
 };
 const iconFor = (type?: string) => RESSOURCE_ICONS[type ?? 'autre'] ?? RESSOURCE_ICONS.autre;
+
+// Épaisseur de la « liasse » selon le nombre de pages (0 à 3 feuillets visibles)
+const epaisseur = (pages?: number) => (!pages ? 1 : pages < 20 ? 0 : pages < 60 ? 1 : pages < 150 ? 2 : 3);
+
+const mailDemande = (t: string) =>
+  `mailto:hugo@agrarian-systems.org?subject=${encodeURIComponent(`Demande de document : ${t}`)}`;
+
+const ogImage = visuel(projet)?.src;
 ---
 
-<BaseLayout title={title} description={excerpt} image={featured_image}>
-  <article>
-    <!-- Header projet (fond lin) -->
-    <section class="section section--soft project-head">
+<BaseLayout title={title} description={excerpt || undefined} image={ogImage}>
+  <article class="projet">
+    <header class="p-head">
       <div class="container">
-        <p class="eyebrow">
-          {is_projet ? 'Projet' : 'Référence'} · {periode}
-        </p>
+        <nav class="crumbs" aria-label="Fil d'Ariane">
+          <a href="/projets/references/">Références</a>
+          {is_projet && <> <span aria-hidden="true">/</span> <a href="/projets/">Projets pluriannuels</a></>}
+        </nav>
         <h1>{title}</h1>
-        {excerpt && <p class="lead">{excerpt}</p>}
+        {excerpt && <p class="p-lead">{excerpt}</p>}
+      </div>
+    </header>
 
-        <dl class="project-meta">
-          {client && (<><dt>Commanditaire</dt><dd>{client}</dd></>)}
-          {countries.length > 0 && (<><dt>Pays</dt><dd>{countries.join(', ')}</dd></>)}
-          {categories.length > 0 && (<><dt>Thématique{categories.length > 1 ? 's' : ''}</dt><dd>{categories.join(', ')}</dd></>)}
-          {filieres.length > 0 && (<><dt>Filière{filieres.length > 1 ? 's' : ''}</dt><dd>{filieres.join(', ')}</dd></>)}
+    {heroPhoto && (
+      <figure class="p-hero">
+        <img src={heroPhoto} alt={heroLegende ?? ''} loading="eager" decoding="async" />
+        {heroLegende && <figcaption class="container">{heroLegende}</figcaption>}
+      </figure>
+    )}
+
+    <div class="container p-grid">
+      <aside class="p-fiche" aria-label="Fiche mission">
+        <dl>
+          {client && (<div><dt>Commanditaire</dt><dd>{client}</dd></div>)}
+          <div><dt>Période</dt><dd>{periodeTxt}</dd></div>
+          {countries.length > 0 && (<div><dt>{countries.length > 1 ? 'Pays' : 'Pays'}</dt><dd>{countries.join(', ')}</dd></div>)}
+          {categories.length > 0 && (
+            <div>
+              <dt>Thématiques</dt>
+              <dd>
+                {categories.map((c, i) => (
+                  <>{i > 0 && ', '}<a href={`/projets/references/?theme=${encodeURIComponent(c)}`}>{c}</a></>
+                ))}
+              </dd>
+            </div>
+          )}
+          {filieres.length > 0 && (<div><dt>Filières</dt><dd>{filieres.join(', ')}</dd></div>)}
         </dl>
-      </div>
-    </section>
 
-    <!-- Image héro -->
-    {featured_image && (
-      <section class="section section--white" style="padding-block:0;">
-        <div class="container hero-img-wrap">
-          <img src={featured_image} alt="" loading="eager" />
-        </div>
-      </section>
-    )}
-
-    <!-- Vidéo (si présente) -->
-    {videoEmbed && (
-      <section class="section section--white video-section">
-        <div class="container">
-          <div class="video-wrap">
-            <iframe
-              src={videoEmbed}
-              title={`Vidéo - ${title}`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
-          </div>
-        </div>
-      </section>
-    )}
-
-    <!-- Corps (fond blanc) -->
-    <section class="section section--white">
-      <div class="container prose-content">
-        <Content />
-
-        {legacyUrl && (
-          <p class="legacy">
-            <small>
-              <a href={legacyUrl} rel="nofollow">Voir la page d'origine (archive)</a>
-            </small>
-          </p>
+        {chiffres.length > 0 && (
+          <ul class="p-chiffres">
+            {chiffres.map((c) => (
+              <li><span class="v">{c.valeur}</span> <span class="l">{c.label}</span></li>
+            ))}
+          </ul>
         )}
-      </div>
-    </section>
 
-    <!-- Ressources téléchargeables (ancre stable #ressources) -->
-    {ressources && ressources.length > 0 && (
-      <section class="section section--white ressources-section" id="ressources">
-        <div class="container">
-          <div class="ressources-card">
-            <h2 class="ressources-title">Ressources</h2>
-            <p class="ressources-sub">Documents accessibles et téléchargeables liés à ce projet.</p>
-            <ul class="ressources-list">
-              {ressources.map((r) => (
-                <li class="ressource">
-                  <a href={r.url} target="_blank" rel="noopener noreferrer">
-                    <span class="ressource-ico" set:html={`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${iconFor(r.type)}</svg>`}></span>
-                    <span class="ressource-titre">{r.titre}</span>
-                    <span class="ext" aria-hidden="true">↗</span>
+        {projectExperts.length > 0 && (
+          <div class="p-equipe">
+            <p class="p-equipe-titre">Équipe Asc</p>
+            <ul>
+              {projectExperts.map((e) => (
+                <li>
+                  <a href={`/equipe/${e.slug}/`}>
+                    {e.data.photo
+                      ? <img src={e.data.photo} alt="" width="40" height="40" loading="lazy" />
+                      : <span class="ini" aria-hidden="true">{e.data.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}</span>}
+                    <span>{e.data.name}</span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
+        )}
+      </aside>
+
+      <div class="p-corps prose-content">
+        <Content />
+        {videoEmbed && (
+          <div class="video-wrap">
+            <iframe
+              src={videoEmbed}
+              title={`Vidéo : ${title}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        )}
+      </div>
+    </div>
+
+    {livrables.length > 0 && (
+      <section class="p-livrables" aria-labelledby="livrables-titre">
+        <div class="container">
+          <h2 id="livrables-titre">{livrables.length > 1 ? 'Documents produits' : 'Document produit'}</h2>
+          <ol class:list={['etagere', { 'etagere--seul': livrables.length === 1 }]}>
+            {livrables.map((l) => (
+              <li class="doc">
+                <a
+                  class="doc-lien"
+                  href={l.url ?? l.couverture}
+                  target={l.url ? '_blank' : undefined}
+                  rel={l.url ? 'noopener noreferrer' : undefined}
+                  data-lightbox={l.url ? undefined : 'livrable'}
+                  data-titre={l.titre}
+                  data-demande={l.url ? undefined : mailDemande(l.titre)}
+                >
+                  <span class={`liasse liasse--${epaisseur(l.pages)}`}>
+                    <img src={l.couverture} alt={`Couverture : ${l.titre}`} loading="lazy" decoding="async" />
+                  </span>
+                </a>
+                <p class="doc-titre">{l.titre}</p>
+                <p class="doc-desc">{descriptionLivrable(l)}</p>
+                {l.url
+                  ? <a class="doc-action" href={l.url} target="_blank" rel="noopener noreferrer">Lire le document</a>
+                  : <a class="doc-action doc-action--discret" href={mailDemande(l.titre)}>Demander le document</a>}
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
     )}
 
-    <!-- Experts mobilisés (fond lin) -->
-    {projectExperts.length > 0 && (
-      <section class="section section--soft experts-section">
+    {galerie.length > 0 && (
+      <section class="p-photos" aria-label="Photos de terrain">
         <div class="container">
-          <h2 class="experts-title">Experts mobilisés sur ce projet</h2>
-          <ul class="experts-grid">
-            {projectExperts.map((e) => (
-              <li class="expert-card">
-                <a href={`/equipe/${e.slug}/`}>
-                  <div class="expert-photo">
-                    {e.data.photo ? (
-                      <img src={e.data.photo} alt={e.data.name} loading="lazy" />
-                    ) : (
-                      <div class="expert-photo-placeholder">{e.data.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}</div>
-                    )}
-                  </div>
-                  <p class="expert-name">{e.data.name}</p>
-                  <p class="expert-role">{e.data.role}</p>
+          <div class:list={['mosaique', `mosaique--${Math.min(galerie.length, 6)}`]}>
+            {galerie.map((ph) => (
+              <figure>
+                <a href={ph.src} data-lightbox="photo" data-titre={ph.legende ?? ''}>
+                  <img src={ph.src} alt={ph.legende ?? ''} loading="lazy" decoding="async" />
+                </a>
+                {ph.legende && <figcaption>{ph.legende}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {ressources && ressources.length > 0 && (
+      <section class="p-ressources" id="ressources">
+        <div class="container">
+          <h2>Ressources en téléchargement</h2>
+          <ul class="ressources-list">
+            {ressources.map((r) => (
+              <li>
+                <a href={r.url} target="_blank" rel="noopener noreferrer">
+                  <span class="ressource-ico" set:html={`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${iconFor(r.type)}</svg>`}></span>
+                  <span class="ressource-titre">{r.titre}</span>
+                  <span class="ext" aria-hidden="true">↗</span>
                 </a>
               </li>
             ))}
@@ -168,229 +218,326 @@ const iconFor = (type?: string) => RESSOURCE_ICONS[type ?? 'autre'] ?? RESSOURCE
       </section>
     )}
 
-    <!-- Retour -->
-    <section class="section section--white back">
-      <div class="container">
-        <a href={is_projet ? '/projets/' : '/projets/references/'}>← Retour</a>
-      </div>
-    </section>
+    {proches.length > 0 && (
+      <section class="p-proches" aria-labelledby="proches-titre">
+        <div class="container">
+          <h2 id="proches-titre">Missions proches</h2>
+          <ul>
+            {proches.map((o) => (
+              <li>
+                <a href={`/projets/${o.slug}/`}>
+                  <span class="pr-annee">{periode(o)}</span>
+                  <span class="pr-titre">{o.data.title}</span>
+                  <span class="pr-pays">{o.data.countries.length > 3 ? `${o.data.countries.slice(0, 2).join(', ')} et ${o.data.countries.length - 2} autres pays` : o.data.countries.join(', ')}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p class="p-retour"><a href="/projets/references/">Toutes les références</a></p>
+        </div>
+      </section>
+    )}
+
   </article>
+
+  <dialog class="visionneuse" aria-label="Agrandissement">
+    <form method="dialog"><button class="v-fermer" aria-label="Fermer">×</button></form>
+    <img alt="" />
+    <p class="v-legende"></p>
+    <p class="v-demande" hidden>
+      Ce document a été remis à notre commanditaire. <a href="#">Écrivez-nous</a> pour en obtenir une copie si sa diffusion est possible.
+    </p>
+  </dialog>
 </BaseLayout>
 
+<script>
+  const dlg = document.querySelector<HTMLDialogElement>('dialog.visionneuse');
+  if (dlg && typeof dlg.showModal === 'function') {
+    const img = dlg.querySelector('img')!;
+    const leg = dlg.querySelector<HTMLElement>('.v-legende')!;
+    const dem = dlg.querySelector<HTMLElement>('.v-demande')!;
+    document.querySelectorAll<HTMLAnchorElement>('a[data-lightbox]').forEach((a) => {
+      a.addEventListener('click', (ev) => {
+        if (ev.metaKey || ev.ctrlKey) return;
+        ev.preventDefault();
+        img.src = a.getAttribute('href')!;
+        img.alt = a.dataset.titre ?? '';
+        leg.textContent = a.dataset.titre ?? '';
+        dlg.dataset.kind = a.dataset.lightbox;
+        if (a.dataset.demande) {
+          dem.hidden = false;
+          dem.querySelector('a')!.setAttribute('href', a.dataset.demande);
+        } else dem.hidden = true;
+        dlg.showModal();
+      });
+    });
+    dlg.addEventListener('click', (ev) => { if (ev.target === dlg) dlg.close(); });
+  }
+</script>
+
 <style>
-  .project-head { padding-block: 4rem; }
+  /* ── En-tête ─────────────────────────────────────── */
+  .p-head {
+    background: var(--color-bg-soft);
+    padding: 3rem 1.5rem 3.25rem;
+  }
+  .crumbs { font-size: 0.875rem; margin-bottom: 1.75rem; color: var(--color-muted); }
+  .crumbs a { color: var(--color-ink); border-bottom-color: rgba(103, 61, 52, 0.3); }
+  .crumbs span { margin-inline: 0.35rem; }
   h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin: 0.5rem 0 1rem;
-    max-width: 50ch;
-    line-height: 1.15;
-  }
-  .lead {
-    font-size: 1.15rem;
-    max-width: 60ch;
-    opacity: 0.85;
-  }
-  .project-meta {
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    gap: 0.4rem 1.5rem;
-    margin: 2rem 0 0;
-    max-width: 60ch;
-  }
-  .project-meta dt {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-accent);
-  }
-  .project-meta dd {
-    margin: 0;
-    color: var(--color-ink);
-    font-size: 0.95rem;
-  }
-
-  /* Vidéo embed */
-  .video-section { padding-block: 3rem; }
-  .video-wrap {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(103, 61, 52, 0.15);
-    background: #000;
-  }
-  .video-wrap iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
-  /* Ressources téléchargeables */
-  .ressources-section { scroll-margin-top: 90px; }   /* décale l'ancre #ressources sous le header sticky */
-  .ressources-card {
-    max-width: 68ch;
-    margin-inline: auto;
-    padding: 1.75rem 2rem;
-    background: var(--color-bg-soft);
-    border-left: 4px solid var(--color-accent);
-    border-radius: 4px;
-  }
-  .ressources-title {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    margin: 0 0 0.25rem;
-    color: var(--color-accent-2);
-  }
-  .ressources-sub {
-    margin: 0 0 1.25rem;
-    font-size: 0.9rem;
-    color: var(--color-muted);
-  }
-  .ressources-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-  .ressource { display: block; }
-  .ressource a {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    width: 100%;
-    border: none;
-    color: var(--color-ink);
+    font-size: clamp(2rem, 4.2vw, 3.25rem);
+    font-variation-settings: 'opsz' 60;
     font-weight: 600;
-    padding: 0.5rem 0.6rem;
-    border-radius: 10px;
-    transition: color 0.15s ease, background 0.15s ease;
-  }
-  .ressource a:hover {
-    color: var(--color-accent);
-    background: rgba(199, 86, 40, 0.05);
-  }
-  /* Badge organique terre cuite */
-  .ressource-ico {
-    display: inline-grid;
-    place-items: center;
-    width: 38px;
-    height: 38px;
-    flex: none;
-    border-radius: 12px;
-    background: rgba(199, 86, 40, 0.08);
-    border: 1px solid rgba(199, 86, 40, 0.14);
-    color: var(--color-accent);
-    transition: background 0.18s ease, border-color 0.18s ease;
-  }
-  .ressource a:hover .ressource-ico {
-    background: rgba(199, 86, 40, 0.16);
-    border-color: rgba(199, 86, 40, 0.28);
-  }
-  .ressource-ico svg {
-    width: 20px;
-    height: 20px;
-    display: block;
-  }
-  .ressource-titre {
-    flex: 1 1 auto;
-    line-height: 1.35;
-  }
-  .ressource .ext {
-    flex: none;
-    font-size: 0.8rem;
-    color: var(--color-accent);
-    opacity: 0.5;
-    transition: opacity 0.15s ease;
-  }
-  .ressource a:hover .ext { opacity: 1; }
-  .hero-img-wrap img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    margin-top: -3rem;
-    box-shadow: 0 10px 30px rgba(103, 61, 52, 0.12);
-  }
-  .prose-content { max-width: 68ch; margin-inline: auto; }
-  .legacy {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(103, 61, 52, 0.1);
-    opacity: 0.6;
-  }
-  .back a { font-weight: 500; font-size: 0.95rem; }
-
-  /* Experts mobilisés */
-  .experts-section { padding-block: 3.5rem; }
-  .experts-title {
-    font-family: var(--font-heading);
-    font-size: clamp(1.4rem, 2.4vw, 1.8rem);
-    color: var(--color-accent-2);
-    margin: 0 0 2rem;
-  }
-  .experts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
-    list-style: none;
-    padding: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    max-width: 26ch;
     margin: 0;
+    text-wrap: balance;
   }
-  .expert-card a {
+  .p-lead {
+    font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 20;
+    font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+    line-height: 1.5;
+    max-width: 58ch;
+    margin: 1.25rem 0 0;
+    color: #7a5248;
+  }
+
+  /* ── Photo d'ouverture ───────────────────────────── */
+  .p-hero { margin: 0; background: var(--color-bg-soft); }
+  .p-hero img {
     display: block;
-    text-align: center;
-    border: none;
-    color: var(--color-ink);
-    padding: 1rem 0.5rem;
-    border-radius: 8px;
-    transition: background 0.15s ease, transform 0.15s ease;
+    width: 100%;
+    height: clamp(260px, 42vw, 560px);
+    object-fit: cover;
   }
-  .expert-card a:hover {
-    background: var(--color-bg);
-    transform: translateY(-2px);
+  .p-hero figcaption {
+    font-size: 0.82rem;
+    color: var(--color-muted);
+    padding: 0.6rem 1.5rem 0;
+    background: #fff;
+  }
+
+  /* ── Corps + fiche ───────────────────────────────── */
+  .p-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+    padding: 3.5rem 1.5rem 2rem;
+  }
+  @media (min-width: 960px) {
+    .p-grid {
+      grid-template-columns: 17rem minmax(0, 1fr);
+      gap: 4.5rem;
+      padding-top: 4.5rem;
+    }
+    .p-fiche { position: sticky; top: 100px; align-self: start; }
+  }
+  .p-fiche dl { margin: 0; display: grid; gap: 1.1rem; }
+  .p-fiche dt {
+    font-size: 0.8rem;
+    font-weight: 600;
     color: var(--color-accent);
+    margin-bottom: 0.15rem;
   }
-  .expert-photo {
-    width: 96px;
-    height: 96px;
-    margin: 0 auto 0.75rem;
-    border-radius: 50%;
-    overflow: hidden;
+  .p-fiche dd { margin: 0; font-size: 0.95rem; line-height: 1.45; }
+  .p-fiche dd a { color: var(--color-ink); border-bottom-color: rgba(103, 61, 52, 0.25); }
+  .p-fiche dd a:hover { color: var(--color-accent); }
+
+  .p-chiffres {
+    list-style: none;
+    padding: 1.25rem 0 0;
+    margin: 1.5rem 0 0;
+    border-top: 1px solid rgba(103, 61, 52, 0.15);
+    display: grid;
+    gap: 0.9rem;
+  }
+  .p-chiffres li { line-height: 1.2; }
+  .p-chiffres .v {
+    display: block;
+    font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 60;
+    font-size: 2.1rem;
+    font-weight: 600;
+    color: var(--color-accent-2);
+    line-height: 1;
+  }
+  .p-chiffres .l { font-size: 0.88rem; }
+
+  .p-equipe { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(103, 61, 52, 0.15); }
+  .p-equipe-titre { font-size: 0.8rem; font-weight: 600; color: var(--color-accent); margin: 0 0 0.6rem; }
+  .p-equipe ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+  .p-equipe a { display: flex; align-items: center; gap: 0.65rem; border: 0; color: var(--color-ink); font-size: 0.95rem; }
+  .p-equipe a:hover span:last-child { color: var(--color-accent); }
+  .p-equipe img, .p-equipe .ini {
+    width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: none;
+  }
+  .p-equipe .ini {
+    display: grid; place-items: center; background: var(--color-bg-soft);
+    font-family: var(--font-heading); font-weight: 600; color: var(--color-accent); font-size: 0.95rem;
+  }
+
+  .p-corps { max-width: 68ch; }
+  .p-corps :global(h4) {
+    font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 32;
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--color-accent-2);
+    margin: 2.25rem 0 0.6rem;
+  }
+  .p-corps :global(h4:first-child) { margin-top: 0; }
+  .p-corps :global(ul) { padding-left: 1.15rem; list-style: disc; }
+  .p-corps :global(ol) { padding-left: 1.3rem; list-style: decimal; }
+  .p-corps :global(li) { margin-bottom: 0.4rem; }
+  .p-corps :global(li::marker) { color: var(--color-accent); }
+  .p-corps :global(p), .p-corps :global(li) { font-size: 1.04rem; }
+
+  .video-wrap {
+    position: relative; aspect-ratio: 16 / 9; margin-top: 2.5rem;
+    border-radius: 6px; overflow: hidden; background: #000;
+  }
+  .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  /* ── Livrables : une étagère de documents ─────────── */
+  .p-livrables {
     background: var(--color-bg-soft);
+    padding: 4rem 1.5rem 4.5rem;
+    margin-top: 3rem;
   }
-  .expert-photo img {
+  .p-livrables h2, .p-ressources h2, .p-proches h2 {
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    font-variation-settings: 'opsz' 48;
+    margin: 0 0 2.5rem;
+  }
+  .etagere {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 3rem 2.5rem;
+    align-items: end;
+  }
+  .etagere--seul { grid-template-columns: minmax(0, 260px); }
+  .doc { display: flex; flex-direction: column; }
+  .doc-lien { border: 0; display: block; margin-bottom: 1.1rem; }
+  .liasse {
+    position: relative;
+    display: block;
+    aspect-ratio: 210 / 297;
+    background: #fff;
+    box-shadow:
+      0 1px 1px rgba(64, 40, 30, 0.08),
+      0 10px 22px -12px rgba(64, 40, 30, 0.45);
+    transition: transform 0.25s ease;
+  }
+  .liasse img {
+    position: relative;
+    z-index: 2;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top;
     display: block;
+    background: #fff;
+    outline: 1px solid rgba(103, 61, 52, 0.1);
+    outline-offset: -1px;
   }
-  .expert-photo-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* feuillets visibles derrière la couverture */
+  .liasse::before, .liasse::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #fbf8f2;
+    border: 1px solid rgba(103, 61, 52, 0.12);
+  }
+  .liasse::before { transform: translate(4px, 4px); z-index: 1; }
+  .liasse::after { transform: translate(8px, 8px); z-index: 0; background: #f3ece0; }
+  .liasse--0::before, .liasse--0::after, .liasse--1::after { display: none; }
+  .liasse--3 { box-shadow: 0 1px 1px rgba(64, 40, 30, 0.08), 12px 14px 22px -12px rgba(64, 40, 30, 0.45); }
+  .doc-lien:hover .liasse, .doc-lien:focus-visible .liasse { transform: translateY(-4px) rotate(-0.6deg); }
+  .doc-titre {
     font-family: var(--font-heading);
-    font-size: 1.6rem;
+    font-variation-settings: 'opsz' 18;
     font-weight: 600;
-    color: var(--color-accent);
-    background: var(--color-bg-soft);
+    font-size: 1.05rem;
+    line-height: 1.3;
+    margin: 0 0 0.3rem;
   }
-  .expert-name {
-    font-weight: 700;
-    margin: 0 0 0.15rem;
-    font-size: 0.95rem;
-    color: var(--color-ink);
+  .doc-desc { font-size: 0.86rem; color: #866a5f; margin: 0 0 0.5rem; }
+  .doc-action { font-size: 0.88rem; align-self: flex-start; }
+  .doc-action--discret { color: var(--color-ink); border-bottom-color: rgba(103, 61, 52, 0.3); }
+  @media (prefers-reduced-motion: reduce) { .liasse { transition: none; } }
+
+  /* ── Photos ─────────────────────────────────────── */
+  .p-photos { padding: 4rem 1.5rem 1rem; }
+  .mosaique { display: grid; gap: 1.25rem; grid-template-columns: repeat(6, 1fr); }
+  .mosaique figure { margin: 0; grid-column: span 2; }
+  .mosaique--1 figure { grid-column: 1 / -1; }
+  .mosaique--2 figure { grid-column: span 3; }
+  .mosaique--4 figure:nth-child(1), .mosaique--4 figure:nth-child(4) { grid-column: span 4; }
+  .mosaique--5 figure:nth-child(1), .mosaique--5 figure:nth-child(2) { grid-column: span 3; }
+  .mosaique a { display: block; border: 0; overflow: hidden; border-radius: 3px; }
+  .mosaique img {
+    width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block;
   }
-  .expert-card a:hover .expert-name { color: var(--color-accent); }
-  .expert-role {
-    font-size: 0.78rem;
-    color: var(--color-muted);
-    font-style: italic;
-    margin: 0;
+  .mosaique--1 img { aspect-ratio: 21 / 9; }
+  .mosaique figcaption { font-size: 0.82rem; color: var(--color-muted); margin-top: 0.45rem; line-height: 1.4; }
+  @media (max-width: 720px) {
+    .mosaique { grid-template-columns: 1fr 1fr; }
+    .mosaique figure, .mosaique--4 figure:nth-child(n), .mosaique--5 figure:nth-child(n) { grid-column: span 1; }
+    .mosaique figure:first-child { grid-column: 1 / -1; }
   }
+
+  /* ── Ressources ─────────────────────────────────── */
+  .p-ressources { padding: 4rem 1.5rem 1rem; scroll-margin-top: 90px; }
+  .ressources-list {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 0.25rem 2rem;
+  }
+  .ressources-list a {
+    display: flex; align-items: center; gap: 0.85rem; border: 0;
+    color: var(--color-ink); font-weight: 500; padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(103, 61, 52, 0.12);
+  }
+  .ressources-list a:hover { color: var(--color-accent); }
+  .ressource-ico { color: var(--color-accent); flex: none; }
+  .ressource-ico :global(svg) { width: 22px; height: 22px; display: block; }
+  .ressource-titre { flex: 1; line-height: 1.35; }
+  .ext { color: var(--color-accent); opacity: 0.6; font-size: 0.85rem; }
+
+  /* ── Missions proches ───────────────────────────── */
+  .p-proches { padding: 4.5rem 1.5rem 2rem; }
+  .p-proches ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(103, 61, 52, 0.15); }
+  .p-proches li a {
+    display: grid; grid-template-columns: 7rem minmax(0, 1fr) 12rem; gap: 1.5rem; align-items: baseline;
+    padding: 1.1rem 0; border: 0; border-bottom: 1px solid rgba(103, 61, 52, 0.15); color: var(--color-ink);
+  }
+  .p-proches li a:hover .pr-titre { color: var(--color-accent); }
+  .pr-annee { font-size: 0.9rem; color: var(--color-accent-2); font-variant-numeric: tabular-nums; }
+  .pr-titre { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 600; line-height: 1.3; }
+  .pr-pays { font-size: 0.88rem; color: var(--color-muted); text-align: right; }
+  .p-retour { margin-top: 1.75rem; font-size: 0.95rem; }
+  @media (max-width: 720px) {
+    .p-proches li a { grid-template-columns: 1fr; gap: 0.2rem; }
+    .pr-pays { text-align: left; }
+  }
+
+  /* ── Visionneuse ────────────────────────────────── */
+  .visionneuse {
+    border: 0; padding: 1.25rem; background: var(--color-bg-soft); color: var(--color-ink);
+    max-width: min(92vw, 1100px); max-height: 92vh; border-radius: 4px;
+  }
+  .visionneuse::backdrop { background: rgba(40, 24, 19, 0.8); }
+  .visionneuse img { display: block; max-width: 100%; max-height: 76vh; margin: 0 auto; }
+  .visionneuse[data-kind='livrable'] img { box-shadow: 0 10px 30px -10px rgba(0,0,0,.4); }
+  .v-legende { margin: 0.75rem 0 0; font-size: 0.92rem; text-align: center; }
+  .v-demande { margin: 0.4rem auto 0; font-size: 0.88rem; text-align: center; max-width: 52ch; color: #866a5f; }
+  .v-fermer {
+    position: absolute; top: 0.35rem; right: 0.6rem; background: none; border: 0;
+    font-size: 1.8rem; line-height: 1; color: var(--color-ink); cursor: pointer;
+  }
+  .v-fermer:focus-visible { outline: 2px solid var(--color-accent); }
 </style>

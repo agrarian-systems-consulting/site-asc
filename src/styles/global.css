@@ -15,8 +15,8 @@
   --color-bg: #FFFFFF;         /* fond standard */
 
   /* Typo */
-  --font-heading: 'Source Serif 4', Georgia, serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, serif;
+  --font-body: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 /* ───────────────────── Base ───────────────────── */
@@ -95,6 +95,8 @@ a:hover {
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   margin: 2rem 0 0.75rem;
 }
+.prose-content :where(ul) { list-style: disc; }
+.prose-content :where(ol) { list-style: decimal; }
 .prose-content :where(ul, ol) {
   padding-left: 1.5rem;
 }
@@ -297,4 +299,19 @@ a:hover {
     gap: 1rem;
   }
   .team-member img { width: 160px; height: 160px; }
+}
+
+/* ───────────────────── Titres de section dans les contenus markdown ───────────────────── */
+.prose-content :where(h4) {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-accent-2);
+  margin: 2.25rem 0 0.6rem;
+}
+
+/* Focus clavier visible partout */
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }

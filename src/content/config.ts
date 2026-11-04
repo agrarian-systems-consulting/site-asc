@@ -27,6 +27,27 @@ const projets = defineCollection({
       url: z.string().url(),                           // URL complète (Drive, OneDrive, PDF…)
       type: z.enum(['pdf', 'doc', 'tableur', 'presentation', 'image', 'video', 'lien', 'autre']).optional(),
     })).default([]),
+    // ─── Livrables : couverture (1re page) des rapports produits ───
+    // `couverture` = image dans /public/livrables/<slug>/… ; `url` optionnelle
+    // si le document est publiquement téléchargeable.
+    livrables: z.array(z.object({
+      titre: z.string(),
+      couverture: z.string(),
+      annee: z.number().int().optional(),
+      type: z.string().optional(),                     // Rapport, Manuel, Support de formation…
+      langue: z.string().optional(),                   // FR, ES, EN…
+      pages: z.number().int().optional(),
+      url: z.string().url().optional(),
+    })).default([]),
+    // ─── Photos de terrain (légendées) ───
+    photos: z.array(z.object({
+      src: z.string(),
+      legende: z.string().optional(),
+    })).default([]),
+    chiffres: z.array(z.object({                       // 2-4 chiffres clés factuels
+      valeur: z.string(),
+      label: z.string(),
+    })).default([]),
     experts: z.array(z.string()).default([]),          // slugs des experts mobilisés
     legacyId: z.number().optional(),
     legacyUrl: z.string().url().optional(),

@@ -1,153 +1,97 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ListeMissions from '../../components/ListeMissions.astro';
+import { parRecence } from '../../lib/projets';
 
 export async function getStaticPaths() {
   const expertises = await getCollection('expertises');
-  return expertises.map((e) => ({
-    params: { slug: e.slug },
-    props: { expertise: e },
-  }));
+  return expertises.map((e) => ({ params: { slug: e.slug }, props: { expertise: e } }));
 }
 
 interface Props { expertise: CollectionEntry<'expertises'>; }
 const { expertise } = Astro.props;
 const { Content } = await expertise.render();
-const { title, intro, icon, image, related_categories } = expertise.data;
+const { title, intro, image, related_categories } = expertise.data;
 
-const allProjets = (await getCollection('projets')).filter((p) => !p.data.draft);
-const matching = allProjets
-  .filter((p) => p.data.categories.some((c) => related_categories.includes(c)))
-  .sort((a, b) => {
-    const aEnd = a.data.year_end ?? (a.data.year_start ? 9999 : 0);
-    const bEnd = b.data.year_end ?? (b.data.year_start ? 9999 : 0);
-    if (bEnd !== aEnd) return bEnd - aEnd;
-    return (b.data.year_start ?? 0) - (a.data.year_start ?? 0);
-  });
+const autres = (await getCollection('expertises'))
+  .filter((e) => e.slug !== expertise.slug)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 
-function periodeFor(p: typeof matching[number]) {
-  const ys = p.data.year_start; const ye = p.data.year_end;
-  if (ys && ye) return `${ys}–${ye}`;
-  if (ys && !ye) return `${ys} → en cours`;
-  return String(p.data.date.getFullYear());
-}
+const matching = (await getCollection('projets'))
+  .filter((p) => !p.data.draft && p.data.categories.some((c) => related_categories.includes(c)))
+  .sort(parRecence);
+
+const documents = matching.flatMap((p) => p.data.livrables.slice(0, 1).map((l) => ({ p, l }))).slice(0, 5);
 ---
 
-<BaseLayout title={title} description={intro}>
-  <section
-    class="expertise-hero"
-    style={image ? `background-image: linear-gradient(135deg, rgba(64, 81, 36, 0.85), rgba(103, 61, 52, 0.75)), url('${image}')` : undefined}
-  >
-    <div class="container">
-      <p class="eyebrow">Expertise</p>
-      <h1>{icon && <span class="icon" aria-hidden="true">{icon}</span>} {title}</h1>
-      {intro && <p class="lead">{intro}</p>}
+<BaseLayout title={title} description={intro} image={image}>
+  <header class="e-head">
+    <div class="container e-grid">
+      <div>
+        <p class="crumbs"><a href="/expertises/">Nos métiers</a></p>
+        <h1>{title}</h1>
+        {intro && <p class="lead">{intro}</p>}
+      </div>
+      {image && <img class="e-img" src={image} alt="" loading="eager" />}
     </div>
+  </header>
+
+  <section class="container e-corps prose-content">
+    <Content />
   </section>
 
-  <section class="section section--white">
-    <div class="container prose-content">
-      <Content />
-    </div>
-  </section>
-
-  <section class="section section--soft">
-    <div class="container">
-      <h2 class="ref-h2">Nos références sur cette expertise ({matching.length})</h2>
-      {matching.length === 0 ? (
-        <p class="empty">Aucune référence rattachée pour l'instant.</p>
-      ) : (
-        <ul class="ref-list">
-          {matching.map((p) => (
+  {documents.length >= 2 && (
+    <section class="e-docs">
+      <div class="container">
+        <h2>Exemples de documents produits</h2>
+        <ul>
+          {documents.map(({ p, l }) => (
             <li>
               <a href={`/projets/${p.slug}/`}>
-                <div class="ref-meta">
-                  <span class="ref-period">{periodeFor(p)}</span>
-                  {p.data.countries.length > 0 && (
-                    <>
-                      <span class="ref-sep"> / </span>
-                      <span class="ref-countries">{p.data.countries.join(', ')}</span>
-                    </>
-                  )}
-                </div>
-                {p.data.categories.length > 0 && (
-                  <p class="ref-tags">{p.data.categories.join(', ')}</p>
-                )}
-                <h3 class="ref-title">{p.data.title}</h3>
+                <span class="couv"><img src={l.couverture} alt="" loading="lazy" /></span>
+                <span class="t">{l.titre}</span>
               </a>
             </li>
           ))}
         </ul>
-      )}
-    </div>
+      </div>
+    </section>
+  )}
+
+  <section class="container e-refs">
+    <h2>{matching.length} mission{matching.length > 1 ? 's' : ''} dans ce métier</h2>
+    {matching.length === 0 ? <p>Aucune référence rattachée pour l'instant.</p> : <ListeMissions projets={matching} />}
   </section>
 
-  <section class="section section--white back">
-    <div class="container">
-      <a href="/expertises/">← Toutes nos expertises</a>
-    </div>
-  </section>
+  <nav class="container e-autres" aria-label="Autres métiers">
+    <p>Nos autres métiers :</p>
+    <ul>{autres.map((e) => <li><a href={`/expertises/${e.slug}/`}>{e.data.title}</a></li>)}</ul>
+  </nav>
 </BaseLayout>
 
 <style>
-  .expertise-hero {
-    background-size: cover;
-    background-position: center;
-    background-color: var(--color-accent-2);
-    color: #fff;
-    padding: 5rem 1.5rem 4rem;
-  }
-  .expertise-hero .eyebrow {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-highlight);
-    margin: 0 0 0.5rem;
-  }
-  .expertise-hero h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    color: #fff;
-    margin: 0 0 1rem;
-    max-width: 28ch;
-    line-height: 1.15;
-  }
-  .expertise-hero h1 .icon { display: inline-block; margin-right: 0.5rem; }
-  .expertise-hero .lead {
-    font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.92);
-    max-width: 60ch;
-    margin: 0;
-  }
-  .prose-content { max-width: 68ch; margin-inline: auto; }
-
-  .ref-h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.4rem, 2.4vw, 1.8rem);
-    color: var(--color-accent-2);
-    margin: 0 0 2rem;
-  }
-  .empty {
-    text-align: center;
-    color: var(--color-muted);
-    font-style: italic;
-    padding: 2rem 1rem;
-  }
-  .ref-list { list-style: none; padding: 0; margin: 0; }
-  .ref-list li { border-bottom: 1px solid rgba(103, 61, 52, 0.12); }
-  .ref-list li:first-child { border-top: 1px solid rgba(103, 61, 52, 0.12); }
-  .ref-list a {
-    display: block; padding: 1.25rem 1rem; color: inherit; border: none;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-  .ref-list a:hover { background: var(--color-bg); transform: translateX(4px); color: inherit; }
-  .ref-meta { font-size: 0.85rem; color: var(--color-muted); margin-bottom: 0.2rem; }
-  .ref-period { font-weight: 600; color: var(--color-accent-2); }
-  .ref-countries { color: var(--color-ink); }
-  .ref-tags { font-size: 0.82rem; color: var(--color-accent); margin: 0 0 0.4rem; font-weight: 500; }
-  .ref-title { font-family: var(--font-heading); font-size: 1.1rem; margin: 0; color: var(--color-ink); }
-  .ref-list a:hover .ref-title { color: var(--color-accent); }
-
-  .back a { font-weight: 500; font-size: 0.95rem; }
+  .e-head { background: var(--color-bg-soft); padding: 3.5rem 1.5rem; }
+  .e-grid { display: grid; gap: 2.5rem; align-items: center; }
+  @media (min-width: 900px) { .e-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: 4rem; } }
+  .crumbs { font-size: 0.875rem; margin: 0 0 1.25rem; }
+  .crumbs a { color: var(--color-ink); border-bottom-color: rgba(103, 61, 52, 0.3); }
+  h1 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); font-variation-settings: 'opsz' 60; margin: 0 0 1rem; line-height: 1.05; }
+  .lead { font-family: var(--font-heading); font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.5; max-width: 46ch; color: #7a5248; margin: 0; }
+  .e-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 2px; }
+  .e-corps { padding: 3.5rem 1.5rem 1rem; max-width: 68ch; margin-inline: auto; }
+  .e-corps :global(p) { font-size: 1.05rem; }
+  h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); font-variation-settings: 'opsz' 48; margin: 0 0 2rem; }
+  .e-docs { background: var(--color-bg-soft); padding: 3.5rem 1.5rem 4rem; margin-top: 3rem; }
+  .e-docs ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 2rem; align-items: end; }
+  .e-docs a { display: flex; flex-direction: column; border: 0; color: var(--color-ink); }
+  .couv { display: block; aspect-ratio: 210 / 297; background: #fff; box-shadow: 0 1px 1px rgba(64,40,30,.08), 0 12px 22px -12px rgba(64,40,30,.5); transition: transform .25s ease; }
+  .couv img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .e-docs a:hover .couv { transform: translateY(-4px) rotate(-0.6deg); }
+  .t { font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem; line-height: 1.3; margin-top: 0.85rem; }
+  .e-refs { padding: 4rem 1.5rem 2rem; }
+  .e-autres { padding: 1rem 1.5rem 4rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; align-items: baseline; }
+  .e-autres p { margin: 0; font-weight: 600; }
+  .e-autres ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+  @media (prefers-reduced-motion: reduce) { .couv { transition: none; } }
 </style>

@@ -1,6 +1,8 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ListeMissions from '../../components/ListeMissions.astro';
+import { parRecence } from '../../lib/projets';
 
 export async function getStaticPaths() {
   const experts = await getCollection('experts');
@@ -19,12 +21,7 @@ const { name, role, is_gerant, photo, specialities, languages, email, linkedin }
 const allProjets = await getCollection('projets');
 const expertProjets = allProjets
   .filter((p) => !p.data.draft && (p.data.experts ?? []).includes(expert.slug))
-  .sort((a, b) => {
-    const aEnd = a.data.year_end ?? (a.data.year_start ? 9999 : 0);
-    const bEnd = b.data.year_end ?? (b.data.year_start ? 9999 : 0);
-    if (bEnd !== aEnd) return bEnd - aEnd;
-    return (b.data.year_start ?? 0) - (a.data.year_start ?? 0);
-  });
+  .sort(parRecence);
 
 function periodeFor(p: typeof expertProjets[number]) {
   const ys = p.data.year_start; const ye = p.data.year_end;
@@ -41,13 +38,12 @@ function periodeFor(p: typeof expertProjets[number]) {
         {photo ? <img src={photo} alt={name} /> : <div class="placeholder">{name.split(' ').map((s) => s[0]).join('').slice(0, 2)}</div>}
       </div>
       <div>
-        <p class="eyebrow">{is_gerant ? 'Gérant associé' : 'Collaborateur·rice'}</p>
-        <h1>{name}</h1>
+                <h1>{name}</h1>
         <p class="role">{role}</p>
 
         <dl class="expert-meta">
-          {specialities && specialities.length > 0 && (<><dt>Spécialités</dt><dd>{specialities.join(' · ')}</dd></>)}
-          {languages && languages.length > 0 && (<><dt>Langues</dt><dd>{languages.join(' · ')}</dd></>)}
+          {specialities && specialities.length > 0 && (<><dt>Spécialités</dt><dd>{specialities.join(', ')}</dd></>)}
+          {languages && languages.length > 0 && (<><dt>Langues</dt><dd>{languages.join(', ')}</dd></>)}
           {email && (<><dt>Email</dt><dd><a href={`mailto:${email}`}>{email}</a></dd></>)}
           {linkedin && (<><dt>LinkedIn</dt><dd><a href={linkedin} target="_blank" rel="noopener">Profil</a></dd></>)}
         </dl>
@@ -65,27 +61,7 @@ function periodeFor(p: typeof expertProjets[number]) {
     <section class="section section--soft">
       <div class="container">
         <h2 class="proj-title">Missions et projets ({expertProjets.length})</h2>
-        <ul class="proj-list">
-          {expertProjets.map((p) => (
-            <li>
-              <a href={`/projets/${p.slug}/`}>
-                <div class="proj-meta">
-                  <span class="proj-period">{periodeFor(p)}</span>
-                  {p.data.countries.length > 0 && (
-                    <>
-                      <span class="proj-sep"> / </span>
-                      <span class="proj-countries">{p.data.countries.join(', ')}</span>
-                    </>
-                  )}
-                </div>
-                {p.data.categories.length > 0 && (
-                  <p class="proj-tags">{p.data.categories.join(', ')}</p>
-                )}
-                <h3 class="proj-title-card">{p.data.title}</h3>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <ListeMissions projets={expertProjets} />
       </div>
     </section>
   )}

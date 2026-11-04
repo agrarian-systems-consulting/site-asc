@@ -1,60 +1,83 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ProjectCard from '../../components/ProjectCard.astro';
+import { periode, parRecence, visuel } from '../../lib/projets';
 
 const projets = (await getCollection('projets'))
   .filter((p) => !p.data.draft && p.data.is_projet === true)
-  .sort((a, b) => {
-    // Tri par year_end desc (en cours en tête), fallback year_start, fallback date
-    const aEnd = a.data.year_end ?? (a.data.year_start ? 9999 : 0);
-    const bEnd = b.data.year_end ?? (b.data.year_start ? 9999 : 0);
-    if (bEnd !== aEnd) return bEnd - aEnd;
-    return b.data.date.valueOf() - a.data.date.valueOf();
-  });
+  .sort(parRecence);
+const nbRefs = (await getCollection('projets')).filter((p) => !p.data.draft).length;
 ---
 
 <BaseLayout
   title="Projets pluriannuels"
-  description="Les programmes pluriannuels accompagnés dans la durée par Agrarian Systems Consulting."
+  description="Les programmes qu'Agrarian Systems Consulting accompagne sur plusieurs années, de la conception à l'évaluation."
 >
-  <section class="section section--soft">
+  <header class="pp-head">
     <div class="container">
-      <p class="eyebrow">Activités</p>
       <h1>Projets pluriannuels</h1>
       <p class="lead">
-        Les programmes que nous accompagnons sur plusieurs années, de la conception
-        à l'évaluation d'impact. Pour la liste exhaustive de nos missions, consultez
-        <a href="/projets/references/">toutes nos références</a>.
+        Les programmes que nous suivons sur plusieurs années, de la conception à l'évaluation.
+        L'ensemble de nos missions, y compris les plus courtes, figure dans
+        <a href="/projets/references/">nos {nbRefs} références</a>.
       </p>
     </div>
-  </section>
+  </header>
 
-  <section class="section section--white">
-    <div class="container">
-      <div class="projet-grid">
-        {projets.map((projet) => <ProjectCard projet={projet} />)}
-      </div>
-    </div>
-  </section>
+  <ol class="container pp-liste">
+    {projets.map((p) => {
+      const v = visuel(p);
+      return (
+        <li class="pp">
+          <a href={`/projets/${p.slug}/`} class:list={['pp-visuel', v && `pp-visuel--${v.kind}`]} tabindex="-1" aria-hidden="true">
+            {v ? <img src={v.src} alt="" loading="lazy" decoding="async" /> : <span class="pp-vide">{p.data.countries.slice(0, 3).join(', ')}</span>}
+          </a>
+          <div class="pp-texte">
+            <p class="pp-meta">{periode(p, 'long')}</p>
+            <h2><a href={`/projets/${p.slug}/`}>{p.data.title}</a></h2>
+            {p.data.excerpt && <p class="pp-ext">{p.data.excerpt}</p>}
+            <dl class="pp-fiche">
+              {p.data.client && <><dt>Pour</dt><dd>{p.data.client}</dd></>}
+              {p.data.countries.length > 0 && <><dt>Où</dt><dd>{p.data.countries.join(', ')}</dd></>}
+            </dl>
+            {p.data.livrables.length > 0 && (
+              <p class="pp-docs">{p.data.livrables.length} document{p.data.livrables.length > 1 ? 's' : ''} présenté{p.data.livrables.length > 1 ? 's' : ''} dans la fiche</p>
+            )}
+          </div>
+        </li>
+      );
+    })}
+  </ol>
 </BaseLayout>
 
 <style>
-  h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin: 0.25rem 0 1rem;
+  .pp-head { background: var(--color-bg-soft); padding: 4rem 1.5rem 3.5rem; }
+  h1 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); font-variation-settings: 'opsz' 60; margin: 0 0 1rem; }
+  .lead { font-size: 1.1rem; max-width: 58ch; margin: 0; }
+
+  .pp-liste { list-style: none; margin: 0 auto; padding: 4rem 1.5rem 3rem; display: grid; gap: 5rem; }
+  .pp { display: grid; gap: 1.75rem; align-items: center; }
+  @media (min-width: 900px) {
+    .pp { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 3.5rem; }
+    .pp:nth-child(even) .pp-visuel { order: 2; }
   }
-  .lead {
-    font-size: 1.1rem;
-    max-width: 60ch;
-    opacity: 0.85;
+  .pp-visuel {
+    display: block; border: 0; aspect-ratio: 3 / 2; overflow: hidden; background: var(--color-bg-soft); border-radius: 2px;
   }
-  .projet-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.75rem;
+  .pp-visuel img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pp-visuel--couverture { display: grid; place-items: end center; padding-top: 2.5rem; }
+  .pp-visuel--couverture img {
+    width: 42%; height: auto; aspect-ratio: 210 / 297; object-position: top;
+    box-shadow: 0 16px 30px -16px rgba(64, 40, 30, 0.55);
   }
-  @media (max-width: 720px) {
-    .projet-grid { grid-template-columns: 1fr; gap: 1.25rem; }
-  }
+  .pp-vide { display: grid; place-items: center; height: 100%; font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-muted); padding: 1rem; text-align: center; }
+  .pp-meta { font-size: 0.9rem; font-weight: 500; color: var(--color-accent-2); margin: 0 0 0.6rem; }
+  .pp h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); font-variation-settings: 'opsz' 48; line-height: 1.18; margin: 0 0 1rem; text-wrap: balance; }
+  .pp h2 a { color: var(--color-ink); border: 0; }
+  .pp h2 a:hover { color: var(--color-accent); }
+  .pp-ext { line-height: 1.65; }
+  .pp-fiche { display: grid; grid-template-columns: max-content 1fr; gap: 0.3rem 1rem; margin: 1.25rem 0 0; font-size: 0.92rem; }
+  .pp-fiche dt { color: var(--color-accent); font-weight: 600; }
+  .pp-fiche dd { margin: 0; }
+  .pp-docs { font-size: 0.88rem; color: var(--color-muted); margin: 1rem 0 0; }
 </style>

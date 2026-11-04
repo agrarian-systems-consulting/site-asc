@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
   // Pages avec leur propre route Astro custom — on les exclut de la route dynamique
-  const customRoutes = ['contact', 'equipe', 'expertises'];
+  const customRoutes = ['contact', 'equipe', 'expertises', 'territoires'];
   return pages
     .filter((page) => !customRoutes.includes(page.slug))
     .map((page) => ({
