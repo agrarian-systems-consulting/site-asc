@@ -25,11 +25,13 @@ livrables:
     annee: 2019
     type: Rapport
     langue: FR
+    resume: "Étude de faisabilité de la composante « Cartographier les Agricultures Familiales » du programme de l'Observatoire des Agricultures du Monde (WAW), hébergé à la FAO. Elle propose une plateforme digitale collaborative et open source pour rendre visible la diversité des agricultures familiales : partenaires, sources de données et harmonisation, typologies, gouvernance, maquettes d'interface et spécifications techniques."
   - titre: "Prototype d'interface de la plateforme WAW"
     couverture: /livrables/mapping-family-farming-feasibility-study-waw/plateforme-waw.jpg
     annee: 2019
     type: Outil
     langue: EN
+    resume: "Prototype web de la plateforme collaborative envisagée par l'Observatoire des Agricultures du Monde (WAW) pour documenter la diversité des agricultures familiales. Il permet de dessiner les parcelles d'une exploitation sur fond d'image satellitaire, d'y renseigner cultures et surfaces, et propose des rubriques exploitations, parcelles, statistiques et documentation, en appui à l'étude de faisabilité de la composante cartographique du programme."
 ---
 #### Contexte
 Le programme quinquennal de l'Observatoire des agricultures du monde (World Agriculture Watch, WAW), hébergé à la FAO avec l'appui du FIDA, du CIRAD et de la France, est structuré en trois composantes : produire des données sur les exploitations agricoles, les utiliser pour les politiques publiques, et les partager. La troisième composante, « Mapping Family Farming » (Sharing the evidence), devait donner à voir la diversité des agricultures familiales et des autres formes de production, en mobilisant les données de la phase pilote et celles des observatoires territoriaux, dans la perspective de la Décennie des Nations unies pour l'agriculture familiale.

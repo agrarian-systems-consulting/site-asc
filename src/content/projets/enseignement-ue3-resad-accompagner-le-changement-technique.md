@@ -21,6 +21,7 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 15
+    resume: "Support de travaux dirigés (janvier 2021) de l'unité d'enseignement « Accompagner le changement technique » de l'option RESAD. Après un rappel sur la place et les limites de la modélisation, il présente et fait prendre en main un modèle de calendrier de travail d'une exploitation rizicole camarguaise, pour tester les effets d'un changement d'assolement ou d'organisation du travail sur le déroulement des travaux."
 ---
 #### Contexte
 L'option RESAD (Ressources, systèmes agricoles et développement) de l'Institut Agro Montpellier propose à ses étudiants de master 2 une unité d'enseignement (UE3) consacrée à l'accompagnement du changement technique en exploitation agricole. Les étudiants y modélisent les effets d'un changement de pratiques, d'assolement ou d'organisation du travail sur le fonctionnement d'exploitations réelles.

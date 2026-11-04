@@ -31,11 +31,13 @@ livrables:
     type: Rapport
     langue: FR
     pages: 81
+    resume: "Rapport d'une formation-action au diagnostic agraire menée en 2019 avec des agents du WWF-RDC, de l'ERAIFT et d'ULB-Coopération dans le village de Tsumba Kituti, en bordure de la réserve de biosphère de Luki (RDC). Il décrit le paysage, les cinq systèmes de production identifiés et la gestion foncière, puis confronte ces résultats aux interventions de gestion durable des ressources promues pour en tirer de premières recommandations."
   - titre: "Formation/action au diagnostic agraire : objectifs et déroulement de la mission (2021)"
     couverture: /livrables/formation-diagnotic-agraire-luki/support-formation-2021.jpg
     annee: 2021
     type: Support de formation
     langue: FR
+    resume: "Support d'ouverture d'une formation-action au diagnostic agraire conduite en mai 2021 pour ULB-Coopération en RDC. Il présente les intervenants et les participants, les objectifs de la mission (diagnostic agraire de deux villages, caractérisation des systèmes de production et des systèmes fonciers, premières réflexions pour la construction du projet, renforcement des équipes) et son déroulement."
 photos:
   - { src: /uploads/2019/12/WhatsApp-Image-2019-12-06-at-13.30.16.jpeg, legende: "Paysage agricole du Kongo Central" }
   - { src: /photos/formation-diagnotic-agraire-luki/equipe-terrain-tsumba-kituti.jpg, legende: "Apprenants sur le terrain, Tsumba Kituti (Réserve de Biosphère de Luki)" }

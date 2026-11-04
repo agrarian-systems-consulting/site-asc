@@ -20,6 +20,7 @@ livrables:
     annee: 2020
     type: Outil
     langue: FR
+    resume: "Application web, également installable sur ordinateur, qui calcule le score d'agroécologie d'un système de production à partir de la grille du Groupe de travail sur les transitions agroécologiques (GTAE). L'utilisateur renseigne des critères regroupés par thème (agrobiodiversité et élevage, synergies, autonomie, sols et recyclage, espèces et savoirs locaux, économie circulaire et solidaire) et obtient des scores par thème et global, pour comparer plusieurs systèmes d'un territoire."
 ---
 #### Contexte
 Les diagnostics de territoire conduits pour le programme TAPSA du CCFD-Terre Solidaire cherchaient notamment à qualifier un « degré d'agroécologie » des territoires. Les grilles de score existantes, développées par la FAO (outil TAPE) et par le Groupe de travail sur les transitions agroécologiques (GTAE), portaient surtout sur les caractéristiques de structure et de fonctionnement des systèmes de production agricoles.

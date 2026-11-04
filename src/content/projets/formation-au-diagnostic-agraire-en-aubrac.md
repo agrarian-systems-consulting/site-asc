@@ -29,6 +29,7 @@ livrables:
     type: Rapport
     langue: FR
     pages: 48
+    resume: "Rapport d'un diagnostic agraire réalisé en 2019 par des étudiants des cursus MOQUAS et IPAD de Montpellier SupAgro, à la demande du Parc naturel régional de l'Aubrac. Fondé sur des enquêtes de paysage, d'histoire agraire et des enquêtes techniques auprès d'agriculteurs, il présente le zonage agroécologique, l'histoire agraire, la typologie des systèmes de production et discute les potentiels de diversification des activités agricoles."
 photos:
   - { src: /uploads/2019/12/MOQUAS-IPAD.jpg, legende: "Promotion MOQUAS-IPAD 2019 sur le plateau de l'Aubrac" }
   - { src: /photos/formation-au-diagnostic-agraire-en-aubrac/bloc-diagramme-aubrac.jpg, legende: "Bloc-diagramme du zonage agroécologique produit par les étudiants" }

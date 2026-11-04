@@ -24,24 +24,28 @@ livrables:
     type: Support de formation
     langue: FR
     pages: 22
+    resume: "Premier chapitre du support de formation à la cartographie numérique avec QGIS conçu pour l'option Systel de L'Institut Agro Montpellier. Il expose les notions de base nécessaires pour positionner et représenter l'information géographique : systèmes de coordonnées géographiques (latitude, longitude, datum), principe des projections cartographiques permettant de reporter ces coordonnées sur une surface plane."
   - titre: "Chapitre 2 - Une première carte générale avec des données vecteur"
     couverture: /livrables/formation-sig-qgis-option-systel-institut-agro-montpellier/chapitre-2-carte-vecteurs.jpg
     annee: 2025
     type: Support de formation
     langue: FR
     pages: 34
+    resume: "Deuxième chapitre du support de formation QGIS de l'option Systel. Sous forme d'exercice pas à pas, il guide la réalisation d'une première carte de situation d'une zone d'étude en Aveyron à partir de données vecteur (points, lignes, polygones) de la BD Topo de l'IGN : création du projet, import des couches, symbologie et mise en forme."
   - titre: "Chapitre 3 - Manipuler des données raster"
     couverture: /livrables/formation-sig-qgis-option-systel-institut-agro-montpellier/chapitre-3-rasters.jpg
     annee: 2025
     type: Support de formation
     langue: FR
     pages: 30
+    resume: "Troisième chapitre du support de formation QGIS de l'option Systel, consacré aux données raster. Il présente la structure d'un raster (pixels, résolution, données discrètes ou continues, images mono ou multi-bandes) puis guide la manipulation de modèles numériques de terrain et d'images satellitaires pour produire des cartes d'altitude et d'autres informations sur la zone d'étude."
   - titre: "Chapitre 5 - Analyse 1 : population agricole et exploitations agricoles"
     couverture: /livrables/formation-sig-qgis-option-systel-institut-agro-montpellier/chapitre-5-dynamiques-agricoles.jpg
     annee: 2025
     type: Support de formation
     langue: FR
     pages: 15
+    resume: "Fiche d'analyse du chapitre consacré aux dynamiques agricoles dans le support de formation QGIS de l'option Systel. Elle montre pas à pas comment extraire des données Agreste sur le nombre d'exploitants et d'exploitations par commune depuis 1970, les préparer puis les joindre à des couches communales pour cartographier l'évolution de la population agricole du territoire étudié."
 ---
 #### Contexte
 L'option Systel de l'Institut Agro Montpellier, en dernière partie du cursus ingénieur, comprend une formation de terrain consacrée à l'étude d'un territoire agricole. Depuis 2024, Asc intervient chaque année avant ce terrain pour former les étudiants à la cartographie numérique avec le logiciel libre QGIS, à partir des données de leur zone d'étude : la Châtaigneraie cantalienne et ses marges (Cantal, Lot, Corrèze, Aveyron) en 2024, le nord de l'Aveyron autour d'Espalion en 2025.

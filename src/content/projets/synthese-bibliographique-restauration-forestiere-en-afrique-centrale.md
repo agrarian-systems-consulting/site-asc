@@ -32,6 +32,7 @@ livrables:
     langue: EN
     pages: 34
     url: "https://doi.org/10.1007/s11842-025-09586-6"
+    resume: "Article publié dans Small-scale Forestry présentant une revue systématique des initiatives de restauration forestière impliquant les populations locales en Afrique centrale. Sur 64 publications portant sur 26 initiatives, surtout en RDC et au Cameroun, il montre la prédominance d'approches techniques prédéfinies, le manque de suivi et de partage des données et la faible consultation des populations, et recommande de bâtir de vrais partenariats et de partager les expériences."
 ressources: []
   # Manuel de terrain : décommenter et compléter l'URL dès qu'elle est disponible.
   # - titre: "Manuel pédagogique de terrain"

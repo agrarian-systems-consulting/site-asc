@@ -28,6 +28,7 @@ livrables:
     type: Manuel
     langue: FR
     pages: 82
+    resume: "Guide méthodologique de l'Observatoire des Agricultures du Monde (WAW), publié en 2019 avec la FAO. Il pose un cadre conceptuel pour définir l'agriculture familiale et caractériser la diversité des exploitations, fondé sur le cadre des moyens d'existence durables, puis détaille la production de données (conception d'enquêtes, questionnaires, bases de données, systèmes d'information) et leur valorisation au service des politiques d'investissement."
 photos:
   - { src: "/uploads/2019/12/Capture-d’écran-2019-12-12-à-10.25.41.png", legende: "World Agriculture Watch, FAO (Land and Water Division)" }
 ---

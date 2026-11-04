@@ -28,12 +28,14 @@ livrables:
     type: Rapport
     langue: FR
     pages: 42
+    resume: "Rapport d'étude réalisé pour le CIRAD sur l'évaluation de Rubberway, un outil de diagnostic des risques de la chaîne d'approvisionnement en caoutchouc naturel, à partir du cas de la Côte d'Ivoire. Son contenu est soumis à un accord de confidentialité et n'est pas diffusé."
   - titre: "Rubberway: study of a tool of risk assessment to improve the sustainability of the natural rubber value-chain"
     couverture: /livrables/evaluation-rubberway-cartographie-des-risques-filiere-hevea/report-rubberway-en.jpg
     annee: 2022
     type: Rapport
     langue: EN
     pages: 48
+    resume: "Version anglaise du rapport d'étude réalisé pour le CIRAD sur l'évaluation de Rubberway, un outil de diagnostic des risques de la chaîne d'approvisionnement en caoutchouc naturel, à partir du cas de la Côte d'Ivoire. Son contenu est soumis à un accord de confidentialité et n'est pas diffusé."
 photos:
   - { src: /photos/evaluation-rubberway-cartographie-des-risques-filiere-hevea/saignee-hevea.jpg, legende: "Saignée d'un hévéa, Côte d'Ivoire" }
   - { src: /photos/evaluation-rubberway-cartographie-des-risques-filiere-hevea/tasse-latex.jpg, legende: "Latex coagulé dans la tasse de récolte" }

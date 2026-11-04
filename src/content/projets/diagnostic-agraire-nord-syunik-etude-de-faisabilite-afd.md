@@ -29,12 +29,14 @@ livrables:
     type: Rapport
     langue: FR
     pages: 124
+    resume: "Rapport du diagnostic agraire conduit en 2024 dans le bassin versant du Vorotan (nord du marz de Syunik, Arménie) pour l'AFD, afin d'éclairer la formulation du programme WAIDA. Il décrit le zonage agroécologique et l'irrigation, retrace l'histoire agraire depuis la collectivisation soviétique et les guerres du Haut-Karabagh, puis analyse les systèmes de culture, d'élevage et de production, leurs perspectives et des recommandations."
   - titre: "Diagnostic de système agraire – Bassin versant du Vorotan (version synthétique)"
     couverture: /livrables/diagnostic-agraire-nord-syunik-etude-de-faisabilite-afd/synthese-vorotan-2024.jpg
     annee: 2024
     type: Note
     langue: FR
     pages: 57
+    resume: "Version synthétique du diagnostic agraire du nord du Syunik (Arménie), réalisé en 2024 pour l'AFD. Elle résume le milieu et l'histoire agraire en quatre périodes de 1921 à 2024, compare la valeur ajoutée des systèmes de culture et d'élevage, présente trois systèmes de production types et leurs résultats économiques, puis les incertitudes, perspectives et recommandations pour les projets d'appui."
 photos:
   - { src: /photos/diagnostic-agraire-nord-syunik-etude-de-faisabilite-afd/haut-plateau-ondule.jpg, legende: "Haut plateau ondulé du Nord-Syunik" }
   - { src: /photos/diagnostic-agraire-nord-syunik-etude-de-faisabilite-afd/jacheres-melilot.jpg, legende: "Hauts plateaux, jachères d'un an à mélilot prêtes à être fauchées" }

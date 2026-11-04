@@ -23,6 +23,7 @@ livrables:
     annee: 2026
     type: Outil
     langue: FR
+    resume: "Application web open source en cours de développement pour l'IMF Vahatra à Madagascar, destinée à l'analyse des crédits agricoles. Elle permet de construire des fiches techniques par production, avec les activités, dépenses et ventes datées et une période de démarrage autorisée, puis d'en déduire le cash-flow prévisionnel d'un emprunteur pour éclairer l'analyse de sa capacité de remboursement."
 ---
 #### Contexte
 Vahatra est une institution de microfinance agréée à Madagascar. Elle s'est transformée en société anonyme après plus de vingt ans d'activité en tant qu'ONG. Fin 2024, elle finançait plus de 17 000 emprunteurs à partir de 46 points de service répartis dans trois régions des Hauts Plateaux, et plus de 70 % de son portefeuille concernait l'agriculture et l'élevage. La SIDI, partenaire et actionnaire de Vahatra, finance cette assistance technique dans le cadre du programme SSNUP (Smallholder Safety Net Up-Scaling Programme).

@@ -25,6 +25,7 @@ livrables:
     type: Rapport
     langue: FR
     pages: 36
+    resume: "Rapport du diagnostic agraire mené du 23 septembre au 4 octobre 2024 sur le Pays d'Armagnac (Gers) par les promotions MOQUAS et IPAD de L'Institut Agro Montpellier, à la demande du PETR du Pays d'Armagnac pour son projet alimentaire territorial. Il porte sur les dynamiques de l'agriculture du territoire, la diversité des exploitations agricoles et les enjeux qui en découlent."
 photos:
   - { src: /photos/formation-au-diagnostic-agraire-pays-d-armagnac/coteaux-armagnac.jpg, legende: "Coteaux du Pays d'Armagnac" }
   - { src: /photos/formation-au-diagnostic-agraire-pays-d-armagnac/vignoble-armagnac.jpg, legende: "Vignoble dans le nord du Pays d'Armagnac" }

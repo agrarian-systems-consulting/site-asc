@@ -17,7 +17,8 @@ const epaisseur = (pages?: number) => (!pages ? 1 : pages < 20 ? 0 : pages < 60 
 const liasse = doc.type === 'Outil' ? 'liasse liasse--ecran'
   : doc.type === 'Présentation' ? `liasse liasse--paysage liasse--${Math.min(epaisseur(doc.pages), 1)}`
   : `liasse liasse--${epaisseur(doc.pages)}`;
-const lienExterne = doc.url && /^https?:/.test(doc.url) && (doc.type === 'Outil' || doc.type === 'Article') ? doc.url : undefined;
+// Seuls les articles scientifiques déjà publiés gardent un lien ; aucun lien vers nos outils
+const lienExterne = doc.url && /^https?:/.test(doc.url) && doc.type === 'Article' ? doc.url : undefined;
 const LANGUES: Record<string, string> = { FR: 'Français', EN: 'Anglais', ES: 'Espagnol', PT: 'Portugais' };
 const langue = doc.langue ? LANGUES[doc.langue.toUpperCase()] ?? doc.langue : undefined;
 const demandable = doc.type !== 'Outil' && !lienExterne;
@@ -53,7 +54,7 @@ const demandable = doc.type !== 'Outil' && !lienExterne;
         {doc.resume && <p class="dm-resume">{doc.resume}</p>}
         {lienExterne && (
           <p><a class="dm-bouton" href={lienExterne} target="_blank" rel="noopener noreferrer">
-            {doc.type === 'Outil' ? 'Ouvrir l’outil' : 'Lire l’article'}
+            Lire l’article
           </a></p>
         )}
         {demandable && (
