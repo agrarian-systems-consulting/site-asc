@@ -12,6 +12,7 @@ filieres: []
 countries:
   - RDC
 client: "CIRAD"
+montant_asc: "11 250 € HT"
 excerpt: "Diagnostic agronomique, foncier et socio-économique de sept villages du secteur de Yalikandja-Yanonge (Tshopo, RDC) pour concevoir avec le CIRAD les actions de restauration forestière du projet PROFEAAC."
 draft: false
 experts:

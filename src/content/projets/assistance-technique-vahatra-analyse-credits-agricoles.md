@@ -10,8 +10,9 @@ filieres: []
 countries:
   - Madagascar
 client: "SIDI / Vahatra"
+montant_asc: "94 980 €"
 excerpt: "Assistance technique à l'IMF Vahatra (Hauts Plateaux malgaches) pour diagnostiquer ses opérations rurales et outiller l'analyse des crédits agricoles (fiches filières, flux de trésorerie), pour la SIDI."
-draft: true
+draft: false
 is_projet: false
 experts:
   - corentin-lucas

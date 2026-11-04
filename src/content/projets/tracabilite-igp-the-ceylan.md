@@ -11,6 +11,7 @@ filieres:
 countries:
   - Sri Lanka
 client: "CIRAD / SLTB"
+montant_asc: "10 313 € HT"
 excerpt: "Conception et déploiement sur Airtable du système d'enregistrement des inspections de l'indication géographique « Ceylon Tea » pour les inspecteurs du Sri Lanka Tea Board, pour le CIRAD (projet financé par l'AFD)."
 draft: false
 experts:

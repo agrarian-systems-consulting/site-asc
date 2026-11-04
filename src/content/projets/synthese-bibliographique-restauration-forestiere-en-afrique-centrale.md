@@ -16,6 +16,7 @@ countries:
   - République centrafricaine
   - RDC
 client: "CIRAD"
+montant_asc: "6 750 € HT"
 excerpt: "Revue systématique de la littérature sur les initiatives de restauration forestière menées avec les populations locales en Afrique centrale, réalisée pour le projet PROFEAAC du CIRAD et publiée en 2025."
 draft: false
 experts:

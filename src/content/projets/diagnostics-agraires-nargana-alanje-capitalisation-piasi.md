@@ -10,6 +10,7 @@ filieres: []
 countries:
   - Panama
 client: "BID / IDIAP"
+montant_programme: "46 M USD"
 excerpt: "Diagnostics agraires de Narganá (Guna Yala) et d'Alanje (Chiriquí), résumés de 18 diagnostics et outils de terrain pour les équipes du PIASI, dans le cadre de la consultation PN-T1342 de la BID."
 draft: false
 is_projet: false
@@ -52,7 +53,7 @@ Fin 2024, 17 diagnostics agraires avaient été achevés dans les zones d'interv
 La BID a confié à Asc la consultation PN-T1342, qui associait réalisation de diagnostics et gestion des connaissances.
 
 #### Objectifs
-- Compléter la couverture des zones du PIASI par deux diagnostics agraires.
+- Compléter la couverture des zones du PIASI par deux diagnostics agraires, portant leur nombre à 19.
 - Rendre les résultats des diagnostics utilisables par les décideurs, les techniciens et les producteurs.
 - Outiller les équipes du programme pour l'accompagnement des familles productrices.
 

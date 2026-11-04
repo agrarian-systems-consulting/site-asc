@@ -10,6 +10,7 @@ filieres: []
 countries:
   - Timor-Leste
 client: "GIZ / CIRAD"
+montant_asc: "17 250 € HT"
 excerpt: "Analyse des systèmes agroforestiers et des systèmes de production de Manatuto, Lautem et Viqueque, comparés à Baucau, pour le CIRAD dans le cadre du projet Ai Ba Futuru (PSAF) de la GIZ."
 draft: false
 experts:

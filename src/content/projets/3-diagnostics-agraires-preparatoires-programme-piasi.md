@@ -9,6 +9,8 @@ filieres: []
 countries:
   - Panama
 client: "BID / MIDA / IDIAP"
+montant_asc: "204 785 USD"
+montant_programme: "46 M USD"
 excerpt: "Diagnostics agraires de Toabré (Penonomé), Ñürüm (comarca Ngäbe-Buglé) et Santa Fe (Darién), réalisés en 2022 pour la BID afin d'adapter les interventions du programme PIASI à ces territoires."
 draft: false
 featured_image: "/photos/3-diagnostics-agraires-preparatoires-programme-piasi/paturages-toabre.jpg"

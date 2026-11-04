@@ -2,6 +2,7 @@
 name: "Elisa Caron"
 role: Consultante, diagnostic agraire
 is_gerant: false
+draft: true
 order: 6
 specialities:
   - Diagnostic agraire

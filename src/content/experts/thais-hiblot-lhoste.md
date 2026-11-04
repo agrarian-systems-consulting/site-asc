@@ -2,6 +2,7 @@
 name: "Thaïs Hiblot-Lhoste"
 role: Consultante, agroéconomiste
 is_gerant: false
+draft: true
 order: 5
 specialities:
   - Diagnostic agraire

@@ -15,6 +15,7 @@ countries:
 - "RDC"
 - "République centrafricaine"
 client: "Nature+ / FFEM"
+montant_programme: "8,4 M€"
 excerpt: "Coordination technique, au Cameroun, au Congo, au Gabon, en RDC et en RCA, du projet P3FAC de partenariat public-privé pour la gestion durable des forêts, porté par Nature+ et cofinancé par le FFEM."
 draft: false
 experts:

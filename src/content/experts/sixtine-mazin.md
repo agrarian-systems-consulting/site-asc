@@ -2,6 +2,7 @@
 name: "Sixtine Mazin"
 role: Consultante, agronome
 is_gerant: false
+draft: true
 order: 4
 specialities:
   - Diagnostic agraire

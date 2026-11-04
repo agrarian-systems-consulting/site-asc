@@ -11,6 +11,7 @@ filieres: []
 countries:
   - RDC
 client: "ULB Coopération"
+montant_programme: "2 M€"
 excerpt: "Évaluation externe finale, selon les critères du CAD, du volet agroécologie et apiculture conduit par ULB Coopération au Kongo Central (RDC) dans le programme DGD 2017-2021."
 draft: false
 experts:

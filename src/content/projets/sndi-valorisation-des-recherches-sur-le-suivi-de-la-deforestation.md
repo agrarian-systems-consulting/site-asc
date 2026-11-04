@@ -11,6 +11,7 @@ filieres: []
 countries:
   - France
 client: "CIFOR"
+montant_asc: "5 000 € HT"
 excerpt: "Appui éditorial au CIFOR pour finaliser le rapport « Définitions et outils de suivi de la déforestation importée », produit pour le Comité scientifique et technique Forêt dans le cadre de la SNDI."
 draft: false
 experts:

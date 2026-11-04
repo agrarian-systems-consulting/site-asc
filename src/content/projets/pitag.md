@@ -15,6 +15,7 @@ featured_image: /uploads/2019/07/IMG_3454.jpg
 year_start: 2018
 year_end: 2021
 client: "BID / Institut Agro Montpellier"
+montant_programme: "10 M USD"
 filieres: []
 experts:
   - hugo-lehoux

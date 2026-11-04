@@ -17,18 +17,15 @@ countries:
 - "France"
 legacyId: 222
 legacyUrl: "https://agrarian-systems.org/ceux-qui-sement/"
-featured_image: "/uploads/2019/02/Cameroun.png"
 year_start: 2014
 year_end: 2015
 client: "ASD / Agreenium"
+montant_programme: "60 000 €"
 filieres: []
 experts:
 - "hugo-lehoux"
 - "corentin-lucas"
 - "adrien-peroches"
-photos:
-- src: "/uploads/2019/02/Cameroun.png"
-  legende: "Éleveur et son troupeau, Cameroun"
 ---
 <iframe src="https://player.vimeo.com/video/120144450" width="640" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 

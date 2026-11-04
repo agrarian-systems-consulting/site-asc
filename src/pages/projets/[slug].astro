@@ -17,11 +17,11 @@ const { projet } = Astro.props;
 const { Content } = await projet.render();
 const {
   title, excerpt, categories, countries, featured_image,
-  client, filieres, video_url, ressources, is_projet, livrables, photos, chiffres,
+  client, filieres, video_url, montant_asc, montant_programme, ressources, is_projet, livrables, photos, chiffres,
   experts: expertSlugs,
 } = projet.data;
 
-const allExperts = await getCollection('experts');
+const allExperts = (await getCollection('experts')).filter((e) => !e.data.draft);
 const projectExperts = (expertSlugs || [])
   .map((s) => allExperts.find((e) => e.slug === s))
   .filter((e): e is NonNullable<typeof e> => Boolean(e))
@@ -67,6 +67,12 @@ const mailDemande = (t: string) =>
   `mailto:hugo@agrarian-systems.org?subject=${encodeURIComponent(`Demande de document : ${t}`)}`;
 
 const ogImage = visuel(projet)?.src;
+
+// Au-delà de 8 documents : regroupement par année (la plus récente d'abord)
+const groupes = livrables.length > 8
+  ? [...new Set(livrables.map((l) => l.annee ?? 0))].sort((a, b) => b - a)
+      .map((annee) => ({ annee: annee || 'Sans date', docs: livrables.filter((l) => (l.annee ?? 0) === annee) }))
+  : null;
 ---
 
 <BaseLayout title={title} description={excerpt || undefined} image={ogImage}>
@@ -107,6 +113,8 @@ const ogImage = visuel(projet)?.src;
             </div>
           )}
           {filieres.length > 0 && (<div><dt>Filières</dt><dd>{filieres.join(', ')}</dd></div>)}
+          {montant_asc && (<div><dt>Montant de la prestation</dt><dd>{montant_asc}</dd></div>)}
+          {montant_programme && (<div><dt>Budget du programme</dt><dd>{montant_programme}</dd></div>)}
         </dl>
 
         {chiffres.length > 0 && (
@@ -156,6 +164,40 @@ const ogImage = visuel(projet)?.src;
       <section class="p-livrables" aria-labelledby="livrables-titre">
         <div class="container">
           <h2 id="livrables-titre">{livrables.length > 1 ? 'Documents produits' : 'Document produit'}</h2>
+          {groupes ? (
+            <>
+              <p class="liv-intro">{livrables.length} documents, du plus récent au plus ancien.</p>
+              {groupes.map((g) => (
+                <div class="liv-annee">
+                  <h3>{g.annee}</h3>
+                  <ol class="etagere etagere--compacte">
+            {g.docs.map((l) => (
+              <li class="doc">
+                <a
+                  class="doc-lien"
+                  href={l.url ?? l.couverture}
+                  target={l.url ? '_blank' : undefined}
+                  rel={l.url ? 'noopener noreferrer' : undefined}
+                  data-lightbox={l.url ? undefined : 'livrable'}
+                  data-titre={l.titre}
+                  data-demande={l.url ? undefined : mailDemande(l.titre)}
+                >
+                  <span class={`liasse liasse--${epaisseur(l.pages)}`}>
+                    <img src={l.couverture} alt={`Couverture : ${l.titre}`} loading="lazy" decoding="async" />
+                  </span>
+                </a>
+                <p class="doc-titre">{l.titre}</p>
+                <p class="doc-desc">{descriptionLivrable(l)}</p>
+                {l.url
+                  ? <a class="doc-action" href={l.url} target="_blank" rel="noopener noreferrer">Lire le document</a>
+                  : <a class="doc-action doc-action--discret" href={mailDemande(l.titre)}>Demander le document</a>}
+              </li>
+            ))}
+                  </ol>
+                </div>
+              ))}
+            </>
+          ) : (
           <ol class:list={['etagere', { 'etagere--seul': livrables.length === 1 }]}>
             {livrables.map((l) => (
               <li class="doc">
@@ -180,6 +222,7 @@ const ogImage = visuel(projet)?.src;
               </li>
             ))}
           </ol>
+          )}
         </div>
       </section>
     )}
@@ -287,12 +330,12 @@ const ogImage = visuel(projet)?.src;
   .crumbs a { color: var(--color-ink); border-bottom-color: rgba(103, 61, 52, 0.3); }
   .crumbs span { margin-inline: 0.35rem; }
   h1 {
-    font-size: clamp(2rem, 4.2vw, 3.25rem);
+    font-size: clamp(2rem, 3.6vw, 2.85rem);
     font-variation-settings: 'opsz' 60;
     font-weight: 600;
     letter-spacing: -0.01em;
     line-height: 1.1;
-    max-width: 26ch;
+    max-width: 1200px;
     margin: 0;
     text-wrap: balance;
   }
@@ -301,7 +344,7 @@ const ogImage = visuel(projet)?.src;
     font-variation-settings: 'opsz' 20;
     font-size: clamp(1.15rem, 1.6vw, 1.35rem);
     line-height: 1.5;
-    max-width: 58ch;
+    max-width: 860px;
     margin: 1.25rem 0 0;
     color: #7a5248;
   }
@@ -429,6 +472,12 @@ const ogImage = visuel(projet)?.src;
     align-items: start;
   }
   .etagere--seul { grid-template-columns: minmax(0, 260px); }
+  .etagere--compacte { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 2.25rem 2rem; }
+  .etagere--compacte .doc-titre { font-size: 0.95rem; }
+  .liv-intro { margin: -1.5rem 0 2rem; color: var(--color-muted-text, #5F6A43); }
+  .liv-annee { display: grid; gap: 1rem 2.5rem; padding: 2rem 0; border-top: 1px solid rgba(103, 61, 52, 0.15); }
+  @media (min-width: 900px) { .liv-annee { grid-template-columns: 6rem minmax(0, 1fr); } }
+  .liv-annee h3 { font-size: 1.6rem; font-variation-settings: 'opsz' 48; color: var(--color-accent-2); margin: 0; }
   .doc { display: flex; flex-direction: column; }
   .doc-lien { border: 0; display: block; margin-bottom: 1.1rem; }
   .liasse {
