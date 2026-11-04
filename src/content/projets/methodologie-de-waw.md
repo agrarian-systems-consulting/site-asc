@@ -13,7 +13,7 @@ legacyId: 6603
 legacyUrl: https://agrarian-systems.org/methodologie-de-waw/
 featured_image: /uploads/2019/12/Capture-d’écran-2019-12-12-à-10.25.41.png
 year_start: 2019
-year_end: 2019
+year_end: 2021
 client: "FAO"
 filieres: []
 experts:
@@ -22,6 +22,13 @@ chiffres:
   - { valeur: "14", label: "chapitres (3 parties)" }
   - { valeur: "82", label: "pages du guide opérationnel" }
 livrables:
+  - titre: "World Agriculture Watch : Operational guidelines (version finale)"
+    couverture: /livrables/methodologie-de-waw/waw-operational-guidelines-2021.jpg
+    annee: 2021
+    type: Manuel
+    langue: EN
+    pages: 81
+    resume: "Version finale, publiée par la FAO en juin 2021, du guide opérationnel de l'Observatoire des Agricultures du Monde, coécrit par Asc avec la FAO et le CIRAD. Il définit l'agriculture familiale et ses formes à partir du cadre des moyens d'existence durables et de l'approche territoriale et paysagère, puis guide la production de données (enquêtes, questionnaires, bases de données, plateforme collaborative) et leur usage : typologies, analyses des stratégies et observatoires."
   - titre: "Guide opérationnel de l'Observatoire des Agricultures du Monde (v1.0.4)"
     couverture: /livrables/methodologie-de-waw/guide-operationnel-waw.jpg
     annee: 2019
