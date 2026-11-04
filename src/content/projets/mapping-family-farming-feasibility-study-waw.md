@@ -20,6 +20,13 @@ chiffres:
   - { valeur: "15", label: "fonctionnalités spécifiées pour la plateforme" }
   - { valeur: "168", label: "enquêtes existantes identifiées comme compatibles" }
 livrables:
+  - titre: "World Agriculture Watch : Operational guidelines (version finale)"
+    couverture: /livrables/methodologie-de-waw/waw-operational-guidelines-2021.jpg
+    annee: 2021
+    type: Manuel
+    langue: EN
+    pages: 81
+    resume: "Version finale, publiée par la FAO en juin 2021, du guide opérationnel de l'Observatoire des Agricultures du Monde, coécrit par Asc avec la FAO et le CIRAD. Il définit l'agriculture familiale et ses formes à partir du cadre des moyens d'existence durables et de l'approche territoriale et paysagère, puis guide la production de données (enquêtes, questionnaires, bases de données, plateforme collaborative) et leur usage : typologies, analyses des stratégies et observatoires."
   - titre: "Cartographier les Agricultures Familiales - Étude de faisabilité (v2.4)"
     couverture: /livrables/mapping-family-farming-feasibility-study-waw/cartographier-agricultures-familiales.jpg
     annee: 2019
