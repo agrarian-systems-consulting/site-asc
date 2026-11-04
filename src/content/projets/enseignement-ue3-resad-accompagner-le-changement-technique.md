@@ -1,5 +1,5 @@
 ---
-title: "Enseignement en Master 2 – Accompagner le changement technique en exploitation agricole"
+title: "Enseignement en master 2 sur l'accompagnement du changement technique en exploitation agricole"
 date: "2021-01-01"
 year_start: 2021
 year_end: 2026
@@ -9,18 +9,26 @@ filieres: []
 countries:
   - France
 client: "Institut Agro Montpellier"
-excerpt: "Cours et TD auprès d'étudiants ingénieurs  (Niveau Master 2) dans l'UE3 du parcours RESAD : Accompagner le changement technique dans les exploitations agricoles."
+excerpt: "Cours, TD et suivi de groupes d'étudiants ingénieurs de l'option RESAD (Institut Agro Montpellier) dans l'UE3 consacrée à la modélisation du changement technique en exploitation agricole."
 draft: false
 experts:
   - adrien-peroches
   - corentin-lucas
+livrables:
+  - titre: "Modélisation du changement technique. Cas pratique : le calendrier de travail en exploitation rizicole en Camargue"
+    couverture: /livrables/enseignement-ue3-resad-accompagner-le-changement-technique/td-modelisation-camargue.jpg
+    annee: 2021
+    type: Support de formation
+    langue: FR
+    pages: 15
 ---
 #### Contexte
-L’option RESAD de l’Institut Agro Montpellier propose à ses étudiants de Master 2 un module de modélisation des changements techniques dans une exploitation agricole (UE3)
+L'option RESAD (Ressources, systèmes agricoles et développement) de l'Institut Agro Montpellier propose à ses étudiants de master 2 une unité d'enseignement (UE3) consacrée à l'accompagnement du changement technique en exploitation agricole. Les étudiants y modélisent les effets d'un changement de pratiques, d'assolement ou d'organisation du travail sur le fonctionnement d'exploitations réelles.
 
-#### Objectif
-Appuyer l’équipe enseignante dans la dispense des enseignements et des travaux de terrain 
+#### Objectifs
+Appuyer l'équipe enseignante dans les cours, les TD et l'encadrement des travaux de terrain des groupes d'étudiants.
 
 #### Réalisations Asc
-- Appui à tous les groupes sur la modélisation du changement technique
-- Suivi d’un groupe (accompagnement sur le terrain, à l’analyse des données et à la rédaction du rapport) 
+- Conception et animation d'un TD de modélisation du calendrier de travail d'une exploitation rizicole de Camargue (2021) : rappels sur la modélisation, prise en main d'un modèle tableur intégrant contraintes climatiques (pluie, vent), main-d'œuvre disponible et travail le week-end, test de scénarios d'assolement et d'organisation du travail.
+- Appui à l'ensemble des groupes sur la modélisation du changement technique.
+- Suivi d'un groupe : accompagnement sur le terrain, analyse des données et rédaction du rapport.

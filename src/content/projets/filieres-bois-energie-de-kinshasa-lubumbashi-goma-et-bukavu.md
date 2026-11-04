@@ -13,21 +13,30 @@ filieres:
 countries:
   - RDC
 client: "PNUD-CAFI / CIRAD"
-excerpt: "Coréalisation de l'étude des filières bois-énergie des 4 grandes villes congolaises. Formation des enquêteurs auprès des consommateurs, commerçants, transporteurs et producteurs. Analyse de la productivité des plantations paysannes d'acacia. Module de formation à l'étude des filières à l'université de Lubumbashi (60 étudiants M2)."
+excerpt: "Enquêtes auprès des consommateurs, commerçants, transporteurs et producteurs de bois-énergie de quatre villes de RDC avec le CIRAD, et module de formation à l'université de Lubumbashi."
 draft: false
 experts:
   - adrien-peroches
+featured_image: /photos/filieres-bois-energie-de-kinshasa-lubumbashi-goma-et-bukavu/conditionnement-makala-port-kinshasa.jpg
+photos:
+  - { src: /photos/filieres-bois-energie-de-kinshasa-lubumbashi-goma-et-bukavu/conditionnement-makala-port-kinshasa.jpg, legende: "Sac de makala conditionné pour la vente, Kinshasa" }
+  - { src: /photos/filieres-bois-energie-de-kinshasa-lubumbashi-goma-et-bukavu/sacs-makala-kitambo.jpg, legende: "Sacs de makala sur un point de vente de Kitambo, Kinshasa" }
+  - { src: /photos/filieres-bois-energie-de-kinshasa-lubumbashi-goma-et-bukavu/vendeur-makala-lubumbashi.jpg, legende: "Vendeur de makala sur un marché de Lubumbashi (2020)" }
+  - { src: /photos/filieres-bois-energie-de-kinshasa-lubumbashi-goma-et-bukavu/fagots-bois-de-feu-kinshasa.jpg, legende: "Fagots de bois de feu, Kinshasa (2019)" }
 ---
 #### Contexte
-Dans le cadre de l’appui apporté par le CAFI à la RDC, un programme sur l’énergie durable a été mis en œuvre. Le programme combine trois logiques d’intervention ; i) Caractériser les filières bois-énergie de 4 grandes villes de RDC (Kinshasa, Lubumbashi, Goma, Bukavu) ; ii) Participer à la réduction de la consommation en bois-énergie ; iii) Améliorer la durabilité de la filière bois-énergie 
+Dans le cadre de l'appui de l'Initiative pour la forêt de l'Afrique centrale (CAFI) à la RDC, le Fonds national REDD+ a financé un programme sur l'énergie de cuisson durable, mis en œuvre par le PNUD avec l'appui scientifique du CIRAD. Le programme combine trois logiques d'intervention : caractériser les filières bois-énergie de Kinshasa, Lubumbashi, Goma et Bukavu ; réduire la consommation de bois-énergie ; améliorer la durabilité de la production.
 
-#### Objectif
-Caractériser les filières bois-énergie de 4 villes de RDC (estimer la consommation, puis caractériser le nombre, les rôles et revenus des différents acteurs de la filière).  
+Après une première phase consacrée à la consommation des ménages et des usagers productifs, l'étude s'est étendue à l'ensemble de la filière, des zones de production jusqu'aux points de vente urbains.
+
+#### Objectifs
+Caractériser les filières bois-énergie des quatre villes : estimer la consommation, puis décrire le nombre, les rôles et les revenus des acteurs de chaque maillon, et localiser les bassins d'approvisionnement.
 
 #### Réalisations Asc
-- Participation à la formulation méthodologique
-- Formation et suivi des enquêteurs auprès des consommateurs, des commerçants, des transporteurs et des producteurs ; 
-- Estimation de la productivité des plantations d’acacia du Kongo Central
-- Analyse des données (estimation de la consommation des ménages et des villes, description fonctionnelle et bilan économique de la filière et des différents maillons, cartographie des bassins d’approvisionnement) ; 
-- Rédaction des rapports et de notes de synthèse ; 
-- Co-réalisation et encadrement d’un module de formation à l’étude des filières à l’université de Lubumbashi (1 semaine en salle, 1 semaine sur le terrain)
+- Participation à la formulation méthodologique et aux questionnaires d'enquête (commerçants détaillants et grossistes, transporteurs routiers et fluviaux, distributeurs d'appareils de cuisson, producteurs de bois de feu et de makala).
+- Formation et suivi des enquêteurs auprès des consommateurs, des commerçants, des transporteurs et des producteurs.
+- Pesée des conditionnements urbains de bois-énergie (sacs, sachets, fagots) pour convertir les volumes vendus en poids.
+- Estimation de la productivité des plantations d'acacia du Kongo Central.
+- Analyse des données : consommation des ménages et des villes, description fonctionnelle et bilan économique de la filière et de ses maillons, cartographie des bassins d'approvisionnement.
+- Rédaction des rapports et de notes de synthèse.
+- Co-réalisation et encadrement d'un module de formation à l'étude des filières à l'université de Lubumbashi (une semaine en salle, une semaine sur le terrain).

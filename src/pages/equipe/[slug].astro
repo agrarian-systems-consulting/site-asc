@@ -1,6 +1,8 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ListeMissions from '../../components/ListeMissions.astro';
+import { parRecence } from '../../lib/projets';
 
 export async function getStaticPaths() {
   const experts = await getCollection('experts');
@@ -19,19 +21,8 @@ const { name, role, is_gerant, photo, specialities, languages, email, linkedin }
 const allProjets = await getCollection('projets');
 const expertProjets = allProjets
   .filter((p) => !p.data.draft && (p.data.experts ?? []).includes(expert.slug))
-  .sort((a, b) => {
-    const aEnd = a.data.year_end ?? (a.data.year_start ? 9999 : 0);
-    const bEnd = b.data.year_end ?? (b.data.year_start ? 9999 : 0);
-    if (bEnd !== aEnd) return bEnd - aEnd;
-    return (b.data.year_start ?? 0) - (a.data.year_start ?? 0);
-  });
+  .sort(parRecence);
 
-function periodeFor(p: typeof expertProjets[number]) {
-  const ys = p.data.year_start; const ye = p.data.year_end;
-  if (ys && ye) return `${ys}–${ye}`;
-  if (ys && !ye) return `${ys} → en cours`;
-  return String(p.data.date.getFullYear());
-}
 ---
 
 <BaseLayout title={name} description={role}>
@@ -41,13 +32,12 @@ function periodeFor(p: typeof expertProjets[number]) {
         {photo ? <img src={photo} alt={name} /> : <div class="placeholder">{name.split(' ').map((s) => s[0]).join('').slice(0, 2)}</div>}
       </div>
       <div>
-        <p class="eyebrow">{is_gerant ? 'Gérant associé' : 'Collaborateur·rice'}</p>
         <h1>{name}</h1>
         <p class="role">{role}</p>
 
         <dl class="expert-meta">
-          {specialities && specialities.length > 0 && (<><dt>Spécialités</dt><dd>{specialities.join(' · ')}</dd></>)}
-          {languages && languages.length > 0 && (<><dt>Langues</dt><dd>{languages.join(' · ')}</dd></>)}
+          {specialities && specialities.length > 0 && (<><dt>Spécialités</dt><dd>{specialities.join(', ')}</dd></>)}
+          {languages && languages.length > 0 && (<><dt>Langues</dt><dd>{languages.join(', ')}</dd></>)}
           {email && (<><dt>Email</dt><dd><a href={`mailto:${email}`}>{email}</a></dd></>)}
           {linkedin && (<><dt>LinkedIn</dt><dd><a href={linkedin} target="_blank" rel="noopener">Profil</a></dd></>)}
         </dl>
@@ -65,27 +55,7 @@ function periodeFor(p: typeof expertProjets[number]) {
     <section class="section section--soft">
       <div class="container">
         <h2 class="proj-title">Missions et projets ({expertProjets.length})</h2>
-        <ul class="proj-list">
-          {expertProjets.map((p) => (
-            <li>
-              <a href={`/projets/${p.slug}/`}>
-                <div class="proj-meta">
-                  <span class="proj-period">{periodeFor(p)}</span>
-                  {p.data.countries.length > 0 && (
-                    <>
-                      <span class="proj-sep"> / </span>
-                      <span class="proj-countries">{p.data.countries.join(', ')}</span>
-                    </>
-                  )}
-                </div>
-                {p.data.categories.length > 0 && (
-                  <p class="proj-tags">{p.data.categories.join(', ')}</p>
-                )}
-                <h3 class="proj-title-card">{p.data.title}</h3>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <ListeMissions projets={expertProjets} />
       </div>
     </section>
   )}
@@ -122,17 +92,8 @@ function periodeFor(p: typeof expertProjets[number]) {
     font-family: var(--font-heading);
     font-size: 3.5rem;
     font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-accent-text);
     background: var(--color-bg);
-  }
-  .eyebrow {
-    font-family: var(--font-body);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    margin: 0 0 0.5rem;
   }
   h1 {
     font-size: clamp(2rem, 4vw, 2.6rem);
@@ -141,7 +102,7 @@ function periodeFor(p: typeof expertProjets[number]) {
   .role {
     font-size: 1.05rem;
     font-style: italic;
-    color: var(--color-muted);
+    color: var(--color-muted-text);
     margin: 0 0 1.75rem;
   }
   .expert-meta {
@@ -152,11 +113,9 @@ function periodeFor(p: typeof expertProjets[number]) {
     max-width: 60ch;
   }
   .expert-meta dt {
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-accent);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-ink);
   }
   .expert-meta dd { margin: 0; color: var(--color-ink); font-size: 0.95rem; }
 
@@ -164,36 +123,11 @@ function periodeFor(p: typeof expertProjets[number]) {
 
   .proj-title {
     font-family: var(--font-heading);
-    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-    color: var(--color-accent-2);
+    font-size: clamp(1.6rem, 2.6vw, 2.15rem);
+    font-variation-settings: 'opsz' 48;
+    color: var(--color-ink);
     margin: 0 0 2rem;
   }
-  .proj-list { list-style: none; padding: 0; margin: 0; }
-  .proj-list li { border-bottom: 1px solid rgba(103, 61, 52, 0.12); }
-  .proj-list li:first-child { border-top: 1px solid rgba(103, 61, 52, 0.12); }
-  .proj-list a {
-    display: block;
-    padding: 1.25rem 1rem;
-    color: inherit;
-    border: none;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-  .proj-list a:hover { background: var(--color-bg); transform: translateX(4px); color: inherit; }
-  .proj-meta { font-size: 0.85rem; color: var(--color-muted); margin-bottom: 0.2rem; }
-  .proj-period { font-weight: 600; color: var(--color-accent-2); }
-  .proj-countries { color: var(--color-ink); }
-  .proj-tags {
-    font-size: 0.82rem; color: var(--color-accent);
-    margin: 0 0 0.4rem; font-weight: 500;
-  }
-  .proj-title-card {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    margin: 0;
-    color: var(--color-ink);
-  }
-  .proj-list a:hover .proj-title-card { color: var(--color-accent); }
-
   .back a { font-weight: 500; font-size: 0.95rem; }
 
   @media (max-width: 720px) {

@@ -8,11 +8,19 @@ const year = new Date().getFullYear();
       <img src="/brand/Logo_asc_vert.svg" alt="Agrarian Systems Consulting" class="footer-logo" />
       <p class="footer-tagline">Bureau d'étude des systèmes agraires et alimentaires du Monde</p>
     </div>
+    <address class="footer-contact">
+      <span>430 chemin de l'Hirondelle<br />34170 Castelnau-le-Lez</span>
+      <a href="mailto:hugo@agrarian-systems.org">hugo@agrarian-systems.org</a>
+      <a href="tel:+33789674743">+33 7 89 67 47 43</a>
+    </address>
     <nav aria-label="Liens secondaires">
+      <a href="/projets/references/">Références</a>
+      <a href="/territoires/">Territoires</a>
+      <a href="/equipe/">Équipe</a>
       <a href="/contact/">Contact</a>
       <a href="/mentions-legales/">Mentions légales</a>
     </nav>
-    <p class="footer-copy">© 2018–{year} Agrarian Systems Consulting</p>
+    <p class="footer-copy">© 2018–{year} Agrarian Systems Consulting, SARL, SIREN 839 389 459</p>
   </div>
 </footer>
 
@@ -21,12 +29,12 @@ const year = new Date().getFullYear();
     background: var(--color-ink);
     color: var(--color-bg-soft);
     padding: 3rem 1.5rem 2rem;
-    margin-top: 4rem;
+    margin-top: 0;
   }
   .footer-inner {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1.4fr 1fr auto;
     align-items: start;
   }
   .footer-identity { display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
@@ -44,9 +52,13 @@ const year = new Date().getFullYear();
   }
   .site-footer nav {
     display: flex;
-    gap: 1.5rem;
+    flex-direction: column;
+    gap: 0.45rem;
     font-size: 0.9rem;
   }
+  .footer-contact { font-style: normal; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.9rem; line-height: 1.5; }
+  .footer-contact a { color: var(--color-bg-soft); border-bottom: 1px solid rgba(247,240,227,.3); align-self: flex-start; }
+  .footer-contact a:hover { color: var(--color-highlight); }
   .site-footer nav a {
     color: var(--color-bg-soft);
     border-bottom: 1px solid transparent;

@@ -18,7 +18,7 @@ const nav: NavItem[] = [
       { href: '/equipe/', label: 'Notre équipe', description: 'Les femmes et les hommes du bureau d’étude' },
     ],
   },
-  { href: '/expertises/', label: 'Expertises' },
+  { href: '/expertises/', label: 'Métiers' },
   {
     href: '/projets/',
     label: 'Projets',
@@ -26,6 +26,7 @@ const nav: NavItem[] = [
     children: [
       { href: '/projets/', label: 'Projets pluriannuels', description: 'Les programmes que nous accompagnons dans la durée' },
       { href: '/projets/references/', label: 'Toutes nos références', description: 'Liste filtrable par pays, thématique et filière' },
+      { href: '/territoires/', label: 'Territoires d’intervention', description: 'La carte des pays où nous avons travaillé' },
     ],
   },
   { href: '/contact/', label: 'Contact' },
@@ -43,29 +44,28 @@ const isParentActive = (item: NavItem) =>
     <a href="/" class="brand" aria-label="Agrarian Systems Consulting - Accueil">
       <img src="/brand/Logo_asc_vert.svg" alt="Agrarian Systems Consulting" class="brand-logo" />
     </a>
-    <nav aria-label="Navigation principale">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-principale">Menu</button>
+    <nav aria-label="Navigation principale" id="nav-principale">
       <ul class="nav-list">
         {nav.map((item) => (
           <li class:list={['nav-item', { 'has-submenu': !!item.children }]}>
             <a
               href={item.href}
               class:list={['nav-link', { active: isParentActive(item) }]}
-              aria-haspopup={item.children ? 'true' : undefined}
             >
               <span class="nav-link-text">{item.label}</span>
             </a>
             {item.children && (
-              <div class="megamenu" role="menu" aria-label={item.label}>
+              <div class="megamenu">
                 <div class="megamenu-inner">
                   <div class="megamenu-heading">
-                    <h3>{item.label}</h3>
+                    <p class="megamenu-titre">{item.label}</p>
                     {item.intro && <p>{item.intro}</p>}
                   </div>
                   <ul class="megamenu-list">
                     {item.children.map((child) => (
-                      <li role="none">
+                      <li>
                         <a
-                          role="menuitem"
                           href={child.href}
                           class:list={['megamenu-link', { active: isActive(child.href) }]}
                         >
@@ -100,6 +100,7 @@ const isParentActive = (item: NavItem) =>
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.5rem;
+    max-width: calc(1200px + 3rem); /* padding inclus : bords alignés sur les autres .container */
     /* nav-item ne doit PAS être positioned pour que le megamenu s'ancre au header */
   }
   .brand {
@@ -157,13 +158,13 @@ const isParentActive = (item: NavItem) =>
     transform-origin: left center;
     transition: transform 0.3s cubic-bezier(0.25, 0, 0.4, 1);
   }
-  .nav-link:hover { color: var(--color-accent); }
+  .nav-link:hover { color: var(--color-accent-text); }
   .nav-item:hover .nav-link-text::after,
   .nav-link:focus-visible .nav-link-text::after,
   .nav-link.active .nav-link-text::after {
     transform: scaleX(1);
   }
-  .nav-link.active { color: var(--color-accent); }
+  .nav-link.active { color: var(--color-accent-text); }
 
   /* ──────────── MEGA-MENU centré, largeur contenue ──────────── */
   .megamenu {
@@ -211,14 +212,14 @@ const isParentActive = (item: NavItem) =>
     padding: 2.5rem 1.5rem;
     align-items: start;
   }
-  .megamenu-heading h3 {
+  .megamenu-heading .megamenu-titre {
     font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--color-accent-2);
     margin: 0 0 0.5rem;
   }
-  .megamenu-heading p {
+  .megamenu-heading p:not(.megamenu-titre) {
     margin: 0;
     font-size: 0.92rem;
     color: var(--color-ink);
@@ -254,7 +255,7 @@ const isParentActive = (item: NavItem) =>
   }
   .megamenu-link:hover .megamenu-link-title,
   .megamenu-link.active .megamenu-link-title {
-    color: var(--color-accent);
+    color: var(--color-accent-text);
   }
   .megamenu-link-desc {
     display: block;
@@ -271,33 +272,47 @@ const isParentActive = (item: NavItem) =>
       padding: 1.75rem 1.5rem;
     }
   }
+  .nav-toggle { display: none; }
   @media (max-width: 768px) {
-    .header-inner { flex-direction: column; gap: 0.75rem; padding: 1rem; }
-    .nav-list { flex-wrap: wrap; justify-content: center; gap: 1rem; }
-    /* mobile: dropdown inline simple, on annule tout le positionnement absolu */
+    .header-inner { flex-wrap: wrap; padding: 0.75rem 1.5rem; }
+    .nav-toggle {
+      display: inline-block; background: none; border: 1px solid rgba(103, 61, 52, 0.3); border-radius: 4px;
+      padding: 0.45rem 0.9rem; font: inherit; font-weight: 600; font-size: 0.92rem; color: var(--color-ink); cursor: pointer;
+    }
+    .nav-toggle[aria-expanded='true'] { background: var(--color-bg-soft); }
+    #nav-principale { display: none; width: 100%; }
+    #nav-principale.ouvert { display: block; }
+    .nav-list { flex-direction: column; align-items: stretch; gap: 0; padding: 0.75rem 0 0.5rem; }
+    .nav-list > li { border-top: 1px solid rgba(103, 61, 52, 0.1); }
+    .nav-link { display: block; padding: 0.75rem 0.25rem; }
     .megamenu,
     .nav-item.has-submenu:hover .megamenu,
     .nav-item.has-submenu:focus-within .megamenu {
-      position: static;
-      width: auto;
-      left: auto;
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transform: none;
-      box-shadow: none;
-      background: transparent;
-      border-radius: 0;
+      position: static; width: auto; left: auto; opacity: 1; visibility: visible; pointer-events: auto;
+      transform: none; box-shadow: none; background: transparent; border-radius: 0;
     }
     .megamenu::before { display: none; }
-    .megamenu-inner {
-      grid-template-columns: 1fr;
-      gap: 0.5rem;
-      padding: 0.25rem 0 0;
-    }
+    .megamenu-inner { grid-template-columns: 1fr; gap: 0; padding: 0 0 0.5rem 1rem; }
     .megamenu-heading { display: none; }
-    .megamenu-list { grid-template-columns: 1fr; gap: 0.25rem; }
-    .megamenu-link { padding: 0.4rem 0.6rem; text-align: center; }
+    .megamenu-list { grid-template-columns: 1fr; gap: 0; }
+    .megamenu-link { padding: 0.45rem 0.25rem; text-align: left; }
     .megamenu-link-desc { display: none; }
   }
 </style>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const nav = document.getElementById('nav-principale');
+  btn?.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(open));
+    nav?.classList.toggle('ouvert', open);
+  });
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape' && btn?.getAttribute('aria-expanded') === 'true') {
+      btn.setAttribute('aria-expanded', 'false');
+      nav?.classList.remove('ouvert');
+      btn.focus();
+    }
+  });
+</script>

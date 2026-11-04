@@ -1,7 +1,7 @@
 ---
-title: "Assistance technique via la réalisation de 20 diagnostics agraires pour faciliter la mise en place d’un programme d’appui aux agriculteurs familiaux"
+title: "Assistance technique au programme PIASI par la réalisation de diagnostics agraires (Panama)"
 date: "2022-01-01"
-year_start: 2022
+year_start: 2020
 year_end: 2025
 categories:
   - Diagnostic agraire
@@ -11,10 +11,9 @@ filieres: []
 countries:
   - Panama
 client: "BID / MIDA / IDIAP"
-excerpt: "Animation de 3 formations-actions des agents de l'IDIAP et du MIDA. Coordination de 18 diagnostics agraires dans les zones d'intervention du programme PIASI."
+excerpt: "Coordination, de 2020 à 2025, d'un programme de diagnostics agraires et de formations-actions pour la BID, l'IDIAP et le MIDA dans les zones d'intervention du PIASI, de Bocas del Toro au Darién et à Guna Yala."
 draft: false
 is_projet: true
-featured_image: "/uploads/2019/12/IMG_3473.jpg"
 experts:
   - hugo-lehoux
   - corentin-lucas
@@ -23,19 +22,50 @@ experts:
   - elisa-caron
   - elise-bouedron
   - manon-robert
+chiffres:
+  - { valeur: "19", label: "diagnostics agraires complets" }
+  - { valeur: "3", label: "formations-actions" }
+  - { valeur: "18", label: "résumés de diagnostics" }
+  - { valeur: "4", label: "contrats BID successifs" }
+livrables:
+  - titre: "Diagnóstico agrario – Samboa, distrito de Jirondai (Comarca Ngäbe-Buglé)"
+    couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/jirondai.jpg
+    annee: 2024
+    type: Rapport
+    langue: ES
+    pages: 164
+  - titre: "Diagnóstico agrario – distrito de Chiriquí Grande (Bocas del Toro)"
+    couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/chiriqui-grande.jpg
+    annee: 2023
+    type: Rapport
+    langue: ES
+    pages: 135
+  - titre: "Tonosí – Taller de devolución de primeras reflexiones"
+    couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/taller-tonosi.jpg
+    annee: 2022
+    type: Présentation
+    langue: ES
+    pages: 33
 ---
 #### Contexte
-Le PIASI (Programa de Innovación Agropecuaria Sostenible e Incluyente) est un programme du ministère de l’agriculture panaméen avec un budget de 46 millions de dollars. Il a pour objectif d’améliorer les revenus agricoles et la sécurité alimentaire des agriculteurs familiaux. 
+Le Programme d'innovation agricole durable et inclusive (PIASI) est un programme du gouvernement panaméen, cofinancé par un prêt de la BID et co-exécuté par l'IDIAP et le ministère du Développement agricole (MIDA). Il vise à améliorer les revenus agricoles et la sécurité alimentaire des agriculteurs familiaux dans 21 districts du pays.
 
-La mise en œuvre du projet PIASI, repose sur l’idée qu’une compréhension fine de la diversité et des dynamiques agricoles d’un territoire est un préalable nécessaire à la mise en œuvre d’un accompagnement pertinent des producteurs. Le Panama est ainsi envisagé comme une mosaïque, pour lesquels les conditions du milieu biophysique et l’histoire diffèrent. Ces variations ont conditionné et continuent à conditionner les pratiques des producteurs et la trajectoire de capitalisation des exploitations agricoles, résultant en une diversité d’exploitations agricoles aux échelles nationale, régionale et locale. 
+Le PIASI repose sur l'idée qu'une compréhension fine de la diversité et des dynamiques agricoles d'un territoire est un préalable à un accompagnement pertinent des producteurs. Le Panama y est envisagé comme une mosaïque de situations, dont les milieux et l'histoire ont produit une grande diversité d'exploitations aux échelles nationale, régionale et locale.
 
-#### Objectif
-Réaliser des diagnostics agraires préalables aux interventions du PIASI et réaliser des actions de renforcement des capacités de l’IDIAP et du MIDA. 
+#### Objectifs
+- Réaliser des diagnostics agraires dans les zones d'intervention du PIASI, y compris dans les comarcas indigènes.
+- Renforcer les capacités méthodologiques des techniciens de l'IDIAP, du MIDA et des congrès indigènes.
+- Rendre les résultats accessibles aux équipes du programme.
 
 #### Réalisations Asc
-- Rédaction et publication de documents méthodologiques de référence en espagnol
-- Coordination de 4 diagnostics agraires réalisés par des étudiants (stages, terrain 5 mois). 
-- Coordination de 12 diagnostics agraires réalisés par des consultants juniors (terrain 2 mois). 
-- Réalisation de diagnostics agraires sur 4 territoires (terrain de 2 semaines). 
-- Réalisation de deux formation-actions au diagnostic agraire pour l’IDIAP. 
-- Réalisation de 18 synthèses à destination du grand public 
+Le programme s'est déroulé en quatre contrats successifs, chacun présenté dans une fiche dédiée :
+- 2020-2022 (PN-T1225, avec l'Institut Agro Montpellier) : six diagnostics et une formation-action à Alanje ([fiche](/projets/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/)).
+- 2022-2024 (PN-T1295-P001) : neuf diagnostics confiés à des stagiaires de l'Institut Agro et de l'ISTOM, à des consultants juniors et aux associés d'Asc, à Tonosí, Las Palmas, Barú, Chiriquí Grande, Madugandí, Jirondai, Toabré, Ñürüm et Santa Fe (ces trois derniers dans une [fiche dédiée](/projets/3-diagnostics-agraires-preparatoires-programme-piasi/)).
+- 2023-2024 (PN-T1295-P002) : formations-actions et diagnostics à Ailigandí (Guna Yala) et Cémaco (Emberá-Wounaan) ([fiche](/projets/formation-action-diagnostic-agraire-comarcas-indigenes-panama/)).
+- 2024-2025 (PN-T1342) : diagnostics de Narganá et d'Alanje, résumés de 18 diagnostics et outils de capitalisation ([fiche](/projets/diagnostics-agraires-nargana-alanje-capitalisation-piasi/)).
+
+Sur l'ensemble, Asc a assuré la coordination méthodologique, l'encadrement des équipes, la relecture des rapports, l'organisation des ateliers locaux de restitution et la relation avec la BID et l'IDIAP.
+
+#### Résultats
+- Fin 2024, la BID recensait 17 diagnostics achevés dans les zones du PIASI ; ils servent déjà à des techniciens de l'IDIAP pour adapter les interventions à la diversité des territoires et des exploitations.
+- À la demande de l'IDIAP et des congrès indigènes, la méthode a été étendue aux comarcas Guna Yala et Emberá-Wounaan, puis complétée par des formats courts de diffusion.

@@ -1,33 +1,35 @@
 ---
-title: Etude des opportunités de développement de la filière Anacarde Bio au Togo
-date: '2018-05-15'
-excerpt: ''
+title: "Étude des opportunités de développement de la filière anacarde bio au Togo"
+date: "2018-05-15"
+excerpt: "Étude d'opportunité pour un investisseur privé sur la filière anacarde biologique d'export au Togo, avec Montpellier SupAgro : acteurs, répartition de la valeur, itinéraires techniques, projet d'investissement."
 categories:
-  - Étude
-  - Filière agricole
+- "Étude"
+- "Filière agricole"
 tags: []
 countries:
-- Togo
+- "Togo"
 legacyId: 6555
-legacyUrl: https://agrarian-systems.org/etude-des-opportunites-de-developpement-de-la-filiere-anacarde-bio-au-togo/
-featured_image: /uploads/2019/12/chashew.jpg
+legacyUrl: "https://agrarian-systems.org/etude-des-opportunites-de-developpement-de-la-filiere-anacarde-bio-au-togo/"
 year_start: 2018
 year_end: 2018
 client: "Montpellier SupAgro"
 filieres:
-  - Cajou/Anacarde
+- "Cajou/Anacarde"
 experts:
-  - hugo-lehoux
+- "hugo-lehoux"
+- "corentin-lucas"
 ---
+#### Contexte
+Un groupe privé souhaitant investir dans la filière anacarde (noix de cajou) biologique pour l'export au Togo a sollicité le service DEFIS de Montpellier SupAgro, qui a confié la réalisation de l'étude à Asc en 2018.
 
-#### Filière Anacarde Bio
+#### Objectifs
+Évaluer les opportunités de développement d'une filière anacarde biologique au Togo et formuler un projet d'investissement.
 
-### Etude d'opportunité pour le développement de la filière anacarde bio pour l'export au Togo
+#### Réalisations Asc
+- Cartographie des acteurs de la filière et étude de la répartition de la valeur à chaque maillon.
+- Étude des conduites techniques des plantations d'anacardier au Togo.
+- Mission de terrain de Hugo Lehoux et Corentin Lucas au Togo en juillet 2018 (Lomé, région de Sotouboua).
+- Encadrement d'un stage de Montpellier SupAgro sur les débouchés en France : marchés bio et vegan, produits transformés à base de cajou, transformation de la pomme de cajou en jus.
+- Formulation d'un projet d'investissement, explorant notamment la valorisation de la pomme de cajou et d'autres fruits à jus.
 
-### Cette étude répond à la commande d'un groupe privé qui souhaite investir dans le développement de la filière bio. Après une cartographie des acteurs de la filière, une étude de la répartition de la valeur à chaque maillon, une étude des conduites techniques des plantations d'Anacarde au Togo, un projet d'investissement a été formulé. Les documents produits lors de cette étude sont confidentiels, mais explorent notamment les options de valorisation de la pomme de cajou et autres fruits à jus au Togo.
-
-## Galerie
-
-<div class="gallery">
-  <img src="/uploads/2019/12/chashew.jpg" alt="" loading="lazy" />
-</div>
+Les documents produits pour le commanditaire sont confidentiels.

@@ -1,5 +1,5 @@
 ---
-title: "Coordination du projet Fantas'SCIC - Démonstrateur territorial de la Transition Agroécologique"
+title: "Coordination du projet Fantas'SCIC, démonstrateur territorial de la transition agroécologique"
 date: "2024-01-01"
 year_start: 2024
 categories:
@@ -10,7 +10,7 @@ filieres: []
 countries:
   - France
 client: "Banque des Territoires / SCIC Graines équitables"
-excerpt: "Co-animation de la phase de maturation du projet Fantas'SCIC, lauréat des Démonstrateurs territoriaux de la Transition Agroécologique et Alimentaire (France 2030), puis animation de la mise en oeuvre d'un projet de 13,5 M€ dans l'Aude porté par la SCIC Graines équitables avec une vingtaine de partenaires en Occitanie."
+excerpt: "Animation de la maturation puis de la mise en œuvre de Fantas'SCIC, démonstrateur territorial de la transition agroécologique (France 2030) porté dans l'Aude par la SCIC Graines équitables avec 27 partenaires."
 draft: false
 is_projet: true
 experts:
@@ -18,25 +18,30 @@ experts:
   - sixtine-mazin
   - corentin-lucas
   - adrien-peroches
+livrables:
+  - titre: "Fiches techniques des produits de la SCIC Graines équitables (céréales et légumineuses)"
+    couverture: /livrables/coordination-du-projet-fantas-scic-demonstrateur-territorial-transition-agroecol/fiches-techniques-produits.jpg
+    annee: 2026
+    type: Manuel
+    langue: FR
+    pages: 17
 ---
 #### Contexte
-Le territoire de l’Aude est confronté à des mutations profondes de son agriculture. La fréquence accrue des sécheresses, le risque incendie et la déprise agricole sur certaines zones se traduisent notamment par une augmentation des friches, une fragilisation du potentiel productif et une perte de valeur pour les territoires. Dans le même temps, les attentes sociétales évoluent fortement en faveur d’une alimentation plus locale, plus durable et issue de l’agriculture biologique. Cette demande croissante reste encore insuffisamment couverte par une production structurée à l’échelle territoriale, notamment pour les filières céréales et légumineuses.
+L'agriculture de l'Aude connaît de profondes mutations. La fréquence accrue des sécheresses, le risque incendie et la déprise agricole sur certaines zones se traduisent notamment par une augmentation des friches, une fragilisation du potentiel productif et une perte de valeur pour les territoires. Dans le même temps, la demande d'une alimentation plus locale, plus durable et issue de l'agriculture biologique progresse. Elle reste mal couverte par une production structurée à l'échelle du territoire, notamment pour les céréales et les légumineuses.
 
-#### Objectif
-Face à ces défis, l’enjeu est double : reconstruire des systèmes agricoles résilients, adaptés au climat méditerranéen, et relocaliser des filières alimentaires capables de créer de la valeur pour les producteurs comme pour les territoires. Le projet Fantas’Scic répond à cette double ambition en s’appuyant sur plusieurs leviers complémentaires : la reconquête des friches agricoles, la diversification des productions, le renforcement des liens entre cultures et élevage, et la structuration de filières locales intégrant production, transformation et débouchés, notamment en restauration collective.
+Portée par la SCIC Graines équitables, coopérative bio de Laure-Minervois, la candidature Fantas'SCIC a été retenue dans le cadre de l'appel à projets « Démonstrateurs territoriaux » de France 2030, opéré par la Banque des Territoires. Le projet couvre la période 2025-2030.
+
+#### Objectifs
+Le projet poursuit deux ambitions : reconstruire des systèmes agricoles résilients, adaptés au climat méditerranéen, et relocaliser des filières alimentaires qui créent de la valeur pour les producteurs comme pour le territoire. Il combine pour cela la reconquête des friches agricoles, la diversification des productions, le renforcement des liens entre cultures et élevage, et la structuration de filières locales de la production à la transformation et aux débouchés, notamment en restauration collective.
 
 #### Réalisations Asc
-- Animation du réseau de partenaire en phase maturation ;
-- Animation d’atelier de concertation pour développer une vision commune des 27 partenaires 
-- Rédaction du document de programme, présentation et défense devant la Banque Des territoires 
-- Animation de la phase de mise en œuvre
-- Suivi des activités et appui technique sur les thématiques suivantes : 
-- - Reconquête des friches agricoles ;
-- - Relance de l’agropastoralisme ;
-- - Adaptation des systèmes de culture au changement climatique et sécurisation des débouchés pour les producteurs ;
-- - Consolidation des filières bio régionales, notamment en céréales et légumineuses ;
-- - Développement de l’introduction de produits locaux dans l’alimentation, en particulier en restauration collective.
--	Organisation et animation des COPIL 
--	Suivi budgétaire
--	Reporting auprès de la banque des territoires 
--	Capitalisation, communication
+- Animation du réseau de partenaires pendant la phase de maturation, avec des ateliers de concertation pour construire une vision commune entre les 27 partenaires.
+- Rédaction du document de programme, puis présentation et défense du projet devant la Banque des Territoires.
+- Animation de la phase de mise en œuvre : organisation et animation des comités de pilotage, suivi des activités, reporting auprès de la Banque des Territoires.
+- Appui technique aux actions du projet :
+  - reconquête des friches agricoles ;
+  - relance de l'agropastoralisme ;
+  - adaptation des systèmes de culture au changement climatique et sécurisation des débouchés des producteurs ;
+  - consolidation des filières bio régionales de céréales et de légumineuses ;
+  - introduction de produits locaux en restauration collective, notamment avec un recueil de fiches techniques destiné aux chefs de cuisine et aux magasins spécialisés (conseils de trempage et de cuisson, recettes).
+- Capitalisation et communication.

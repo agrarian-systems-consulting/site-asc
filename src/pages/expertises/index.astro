@@ -1,132 +1,59 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { parRecence, periode } from '../../lib/projets';
 
-const all = (await getCollection('expertises'))
-  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
-
-const allProjets = (await getCollection('projets')).filter((p) => !p.data.draft);
-function countFor(slugCategories: string[]) {
-  return allProjets.filter((p) => p.data.categories.some((c) => slugCategories.includes(c))).length;
-}
+const all = (await getCollection('expertises')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+const projets = (await getCollection('projets')).filter((p) => !p.data.draft).sort(parRecence);
+const pour = (cats: string[]) => projets.filter((p) => p.data.categories.some((c) => cats.includes(c)));
 ---
 
-<BaseLayout title="Expertises" description="Nos six manières d'accompagner la transition agraire et alimentaire.">
-  <section class="section section--soft">
+<BaseLayout title="Nos métiers" description="Diagnostiquer, dimensionner, suivre et évaluer, capitaliser, outiller, former : les six métiers d'Agrarian Systems Consulting.">
+  <header class="x-head">
     <div class="container">
-      <p class="eyebrow">Expertises</p>
-      <h1>Six manières d'accompagner la transition agraire</h1>
+      <h1>Nos métiers</h1>
       <p class="lead">
-        Du diagnostic initial à la formation, en passant par les outils numériques sur-mesure,
-        nous mobilisons une palette complète de compétences au service du développement rural durable.
+        Six façons d'intervenir sur un même objet : les systèmes agraires, leurs dynamiques et les projets
+        qui cherchent à les faire évoluer. Une mission en combine souvent plusieurs.
       </p>
     </div>
-  </section>
+  </header>
 
-  <section class="section section--white">
-    <div class="container">
-      <ul class="expertises-grid">
-        {all.map((e) => (
-          <li class="expertise-card">
-            <a href={`/expertises/${e.slug}/`}>
-              {e.data.image && (
-                <div
-                  class="expertise-image"
-                  style={`background-image: url('${e.data.image}')`}
-                  aria-hidden="true"
-                ></div>
-              )}
-              <div class="expertise-body">
-                {e.data.icon && <span class="expertise-icon" aria-hidden="true">{e.data.icon}</span>}
-                <h2>{e.data.title}</h2>
-                {e.data.intro && <p>{e.data.intro}</p>}
-                <p class="expertise-count">{countFor(e.data.related_categories)} référence{countFor(e.data.related_categories) > 1 ? 's' : ''}</p>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
+  <ol class="container x-liste">
+    {all.map((e) => {
+      const ps = pour(e.data.related_categories);
+      return (
+        <li class="x">
+          <div class="x-texte">
+            <h2><a href={`/expertises/${e.slug}/`}>{e.data.title}</a></h2>
+            {e.data.intro && <p>{e.data.intro}</p>}
+            <p class="x-n"><a href={`/expertises/${e.slug}/`}>{ps.length} missions</a></p>
+          </div>
+          <ul class="x-exemples">
+            {ps.slice(0, 3).map((p) => (
+              <li><a href={`/projets/${p.slug}/`}><span>{periode(p)}, {p.data.countries.join(', ')}</span>{p.data.title}</a></li>
+            ))}
+          </ul>
+        </li>
+      );
+    })}
+  </ol>
 </BaseLayout>
 
 <style>
-  .eyebrow {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    margin: 0 0 0.75rem;
-  }
-  h1 {
-    font-size: clamp(2rem, 4.5vw, 3rem);
-    margin: 0 0 1rem;
-    max-width: 28ch;
-  }
-  .lead {
-    font-size: 1.1rem;
-    max-width: 60ch;
-    color: var(--color-ink);
-    opacity: 0.85;
-    margin: 0;
-  }
-
-  .expertises-grid {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-  .expertise-card a {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    background: var(--color-bg);
-    border: 1px solid rgba(103, 61, 52, 0.12);
-    border-radius: 12px;
-    overflow: hidden;
-    color: inherit;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  }
-  .expertise-card a:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(103, 61, 52, 0.12);
-    border-color: var(--color-accent);
-    color: inherit;
-  }
-  .expertise-image {
-    aspect-ratio: 16 / 9;
-    background-size: cover;
-    background-position: center;
-    background-color: var(--color-accent-2);
-  }
-  .expertise-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-  .expertise-icon {
-    font-size: 1.6rem;
-    display: inline-block;
-    margin-bottom: 0.5rem;
-  }
-  .expertise-body h2 {
-    font-family: var(--font-heading);
-    font-size: 1.3rem;
-    color: var(--color-accent-2);
-    margin: 0 0 0.75rem;
-  }
-  .expertise-card a:hover h2 { color: var(--color-accent); }
-  .expertise-body p {
-    font-size: 0.95rem;
-    line-height: 1.55;
-    margin: 0 0 1rem;
-  }
-  .expertise-count {
-    margin-top: auto !important;
-    margin-bottom: 0 !important;
-    font-size: 0.82rem !important;
-    font-weight: 600;
-    color: var(--color-accent);
-  }
+  .x-head { background: var(--color-bg-soft); padding: 4rem 1.5rem 3.5rem; }
+  h1 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); font-variation-settings: 'opsz' 60; margin: 0 0 1rem; }
+  .lead { font-size: 1.1rem; max-width: 58ch; margin: 0; }
+  .x-liste { list-style: none; margin: 0 auto; padding: 3rem 1.5rem 4rem; max-width: calc(1200px + 3rem); }
+  .x { display: grid; gap: 1.5rem 4rem; padding: 2.5rem 0; border-bottom: 1px solid rgba(103, 61, 52, 0.15); }
+  @media (min-width: 900px) { .x { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+  .x h2 { font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-variation-settings: 'opsz' 48; margin: 0 0 0.75rem; }
+  .x h2 a { color: var(--color-ink); border: 0; }
+  .x h2 a:hover { color: var(--color-accent-text); }
+  .x-texte p { max-width: 48ch; line-height: 1.6; }
+  .x-n { font-size: 0.92rem; font-weight: 600; }
+  .x-exemples { list-style: none; margin: 0; padding: 0; align-self: center; }
+  .x-exemples a { display: block; border: 0; padding: 0.65rem 0; border-top: 1px solid rgba(103, 61, 52, 0.1); color: var(--color-ink); font-family: var(--font-heading); font-weight: 600; line-height: 1.3; }
+  .x-exemples a:hover { color: var(--color-accent-text); }
+  .x-exemples span { display: block; font-family: var(--font-body); font-weight: 500; font-size: 0.82rem; color: var(--color-accent-2); margin-bottom: 0.15rem; }
 </style>

@@ -8,7 +8,6 @@ const description = 'Votre message a bien été envoyé. Nous vous répondrons r
 <BaseLayout title={title} description={description}>
   <section class="merci">
     <div class="container">
-      <p class="eyebrow">Contact</p>
       <h1>Merci&nbsp;! Votre message est bien parti.</h1>
       <p class="lead">
         Nous lisons chaque message et reviendrons vers vous au plus vite,
@@ -29,15 +28,6 @@ const description = 'Votre message a bien été envoyé. Nous vous répondrons r
     min-height: 60vh;
     display: flex;
     align-items: center;
-  }
-  .eyebrow {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    margin: 0 0 0.75rem;
   }
   .merci h1 {
     font-size: clamp(2rem, 4.5vw, 3rem);
@@ -80,7 +70,7 @@ const description = 'Votre message a bien été envoyé. Nous vous répondrons r
     color: var(--color-ink);
   }
   .btn-ghost:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+    border-color: var(--color-accent-text);
+    color: var(--color-accent-text);
   }
 </style>

@@ -5,166 +5,97 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const all = (await getCollection('experts'))
   .filter((e) => !e.data.draft)
   .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+const projets = (await getCollection('projets')).filter((p) => !p.data.draft);
+const nb = (slug: string) => projets.filter((p) => p.data.experts.includes(slug)).length;
+const pays = (slug: string) => new Set(projets.filter((p) => p.data.experts.includes(slug)).flatMap((p) => p.data.countries)).size;
+
+// Premier paragraphe de la bio, sans markdown
+const chapeau = (body: string) =>
+  (body.replace(/<!--.*?-->/gs, '').trim().split(/\n\s*\n/)[0] ?? '').replace(/[*_`#>]/g, '').trim();
 
 const gerants = all.filter((e) => e.data.is_gerant);
 const collaborateurs = all.filter((e) => !e.data.is_gerant);
 ---
 
-<BaseLayout title="Équipe" description="Les forces vives du bureau d'étude Agrarian Systems Consulting.">
-  <section class="section section--soft">
+<BaseLayout title="Équipe" description="Les associés et consultantes d'Agrarian Systems Consulting : agronomes, agroéconomistes, géographes et développeurs.">
+  <header class="q-head">
     <div class="container">
-      <p class="eyebrow">Équipe</p>
-      <h1>Les forces vives de notre entreprise</h1>
+      <h1>L'équipe</h1>
       <p class="lead">
-        Une équipe d'agronomes, d'agroéconomistes et de développeurs au service des dynamiques agricoles
-        durables, en France et à l'international.
+        Trois associés, agronomes et agroéconomistes formés à l'Institut des Régions Chaudes de Montpellier,
+        et des consultantes qui rejoignent les missions selon les terrains et les compétences demandées.
       </p>
     </div>
+  </header>
+
+  <section class="container q-associes" aria-label="Associés">
+    {gerants.map((e) => (
+      <article class="assoc">
+        <a href={`/equipe/${e.slug}/`} class="assoc-photo" tabindex="-1" aria-hidden="true">
+          {e.data.photo && <img src={e.data.photo} alt="" loading="lazy" />}
+        </a>
+        <div>
+          <h2><a href={`/equipe/${e.slug}/`}>{e.data.name}</a></h2>
+          <p class="role">{e.data.role}</p>
+          <p class="bio">{chapeau(e.body)}</p>
+          <p class="stats">{nb(e.slug)} missions sur le site, dans {pays(e.slug)} pays</p>
+        </div>
+      </article>
+    ))}
   </section>
 
-  <section class="section section--white">
-    <div class="container">
-      <h2 class="group-title">Gérants associés</h2>
-      <ul class="team-grid">
-        {gerants.map((e) => (
-          <li class="member-card">
-            <a href={`/equipe/${e.slug}/`}>
-              <div class="member-photo">
-                {e.data.photo ? (
-                  <img src={e.data.photo} alt={e.data.name} loading="lazy" />
-                ) : (
-                  <div class="member-photo-placeholder">{e.data.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}</div>
-                )}
-              </div>
-              <h3>{e.data.name}</h3>
-              <p class="member-role">{e.data.role}</p>
-            </a>
-          </li>
-        ))}
-      </ul>
-
-      {collaborateurs.length > 0 && (
-        <>
-          <h2 class="group-title">Collaboratrices &amp; collaborateurs</h2>
-          <ul class="team-grid collab-grid">
-            {collaborateurs.map((e) => (
-              <li class="member-card">
-                <a href={`/equipe/${e.slug}/`}>
-                  <div class="member-photo">
-                    {e.data.photo ? (
-                      <img src={e.data.photo} alt={e.data.name} loading="lazy" />
-                    ) : (
-                      <div class="member-photo-placeholder">{e.data.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}</div>
-                    )}
-                  </div>
-                  <h3>{e.data.name}</h3>
-                  <p class="member-role">{e.data.role}</p>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
-    </div>
-  </section>
+  {collaborateurs.length > 0 && (
+    <section class="q-collab">
+      <div class="container">
+        <h2>Consultantes ayant travaillé avec Asc</h2>
+        <ul>
+          {collaborateurs.map((e) => (
+            <li>
+              <a href={`/equipe/${e.slug}/`}>
+                <span class="c-nom">{e.data.name}</span>
+                <span class="c-role">{e.data.role}</span>
+                {e.data.specialities.length > 0 && <span class="c-spe">{e.data.specialities.join(', ')}</span>}
+                <span class="c-nb">{nb(e.slug)} mission{nb(e.slug) > 1 ? 's' : ''}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
-  .eyebrow {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    margin: 0 0 0.75rem;
-  }
-  h1 {
-    font-size: clamp(2rem, 4.5vw, 3rem);
-    margin: 0 0 1rem;
-    max-width: 30ch;
-  }
-  .lead {
-    font-size: 1.1rem;
-    color: var(--color-ink);
-    opacity: 0.85;
-    max-width: 60ch;
-    margin: 0;
-  }
-  .group-title {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    color: var(--color-accent-2);
-    margin: 0 0 2rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--color-accent);
-    display: inline-block;
-  }
-  .group-title:not(:first-child) { margin-top: 4rem; }
+  .q-head { background: var(--color-bg-soft); padding: 4rem 1.5rem 3.5rem; }
+  h1 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); font-variation-settings: 'opsz' 60; margin: 0 0 1rem; }
+  .lead { font-size: 1.1rem; max-width: 60ch; margin: 0; }
 
-  .team-grid {
-    list-style: none;
-    margin: 0 0 2rem;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
+  .q-associes { padding: 4rem 1.5rem 3rem; max-width: calc(1200px + 3rem); display: grid; gap: 3.5rem; }
+  .assoc { display: grid; gap: 1.5rem 3rem; align-items: start; }
+  @media (min-width: 760px) { .assoc { grid-template-columns: 220px minmax(0, 1fr); } }
+  .assoc-photo { display: block; border: 0; width: 220px; aspect-ratio: 1; overflow: hidden; border-radius: 2px; background: var(--color-bg-soft); }
+  .assoc-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .assoc h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); font-variation-settings: 'opsz' 48; margin: 0; }
+  .assoc h2 a { color: var(--color-ink); border: 0; }
+  .assoc h2 a:hover { color: var(--color-accent-text); }
+  .role { color: var(--color-accent-text); font-weight: 600; font-size: 0.95rem; margin: 0.35rem 0 1rem; }
+  .bio { max-width: 64ch; line-height: 1.7; }
+  .stats { font-size: 0.9rem; color: var(--color-muted-text); margin: 0; }
+
+  .q-collab { background: var(--color-bg-soft); padding: 4rem 1.5rem 4.5rem; }
+  .q-collab h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); font-variation-settings: 'opsz' 48; margin: 0 0 2rem; }
+  .q-collab ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(103, 61, 52, 0.18); }
+  .q-collab a {
+    display: grid; grid-template-columns: minmax(10rem, 14rem) minmax(8rem, 12rem) minmax(0, 1fr) 6rem; gap: 1.5rem; align-items: baseline;
+    padding: 1.1rem 0; border: 0; border-bottom: 1px solid rgba(103, 61, 52, 0.18); color: var(--color-ink);
   }
-  .collab-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
-  }
-  .member-card a {
-    display: block;
-    text-align: center;
-    border: none;
-    color: var(--color-ink);
-    padding: 1.25rem 0.5rem;
-    border-radius: 10px;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-  .member-card a:hover {
-    background: var(--color-bg-soft);
-    transform: translateY(-3px);
-    color: var(--color-accent);
-  }
-  .member-photo {
-    width: 160px;
-    height: 160px;
-    margin: 0 auto 1rem;
-    border-radius: 50%;
-    overflow: hidden;
-    background: var(--color-bg-soft);
-  }
-  .collab-grid .member-photo { width: 130px; height: 130px; }
-  .member-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .member-photo-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-heading);
-    font-size: 2.4rem;
-    font-weight: 600;
-    color: var(--color-accent);
-    background: var(--color-bg-soft);
-  }
-  .collab-grid .member-photo-placeholder { font-size: 2rem; }
-  .member-card h3 {
-    font-size: 1.15rem;
-    margin: 0 0 0.25rem;
-  }
-  .member-card a:hover h3 { color: var(--color-accent); }
-  .member-role {
-    font-size: 0.85rem;
-    color: var(--color-muted);
-    font-style: italic;
-    margin: 0;
+  .c-nom { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 600; }
+  .q-collab a:hover .c-nom { color: var(--color-accent-text); }
+  .c-role { font-size: 0.92rem; }
+  .c-spe { font-size: 0.9rem; color: #7a5e53; }
+  .c-nb { text-align: right; font-size: 0.88rem; color: var(--color-muted-text); }
+  @media (max-width: 800px) {
+    .q-collab a { grid-template-columns: 1fr; gap: 0.2rem; }
+    .c-nb { text-align: left; }
   }
 </style>

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { periode, parRecence, visuel } from '../../lib/projets';
 
 const projets = (await getCollection('projets')).filter((p) => !p.data.draft);
 
@@ -11,8 +12,12 @@ const allCategories = uniq(projets.flatMap((p) => p.data.categories ?? []));
 const allFilieres = uniq(projets.flatMap((p) => p.data.filieres ?? []));
 
 // Tri par défaut : year_end desc (les en-cours en haut), fallback year_start, puis date
-const projetsData = projets
+const projetsData = [...projets]
+  .sort(parRecence)
   .map((p) => ({
+    periode: periode(p),
+    vignette: p.data.livrables?.[0]?.couverture ?? null,
+    nbDocs: p.data.livrables?.length ?? 0,
     slug: p.slug,
     title: p.data.title,
     excerpt: p.data.excerpt ?? '',
@@ -24,23 +29,13 @@ const projetsData = projets
     date_year: p.data.date ? new Date(p.data.date).getFullYear() : null,
     client: p.data.client ?? null,
   }))
-  .sort((a, b) => {
-    // "En cours" (year_end null + year_start) en tête
-    const aEnd = a.year_end ?? (a.year_start ? 9999 : 0);
-    const bEnd = b.year_end ?? (b.year_start ? 9999 : 0);
-    if (bEnd !== aEnd) return bEnd - aEnd;
-    const aStart = a.year_start ?? a.date_year ?? 0;
-    const bStart = b.year_start ?? b.date_year ?? 0;
-    return bStart - aStart;
-  });
 ---
 
 <BaseLayout title="Toutes nos références" description="Liste filtrable de toutes les missions menées par Agrarian Systems Consulting, par pays, thématique et filière.">
   <section class="ref-hero">
     <div class="container">
-      <p class="eyebrow">Projets</p>
       <h1>Toutes nos références</h1>
-      <p class="lead">{projets.length} missions à travers le monde, filtrables par pays, thématique et filière.</p>
+      <p class="lead">{projets.length} missions menées depuis 2012 par les associés et consultants d'Asc. Filtrez par pays, thématique ou filière ; les vignettes signalent les fiches qui présentent des documents produits.</p>
     </div>
   </section>
 
@@ -101,25 +96,18 @@ const projetsData = projets
             data-filieres={p.filieres.join('|')}
           >
             <a href={`/projets/${p.slug}/`} class="ref-card-inner">
-              <div class="ref-card-meta">
-                <span class="ref-card-period">
-                  {p.year_start && p.year_end
-                    ? `${p.year_start}–${p.year_end}`
-                    : p.year_start && !p.year_end
-                      ? `${p.year_start} → en cours`
-                      : p.date_year ?? ''}
+              <span class="ref-card-period">{p.periode}</span>
+              <span class="ref-card-body">
+                <span class="ref-card-title">{p.title}</span>
+                <span class="ref-card-sub">
+                  {p.countries.length > 0 && <span class="ref-pays">{p.countries.join(', ')}</span>}
+                  {p.client && <span class="ref-client">{p.client}</span>}
                 </span>
-                {p.countries.length > 0 && (
-                  <>
-                    <span class="ref-card-sep"> / </span>
-                    <span class="ref-card-countries">{p.countries.join(', ')}</span>
-                  </>
-                )}
-              </div>
-              {p.categories.length > 0 && (
-                <p class="ref-card-tags">{p.categories.join(', ')}</p>
-              )}
-              <h3 class="ref-card-title">{p.title}</h3>
+              </span>
+              <span class="ref-card-doc" aria-hidden="true">
+                {p.vignette && <img src={p.vignette} alt="" loading="lazy" decoding="async" />}
+                {p.nbDocs > 1 && <span class="ref-card-nb">+{p.nbDocs - 1}</span>}
+              </span>
             </a>
           </li>
         ))}
@@ -257,6 +245,18 @@ const projetsData = projets
 
   $$('.ts-field').forEach((f) => setupField(f as HTMLElement));
 
+  // Pré-filtrage via l'URL : ?theme=…&pays=…&filiere=…
+  const params = new URLSearchParams(location.search);
+  const map: Record<string, Facet> = { theme: 'categories', pays: 'countries', filiere: 'filieres' };
+  let fromUrl = false;
+  Object.entries(map).forEach(([k, facet]) => {
+    params.getAll(k).forEach((v) => { selected[facet].add(v); fromUrl = true; });
+  });
+  if (fromUrl) {
+    $$('.ts-field').forEach((field) => renderChips(field as HTMLElement, (field as HTMLElement).dataset.facet as Facet));
+    applyFilters();
+  }
+
   document.querySelector('[data-action="reset"]')?.addEventListener('click', () => {
     facets.forEach((f) => selected[f].clear());
     $$('.ts-field').forEach((field) => {
@@ -270,26 +270,18 @@ const projetsData = projets
 <style>
   .ref-hero {
     background: var(--color-bg-soft);
-    padding: 3.5rem 1.5rem 2.5rem;
-  }
-  .eyebrow {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    margin: 0 0 0.75rem;
+    padding: 4rem 1.5rem 3.5rem;
   }
   .ref-hero h1 {
-    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+    font-variation-settings: 'opsz' 60;
     color: var(--color-ink);
-    margin: 0 0 0.75rem;
+    margin: 0 0 1rem;
   }
   .lead {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+    max-width: 62ch;
     color: var(--color-ink);
-    opacity: 0.85;
     margin: 0;
   }
 
@@ -328,7 +320,7 @@ const projetsData = projets
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
   .ts-field.open .ts-control {
-    border-color: var(--color-accent);
+    border-color: var(--color-accent-text);
     box-shadow: 0 0 0 3px rgba(199, 86, 40, 0.12);
   }
   .ts-chips {
@@ -364,7 +356,7 @@ const projetsData = projets
     background: rgba(199, 86, 40, 0.18);
     border: none;
     border-radius: 50%;
-    color: var(--color-accent);
+    color: var(--color-accent-text);
     cursor: pointer;
     font-size: 0.9rem;
     line-height: 1;
@@ -387,13 +379,13 @@ const projetsData = projets
     color: var(--color-ink);
     padding: 0.2rem 0;
   }
-  .ts-input::placeholder { color: var(--color-muted); }
+  .ts-input::placeholder { color: var(--color-muted-text); }
   .ts-caret {
     position: absolute;
     right: 0.65rem;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--color-muted);
+    color: var(--color-muted-text);
     font-size: 0.85rem;
     pointer-events: none;
     transition: transform 0.15s ease;
@@ -424,10 +416,10 @@ const projetsData = projets
     cursor: pointer;
     transition: background 0.1s ease;
   }
-  .ts-dropdown li:hover { background: var(--color-bg-soft); color: var(--color-accent); }
+  .ts-dropdown li:hover { background: var(--color-bg-soft); color: var(--color-accent-text); }
   /* :global() : injecté en JS aussi */
-  :global(.ts-noresult) { color: var(--color-muted) !important; font-style: italic; cursor: default !important; }
-  :global(.ts-noresult:hover) { background: transparent !important; color: var(--color-muted) !important; }
+  :global(.ts-noresult) { color: var(--color-muted-text) !important; font-style: italic; cursor: default !important; }
+  :global(.ts-noresult:hover) { background: transparent !important; color: var(--color-muted-text) !important; }
 
   .reset-btn {
     background: none;
@@ -445,8 +437,8 @@ const projetsData = projets
   }
   .reset-btn:hover {
     background: var(--color-bg-soft);
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+    border-color: var(--color-accent-text);
+    color: var(--color-accent-text);
   }
 
   /* ───────── Résultats ───────── */
@@ -457,7 +449,7 @@ const projetsData = projets
   }
   .ref-count {
     font-size: 0.9rem;
-    color: var(--color-muted);
+    color: var(--color-muted-text);
     margin: 0;
   }
   .ref-count #resultCount {
@@ -473,43 +465,55 @@ const projetsData = projets
     border-bottom: 1px solid rgba(103, 61, 52, 0.1);
   }
   .ref-card-inner {
-    display: block;
-    padding: 1.4rem 1rem;
+    display: grid;
+    grid-template-columns: 7.5rem minmax(0, 1fr) 58px;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.15rem 0.25rem;
     border: none;
     color: inherit;
-    border-radius: 4px;
-    transition: background 0.15s ease, transform 0.15s ease;
   }
-  .ref-card-inner:hover {
-    background: var(--color-bg-soft);
-    transform: translateX(4px);
+  .ref-card-period {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-accent-2);
+    font-variant-numeric: tabular-nums;
+    align-self: start;
+    padding-top: 0.2rem;
   }
-  .ref-card-meta {
-    font-size: 0.85rem;
-    color: var(--color-muted);
-    margin-bottom: 0.25rem;
-  }
-  .ref-card-period { font-weight: 600; color: var(--color-accent-2); }
-  .ref-card-countries { color: var(--color-ink); }
-  .ref-card-tags {
-    font-size: 0.82rem;
-    color: var(--color-accent);
-    margin: 0 0 0.5rem;
-    font-weight: 500;
-  }
+  .ref-card-body { display: block; }
   .ref-card-title {
+    display: block;
     font-family: var(--font-heading);
-    font-size: 1.2rem;
+    font-size: 1.18rem;
+    font-weight: 600;
     color: var(--color-ink);
-    margin: 0;
     line-height: 1.3;
-    transition: color 0.15s ease;
+    text-wrap: pretty;
   }
-  .ref-card-inner:hover .ref-card-title { color: var(--color-accent); }
+  .ref-card-sub { display: block; font-size: 0.88rem; color: #7a5e53; margin-top: 0.3rem; }
+  .ref-pays { color: var(--color-ink); font-weight: 500; margin-right: 1rem; }
+  .ref-card-inner:hover .ref-card-title { color: var(--color-accent-text); }
+  .ref-card-doc { position: relative; width: 58px; justify-self: end; }
+  .ref-card-doc img {
+    display: block; width: 58px; aspect-ratio: 210/297; object-fit: cover; object-position: top;
+    background: #fff; box-shadow: 0 1px 1px rgba(64,40,30,.1), 0 6px 12px -6px rgba(64,40,30,.4);
+    transition: transform .2s ease;
+  }
+  .ref-card-inner:hover .ref-card-doc img { transform: rotate(-2deg); }
+  .ref-card-nb {
+    position: absolute; right: -6px; bottom: -6px; font-size: .7rem; font-weight: 600;
+    background: var(--color-accent-2); color: #fff; border-radius: 999px; padding: .05rem .4rem;
+  }
+  @media (max-width: 640px) {
+    .ref-card-inner { grid-template-columns: minmax(0,1fr) 46px; gap: .25rem 1rem; }
+    .ref-card-period { grid-column: 1 / -1; padding: 0; }
+    .ref-card-doc, .ref-card-doc img { width: 46px; }
+  }
   .ref-empty {
     text-align: center;
     padding: 3rem 1rem;
-    color: var(--color-muted);
+    color: var(--color-muted-text);
     font-style: italic;
   }
 

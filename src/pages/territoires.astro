@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CarteTerrains from '../components/CarteTerrains.astro';
+import { periode, parRecence } from '../lib/projets';
+
+const all = (await getCollection('projets')).filter((p) => !p.data.draft).sort(parRecence);
+const parPays = new Map<string, typeof all>();
+for (const p of all) for (const c of p.data.countries) parPays.set(c, [...(parPays.get(c) ?? []), p]);
+const pays = [...parPays.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0], 'fr'));
+---
+
+<BaseLayout title="Territoires d'intervention" description="Les pays où Agrarian Systems Consulting a mené des missions, et la liste des références par pays.">
+  <header class="t-head">
+    <div class="container">
+      <h1>Territoires d'intervention</h1>
+      <p class="lead">
+        {all.length} missions dans {pays.length} pays, du bassin du Congo à l'isthme de Panama.
+        Les points sont proportionnels au nombre de missions ; un clic ouvre les références du pays.
+      </p>
+      <CarteTerrains projets={all}><Fragment slot="legende"> </Fragment></CarteTerrains>
+    </div>
+  </header>
+
+  <section class="container t-pays">
+    {pays.map(([nom, ps]) => (
+      <section class="t-bloc">
+        <h2><a href={`/projets/references/?pays=${encodeURIComponent(nom)}`}>{nom}</a> <span>{ps.length}</span></h2>
+        <ul>
+          {ps.slice(0, 6).map((p) => (
+            <li><a href={`/projets/${p.slug}/`}><span class="an">{periode(p)}</span> {p.data.title}</a></li>
+          ))}
+          {ps.length > 6 && <li class="plus"><a href={`/projets/references/?pays=${encodeURIComponent(nom)}`}>et {ps.length - 6} autres missions</a></li>}
+        </ul>
+      </section>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .t-head { background: var(--color-bg-soft); padding: 4rem 1.5rem 3rem; }
+  h1 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); font-variation-settings: 'opsz' 60; margin: 0 0 1rem; }
+  .lead { font-size: 1.1rem; max-width: 60ch; margin: 0 0 2rem; }
+  .t-pays { padding: 4rem 1.5rem; max-width: calc(1200px + 3rem); columns: 3 320px; column-gap: 3.5rem; }
+  .t-bloc { break-inside: avoid; margin-bottom: 2.5rem; }
+  .t-bloc h2 { font-size: 1.45rem; font-variation-settings: 'opsz' 36; margin: 0 0 0.6rem; display: flex; align-items: baseline; gap: 0.6rem; }
+  .t-bloc h2 a { color: var(--color-ink); border: 0; }
+  .t-bloc h2 a:hover { color: var(--color-accent-text); }
+  .t-bloc h2 span { font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; color: var(--color-muted-text); }
+  .t-bloc ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(103, 61, 52, 0.15); }
+  .t-bloc li a {
+    display: block; padding: 0.55rem 0; border: 0; border-bottom: 1px solid rgba(103, 61, 52, 0.1);
+    color: var(--color-ink); font-size: 0.93rem; line-height: 1.4;
+  }
+  .t-bloc li a:hover { color: var(--color-accent-text); }
+  .an { color: var(--color-accent-2); font-variant-numeric: tabular-nums; margin-right: 0.35rem; font-weight: 500; }
+  .plus a { color: var(--color-accent-2); }
+</style>
