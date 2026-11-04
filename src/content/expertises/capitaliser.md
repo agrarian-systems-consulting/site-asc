@@ -6,7 +6,7 @@ order: 4
 related_categories:
   - Capitalisation
   - Vidéo
-image: /uploads/2019/12/IMG_3473.jpg
+image: /photos/ecole-terrain-richard-toll-manuel-pedagogique-etudes-systemiques/lecture-paysage.jpg
 ---
 
 Nous accompagnons nos partenaires jusqu'à la production de documents de capitalisation et de valorisation. Par le biais de supports numériques ou imprimables, nous valorisons les leçons apprises et les faits marquants.

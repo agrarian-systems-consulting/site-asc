@@ -8,7 +8,7 @@ related_categories:
   - Montage de projet
   - Étude de faisabilité
   - Conseil stratégique et opérationnel
-image: /uploads/2014/02/MG_1457.jpg
+image: /photos/diagnostic-des-systemes-agroforestiers-timor-leste/jardin-foret-betel-manehat.jpg
 ---
 
 Nous accompagnons nos clients dès les premiers stades de leurs cycles de projets. Après les phases de diagnostic, nous mobilisons les approches orientées changement pour guider le sens de l'action souhaitée.

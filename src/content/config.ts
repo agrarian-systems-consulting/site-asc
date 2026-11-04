@@ -21,6 +21,7 @@ const projets = defineCollection({
     featured_image: z.string().optional(),
     is_projet: z.boolean().optional().default(false),  // true = apparait aussi sur /projets/ (programme multi-années, pas one-shot)
     video_url: z.string().url().optional(),            // YouTube / Vimeo embed
+    site_web: z.string().url().optional(),             // site public du projet (affiché dans la fiche)
     // ─── Ressources téléchargeables (documents Drive, rapports, annexes…) ───
     // Rendu dans une section dédiée « Ressources » en bas de la page projet,
     // avec une ancre stable #ressources (ex : /projets/mon-projet/#ressources)
@@ -40,7 +41,8 @@ const projets = defineCollection({
       type: z.string().optional(),                     // Rapport, Manuel, Support de formation…
       langue: z.string().optional(),                   // FR, ES, EN…
       pages: z.number().int().optional(),
-      url: z.string().url().optional(),
+      groupe: z.string().optional(),                   // regroupement d'affichage (ex. module de formation)
+      url: z.string().optional(),                      // URL complète ou chemin /documents/… (PDF hébergé sur le site)
     })).default([]),
     // ─── Photos de terrain (légendées) ───
     photos: z.array(z.object({

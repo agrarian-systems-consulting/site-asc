@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { periode, parRecence, visuel } from '../../lib/projets';
+import Pays from '../../components/Pays.astro';
 
 const projets = (await getCollection('projets')).filter((p) => !p.data.draft);
 
@@ -28,7 +29,6 @@ const projetsData = [...projets]
     year_end: p.data.year_end ?? null,
     date_year: p.data.date ? new Date(p.data.date).getFullYear() : null,
     client: p.data.client ?? null,
-    montant: p.data.montant_asc ?? null,
   }))
 ---
 
@@ -101,9 +101,8 @@ const projetsData = [...projets]
               <span class="ref-card-body">
                 <span class="ref-card-title">{p.title}</span>
                 <span class="ref-card-sub">
-                  {p.countries.length > 0 && <span class="ref-pays">{p.countries.join(', ')}</span>}
+                  {p.countries.length > 0 && <span class="ref-pays"><Pays pays={p.countries} max={4} /></span>}
                   {p.client && <span class="ref-client">{p.client}</span>}
-                  {p.montant && <span class="ref-montant">{p.montant}</span>}
                 </span>
               </span>
               <span class="ref-card-doc" aria-hidden="true">
@@ -494,7 +493,8 @@ const projetsData = [...projets]
     text-wrap: pretty;
   }
   .ref-card-sub { display: block; font-size: 0.88rem; color: #7a5e53; margin-top: 0.3rem; }
-  .ref-pays { color: var(--color-ink); font-weight: 500; margin-right: 1rem; }
+  .ref-pays { margin-right: 0.9rem; }
+  .ref-card-sub { display: flex !important; flex-wrap: wrap; align-items: center; gap: 0.4rem 0; }
   .ref-montant { margin-left: 1rem; font-variant-numeric: tabular-nums; }
   .ref-card-inner:hover .ref-card-title { color: var(--color-accent-text); }
   .ref-card-doc { position: relative; width: 58px; justify-self: end; }

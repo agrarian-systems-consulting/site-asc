@@ -24,13 +24,13 @@ chiffres:
   - { valeur: "8", label: "systèmes de production caractérisés" }
 livrables:
   - titre: "Diagnostic de système agraire – Bassin versant du Vorotan, Nord du Syunik (rapport)"
-    couverture: /livrables/diagnostic-agraire-nord-syunik-etude-de-faisabilite-afd/rapport-nord-syunik.jpg
+    couverture: /livrables/diagnostic-agraire-nord-syunik-etude-de-faisabilite-afd/rapport-vorotan-2024.jpg
     annee: 2024
     type: Rapport
     langue: FR
     pages: 124
   - titre: "Diagnostic de système agraire – Bassin versant du Vorotan (version synthétique)"
-    couverture: /livrables/diagnostic-agraire-nord-syunik-etude-de-faisabilite-afd/synthese-nord-syunik.jpg
+    couverture: /livrables/diagnostic-agraire-nord-syunik-etude-de-faisabilite-afd/synthese-vorotan-2024.jpg
     annee: 2024
     type: Note
     langue: FR

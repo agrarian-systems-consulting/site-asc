@@ -60,6 +60,7 @@ photos:
   - { src: /photos/filieres-bois-energie-de-kinshasa-lubumbashi-goma-et-bukavu/sacs-makala-kitambo.jpg, legende: "Sacs de makala sur un point de vente de Kitambo, Kinshasa" }
   - { src: /photos/filieres-bois-energie-de-kinshasa-lubumbashi-goma-et-bukavu/vendeur-makala-lubumbashi.jpg, legende: "Vendeur de makala sur un marché de Lubumbashi (2020)" }
   - { src: /photos/programme-de-substitution-partielle-du-bois-energie-comme-combustible-de-cuisson-en-rdc/enquete-menage-lubumbashi.jpg, legende: "Enquête de consommation auprès d'un ménage, Lubumbashi (2020)" }
+is_projet: true
 ---
 #### Contexte
 En RDC, la quasi-totalité des ménages urbains cuisinent au charbon de bois (makala), ce qui pèse sur les forêts autour des grandes villes. Le Fonds national REDD+ (FONAREDD) a confié au PNUD et à l'UNCDF le programme « Consommation durable et substitution partielle au bois-énergie », qui vise à mieux connaître les filières, à diffuser des foyers améliorés et à développer le gaz dans quatre métropoles : Kinshasa, Lubumbashi, Goma et Bukavu.

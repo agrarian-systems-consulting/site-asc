@@ -55,6 +55,7 @@ ressources:
   - titre: "Policy Brief - CST-Forêts AFD"
     url: "https://1drv.ms/b/c/68c0b0c348204772/IQCgileYoWxdQpqgZA7eD4BCAT1vfO701psucmbUTbtfBB0?e=mlVzcI"
     type: pdf
+featured_image: /photos/diagnostics-agraires-bassins-bois-energie-brazzaville-pointe-noire-pudt/paysage-makana-2.jpg
 ---
 #### Contexte
 La restauration forestière mobilise des financements croissants en Afrique centrale, souvent sous la forme de plantations conduites avec les populations rurales. Les liens entre ces initiatives, les dynamiques agricoles et les règles foncières restaient pourtant peu documentés, alors que l'agriculture sur brûlis est le premier moteur de déforestation dans la sous-région. La thèse a été conduite en convention CIFRE au sein d'Asc, en partenariat avec l'ISTOM et le CIRAD, en s'appuyant sur le projet PROFEAAC.

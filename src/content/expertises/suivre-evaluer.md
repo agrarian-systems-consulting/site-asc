@@ -7,7 +7,7 @@ related_categories:
   - Suivi-évaluation
   - Évaluation d'impact
   - Méthodologie
-image: /uploads/2013/03/megan-hodges-xMh_ww8HN_Q-unsplash.jpg
+image: /photos/tapsa/paysage-collines-kirundo.jpg
 ---
 
 Nous concevons des dispositifs de suivi-évaluation et d'apprentissage utiles pour rendre compte des effets et impacts des projets de nos clients. Nous mobilisons des méthodes d'analyse de contribution et des outils qui se combinent aux théories de changement.
