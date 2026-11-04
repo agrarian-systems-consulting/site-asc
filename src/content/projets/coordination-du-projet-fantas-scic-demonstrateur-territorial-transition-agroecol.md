@@ -49,6 +49,12 @@ livrables:
     type: Étude
     langue: FR
     pages: 24
+  - titre: "Orge brassicole SCIC : bilan de la récolte 2026"
+    couverture: /livrables/coordination-du-projet-fantas-scic-demonstrateur-territorial-transition-agroecol/bilan-orge-brassicole-2026.jpg
+    annee: 2026
+    type: Présentation
+    langue: FR
+    pages: 9
   - titre: "Fiches techniques des produits de la SCIC Graines équitables (céréales et légumineuses)"
     couverture: /livrables/coordination-du-projet-fantas-scic-demonstrateur-territorial-transition-agroecol/fiches-techniques-produits.jpg
     annee: 2026
@@ -61,6 +67,12 @@ livrables:
     type: Outil
     langue: FR
     url: https://fantasscic.agrarian-systems.org
+  - titre: "Fantafriches : carte des friches agricoles d'Occitanie"
+    couverture: /livrables/coordination-du-projet-fantas-scic-demonstrateur-territorial-transition-agroecol/carte-fantafriches.jpg
+    annee: 2026
+    type: Outil
+    langue: FR
+    url: https://fantafriches.fr/carte
   - titre: "ERP de la SCIC Graines équitables sur Airtable (réceptions, lots, triage, transports)"
     couverture: /livrables/coordination-du-projet-fantas-scic-demonstrateur-territorial-transition-agroecol/erp-airtable.jpg
     annee: 2025

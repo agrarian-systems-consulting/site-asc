@@ -183,7 +183,7 @@ const groupes = livrables.length > 8
                   data-titre={l.titre}
                   data-demande={l.url ? undefined : mailDemande(l.titre)}
                 >
-                  <span class={l.type === 'Outil' ? 'liasse liasse--ecran' : `liasse liasse--${epaisseur(l.pages)}`}>
+                  <span class={l.type === 'Outil' ? 'liasse liasse--ecran' : l.type === 'Présentation' ? `liasse liasse--paysage liasse--${Math.min(epaisseur(l.pages), 1)}` : `liasse liasse--${epaisseur(l.pages)}`}>
                     <img src={l.couverture} alt={`Couverture : ${l.titre}`} loading="lazy" decoding="async" />
                   </span>
                 </a>
@@ -211,7 +211,7 @@ const groupes = livrables.length > 8
                   data-titre={l.titre}
                   data-demande={l.url ? undefined : mailDemande(l.titre)}
                 >
-                  <span class={l.type === 'Outil' ? 'liasse liasse--ecran' : `liasse liasse--${epaisseur(l.pages)}`}>
+                  <span class={l.type === 'Outil' ? 'liasse liasse--ecran' : l.type === 'Présentation' ? `liasse liasse--paysage liasse--${Math.min(epaisseur(l.pages), 1)}` : `liasse liasse--${epaisseur(l.pages)}`}>
                     <img src={l.couverture} alt={`Couverture : ${l.titre}`} loading="lazy" decoding="async" />
                   </span>
                 </a>
@@ -518,6 +518,8 @@ const groupes = livrables.length > 8
   .liasse--ecran { aspect-ratio: 16 / 11; border-radius: 6px; overflow: hidden; border-top: 14px solid #e6dccb; }
   .liasse--ecran::before, .liasse--ecran::after { display: none; }
   .liasse--ecran img { object-position: top center; }
+  .liasse--paysage { aspect-ratio: 16 / 9; }
+  .liasse--paysage img { object-fit: contain; background: #fff; }
   .liasse--3 { box-shadow: 0 1px 1px rgba(64, 40, 30, 0.08), 12px 14px 22px -12px rgba(64, 40, 30, 0.45); }
   .doc-lien:hover .liasse, .doc-lien:focus-visible .liasse { transform: translateY(-4px) rotate(-0.6deg); }
   .doc-titre {

@@ -40,7 +40,7 @@ const projets = defineCollection({
       type: z.string().optional(),                     // Rapport, Manuel, Support de formation…
       langue: z.string().optional(),                   // FR, ES, EN…
       pages: z.number().int().optional(),
-      url: z.string().url().optional(),
+      url: z.string().optional(),                      // URL complète ou chemin /documents/… (PDF hébergé sur le site)
     })).default([]),
     // ─── Photos de terrain (légendées) ───
     photos: z.array(z.object({
