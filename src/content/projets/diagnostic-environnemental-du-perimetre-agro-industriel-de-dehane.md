@@ -1,18 +1,18 @@
 ---
-"title": "Diagnostic environnemental du périmètre agro-industriel de Déhané"
-"date": "2016-01-01"
-"year_start": 2016
-"year_end": 2016
-"categories":
+title: "Diagnostic environnemental du périmètre agro-industriel de Déhané"
+date: "2016-01-01"
+year_start: 2016
+year_end: 2016
+categories:
 - "Diagnostic agraire"
 - "Aménagement du Territoire"
-"filieres": []
-"countries":
+filieres: []
+countries:
 - "Cameroun"
-"client": "Plantations du Haut-Penja"
-"excerpt": "Diagnostic environnemental et formulation de scénarios de gestion du périmètre agro-industriel de Déhané (Cameroun) pour la société Plantations du Haut-Penja."
-"draft": false
-"experts":
+client: "Plantations du Haut-Penja"
+excerpt: "Diagnostic environnemental et formulation de scénarios de gestion du périmètre agro-industriel de Déhané (Cameroun) pour la société Plantations du Haut-Penja."
+draft: false
+experts:
 - "adrien-peroches"
 ---
 #### Contexte

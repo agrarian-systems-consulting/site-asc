@@ -1,19 +1,19 @@
 ---
-"title": "Évaluation du potentiel bois-énergie de la plantation de Kassamba"
-"date": "2016-01-01"
-"year_start": 2016
-"year_end": 2016
-"categories":
+title: "Évaluation du potentiel bois-énergie de la plantation de Kassamba"
+date: "2016-01-01"
+year_start: 2016
+year_end: 2016
+categories:
 - "Forêt"
 - "Bois-énergie"
-"filieres":
+filieres:
 - "Bois-énergie"
-"countries":
+countries:
 - "Cameroun"
-"client": "GIZ Cameroun / Alpicam-Grumcam / STBK"
-"excerpt": "Tarif de cubage et évaluation du potentiel bois-énergie des Acacia mangium de la plantation de Kassamba (Batouri, Est-Cameroun), pour la GIZ et les sociétés Alpicam-Grumcam et STBK."
-"draft": false
-"experts":
+client: "GIZ Cameroun / Alpicam-Grumcam / STBK"
+excerpt: "Tarif de cubage et évaluation du potentiel bois-énergie des Acacia mangium de la plantation de Kassamba (Batouri, Est-Cameroun), pour la GIZ et les sociétés Alpicam-Grumcam et STBK."
+draft: false
+experts:
 - "adrien-peroches"
 ---
 #### Contexte

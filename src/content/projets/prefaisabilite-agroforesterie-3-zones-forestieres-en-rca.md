@@ -11,19 +11,19 @@ filieres: []
 countries:
   - République centrafricaine
 client: "AFD-CAFI / SalvaTerra"
-excerpt: "Expert agroforestier pour trois études de préfaisabilité de projets de gestion durable de trois zones forestières (périphérie de Bangui, Sangha-Mbaeré, forêt de Bangassou). Consultation des parties prenantes et établissement des activités et budgets (~30 M USD)."
+excerpt: "Expert agroforestier pour trois études de préfaisabilité de projets de gestion durable de zones forestières en RCA (périphérie de Bangui, Sangha-Mbaéré, forêt de Bangassou), pour l'AFD et CAFI."
 draft: false
 experts:
   - adrien-peroches
 ---
 #### Contexte
-L’initiative pour les forêts d’Afrique centrale (CAFI) souhaite financer et mettre en œuvre des programmes de gestion durable des massifs forestiers de RCA
+L'Initiative pour la forêt de l'Afrique centrale (CAFI) prévoit de financer des programmes de gestion durable des massifs forestiers de la République centrafricaine. Trois zones ont été retenues pour des études de préfaisabilité conduites par SalvaTerra pour l'AFD : la périphérie de Bangui, la Sangha-Mbaéré et la forêt de Bangassou.
 
-#### Objectif
-Réaliser des études de préfaisabilité de trois projets de gestion et de développement durable de trois zones forestières en RCA (Périphérie de Bangui, Sangha-Mbaeré et forêt de Bangassou).  
+#### Objectifs
+Réaliser les études de préfaisabilité de trois projets de gestion et de développement durable de ces zones forestières, Asc intervenant comme expert agroforestier de l'équipe.
 
 #### Réalisations Asc
-- Analyse documentaire (état des forêts, politiques et stratégies nationales, accords avec le CAFI, etc.) ;
-- Animation d’ateliers de concertation et d’établissement de trois théories du changement ; 
-- Rencontre des parties prenantes et visite de terrain 
-Établissement de trois propositions de projets (activités et budgets, env. 30 millions d’USD au total) 
+- Analyse documentaire : état des forêts, politiques et stratégies nationales, accords avec CAFI.
+- Animation d'ateliers de concertation et élaboration de trois théories du changement.
+- Rencontres des parties prenantes et visites de terrain.
+- Établissement de trois propositions de projets (activités et budgets).

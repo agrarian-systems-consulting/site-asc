@@ -44,7 +44,8 @@ const isParentActive = (item: NavItem) =>
     <a href="/" class="brand" aria-label="Agrarian Systems Consulting - Accueil">
       <img src="/brand/Logo_asc_vert.svg" alt="Agrarian Systems Consulting" class="brand-logo" />
     </a>
-    <nav aria-label="Navigation principale">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-principale">Menu</button>
+    <nav aria-label="Navigation principale" id="nav-principale">
       <ul class="nav-list">
         {nav.map((item) => (
           <li class:list={['nav-item', { 'has-submenu': !!item.children }]}>
@@ -272,33 +273,40 @@ const isParentActive = (item: NavItem) =>
       padding: 1.75rem 1.5rem;
     }
   }
+  .nav-toggle { display: none; }
   @media (max-width: 768px) {
-    .header-inner { flex-direction: column; gap: 0.75rem; padding: 1rem; }
-    .nav-list { flex-wrap: wrap; justify-content: center; gap: 1rem; }
-    /* mobile: dropdown inline simple, on annule tout le positionnement absolu */
+    .header-inner { flex-wrap: wrap; padding: 0.75rem 1rem; }
+    .nav-toggle {
+      display: inline-block; background: none; border: 1px solid rgba(103, 61, 52, 0.3); border-radius: 4px;
+      padding: 0.45rem 0.9rem; font: inherit; font-weight: 600; font-size: 0.92rem; color: var(--color-ink); cursor: pointer;
+    }
+    .nav-toggle[aria-expanded='true'] { background: var(--color-bg-soft); }
+    #nav-principale { display: none; width: 100%; }
+    #nav-principale.ouvert { display: block; }
+    .nav-list { flex-direction: column; align-items: stretch; gap: 0; padding: 0.75rem 0 0.5rem; }
+    .nav-list > li { border-top: 1px solid rgba(103, 61, 52, 0.1); }
+    .nav-link { display: block; padding: 0.75rem 0.25rem; }
     .megamenu,
     .nav-item.has-submenu:hover .megamenu,
     .nav-item.has-submenu:focus-within .megamenu {
-      position: static;
-      width: auto;
-      left: auto;
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transform: none;
-      box-shadow: none;
-      background: transparent;
-      border-radius: 0;
+      position: static; width: auto; left: auto; opacity: 1; visibility: visible; pointer-events: auto;
+      transform: none; box-shadow: none; background: transparent; border-radius: 0;
     }
     .megamenu::before { display: none; }
-    .megamenu-inner {
-      grid-template-columns: 1fr;
-      gap: 0.5rem;
-      padding: 0.25rem 0 0;
-    }
+    .megamenu-inner { grid-template-columns: 1fr; gap: 0; padding: 0 0 0.5rem 1rem; }
     .megamenu-heading { display: none; }
-    .megamenu-list { grid-template-columns: 1fr; gap: 0.25rem; }
-    .megamenu-link { padding: 0.4rem 0.6rem; text-align: center; }
+    .megamenu-list { grid-template-columns: 1fr; gap: 0; }
+    .megamenu-link { padding: 0.45rem 0.25rem; text-align: left; }
     .megamenu-link-desc { display: none; }
   }
 </style>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const nav = document.getElementById('nav-principale');
+  btn?.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(open));
+    nav?.classList.toggle('ouvert', open);
+  });
+</script>

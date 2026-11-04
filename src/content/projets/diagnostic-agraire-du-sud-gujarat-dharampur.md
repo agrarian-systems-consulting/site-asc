@@ -1,17 +1,17 @@
 ---
-"title": "Diagnostic agraire du Sud Gujarat - Dharampur"
-"date": "2014-01-01"
-"year_start": 2014
-"year_end": 2014
-"categories":
+title: "Diagnostic agraire du Sud Gujarat - Dharampur"
+date: "2014-01-01"
+year_start: 2014
+year_end: 2014
+categories:
 - "Diagnostic agraire"
-"filieres": []
-"countries":
+filieres: []
+countries:
 - "Inde"
-"client": "CIRAD"
-"excerpt": "Diagnostic agraire du taluka de Dharampur (Sud Gujarat, Inde) avec le CIRAD et Montpellier SupAgro : histoire agraire, transformation des systèmes de production et inégalités entre exploitations."
-"draft": false
-"experts":
+client: "CIRAD"
+excerpt: "Diagnostic agraire du taluka de Dharampur (Sud Gujarat, Inde) avec le CIRAD et Montpellier SupAgro : histoire agraire, transformation des systèmes de production et inégalités entre exploitations."
+draft: false
+experts:
 - "hugo-lehoux"
 ---
 #### Contexte

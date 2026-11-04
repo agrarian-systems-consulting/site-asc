@@ -19,7 +19,7 @@ experts:
   - adrien-peroches
 featured_image: /photos/filieres-bois-energie-de-kinshasa-lubumbashi-goma-et-bukavu/conditionnement-makala-port-kinshasa.jpg
 photos:
-  - { src: /photos/filieres-bois-energie-de-kinshasa-lubumbashi-goma-et-bukavu/conditionnement-makala-port-kinshasa.jpg, legende: "Conditionnement de makala au port, Kinshasa" }
+  - { src: /photos/filieres-bois-energie-de-kinshasa-lubumbashi-goma-et-bukavu/conditionnement-makala-port-kinshasa.jpg, legende: "Sac de makala conditionné pour la vente, Kinshasa" }
   - { src: /photos/filieres-bois-energie-de-kinshasa-lubumbashi-goma-et-bukavu/sacs-makala-kitambo.jpg, legende: "Sacs de makala sur un point de vente de Kitambo, Kinshasa" }
   - { src: /photos/filieres-bois-energie-de-kinshasa-lubumbashi-goma-et-bukavu/vendeur-makala-lubumbashi.jpg, legende: "Vendeur de makala sur un marché de Lubumbashi (2020)" }
   - { src: /photos/filieres-bois-energie-de-kinshasa-lubumbashi-goma-et-bukavu/fagots-bois-de-feu-kinshasa.jpg, legende: "Fagots de bois de feu, Kinshasa (2019)" }

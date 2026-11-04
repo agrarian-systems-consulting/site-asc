@@ -1,17 +1,17 @@
 ---
-"title": "Création du site web APAD"
-"date": "2015-01-01"
-"year_start": 2015
-"year_end": 2015
-"categories":
+title: "Création du site web APAD"
+date: "2015-01-01"
+year_start: 2015
+year_end: 2015
+categories:
 - "Outils numériques"
-"filieres": []
-"countries":
+filieres: []
+countries:
 - "France"
-"client": "APAD (Association pour l'anthropologie du changement social et du développement)"
-"excerpt": "Création du site web de l'APAD (Association pour l'anthropologie du changement social et du développement) : site de l'association, plateforme de son congrès, formation aux outils collaboratifs."
-"draft": false
-"experts":
+client: "APAD (Association pour l'anthropologie du changement social et du développement)"
+excerpt: "Création du site web de l'APAD (Association pour l'anthropologie du changement social et du développement) : site de l'association, plateforme de son congrès, formation aux outils collaboratifs."
+draft: false
+experts:
 - "hugo-lehoux"
 ---
 #### Contexte

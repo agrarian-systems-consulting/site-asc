@@ -1,19 +1,19 @@
 ---
-"title": "Évaluation arboriculture fruitière - Programme RACP"
-"date": "2014-01-01"
-"year_start": 2014
-"year_end": 2014
-"categories":
+title: "Évaluation arboriculture fruitière - Programme RACP"
+date: "2014-01-01"
+year_start: 2014
+year_end: 2014
+categories:
 - "Évaluation d'impact"
 - "Filière agricole"
-"filieres":
+filieres:
 - "Arboriculture fruitière"
-"countries":
+countries:
 - "Arménie"
-"client": "FIDA"
-"excerpt": "Participation à la mission de supervision du FIDA du programme RACP en Arménie : analyse des systèmes de production intégrant l'arboriculture et des conditions de développement des filières fruitières."
-"draft": false
-"experts":
+client: "FIDA"
+excerpt: "Participation à la mission de supervision du FIDA du programme RACP en Arménie : analyse des systèmes de production intégrant l'arboriculture et des conditions de développement des filières fruitières."
+draft: false
+experts:
 - "hugo-lehoux"
 ---
 #### Contexte

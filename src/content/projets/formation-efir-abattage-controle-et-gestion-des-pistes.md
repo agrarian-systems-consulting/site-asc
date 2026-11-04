@@ -1,20 +1,20 @@
 ---
-"title": "Formation EFIR - Abattage contrôlé et gestion des pistes"
-"date": "2015-01-01"
-"year_start": 2015
-"year_end": 2015
-"categories":
+title: "Formation EFIR - Abattage contrôlé et gestion des pistes"
+date: "2015-01-01"
+year_start: 2015
+year_end: 2015
+categories:
 - "Forêt"
 - "Formation"
-"filieres":
+filieres:
 - "Bois d'œuvre"
-"countries":
+countries:
 - "Cameroun"
 - "Congo"
-"client": "KfW / PPECF"
-"excerpt": "Gestion de projets de formation à l'exploitation forestière à impact réduit au Cameroun et au Congo et évaluation de deux ans de formation à l'abattage contrôlé, pour le programme PPECF (KfW)."
-"draft": false
-"experts":
+client: "KfW / PPECF"
+excerpt: "Gestion de projets de formation à l'exploitation forestière à impact réduit au Cameroun et au Congo et évaluation de deux ans de formation à l'abattage contrôlé, pour le programme PPECF (KfW)."
+draft: false
+experts:
 - "adrien-peroches"
 ---
 #### Contexte

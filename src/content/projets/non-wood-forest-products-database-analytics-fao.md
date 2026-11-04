@@ -1,19 +1,19 @@
 ---
-"title": "Non-Wood Forest Products - Database & analytics FAO"
-"date": "2012-01-01"
-"year_start": 2012
-"year_end": 2012
-"categories":
+title: "Non-Wood Forest Products - Database & analytics FAO"
+date: "2012-01-01"
+year_start: 2012
+year_end: 2012
+categories:
 - "Recherche"
 - "Forêt"
 - "Outils numériques"
-"filieres": []
-"countries":
+filieres: []
+countries:
 - "Italie"
-"client": "FAO"
-"excerpt": "Revue des données de production et de commerce des produits forestiers non ligneux d'Afrique et d'Asie pour la FAO (Rome) : base MySQL standardisée, interface de visualisation, synthèses par pays."
-"draft": false
-"experts":
+client: "FAO"
+excerpt: "Revue des données de production et de commerce des produits forestiers non ligneux d'Afrique et d'Asie pour la FAO (Rome) : base MySQL standardisée, interface de visualisation, synthèses par pays."
+draft: false
+experts:
 - "hugo-lehoux"
 ---
 #### Contexte

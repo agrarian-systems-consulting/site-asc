@@ -1,21 +1,21 @@
 ---
-"title": "Évaluation du projet UE Makala - Bois-énergie en Afrique centrale"
-"date": "2014-01-01"
-"year_start": 2014
-"year_end": 2014
-"categories":
+title: "Évaluation du projet UE Makala - Bois-énergie en Afrique centrale"
+date: "2014-01-01"
+year_start: 2014
+year_end: 2014
+categories:
 - "Évaluation d'impact"
 - "Bois-énergie"
 - "Forêt"
 - "Agroforesterie"
-"filieres":
+filieres:
 - "Bois-énergie"
-"countries":
+countries:
 - "RDC"
-"client": "CIRAD"
-"excerpt": "Évaluation des résultats du projet UE Makala en périphérie de Kinshasa : appropriation des Plans simples de gestion et des pratiques agroforestières, caractérisation des systèmes agraires (RDC)."
-"draft": false
-"experts":
+client: "CIRAD"
+excerpt: "Évaluation des résultats du projet UE Makala en périphérie de Kinshasa : appropriation des Plans simples de gestion et des pratiques agroforestières, caractérisation des systèmes agraires (RDC)."
+draft: false
+experts:
 - "adrien-peroches"
 ---
 #### Contexte

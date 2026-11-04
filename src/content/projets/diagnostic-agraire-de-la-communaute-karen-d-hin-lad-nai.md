@@ -1,17 +1,17 @@
 ---
-"title": "Diagnostic agraire de la communauté Karen d'Hin Lad Nai"
-"date": "2013-01-01"
-"year_start": 2013
-"year_end": 2013
-"categories":
+title: "Diagnostic agraire de la communauté Karen d'Hin Lad Nai"
+date: "2013-01-01"
+year_start: 2013
+year_end: 2013
+categories:
 - "Diagnostic agraire"
-"filieres": []
-"countries":
+filieres: []
+countries:
 - "Thaïlande"
-"client": "Université de Chiang Maï (RCSD)"
-"excerpt": "Diagnostic agraire d'un village Karen du nord de la Thaïlande (Hin Lad Nai) pour le Regional Center for Social Science and Sustainable Development de l'université de Chiang Maï."
-"draft": false
-"experts":
+client: "Université de Chiang Maï (RCSD)"
+excerpt: "Diagnostic agraire d'un village Karen du nord de la Thaïlande (Hin Lad Nai) pour le Regional Center for Social Science and Sustainable Development de l'université de Chiang Maï."
+draft: false
+experts:
 - "adrien-peroches"
 ---
 #### Contexte

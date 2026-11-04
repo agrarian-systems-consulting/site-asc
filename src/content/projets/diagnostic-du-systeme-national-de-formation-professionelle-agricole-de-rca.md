@@ -1,7 +1,7 @@
 ---
 title: Diagnostic du système national de formation professionelle agricole de RCA
 date: '2018-07-19'
-excerpt: "Diagnostic du dispositif national de formation agricole et rurale de Centrafrique et formulation, avec les acteurs nationaux, des axes d'un programme de rénovation (mission ASiST / Fonds Bêkou, Union européenne, juin 2018)."
+excerpt: "Diagnostic du dispositif national de formation agricole et rurale de Centrafrique et formulation, avec les acteurs nationaux, des axes d'un programme de rénovation (Union européenne, ASiST et Fonds Bêkou, 2018)."
 categories:
   - Formation
   - Étude

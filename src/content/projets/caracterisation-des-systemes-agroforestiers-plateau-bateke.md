@@ -1,20 +1,20 @@
 ---
-"title": "Caractérisation des systèmes agroforestiers - Plateau Batéké"
-"date": "2012-01-01"
-"year_start": 2012
-"year_end": 2012
-"categories":
+title: "Caractérisation des systèmes agroforestiers - Plateau Batéké"
+date: "2012-01-01"
+year_start: 2012
+year_end: 2012
+categories:
 - "Diagnostic agraire"
 - "Agroforesterie"
 - "Bois-énergie"
-"filieres":
+filieres:
 - "Bois-énergie"
-"countries":
+countries:
 - "RDC"
-"client": "CIRAD"
-"excerpt": "Caractérisation des systèmes agroforestiers traditionnels du plateau Batéké et estimation des stocks de bois-énergie en périphérie de Kinshasa, pour le CIRAD (RDC)."
-"draft": false
-"experts":
+client: "CIRAD"
+excerpt: "Caractérisation des systèmes agroforestiers traditionnels du plateau Batéké et estimation des stocks de bois-énergie en périphérie de Kinshasa, pour le CIRAD (RDC)."
+draft: false
+experts:
 - "adrien-peroches"
 ---
 #### Contexte

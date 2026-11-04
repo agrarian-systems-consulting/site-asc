@@ -1,7 +1,7 @@
 ---
 title: Agroscopik - Un cahier de culture numérique pour les Calédoniens
 date: '2019-02-09'
-excerpt: ''
+excerpt: "Développement d'Agroscopik, application web de cahier de culture pour les agriculteurs de Nouvelle-Calédonie : cartographie des parcelles, saisie des itinéraires techniques et synthèses technico-économiques."
 categories:
   - Outils numériques
 tags:
@@ -17,23 +17,18 @@ client: "Chambre d'agriculture Nouvelle-Calédonie"
 filieres: []
 experts:
   - hugo-lehoux
+photos:
+  - { src: "/uploads/2019/12/Capture-d’écran-2019-12-09-à-11.15.53.png", legende: "Interface d'Agroscopik" }
 ---
 
-#### Agroscopik
+#### Contexte
+En Nouvelle-Calédonie, il n'existe pas de registre parcellaire graphique (RPG) comparable à celui de la métropole. Les agriculteurs et leurs conseillers manquent donc d'un outil simple pour localiser les parcelles, enregistrer les pratiques et en tirer des références technico-économiques.
 
-### Un outil de cartographie en ligne au service des agriculteurs calédoniens
+#### Objectifs
+Mettre à disposition des agriculteurs calédoniens un cahier de culture numérique qui permette à la fois d'enregistrer les pratiques culturales et d'analyser les performances des exploitations.
 
-<h3><span style="color: #50d18d;">Outil de cartographie numérique</span></h3>
-En l'absence de RPG en Nouvelle-Calédonie, cet outil permet de géolocaliser simplement ses parcelles.
-<h3><span style="color: #50d18d;">Synthèses technico-économiques</span></h3>
-A partir des itinéraires techniques saisis, l'appliation permet d'extraire de nombreux indicateurs des performances technico-économiques des exploitations. Des comparaisons par culture ou systèmes de cultures sont également proposés (productivité de la terre, du travail, de l'eau etc.).
-<h3><span style="color: #50d18d;">Plans de fertilisation et produits phytosanitaires</span></h3>
-L'outil est alimenté par la base de données e-phy pour actualiser les compositions des produits phytosanitaires et les usages autorisés. Les compositions des engrais et amendements ont été produits sur la base des données produites par la Chambre d'Agriculture de Nouvelle-Calédonie.
-<h3><span style="color: #50d18d;">Organisation du travail</span></h3>
-Suite à la demande des agriculteurs, l'outil permet de gérer les temps de travaux. L'outil est synchronisé avec Google Calendar.
-
-## Galerie
-
-<div class="gallery">
-  <img src="/uploads/2019/12/Capture-d’écran-2019-12-09-à-11.15.53.png" alt="" loading="lazy" />
-</div>
+#### Réalisations Asc
+- Outil de cartographie en ligne permettant à chaque agriculteur de géolocaliser simplement ses parcelles.
+- Saisie des itinéraires techniques et calcul d'indicateurs de performance technico-économique, avec des comparaisons par culture ou par système de culture (productivité de la terre, du travail, de l'eau).
+- Module de plans de fertilisation et de traitements : base de produits phytosanitaires alimentée par e-phy (compositions et usages autorisés), compositions des engrais et amendements établies à partir des données de la Chambre d'agriculture de Nouvelle-Calédonie.
+- Gestion des temps de travaux, ajoutée à la demande des agriculteurs, avec synchronisation sur Google Calendar.

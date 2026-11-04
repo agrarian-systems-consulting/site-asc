@@ -1,18 +1,18 @@
 ---
-"title": "Évaluation de l'impact environnemental des systèmes agricoles CCDS - Kasangulu/Madimba"
-"date": "2016-01-01"
-"year_start": 2016
-"year_end": 2016
-"categories":
+title: "Évaluation de l'impact environnemental des systèmes agricoles CCDS - Kasangulu/Madimba"
+date: "2016-01-01"
+year_start: 2016
+year_end: 2016
+categories:
 - "Évaluation d'impact"
 - "Agroécologie"
-"filieres": []
-"countries":
+filieres: []
+countries:
 - "RDC"
-"client": "WWF Belgique / ULB / CCDS"
-"excerpt": "Évaluation de l'impact environnemental des systèmes agricoles promus par l'ONG CCDS auprès des agriculteurs de Kasangulu et Madimba (Kongo-Central, RDC), pour WWF Belgique et ULB Coopération."
-"draft": false
-"experts":
+client: "WWF Belgique / ULB / CCDS"
+excerpt: "Évaluation de l'impact environnemental des systèmes agricoles promus par l'ONG CCDS auprès des agriculteurs de Kasangulu et Madimba (Kongo-Central, RDC), pour WWF Belgique et ULB Coopération."
+draft: false
+experts:
 - "adrien-peroches"
 ---
 #### Contexte

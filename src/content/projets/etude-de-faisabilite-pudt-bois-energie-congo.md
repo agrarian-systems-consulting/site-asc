@@ -12,19 +12,19 @@ filieres:
 countries:
   - Congo
 client: "AFD-CAFI / SalvaTerra"
-excerpt: "Expert bois-énergie dans l'étude de faisabilité du PUDT et de son plan d'investissement. Consultation des parties prenantes et établissement des activités et du budget (2,2 et 5 M USD)."
+excerpt: "Expert bois-énergie pour l'étude de faisabilité du PUDT et du plan d'investissement Kopekoba (CAFI, Congo) : consultation des parties prenantes, ateliers et rédaction des volets bois-énergie."
 draft: false
 experts:
   - adrien-peroches
 ---
 #### Contexte
-L’initiative pour les forêts d’Afrique centrale (CAFI) a signé un accord de financement avec la République du Congo pour financer la gestion durable de ses forêts. Dans ce cadre, deux programmes ont été financés pour revoir l’utilisation des terres (un programme de planification et un programme d’investissement)
+L'Initiative pour la forêt de l'Afrique centrale (CAFI) a signé avec la République du Congo un accord de financement pour la gestion durable de ses forêts. Dans ce cadre, deux programmes portant sur l'utilisation des terres ont été préparés : le Programme d'utilisation durable des terres (PUDT), centré sur la planification, et le plan d'investissement Kopekoba. Leur étude de faisabilité a été conduite par SalvaTerra pour l'AFD.
 
-#### Objectif
-Pour ces deux programmes, Asc a été sollicité comme sous-traitant afin de rédiger les parties concernant l’alimentation durable en bois-énergie et énergie de cuisson des villes de Brazzaville et Pointe-Noire.   
+#### Objectifs
+Asc est intervenu en sous-traitance pour rédiger, dans ces deux programmes, les composantes relatives à l'approvisionnement durable en bois-énergie et en énergie de cuisson des villes de Brazzaville et Pointe-Noire.
 
 #### Réalisations Asc
--	Diagnostic terrain et consultation des parties prenantes 
--	Co-animation d’ateliers d’échanges sur les constats et propositions d’études et d’actions
--	Proposition d’études et d’actions concrètes pour les composantes bois-énergie
--	Rédaction des documents de projet (activités, besoins matériels et humains, budget – 2,2 millions d’euros d’actions sur le PUDT et 5 millions d’euros d’actions sur le Kopekoba)
+- Diagnostic de terrain et consultation des parties prenantes.
+- Co-animation d'ateliers d'échange sur les constats et les propositions d'études et d'actions.
+- Proposition d'études et d'actions concrètes pour les composantes bois-énergie.
+- Rédaction des documents de projet correspondants : activités, besoins matériels et humains, budget.

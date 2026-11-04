@@ -1,18 +1,18 @@
 ---
-"title": "Sélection variétale Taro (Colocasia esculenta)"
-"date": "2012-01-01"
-"year_start": 2012
-"year_end": 2013
-"categories":
+title: "Sélection variétale Taro (Colocasia esculenta)"
+date: "2012-01-01"
+year_start: 2012
+year_end: 2013
+categories:
 - "Recherche"
-"filieres":
+filieres:
 - "Taro"
-"countries":
+countries:
 - "Vanuatu"
-"client": "CIRAD"
-"excerpt": "Caractérisation de la diversité du taro (Colocasia esculenta) dans le Pacifique par analyse génétique, sélection et expérimentation de variétés, avec le CIRAD à Espiritu Santo (Vanuatu)."
-"draft": false
-"experts":
+client: "CIRAD"
+excerpt: "Caractérisation de la diversité du taro (Colocasia esculenta) dans le Pacifique par analyse génétique, sélection et expérimentation de variétés, avec le CIRAD à Espiritu Santo (Vanuatu)."
+draft: false
+experts:
 - "hugo-lehoux"
 ---
 #### Contexte

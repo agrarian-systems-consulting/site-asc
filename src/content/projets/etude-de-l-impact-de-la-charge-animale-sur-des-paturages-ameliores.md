@@ -1,18 +1,18 @@
 ---
-"title": "Étude de l'impact de la charge animale sur des pâturages améliorés"
-"date": "2012-01-01"
-"year_start": 2012
-"year_end": 2013
-"categories":
+title: "Étude de l'impact de la charge animale sur des pâturages améliorés"
+date: "2012-01-01"
+year_start: 2012
+year_end: 2013
+categories:
 - "Recherche"
-"filieres":
+filieres:
 - "Bœuf"
-"countries":
+countries:
 - "Brésil"
-"client": "Université d'État de Londrina"
-"excerpt": "Mise en œuvre de protocoles de recherche sur le terrain et en laboratoire pour l'amélioration de pâturages tropicaux, à l'université d'État de Londrina (Paraná, Brésil)."
-"draft": false
-"experts":
+client: "Université d'État de Londrina"
+excerpt: "Mise en œuvre de protocoles de recherche sur le terrain et en laboratoire pour l'amélioration de pâturages tropicaux, à l'université d'État de Londrina (Paraná, Brésil)."
+draft: false
+experts:
 - "adrien-peroches"
 ---
 #### Contexte

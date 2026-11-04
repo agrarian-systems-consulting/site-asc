@@ -1,19 +1,19 @@
 ---
-"title": "Diagnostic agraire betterave - Beni-Mellal"
-"date": "2014-01-01"
-"year_start": 2014
-"year_end": 2014
-"categories":
+title: "Diagnostic agraire betterave - Beni-Mellal"
+date: "2014-01-01"
+year_start: 2014
+year_end: 2014
+categories:
 - "Diagnostic agraire"
 - "Filière agricole"
-"filieres":
+filieres:
 - "Betterave"
-"countries":
+countries:
 - "Maroc"
-"client": "COSUMAR / Institut Agro Montpellier"
-"excerpt": "Coordination d'un diagnostic agraire des producteurs de betterave du périmètre irrigué du Tadla (Beni-Mellal) et simulation de l'impact des changements techniques souhaités par la COSUMAR."
-"draft": false
-"experts":
+client: "COSUMAR / Institut Agro Montpellier"
+excerpt: "Coordination d'un diagnostic agraire des producteurs de betterave du périmètre irrigué du Tadla (Beni-Mellal) et simulation de l'impact des changements techniques souhaités par la COSUMAR."
+draft: false
+experts:
 - "adrien-peroches"
 ---
 #### Contexte

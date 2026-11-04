@@ -1,20 +1,20 @@
 ---
-"title": "Étude marché local bois de construction - Cameroun et RDC"
-"date": "2015-01-01"
-"year_start": 2015
-"year_end": 2015
-"categories":
+title: "Étude marché local bois de construction - Cameroun et RDC"
+date: "2015-01-01"
+year_start: 2015
+year_end: 2015
+categories:
 - "Filière agricole"
 - "Forêt"
-"filieres":
+filieres:
 - "Bois d'œuvre"
-"countries":
+countries:
 - "Cameroun"
 - "RDC"
-"client": "ATIBT"
-"excerpt": "Étude pour l'ATIBT sur l'importance du marché domestique pour les entreprises forestières industrielles et semi-industrielles du Cameroun et de la RDC, et sur les débouchés du bois de construction."
-"draft": false
-"experts":
+client: "ATIBT"
+excerpt: "Étude pour l'ATIBT sur l'importance du marché domestique pour les entreprises forestières industrielles et semi-industrielles du Cameroun et de la RDC, et sur les débouchés du bois de construction."
+draft: false
+experts:
 - "adrien-peroches"
 ---
 #### Contexte

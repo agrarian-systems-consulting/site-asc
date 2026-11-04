@@ -1,18 +1,18 @@
 ---
-"title": "Formation au diagnostic agraire - SupAgro IRC"
-"date": "2015-01-01"
-"year_start": 2015
-"year_end": 2015
-"categories":
+title: "Formation au diagnostic agraire - SupAgro IRC"
+date: "2015-01-01"
+year_start: 2015
+year_end: 2015
+categories:
 - "Formation"
 - "Diagnostic agraire"
-"filieres": []
-"countries":
+filieres: []
+countries:
 - "France"
-"client": "Montpellier SupAgro"
-"excerpt": "Co-animation de l'UE1 « analyse des systèmes agraires » de l'option MOQUAS à Montpellier SupAgro-IRC (2015) : enseignements et encadrement du terrain collectif des étudiants."
-"draft": false
-"experts":
+client: "Montpellier SupAgro"
+excerpt: "Co-animation de l'UE1 « analyse des systèmes agraires » de l'option MOQUAS à Montpellier SupAgro-IRC (2015) : enseignements et encadrement du terrain collectif des étudiants."
+draft: false
+experts:
 - "hugo-lehoux"
 ---
 #### Contexte

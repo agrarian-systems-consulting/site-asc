@@ -1,19 +1,19 @@
 ---
-"title": "Gérant et chef du développement Europe & Afrique - Aqualone (irrigation agricole)"
-"date": "2017-01-01"
-"year_start": 2017
-"year_end": 2018
-"categories":
+title: "Gérant et chef du développement Europe & Afrique - Aqualone (irrigation agricole)"
+date: "2017-01-01"
+year_start: 2017
+year_end: 2018
+categories:
 - "Coordination de projet"
 - "Outils numériques"
 - "Filière agricole"
-"filieres": []
-"countries":
+filieres: []
+countries:
 - "Nouvelle-Calédonie"
-"client": "Aqualone"
-"excerpt": "Manager et responsable du développement Europe et Afrique de la start-up calédonienne Aqualone (irrigation connectée) : business plan, levée de fonds, R&D et installation de systèmes d'irrigation."
-"draft": false
-"experts":
+client: "Aqualone"
+excerpt: "Manager et responsable du développement Europe et Afrique de la start-up calédonienne Aqualone (irrigation connectée) : business plan, levée de fonds, R&D et installation de systèmes d'irrigation."
+draft: false
+experts:
 - "hugo-lehoux"
 ---
 #### Contexte

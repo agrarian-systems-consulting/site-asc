@@ -1,23 +1,23 @@
 ---
-"title": "Coordination du projet P3FAC en Afrique centrale"
-"date": "2017-01-01"
-"year_start": 2017
-"year_end": 2018
-"categories":
+title: "Coordination du projet P3FAC en Afrique centrale"
+date: "2017-01-01"
+year_start: 2017
+year_end: 2018
+categories:
 - "Coordination de projet"
 - "Forêt"
 - "Gestion durable"
-"filieres": []
-"countries":
+filieres: []
+countries:
 - "Cameroun"
 - "Congo"
 - "Gabon"
 - "RDC"
 - "République centrafricaine"
-"client": "Nature+ / FFEM"
-"excerpt": "Coordination technique en Afrique centrale du projet P3FAC (partenariat public-privé pour la gestion durable des forêts), porté par l'ONG belge Nature+ avec un cofinancement du FFEM."
-"draft": false
-"experts":
+client: "Nature+ / FFEM"
+excerpt: "Coordination technique en Afrique centrale du projet P3FAC (partenariat public-privé pour la gestion durable des forêts), porté par l'ONG belge Nature+ avec un cofinancement du FFEM."
+draft: false
+experts:
 - "adrien-peroches"
 ---
 #### Contexte
