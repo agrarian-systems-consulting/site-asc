@@ -25,18 +25,20 @@ chiffres:
   - { valeur: "2", label: "diagnostics agraires" }
   - { valeur: "93 %", label: "d'évaluations satisfaites ou très satisfaites (Cémaco)" }
 livrables:
-  - titre: "Diagnóstico agrario – distrito de Cémaco (Comarca Emberá-Wounaan)"
+  - titre: "Diagnóstico agrario de Cémaco (Comarca Emberá-Wounaan)"
     couverture: /livrables/formation-action-diagnostic-agraire-comarcas-indigenes-panama/cemaco.jpg
     annee: 2024
     type: Rapport
     langue: ES
     pages: 121
-  - titre: "Diagnóstico agrario – corregimiento de Ailigandí (Comarca Guna Yala)"
+    url: /documents/panama/diagnostico-agrario-cemaco.pdf
+  - titre: "Diagnóstico agrario de Ailigandí (Comarca Guna Yala)"
     couverture: /livrables/formation-action-diagnostic-agraire-comarcas-indigenes-panama/ailigandi-guna-yala.jpg
     annee: 2024
     type: Rapport
     langue: ES
-    pages: 195
+    pages: 226
+    url: /documents/panama/diagnostico-agrario-ailigandi.pdf
   - titre: "Informe del taller de formación-acción en Cémaco"
     couverture: /livrables/formation-action-diagnostic-agraire-comarcas-indigenes-panama/informe-taller-cemaco.jpg
     annee: 2024

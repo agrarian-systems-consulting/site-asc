@@ -30,18 +30,48 @@ chiffres:
   - { valeur: "18", label: "résumés de diagnostics" }
   - { valeur: "4", label: "contrats BID successifs" }
 livrables:
-  - titre: "Diagnóstico agrario – Samboa, distrito de Jirondai (Comarca Ngäbe-Buglé)"
-    couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/jirondai.jpg
-    annee: 2024
+  - titre: "Diagnóstico agrario de Tonosí (Los Santos)"
+    couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/tonosi.jpg
+    annee: 2023
     type: Rapport
     langue: ES
-    pages: 164
-  - titre: "Diagnóstico agrario – distrito de Chiriquí Grande (Bocas del Toro)"
+    pages: 155
+    url: /documents/panama/diagnostico-agrario-tonosi.pdf
+  - titre: "Diagnóstico agrario de Las Palmas (Veraguas)"
+    couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/las-palmas.jpg
+    annee: 2023
+    type: Rapport
+    langue: ES
+    pages: 170
+    url: /documents/panama/diagnostico-agrario-las-palmas.pdf
+  - titre: "Diagnóstico agrario de Barú (Chiriquí)"
+    couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/baru.jpg
+    annee: 2023
+    type: Rapport
+    langue: ES
+    pages: 148
+    url: /documents/panama/diagnostico-agrario-baru.pdf
+  - titre: "Diagnóstico agrario de Chiriquí Grande (Bocas del Toro)"
     couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/chiriqui-grande.jpg
     annee: 2023
     type: Rapport
     langue: ES
     pages: 135
+    url: /documents/panama/diagnostico-agrario-chiriqui-grande.pdf
+  - titre: "Diagnóstico agrario de Madugandí (Comarca Kuna de Madugandí)"
+    couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/madugandi.jpg
+    annee: 2023
+    type: Rapport
+    langue: ES
+    pages: 141
+    url: /documents/panama/diagnostico-agrario-madugandi.pdf
+  - titre: "Diagnóstico agrario de Jirondai (Comarca Ngäbe-Buglé)"
+    couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/jirondai.jpg
+    annee: 2024
+    type: Rapport
+    langue: ES
+    pages: 164
+    url: /documents/panama/diagnostico-agrario-jirondai.pdf
   - titre: "Tonosí – Taller de devolución de primeras reflexiones"
     couverture: /livrables/chef-de-projet-18-diagnostics-agraires-piasi-au-panama/taller-tonosi.jpg
     annee: 2022

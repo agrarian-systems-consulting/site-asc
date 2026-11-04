@@ -25,30 +25,48 @@ chiffres:
   - { valeur: "6", label: "diagnostics agraires" }
   - { valeur: "20", label: "chercheurs de l'IDIAP formés" }
 livrables:
-  - titre: "Diagnóstico agrario – La Pintada (Coclé)"
+  - titre: "Diagnóstico agrario de La Pintada (Coclé)"
     couverture: /livrables/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/la-pintada.jpg
     annee: 2021
     type: Rapport
     langue: ES
     pages: 124
-  - titre: "Diagnóstico agrario – Río Sábalo, Sambú (Comarca Emberá-Wounaan)"
+    url: /documents/panama/diagnostico-agrario-la-pintada.pdf
+  - titre: "Diagnóstico agrario de Los Pozos (Herrera)"
+    couverture: /livrables/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/los-pozos.jpg
+    annee: 2021
+    type: Rapport
+    langue: ES
+    pages: 114
+    url: /documents/panama/diagnostico-agrario-los-pozos.pdf
+  - titre: "Diagnóstico agrario de Sambú (Comarca Emberá-Wounaan)"
     couverture: /livrables/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/sambu.jpg
     annee: 2021
     type: Rapport
     langue: ES
-    pages: 163
-  - titre: "Diagnóstico agrario – Valle de Agua Arriba, Almirante (Bocas del Toro)"
-    couverture: /livrables/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/valle-de-agua.jpg
+    pages: 119
+    url: /documents/panama/diagnostico-agrario-sambu.pdf
+  - titre: "Diagnóstico agrario de San Francisco (Veraguas)"
+    couverture: /livrables/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/san-francisco.jpg
     annee: 2021
     type: Rapport
     langue: ES
-    pages: 130
-  - titre: "Diagnóstico agrario – Nole Düima (Comarca Ngäbe-Buglé)"
+    pages: 136
+    url: /documents/panama/diagnostico-agrario-san-francisco.pdf
+  - titre: "Diagnóstico agrario de Nole Düima (Comarca Ngäbe-Buglé)"
     couverture: /livrables/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/nole-duima.jpg
     annee: 2021
     type: Rapport
     langue: ES
     pages: 148
+    url: /documents/panama/diagnostico-agrario-nole-duima.pdf
+  - titre: "Diagnóstico agrario de Valle de Agua (Bocas del Toro)"
+    couverture: /livrables/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/valle-de-agua.jpg
+    annee: 2021
+    type: Rapport
+    langue: ES
+    pages: 130
+    url: /documents/panama/diagnostico-agrario-valle-de-agua.pdf
 photos:
   - { src: /photos/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/sechage-cacao-valle-de-agua.jpg, legende: "Séchage de fèves de cacao, Valle de Agua Arriba (Bocas del Toro)" }
   - { src: /photos/diagnostic-des-dynamiques-agraires-7-regions-du-panama-piasi-preparation/riviere-sambu-cayuco.jpg, legende: "Déplacement en pirogue sur le río Sambú (Darién)" }

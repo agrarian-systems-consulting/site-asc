@@ -23,24 +23,27 @@ chiffres:
   - { valeur: "3", label: "diagnostics agraires" }
   - { valeur: "363", label: "pages de rapports" }
 livrables:
-  - titre: "Diagnóstico agrario – Toabré, distrito de Penonomé (Coclé)"
+  - titre: "Diagnóstico agrario de Toabré (Coclé)"
     couverture: /livrables/3-diagnostics-agraires-preparatoires-programme-piasi/toabre-penonome.jpg
     annee: 2022
     type: Rapport
     langue: ES
-    pages: 100
-  - titre: "Diagnóstico agrario – distrito de Ñürüm (Comarca Ngäbe-Buglé)"
+    pages: 130
+    url: /documents/panama/diagnostico-agrario-toabre.pdf
+  - titre: "Diagnóstico agrario de Ñürüm (Comarca Ngäbe-Buglé)"
     couverture: /livrables/3-diagnostics-agraires-preparatoires-programme-piasi/nurum.jpg
     annee: 2022
     type: Rapport
     langue: ES
     pages: 120
-  - titre: "Diagnóstico agrario – distrito de Santa Fe (Darién)"
+    url: /documents/panama/diagnostico-agrario-nurum.pdf
+  - titre: "Diagnóstico agrario de Santa Fe (Darién)"
     couverture: /livrables/3-diagnostics-agraires-preparatoires-programme-piasi/santa-fe-darien.jpg
     annee: 2022
     type: Rapport
     langue: ES
     pages: 143
+    url: /documents/panama/diagnostico-agrario-santa-fe.pdf
 photos:
   - { src: /photos/3-diagnostics-agraires-preparatoires-programme-piasi/paturages-toabre.jpg, legende: "Pâturages et reliefs boisés, Toabré (Coclé)" }
   - { src: /photos/3-diagnostics-agraires-preparatoires-programme-piasi/parcelle-defrichee-toabre.jpg, legende: "Parcelle récemment défrichée sur les collines de Toabré" }

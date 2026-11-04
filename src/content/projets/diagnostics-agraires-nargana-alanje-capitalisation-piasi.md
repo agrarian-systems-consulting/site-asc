@@ -23,6 +23,20 @@ chiffres:
   - { valeur: "2", label: "diagnostics agraires" }
   - { valeur: "18", label: "résumés de diagnostics" }
 livrables:
+  - titre: "Diagnóstico agrario de Narganá (Comarca Guna Yala)"
+    couverture: /livrables/diagnostics-agraires-nargana-alanje-capitalisation-piasi/nargana.jpg
+    annee: 2024
+    type: Rapport
+    langue: ES
+    pages: 256
+    url: /documents/panama/diagnostico-agrario-nargana.pdf
+  - titre: "Diagnóstico agrario de Alanje (Chiriquí)"
+    couverture: /livrables/diagnostics-agraires-nargana-alanje-capitalisation-piasi/alanje.jpg
+    annee: 2025
+    type: Rapport
+    langue: ES
+    pages: 188
+    url: /documents/panama/diagnostico-agrario-alanje.pdf
   - titre: "Resumen de diagnóstico agrario – Narganá, Comarca Guna Yala"
     couverture: /livrables/diagnostics-agraires-nargana-alanje-capitalisation-piasi/resumen-nargana.jpg
     annee: 2025
