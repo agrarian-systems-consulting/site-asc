@@ -30,14 +30,19 @@ const POS: Record<string, [number, number]> = {
   '540': [165.6, -21.3], '548': [167.0, -15.4], '254': [-53.1, 3.9], '250': [2.4, 46.6],
 };
 
-const comptes = new Map<string, { nom: string; n: number }>();
+// n = nombre de missions (libellés) ; annees = années-mission cumulées (taille du point),
+// pour qu'un programme pluriannuel pèse plus qu'une mission ponctuelle
+const comptes = new Map<string, { nom: string; n: number; annees: number }>();
 const inconnus: string[] = [];
 for (const p of projets) {
   for (const c of p.data.countries) {
     const id = ISO[c];
     if (!id) { inconnus.push(c); continue; }
-    const cur = comptes.get(id) ?? { nom: c, n: 0 };
+    const cur = comptes.get(id) ?? { nom: c, n: 0, annees: 0 };
     cur.n += 1;
+    const debut = p.data.year_start ?? p.data.date?.getFullYear?.() ?? 0;
+    const fin = p.data.year_end ?? debut;
+    cur.annees += debut ? Math.min(Math.max(fin - debut + 1, 1), 8) : 1;
     comptes.set(id, cur);
   }
 }
@@ -53,11 +58,11 @@ const path = geoPath(projection);
 const r1 = (d: string | null) => (d ?? '').replace(/(\d+\.\d)\d+/g, '$1');
 
 const formes = pays.map((f: any) => ({ id: String(f.id), d: r1(path(f)) }));
-const points = [...comptes.entries()].map(([id, { nom, n }]) => {
+const points = [...comptes.entries()].map(([id, { nom, n, annees }]) => {
   const f = pays.find((x: any) => String(x.id) === id);
   const ll = POS[id] ?? (f ? (geoCentroid(f) as [number, number]) : null);
   const xy = ll ? projection(ll) : null;
-  return xy ? { id, nom, n, x: +xy[0].toFixed(1), y: +xy[1].toFixed(1), r: +(3 + Math.sqrt(n) * 2.6).toFixed(1) } : null;
+  return xy ? { id, nom, n, x: +xy[0].toFixed(1), y: +xy[1].toFixed(1), r: +(3 + Math.sqrt(annees) * 2.2).toFixed(1) } : null;
 }).filter(Boolean).sort((a: any, b: any) => b.n - a.n) as { id: string; nom: string; n: number; x: number; y: number; r: number }[];
 
 const nbPays = comptes.size;

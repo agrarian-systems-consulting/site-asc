@@ -178,21 +178,16 @@ const compte = (cats: string[]) => all.filter((p) => p.data.categories.some((c) 
     margin: 0 0 2rem;
   }
 
-  /* ── Hero : carte en grand, titre par-dessus ── */
+  /* ── Hero : texte à gauche, carte à droite (sans chevauchement) ── */
   .hero { position: relative; background: var(--color-bg-soft); padding: 4.5rem 1.5rem 3.5rem; overflow: hidden; }
   .hero-carte { position: relative; }
   .hero-texte { position: relative; z-index: 1; pointer-events: none; }
   .hero-texte :is(a, .btn) { pointer-events: auto; }
   @media (min-width: 1000px) {
-    .hero { min-height: 640px; display: flex; align-items: center; padding-block: 5rem; }
-    .hero-carte {
-      position: absolute; top: 50%; right: -4vw; transform: translateY(-50%);
-      width: min(1180px, 78vw);
-    }
-    .hero-texte { width: 100%; }
-    .hero-texte > * { max-width: 34rem; }
-    .hero-texte h1 { max-width: 15ch; text-shadow: 0 0 24px #f7f0e3, 0 0 8px #f7f0e3; }
-    .hero-lead { background: rgba(247, 240, 227, 0.82); box-shadow: 0 0 24px 18px rgba(247, 240, 227, 0.82); }
+    .hero { display: grid; grid-template-columns: minmax(0, 30rem) minmax(0, 1fr); gap: 2.5rem; align-items: center;
+            padding: 4rem 1rem 4rem max(1.5rem, calc((100vw - 1200px) / 2)); }
+    .hero-carte { grid-column: 2; grid-row: 1; }
+    .hero-texte { grid-column: 1; grid-row: 1; padding: 0; margin: 0; max-width: none; }
   }
   .hero h1 {
     font-size: clamp(2.3rem, 4.8vw, 3.9rem);
